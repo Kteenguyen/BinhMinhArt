@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+
+# Production build
+dist/
+
+# Large archive packages
+*.zip
+*.tar.gz
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs & runtime artifacts
+logs/
+*.log
+scratch/
+
+# Local network config and certs (target host auto-generates them)
+data/network_config.json
+certs/
+
+# SQLite WAL temp files
+*-wal
+*-shm

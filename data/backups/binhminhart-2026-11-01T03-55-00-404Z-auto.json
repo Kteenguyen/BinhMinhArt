@@ -1,0 +1,55 @@
+{
+  "exportedAt": "2026-11-01T03:55:00.405Z",
+  "paintings": [
+    {
+      "id": "Z",
+      "position": 0,
+      "tinh_trang": "chua_ban",
+      "gia": 1500,
+      "ngay_ban": null,
+      "ten_tac_pham": "Tranh Z",
+      "tac_gia": "Dương Văn Sen",
+      "chat_lieu": "Sơn mài",
+      "ngay_cap_nhat_gia_gan_nhat": "2026-01-09T17:00:00.000Z",
+      "kich_thuoc_tranh": "80x60cm",
+      "kich_thuoc_khung_tranh": "92x72cm",
+      "nam_sang_tac": 2025,
+      "khach_hang": "",
+      "ngay_mua_vao": "",
+      "hoa_don": "",
+      "giay_chung_nhan": "",
+      "ngay_them": "2026-01-09T17:00:00.000Z",
+      "ngay_cap_nhat_san_pham": "2026-01-09T17:00:00.000Z",
+      "ghi_chu": "",
+      "location": "Kho",
+      "hinh_anh": [
+        "/images/tranh/a.jpg"
+      ],
+      "da_in_tag": 0
+    }
+  ],
+  "location_history": [
+    {
+      "id": 1,
+      "painting_id": "DVS-SD-01",
+      "from_location": "Kho",
+      "to_location": "Khu vực 1",
+      "timestamp": "25-10-2026",
+      "note": "Treo thử"
+    }
+  ],
+  "meta": [
+    {
+      "key": "schema_version",
+      "value": "3"
+    },
+    {
+      "key": "legacy_import",
+      "value": "{\"source\":\"xlsx\",\"count\":14,\"at\":\"2026-10-24T04:20:01.096Z\"}"
+    },
+    {
+      "key": "hello",
+      "value": "world"
+    }
+  ]
+}
