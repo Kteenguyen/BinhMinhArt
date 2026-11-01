@@ -53,38 +53,61 @@ Vì máy HP mới chỉ cài Antigravity IDE, bạn cần cài đặt thêm 2 ph
 
 ---
 
-## BƯỚC 3: KHỞI CHẠY LẦN ĐẦU CHỈ VỚI 1 CÚ NHẤP CHUỘT
+## BƯỚC 3: KHỞI CHẠY LẦN ĐẦU TRÊN MÁY HP
 
-Hệ thống đã tích hợp sẵn script tự động hóa toàn bộ quá trình cài đặt thư viện và build:
+Có 2 cách để khởi chạy (Khuyên dùng **Cách 1** vì bạn đang mở sẵn Antigravity IDE):
 
-1. Mở thư mục **`C:\BinhMinhArt`** (hoặc ngay trong khung Explorer bên trái của Antigravity IDE).
-2. Nhấp đúp chuột vào file: 👉 **`start_windows.bat`** (nằm ngay tại thư mục gốc).
-3. Cửa sổ màu xanh lá sẽ hiện ra và **tự động hoàn toàn**:
-   * Kiểm tra phiên bản Node.js.
-   * Tự động chạy `npm install` để tải toàn bộ thư viện.
-   * Tự động chạy `npm run build` để biên dịch giao diện web.
-   * Tự động tạo các thư mục lưu ảnh tranh trên SSD máy HP.
-   * Bật server bảo mật HTTPS trên cổng **5001**.
-4. **Lưu ý quan trọng về Tường lửa (Firewall):**
-   * Lần đầu bật, sẽ có thông báo của **Windows Defender Firewall** hỏi quyền mạng cho `Node.js`.
-   * **Tick chọn cả 2 ô:**
-     - ☑ *Private networks, such as my home or work network*
-     - ☑ *Public networks, such as those in airports and coffee shops*
-   * Bấm **Allow access**.
-5. **Kiểm tra trực tiếp:**
-   * Mở trình duyệt trên máy HP (Chrome / Edge), truy cập: 👉 **`https://localhost:5001`**
-   * Website quản lý tranh BinhMinhArt sẽ hiển thị đầy đủ 198 bức tranh cùng dữ liệu đồng bộ Google Sheets!
+### Cách 1: Khởi chạy trực tiếp trong Terminal của Antigravity IDE (Khuyên dùng nhất)
+Vì Antigravity IDE có sẵn khung Terminal gắn liền, bạn sẽ thấy toàn bộ tiến trình tải và không bao giờ bị tắt màn hình:
+1. Trong Antigravity IDE, mở Terminal bằng phím tắt: **`Ctrl + \``** (hoặc menu **Terminal $\rightarrow$ New Terminal**).
+2. Kéo bản cập nhật script mới nhất về bằng lệnh:
+   ```cmd
+   git pull origin main
+   ```
+3. Chạy 3 lệnh sau (chỉ mất khoảng 1-2 phút lần đầu):
+   ```cmd
+   npm install
+   npm run build
+   npm start
+   ```
+4. Khi màn hình hiện thông báo:
+   ```text
+   BinhMinhArt HTTPS Server running on https://localhost:5001
+   ```
+   Server đã khởi động thành công!
+
+---
+
+### Cách 2: Khởi chạy bằng file script tự động (`start_windows.bat`)
+*(File `start_windows.bat` đã được sửa lại chuẩn Windows CRLF và tự động nhận diện Node.js, không bao giờ bị nháy tắt nữa)*:
+1. Mở Terminal trong IDE, gõ: `git pull origin main` để cập nhật file script mới.
+2. Nhấp đúp chuột vào file: 👉 **`start_windows.bat`** (ở thư mục gốc `C:\BinhMinhArt`).
+3. Cửa sổ màu xanh lá sẽ chạy tự động:
+   * Tự tìm thấy Node.js kể cả khi máy chưa kịp làm mới PATH.
+   * Tự động chạy `npm install` và `npm run build`.
+   * Khởi động server HTTPS trên cổng **5001** và giữ nguyên cửa sổ.
+
+---
+
+### Lưu ý quan trọng khi kiểm tra trên trình duyệt:
+1. **Windows Firewall:** Khi Windows Defender Firewall hỏi quyền mạng, tick chọn cả 2 ô (**Private & Public**) $\rightarrow$ bấm **Allow access**.
+2. **Kiểm tra trực tiếp:**
+   * Mở trình duyệt Chrome/Edge trên máy HP, gõ chính xác: 👉 **`https://localhost:5001`**  
+     *(Lưu ý phải có chữ **`https://`**, không dùng `http://`)*.
+   * Bấm **Nâng cao (Advanced) $\rightarrow$ Tiếp tục truy cập (Proceed)** để xác nhận chứng chỉ SSL an toàn mạng nội bộ.
+   * Trang quản trị tranh 198 tác phẩm sẽ hiển thị ngay lập tức!
 
 ---
 
 ## BƯỚC 4: CÀI ĐẶT SERVER TỰ ĐỘNG CHẠY NGẦM KHI BẬT MÁY HP
 
-Để không phải mỗi ngày đều phải mở cửa sổ dòng lệnh bật server thủ công:
-
-1. Trong thư mục **`C:\BinhMinhArt`**, nhấp đúp chuột vào file:  
-   👉 **`install_startup_windows.bat`**
-2. Màn hình báo: `[THANH CONG] Da dang ky BinhMinhArt tu dong chay ngam khi mo may HP!`.
-3. **Hiệu quả:** Từ nay về sau, mỗi khi bạn mở máy tính HP hoặc máy HP khởi động lại, server BinhMinhArt sẽ **tự động chạy ngầm trong background**, sẵn sàng phục vụ cho iPad, điện thoại 24/7 mà không hiện bất kỳ cửa sổ nào làm phiền màn hình.
+Sau khi server đã chạy thành công ở Bước 3:
+1. Đảm bảo đã cập nhật code mới (`git pull origin main`).
+2. Nhấp đúp chuột vào file: 👉 **`install_startup_windows.bat`**
+3. Màn hình sẽ dừng lại và báo dòng chữ màu xanh:  
+   `[THANH CONG] Da dang ky BinhMinhArt tu dong chay ngam khi mo may HP!`.
+4. Bấm phím bất kỳ để đóng cửa sổ.
+5. **Hiệu quả:** Từ nay về sau, mỗi khi bạn mở máy HP hoặc máy HP khởi động lại, server BinhMinhArt sẽ **tự động chạy ngầm trong background**, iPad và điện thoại có thể truy cập 24/7.
 
 ---
 
