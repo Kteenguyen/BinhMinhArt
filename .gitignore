@@ -22,9 +22,8 @@ logs/
 *.log
 scratch/
 
-# Local network config and certs (target host auto-generates them)
+# Local network config
 data/network_config.json
-certs/
 
 # SQLite WAL temp files
 *-wal

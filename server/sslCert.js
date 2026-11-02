@@ -36,6 +36,25 @@ export function inspectCert(certPath) {
   }
 }
 
+export function findOpenssl() {
+  const candidates = [
+    '/usr/bin/openssl',
+    'C:\\Program Files\\Git\\usr\\bin\\openssl.exe',
+    'C:\\Program Files (x86)\\Git\\usr\\bin\\openssl.exe',
+    path.join(process.env.LOCALAPPDATA || '', 'Programs\\Git\\usr\\bin\\openssl.exe'),
+    path.join(process.env.ProgramFiles || 'C:\\Program Files', 'Git\\usr\\bin\\openssl.exe'),
+  ];
+  for (const p of candidates) {
+    if (p && fs.existsSync(p)) return p;
+  }
+  try {
+    execSync('openssl version', { stdio: 'pipe' });
+    return 'openssl';
+  } catch {
+    return null;
+  }
+}
+
 /**
  * Generates modern self-signed X509v3 certificate with Subject Alternative Names (SAN)
  * compliant with Apple iOS 13+ / macOS 10.15+ and modern Chrome requirements.
@@ -61,7 +80,7 @@ export function generateSslCert({ certPath, keyPath, lanIps = [], validDays = 82
   ];
   const sanString = sanParts.join(',');
 
-  const opensslBin = fs.existsSync('/usr/bin/openssl') ? '/usr/bin/openssl' : 'openssl';
+  const opensslBin = findOpenssl() || 'openssl';
 
   const args = [
     opensslBin,
@@ -115,11 +134,14 @@ export function ensureSslCertificate({ baseDir = process.cwd(), extraIps = [], f
   const activeLanIps = listLanIpv4().map(e => e.address);
   const targetIps = Array.from(new Set([...activeLanIps, ...extraIps].filter(Boolean)));
 
-  if (!force && fs.existsSync(certPath) && fs.existsSync(keyPath)) {
-    const info = inspectCert(certPath);
-    if (info && info.isValid && info.hasSan) {
-      const allIpsCovered = targetIps.every(ip => info.subjectAltName.includes(ip));
-      const localhostCovered = info.subjectAltName.includes('localhost') && info.subjectAltName.includes('127.0.0.1');
+  const existingCertValid = fs.existsSync(certPath) && fs.existsSync(keyPath);
+  let certInfo = null;
+
+  if (existingCertValid) {
+    certInfo = inspectCert(certPath);
+    if (!force && certInfo && certInfo.isValid && certInfo.hasSan) {
+      const allIpsCovered = targetIps.every(ip => certInfo.subjectAltName.includes(ip));
+      const localhostCovered = certInfo.subjectAltName.includes('localhost') && certInfo.subjectAltName.includes('127.0.0.1');
 
       if (allIpsCovered && localhostCovered) {
         return {
@@ -128,22 +150,51 @@ export function ensureSslCertificate({ baseDir = process.cwd(), extraIps = [], f
           certPath,
           keyPath,
           regenerated: false,
-          san: info.subjectAltName
+          san: certInfo.subjectAltName
         };
       }
     }
   }
 
-  // Generate updated X509v3 certificate with full SAN
-  console.log('[SSL] Generating modern X509v3 self-signed certificate with SAN for IPs:', targetIps);
-  const result = generateSslCert({ certPath, keyPath, lanIps: targetIps });
+  // Check if OpenSSL is available to regenerate
+  const opensslBin = findOpenssl();
+  if (!opensslBin && existingCertValid && certInfo && certInfo.isValid) {
+    console.log('[SSL] OpenSSL CLI not found, using valid pre-existing certificate with SAN:', certInfo.subjectAltName);
+    return {
+      cert: fs.readFileSync(certPath),
+      key: fs.readFileSync(keyPath),
+      certPath,
+      keyPath,
+      regenerated: false,
+      san: certInfo.subjectAltName
+    };
+  }
 
-  return {
-    cert: fs.readFileSync(certPath),
-    key: fs.readFileSync(keyPath),
-    certPath,
-    keyPath,
-    regenerated: true,
-    san: result.sanString
-  };
+  try {
+    // Generate updated X509v3 certificate with full SAN
+    console.log('[SSL] Generating modern X509v3 self-signed certificate with SAN for IPs:', targetIps);
+    const result = generateSslCert({ certPath, keyPath, lanIps: targetIps });
+
+    return {
+      cert: fs.readFileSync(certPath),
+      key: fs.readFileSync(keyPath),
+      certPath,
+      keyPath,
+      regenerated: true,
+      san: result.sanString
+    };
+  } catch (err) {
+    if (existingCertValid && certInfo && certInfo.isValid) {
+      console.warn('[SSL] Certificate regeneration failed, falling back to existing valid certificate:', err.message);
+      return {
+        cert: fs.readFileSync(certPath),
+        key: fs.readFileSync(keyPath),
+        certPath,
+        keyPath,
+        regenerated: false,
+        san: certInfo.subjectAltName
+      };
+    }
+    throw err;
+  }
 }

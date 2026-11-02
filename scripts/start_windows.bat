@@ -13,6 +13,9 @@ if "%~1"=="-b" set "IS_BG=1"
 where node >nul 2>nul
 if %errorlevel% equ 0 goto :NODE_OK
 if exist "C:\Program Files\nodejs\node.exe" set "PATH=C:\Program Files\nodejs;%PATH%"
+if exist "C:\Program Files\Git\cmd" set "PATH=C:\Program Files\Git\cmd;C:\Program Files\Git\usr\bin;%PATH%"
+if exist "C:\Program Files (x86)\Git\cmd" set "PATH=C:\Program Files (x86)\Git\cmd;C:\Program Files (x86)\Git\usr\bin;%PATH%"
+if exist "%LOCALAPPDATA%\Programs\Git\cmd" set "PATH=%LOCALAPPDATA%\Programs\Git\cmd;%LOCALAPPDATA%\Programs\Git\usr\bin;%PATH%"
 where node >nul 2>nul
 if %errorlevel% equ 0 goto :NODE_OK
 if exist "C:\Program Files (x86)\nodejs\node.exe" set "PATH=C:\Program Files (x86)\nodejs;%PATH%"
