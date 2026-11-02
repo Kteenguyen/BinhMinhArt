@@ -86,6 +86,12 @@ pause
 exit /b 0
 
 :FAST_BG_START
+REM Cau hinh Windows khong bao gio ngu khi thung may co dien
+powercfg /change standby-timeout-ac 0 >nul 2>nul
+powercfg /change hibernate-timeout-ac 0 >nul 2>nul
+powercfg /setacvalueindex SCHEME_CURRENT SUB_SLEEP AWAYMODE 1 >nul 2>nul
+powercfg /setactive SCHEME_CURRENT >nul 2>nul
+
 REM Che do chay ngam: dam bao dist va node_modules ton tai
 if not exist "node_modules\" call npm install
 if not exist "dist\" call npm run build
@@ -97,9 +103,12 @@ if not exist "TRANH" mkdir "TRANH"
 if not exist "DA BAN" mkdir "DA BAN"
 if not exist "logs" mkdir "logs"
 
-echo [%date% %time%] Khoi dong BinhMinhArt Server ngam tren cong 5001 >> logs\server.log
+:WATCHDOG_LOOP
+echo [%date% %time%] Khoi dong BinhMinhArt Server 24/7 tren cong 5001 >> logs\server.log
 node server/index.js >> logs\server.log 2>&1
-exit /b 0
+echo [%date% %time%] [CANH BAO] Server tam ngung hoac khoi dong lai. Tu dong bat lai sau 3 giay... >> logs\server.log
+powershell -NoProfile -Command "Start-Sleep -Seconds 3" >nul 2>nul
+goto :WATCHDOG_LOOP
 
 :NPM_ERR
 echo.

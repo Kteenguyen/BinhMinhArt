@@ -7,6 +7,7 @@ import cors from 'cors';
 import path from 'path';
 import fs from 'fs';
 import os from 'os';
+import { exec } from 'child_process';
 import multer from 'multer';
 import XLSX from 'xlsx';
 import QRCode from 'qrcode';
@@ -57,6 +58,52 @@ const HTTPS_PORT = process.env.HTTPS_PORT || PORT;
 ['uploads', 'uploads/word_media', 'uploads/folder_images', 'thumbnails', 'data', 'certs'].forEach(dir => {
   const abs = path.resolve(dir);
   if (!fs.existsSync(abs)) fs.mkdirSync(abs, { recursive: true });
+});
+
+/**
+ * Prevents Windows from putting the computer or network to sleep when the screen is turned off.
+ * Uses Windows Away Mode and SetThreadExecutionState (ES_CONTINUOUS | ES_SYSTEM_REQUIRED | ES_AWAYMODE_REQUIRED).
+ */
+function preventWindowsSleep() {
+  if (process.platform !== 'win32') return;
+
+  // 1. Configure power plan: Never sleep on AC power, enable Away Mode
+  exec(
+    'powercfg /change standby-timeout-ac 0 & ' +
+    'powercfg /change hibernate-timeout-ac 0 & ' +
+    'powercfg /change disk-timeout-ac 0 & ' +
+    'powercfg /setacvalueindex SCHEME_CURRENT SUB_SLEEP AWAYMODE 1 & ' +
+    'powercfg /setactive SCHEME_CURRENT',
+    (err) => {
+      if (err) {
+        console.warn('[Power] Best-effort powercfg error:', err.message);
+      } else {
+        console.log('[Power] Windows Power Plan configured: Standby=NEVER, AwayMode=ENABLED.');
+      }
+    }
+  );
+
+  // 2. Kernel-level sleep prevention via SetThreadExecutionState:
+  // 0x80000041 = ES_CONTINUOUS (0x80000000) | ES_SYSTEM_REQUIRED (0x00000001) | ES_AWAYMODE_REQUIRED (0x00000040)
+  const psCmd = `powershell -NoProfile -Command "Add-Type -TypeDefinition 'using System; using System.Runtime.InteropServices; public class WinKernel { [DllImport(\\"kernel32.dll\\")] public static extern uint SetThreadExecutionState(uint flags); }'; [WinKernel]::SetThreadExecutionState(0x80000041); Start-Sleep -Seconds 2147483"`;
+
+  try {
+    const keepAliveProcess = exec(psCmd, { windowsHide: true });
+    keepAliveProcess.unref();
+    console.log('[Power] Kernel SetThreadExecutionState keep-alive daemon started.');
+  } catch (err) {
+    console.warn('[Power] Could not start kernel keep-alive daemon:', err.message);
+  }
+}
+
+preventWindowsSleep();
+
+process.on('uncaughtException', (err) => {
+  console.error('[BinhMinhArt Server] Uncaught Exception:', err);
+});
+
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('[BinhMinhArt Server] Unhandled Rejection at:', promise, 'reason:', reason);
 });
 
 const NETWORK_CONFIG_FILE = path.resolve('data', 'network_config.json');

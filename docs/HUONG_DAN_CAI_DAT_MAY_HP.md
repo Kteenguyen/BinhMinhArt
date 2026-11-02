@@ -99,32 +99,38 @@ Vì Antigravity IDE có sẵn khung Terminal gắn liền, bạn sẽ thấy to�
 
 ---
 
-## BƯỚC 4: CÀI ĐẶT TỰ ĐỘNG CHẠY SERVER KHI MỞ NGUỒN MÁY HP (KHÔNG CẦN TERMINAL)
+## BƯỚC 4: CÀI ĐẶT SERVER CHẠY NGẦM 24/7 (CHỐNG SẬP KHI TẮT MÀN HÌNH)
 
-> **Giải thích cơ chế:**
-> * Lệnh `npm start` trong Terminal chỉ là chế độ chạy tạm thời gắn liền với cửa sổ dòng lệnh đó. Khi bạn **tắt Terminal** (hoặc tắt IDE), Windows sẽ tự động đóng tiến trình `node.exe` bên trong.
-> * Để server **tự động chạy ngầm vĩnh viễn khi mở nguồn máy HP** (hoàn toàn không cần mở Terminal, không cần mở IDE), bạn chỉ cần cài đặt chế độ chạy ngầm một lần duy nhất theo các bước dưới đây.
+> **Giải thích nguyên nhân tại sao tắt màn hình server bị ngắt kết nối:**
+> * Mặc định trên Windows, khi bạn **bấm nút tắt màn hình** (hoặc màn hình tự tắt), Windows sẽ tự động kích hoạt chế độ **Sleep / Standby** (Ngủ tiết kiệm điện) $\rightarrow$ Windows đóng băng CPU và ngắt nguồn cạc mạng LAN/Wi-Fi $\rightarrow$ iPad/iPhone không kết nối được!
+> * Bản nâng cấp này đã giải quyết triệt để vấn đề:
+>   1. **Kích hoạt chế độ Windows Away Mode & Standby = Never**: Bạn có thể **tắt màn hình thoải mái** (hoặc để màn hình tự tắt), nhưng **thùng máy HP (CPU, RAM, ổ cứng và cạc mạng) vẫn thức 100%** và phục vụ kết nối 24/7.
+>   2. **Đăng ký Tác vụ hệ thống (Windows Scheduled Task)**: **Cứ bật nguồn thùng máy HP là server tự động chạy ngầm ngay**, kể cả khi bạn chưa đăng nhập tài khoản Windows!
+>   3. **Cơ chế Watchdog tự phục hồi**: Nếu có sự cố mạng hoặc tiến trình bị gián đoạn, hệ thống sẽ tự động khởi động lại server sau 3 giây.
 
 ---
 
-### Cách cài đặt tự động (Làm 1 lần duy nhất):
+### Cách cài đặt chế độ 24/7 (Chỉ cần làm 1 lần duy nhất):
 1. Trong Terminal của Antigravity IDE trên máy HP, kéo bản cập nhật mới nhất về:
    ```cmd
    git pull origin main
    ```
 2. Mở thư mục **`C:\BinhMinhArt`** trong File Explorer, nhấp đúp chuột vào file:  
    👉 **`install_startup_windows.bat`**
-3. Script sẽ tự động:
-   * **Tự động xóa sạch file lỗi cũ** trong thư mục Startup.
-   * Đăng ký Windows Shortcut để **tự động chạy ngầm mỗi khi bạn bật nguồn máy HP**.
-   * **Kích hoạt chạy ngầm NGAY BÂY GIỜ LUÔN** (không cần đợi khởi động lại máy).
-   * Tự động mở trình duyệt `https://localhost:5001` để kiểm tra.
-   * Hiện thông báo màu xanh: `[CAI DAT THANH CONG HOAN TOAN 100%]`.
-4. Bấm phím bất kỳ để đóng cửa sổ cài đặt.
+3. Hộp thoại Windows UAC sẽ hỏi cấp quyền Administrator $\rightarrow$ Bấm **YES**.
+4. Script sẽ tự động:
+   * Cấu hình Windows **không bao giờ ngủ khi cắm điện** (`standby-timeout-ac 0`).
+   * Bật **Windows Away Mode** (cho phép tắt màn hình nhưng giữ CPU & mạng chạy 100%).
+   * Ngăn Windows tự tắt cạc mạng LAN / Wi-Fi để tiết kiệm pin.
+   * Đăng ký chạy ngầm ngay từ lúc bật thùng máy (`schtasks ONSTART`).
+   * Khởi động server ngầm ngay lập tức và mở trình duyệt kiểm tra kết nối: `https://localhost:5001`.
+   * Hiện thông báo màu xanh lá: `[HOAN TAT CAI DAT 100% - HE THONG CHAY NGAM 24/7 DA SAN SANG]`.
+5. Bấm phím bất kỳ để đóng cửa sổ cài đặt.
 
 **Từ thời điểm này:**
-* Bạn **CÓ THỂ TẮT HOÀN TOÀN Terminal và Antigravity IDE**, server vẫn tiếp tục chạy ngầm 24/7!
-* Mỗi khi bạn **mở nguồn máy HP** (hoặc khởi động lại máy), Windows sẽ tự động chạy ngầm server BinhMinhArt mà bạn không cần phải làm bất cứ thao tác nào.
+* **Bất kể khi nào thùng máy HP có điện / bật nguồn:** Server tự động chạy ngầm phục vụ mạng nội bộ.
+* **Bạn có thể TẮT MÀN HÌNH máy HP thoải mái**: Server không bao giờ bị sập hay mất kết nối nữa!
+* **iPad / iPhone / Điện thoại** kết nối Wi-Fi truy cập lúc nào cũng mượt mà 24/7!
 
 ---
 
