@@ -21,6 +21,8 @@ Thumbs.db
 logs/
 *.log
 scratch/
+.agents/teamwork/
+data/backups/
 
 # Local network config
 data/network_config.json

@@ -26,7 +26,10 @@ powercfg /change hibernate-timeout-ac 0 >nul 2>nul
 powercfg /change disk-timeout-ac 0 >nul 2>nul
 powercfg /setacvalueindex SCHEME_CURRENT SUB_SLEEP AWAYMODE 1 >nul 2>nul
 powercfg /setactive SCHEME_CURRENT >nul 2>nul
+netsh advfirewall firewall delete rule name="BinhMinhArt Server (Port 5001)" >nul 2>nul
+netsh advfirewall firewall add rule name="BinhMinhArt Server (Port 5001)" dir=in action=allow protocol=TCP localport=5001 profile=any >nul 2>nul
 echo    -> Da bat che do Server: Tat man hinh thoai mai, thung may van thuc!
+echo    -> Da mo cong Tuong lua 5001 cho iPad / Dien thoai truy cap mang LAN!
 
 echo.
 echo [3/4] Dang cai dat vao thu muc Startup de mo may la tu chay...

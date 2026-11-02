@@ -89,13 +89,19 @@ Vì Antigravity IDE có sẵn khung Terminal gắn liền, bạn sẽ thấy to�
 
 ---
 
-### Lưu ý quan trọng khi kiểm tra trên trình duyệt:
-1. **Windows Firewall:** Khi Windows Defender Firewall hỏi quyền mạng, tick chọn cả 2 ô (**Private & Public**) $\rightarrow$ bấm **Allow access**.
+### Lưu ý quan trọng khi kiểm tra trên trình duyệt & iPad:
+1. **Windows Firewall (Mở cổng 5001 cho iPad truy cập LAN):**
+   * Nếu iPad không kết nối được vào `https://[IP_MAY_HP]:5001`, mở CMD với quyền Administrator trên máy HP và dán lệnh sau:
+   ```cmd
+   netsh advfirewall firewall add rule name="BinhMinhArt 5001" dir=in action=allow protocol=TCP localport=5001 profile=any
+   ```
+   * Đảm bảo mạng Wi-Fi trên máy HP được đặt ở chế độ **Private network** (Mạng riêng tư) trong Settings > Network & internet > Wi-Fi.
 2. **Kiểm tra trực tiếp:**
    * Mở trình duyệt Chrome/Edge trên máy HP, gõ chính xác: 👉 **`https://localhost:5001`**  
      *(Lưu ý phải có chữ **`https://`**, không dùng `http://`)*.
    * Bấm **Nâng cao (Advanced) $\rightarrow$ Tiếp tục truy cập (Proceed)** để xác nhận chứng chỉ SSL an toàn mạng nội bộ.
-   * Trang quản trị tranh 198 tác phẩm sẽ hiển thị ngay lập tức!
+   * Trang quản trị tranh sẽ hiển thị ngay lập tức!
+   * Xem biên bản bàn giao chi tiết các nâng cấp mới nhất tại: [`BAN_GIAO_CAP_NHAT.md`](../BAN_GIAO_CAP_NHAT.md).
 
 ---
 

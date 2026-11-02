@@ -98,12 +98,14 @@ if not exist "TRANH" mkdir "TRANH"
 if not exist "DA BAN" mkdir "DA BAN"
 if not exist "logs" mkdir "logs"
 
+netsh advfirewall firewall add rule name="BinhMinhArt Server (Port 5001)" dir=in action=allow protocol=TCP localport=5001 profile=any >nul 2>nul
 echo [3/3] Dang khoi dong BinhMinhArt Server tren cong 5001 (HTTPS)...
 echo.
 echo ========================================================
 echo  May chu dang hoat dong tai:
 echo    - May HP: https://localhost:5001
-echo    - Dien thoai / iPad: https://[IP_MAY_HP]:5001
+echo    - Dien thoai / iPad truy cap qua mot trong cac dia chi duoi:
+powershell -NoProfile -ExecutionPolicy Bypass -Command "Get-NetIPAddress -AddressFamily IPv4 | Where-Object { $_.InterfaceAlias -notmatch 'Loopback' -and $_.IPAddress -notmatch '^169\.' -and $_.InterfaceAlias -notmatch 'vEthernet|WSL|VMware|VirtualBox' } | ForEach-Object { Write-Output ('      >> https://' + $_.IPAddress + ':5001') }"
 echo ========================================================
 echo.
 
