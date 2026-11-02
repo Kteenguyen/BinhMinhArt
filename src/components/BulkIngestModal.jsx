@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
   X,
   FileText,
@@ -10,9 +10,54 @@ import {
   Database,
   Trash2,
   Layers,
-  UserCheck
+  UserCheck,
+  UploadCloud
 } from 'lucide-react';
 import { formatUSD } from '../types';
+
+async function getFilesFromDataTransfer(dataTransfer) {
+  const results = [];
+  const items = dataTransfer.items;
+
+  if (items && items.length > 0 && items[0].webkitGetAsEntry) {
+    const queue = [];
+    for (let i = 0; i < items.length; i++) {
+      const entry = items[i].webkitGetAsEntry ? items[i].webkitGetAsEntry() : null;
+      if (entry) queue.push(entry);
+    }
+
+    const readAllEntries = async (dirReader) => {
+      let all = [];
+      let batch;
+      do {
+        batch = await new Promise(resolve => dirReader.readEntries(resolve, () => resolve([])));
+        all = all.concat(batch);
+      } while (batch.length > 0);
+      return all;
+    };
+
+    while (queue.length > 0) {
+      const entry = queue.shift();
+      if (entry.isFile) {
+        const file = await new Promise(resolve => entry.file(resolve));
+        results.push({
+          file,
+          relativePath: entry.fullPath ? entry.fullPath.replace(/^\//, '') : file.name
+        });
+      } else if (entry.isDirectory) {
+        const dirReader = entry.createReader();
+        const entries = await readAllEntries(dirReader);
+        queue.push(...entries);
+      }
+    }
+    return results;
+  }
+
+  return Array.from(dataTransfer.files || []).map(file => ({
+    file,
+    relativePath: file.webkitRelativePath || file.name
+  }));
+}
 
 function recomputeSkusForArtist(items, newArtistName) {
   const cleanArtist = (newArtistName || '').trim();
@@ -46,7 +91,7 @@ function recomputeSkusForArtist(items, newArtistName) {
   });
 }
 
-export default function BulkIngestModal({ isOpen, onClose, onIngestSuccess }) {
+export default function BulkIngestModal({ isOpen, onClose, onIngestSuccess, initialWordFiles = [] }) {
   const [wordFiles, setWordFiles] = useState([]);
   const [folderImages, setFolderImages] = useState([]);
   const [isParsing, setIsParsing] = useState(false);
@@ -56,24 +101,138 @@ export default function BulkIngestModal({ isOpen, onClose, onIngestSuccess }) {
   const [overrideArtist, setOverrideArtist] = useState('');
   const [overridePeriod, setOverridePeriod] = useState('01/2026');
   const [commitMode, setCommitMode] = useState('merge'); // 'merge' | 'replace'
+  const [isDraggingWord, setIsDraggingWord] = useState(false);
+  const [isDraggingFolder, setIsDraggingFolder] = useState(false);
 
   const wordInputRef = useRef(null);
   const folderInputRef = useRef(null);
   const looseImagesInputRef = useRef(null);
+
+  // Sync initialWordFiles if passed from global drag & drop
+  useEffect(() => {
+    if (initialWordFiles && initialWordFiles.length > 0) {
+      setWordFiles(prev => {
+        const existingNames = new Set(prev.map(f => f.name));
+        const newOnes = initialWordFiles.filter(f => !existingNames.has(f.name));
+        return [...prev, ...newOnes];
+      });
+      setPreviewData(null);
+      setError(null);
+    }
+  }, [initialWordFiles]);
 
   if (!isOpen) return null;
 
   const handleSelectWordFiles = (e) => {
     const selected = Array.from(e.target.files || []);
     const valid = selected.filter(f => f.name.toLowerCase().endsWith('.docx'));
+    const legacyDoc = selected.filter(f => f.name.toLowerCase().endsWith('.doc') && !f.name.toLowerCase().endsWith('.docx'));
+
+    if (legacyDoc.length > 0 && valid.length === 0) {
+      setError(`File "${legacyDoc[0].name}" là định dạng Word 97-2003 cũ (.doc). Vui lòng mở file bằng Word rồi bấm File -> Save As -> Word Document (.docx) để hệ thống bóc tách tự động.`);
+      return;
+    }
+
     if (valid.length === 0 && selected.length > 0) {
       setError('Vui lòng chọn file Word định dạng .docx (VD: BẢNG GIÁ.docx)');
       return;
     }
-    setWordFiles(prev => [...prev, ...valid]);
+    setWordFiles(prev => {
+      const existingNames = new Set(prev.map(f => f.name));
+      return [...prev, ...valid.filter(f => !existingNames.has(f.name))];
+    });
     setPreviewData(null);
     setError(null);
     e.target.value = '';
+  };
+
+  const handleWordDrop = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDraggingWord(false);
+
+    const dropped = Array.from(e.dataTransfer.files || []);
+    const validDocx = dropped.filter(f => f.name.toLowerCase().endsWith('.docx'));
+    const legacyDoc = dropped.filter(f => f.name.toLowerCase().endsWith('.doc') && !f.name.toLowerCase().endsWith('.docx'));
+    const images = dropped.filter(f => {
+      const ext = f.name.split('.').pop()?.toLowerCase() || '';
+      return ['jpg', 'jpeg', 'png', 'webp', 'jfif'].includes(ext);
+    });
+
+    if (legacyDoc.length > 0 && validDocx.length === 0) {
+      setError(`File "${legacyDoc[0].name}" là định dạng Word 97-2003 cũ (.doc). Vui lòng mở file bằng Microsoft Word rồi bấm File -> Save As -> Word Document (.docx) để hệ thống trích xuất được bảng giá và ảnh!`);
+      return;
+    }
+
+    if (validDocx.length > 0) {
+      setWordFiles(prev => {
+        const existingNames = new Set(prev.map(f => f.name));
+        return [...prev, ...validDocx.filter(f => !existingNames.has(f.name))];
+      });
+      setPreviewData(null);
+      setError(null);
+    }
+
+    if (images.length > 0) {
+      const validImages = images.map(file => ({
+        file,
+        relativePath: file.webkitRelativePath || file.name,
+        folderName: 'Ảnh đính kèm'
+      }));
+      setFolderImages(prev => [...prev, ...validImages]);
+      setPreviewData(null);
+      setError(null);
+    }
+
+    if (validDocx.length === 0 && images.length === 0) {
+      setError('Vui lòng kéo thả file Word định dạng .docx (VD: BẢNG GIÁ.docx)');
+    }
+  };
+
+  const handleFolderDrop = async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDraggingFolder(false);
+
+    const items = await getFilesFromDataTransfer(e.dataTransfer);
+    const validImages = [];
+    const validDocx = [];
+
+    for (const item of items) {
+      const name = item.file.name.toLowerCase();
+      if (name.endsWith('.docx')) {
+        validDocx.push(item.file);
+        continue;
+      }
+      const ext = name.split('.').pop() || '';
+      if (!['jpg', 'jpeg', 'png', 'webp', 'jfif'].includes(ext)) continue;
+      const relPath = item.relativePath;
+      const folderName = relPath.includes('/') ? relPath.split('/')[0] : 'Ảnh rời đính kèm';
+      validImages.push({
+        file: item.file,
+        relativePath: relPath,
+        folderName
+      });
+    }
+
+    if (validDocx.length > 0) {
+      setWordFiles(prev => {
+        const existingNames = new Set(prev.map(f => f.name));
+        return [...prev, ...validDocx.filter(f => !existingNames.has(f.name))];
+      });
+      setPreviewData(null);
+      setError(null);
+    }
+
+    if (validImages.length > 0) {
+      setFolderImages(prev => [...prev, ...validImages]);
+      setPreviewData(null);
+      setError(null);
+    }
+
+    if (validImages.length === 0 && validDocx.length === 0) {
+      setError('Không tìm thấy ảnh hợp lệ (hỗ trợ JPG, PNG, WEBP, JFIF) hoặc file Word .docx.');
+    }
   };
 
   const handleSelectFolder = (e) => {
@@ -302,14 +461,48 @@ export default function BulkIngestModal({ isOpen, onClose, onIngestSuccess }) {
                   Chọn file bảng giá Word của bất kỳ Họa sĩ nào. Hệ thống tự bóc tách Tên họa sĩ, Tên tranh, Chất liệu, Kích thước, Năm, Giá và toàn bộ ảnh nhúng trong bảng.
                 </p>
 
-                <button
-                  type="button"
+                <div
+                  onDragOver={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    e.dataTransfer.dropEffect = 'copy';
+                    setIsDraggingWord(true);
+                  }}
+                  onDragEnter={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setIsDraggingWord(true);
+                  }}
+                  onDragLeave={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    if (!e.currentTarget.contains(e.relatedTarget)) {
+                      setIsDraggingWord(false);
+                    }
+                  }}
+                  onDrop={handleWordDrop}
                   onClick={() => wordInputRef.current?.click()}
-                  className="w-full py-3.5 px-4 border-2 border-dashed border-[#C58C00] bg-[#FAF7F0] hover:bg-[#FDF6E2] text-stone-800 font-semibold text-[12.5px] flex items-center justify-center gap-2 transition-colors cursor-pointer"
+                  className={`w-full py-6 px-4 border-2 border-dashed rounded-lg transition-all duration-200 cursor-pointer flex flex-col items-center justify-center gap-2 text-center select-none ${
+                    isDraggingWord
+                      ? 'border-[#7D1818] bg-amber-100/90 scale-[1.01] shadow-md ring-2 ring-amber-400'
+                      : 'border-[#C58C00] bg-[#FAF7F0] hover:bg-[#FDF6E2] hover:border-[#7D1818]'
+                  }`}
                 >
-                  <FileText className="w-4 h-4 text-[#7D1818]" />
-                  <span>Chọn File Word (.docx)</span>
-                </button>
+                  <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${
+                    isDraggingWord ? 'bg-[#7D1818] text-white scale-110 animate-bounce' : 'bg-amber-100 text-[#7D1818]'
+                  }`}>
+                    <UploadCloud className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <div className="font-bold text-[13px] text-stone-800">
+                      {isDraggingWord ? 'Thả file Word (.docx) vào đây ngay!' : 'Kéo & Thả file Word (.docx) vào đây'}
+                    </div>
+                    <div className="text-[11px] text-stone-500 mt-0.5">
+                      hoặc bấm vào khung để duyệt file từ máy tính
+                    </div>
+                  </div>
+                </div>
+
                 <input
                   ref={wordInputRef}
                   type="file"
@@ -363,23 +556,70 @@ export default function BulkIngestModal({ isOpen, onClose, onIngestSuccess }) {
                   Chọn 1 hoặc nhiều Folder chứa hình ảnh (VD: <code className="font-mono text-emerald-800">TRANH</code>, <code className="font-mono text-amber-800">ĐÃ BÁN</code>) hoặc chọn nhiều ảnh rời. Tự động đọc tên file ảnh để ghép đúng tác phẩm.
                 </p>
 
-                <div className="grid grid-cols-2 gap-2">
-                  <button
-                    type="button"
-                    onClick={() => folderInputRef.current?.click()}
-                    className="py-3.5 px-3 border-2 border-dashed border-emerald-700 bg-emerald-50/40 hover:bg-emerald-50 text-emerald-950 font-semibold text-[12px] flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
-                  >
-                    <FolderOpen className="w-4 h-4 text-emerald-700 shrink-0" />
-                    <span>Chọn Folder Ảnh</span>
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => looseImagesInputRef.current?.click()}
-                    className="py-3.5 px-3 border-2 border-dashed border-stone-400 bg-stone-50 hover:bg-stone-100 text-stone-700 font-semibold text-[12px] flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
-                  >
-                    <ImageIcon className="w-4 h-4 text-stone-600 shrink-0" />
-                    <span>Chọn Ảnh Rời</span>
-                  </button>
+                <div
+                  onDragOver={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    e.dataTransfer.dropEffect = 'copy';
+                    setIsDraggingFolder(true);
+                  }}
+                  onDragEnter={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setIsDraggingFolder(true);
+                  }}
+                  onDragLeave={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    if (!e.currentTarget.contains(e.relatedTarget)) {
+                      setIsDraggingFolder(false);
+                    }
+                  }}
+                  onDrop={handleFolderDrop}
+                  className={`w-full py-4 px-4 border-2 border-dashed rounded-lg transition-all duration-200 flex flex-col items-center justify-center gap-2 text-center mb-2.5 ${
+                    isDraggingFolder
+                      ? 'border-emerald-700 bg-emerald-100 scale-[1.01] shadow-md ring-2 ring-emerald-400'
+                      : 'border-emerald-600/70 bg-emerald-50/30 hover:bg-emerald-50/60'
+                  }`}
+                >
+                  <div className={`w-9 h-9 rounded-full flex items-center justify-center transition-all ${
+                    isDraggingFolder ? 'bg-emerald-700 text-white scale-110 animate-bounce' : 'bg-emerald-100 text-emerald-800'
+                  }`}>
+                    <FolderOpen className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <div className="font-bold text-[12.5px] text-emerald-950">
+                      {isDraggingFolder ? 'Thả Folder hoặc Ảnh vào đây ngay!' : 'Kéo & Thả Folder Ảnh hoặc File Ảnh vào đây'}
+                    </div>
+                    <div className="text-[10.5px] text-emerald-700 mt-0.5">
+                      Hỗ trợ kéo thả cả Folder (TRANH, ĐÃ BÁN) hoặc thả nhiều ảnh JPG, PNG
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-2 w-full mt-1.5">
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        folderInputRef.current?.click();
+                      }}
+                      className="py-2 px-3 border border-emerald-700 bg-white hover:bg-emerald-50 text-emerald-900 font-semibold text-[11.5px] flex items-center justify-center gap-1.5 transition-colors cursor-pointer rounded"
+                    >
+                      <FolderOpen className="w-3.5 h-3.5 text-emerald-700 shrink-0" />
+                      <span>Chọn Folder</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        looseImagesInputRef.current?.click();
+                      }}
+                      className="py-2 px-3 border border-stone-300 bg-white hover:bg-stone-50 text-stone-800 font-semibold text-[11.5px] flex items-center justify-center gap-1.5 transition-colors cursor-pointer rounded"
+                    >
+                      <ImageIcon className="w-3.5 h-3.5 text-stone-600 shrink-0" />
+                      <span>Chọn Ảnh Rời</span>
+                    </button>
+                  </div>
                 </div>
 
                 <input

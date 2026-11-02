@@ -19,7 +19,7 @@ import BatchTagPrintModal from './components/BatchTagPrintModal';
 import CustomerManagementView from './components/CustomerManagementView';
 import QuickAddCustomerModal from './components/QuickAddCustomerModal';
 import CustomerDetailModal from './components/CustomerDetailModal';
-import { Tag, Printer, CheckSquare, X } from 'lucide-react';
+import { Tag, Printer, CheckSquare, X, UploadCloud } from 'lucide-react';
 
 import {
   DEFAULT_COLUMNS,
@@ -100,6 +100,71 @@ export default function App() {
   // Tag Batch Selection & Printing States
   const [selectedPaintingIdsForTag, setSelectedPaintingIdsForTag] = useState(new Set());
   const [isBatchTagPrintModalOpen, setIsBatchTagPrintModalOpen] = useState(false);
+
+  // Global Drag & Drop for Word (.docx) Files
+  const [droppedWordFiles, setDroppedWordFiles] = useState([]);
+  const [isWindowDraggingDocx, setIsWindowDraggingDocx] = useState(false);
+
+  useEffect(() => {
+    let dragCounter = 0;
+
+    const handleDragEnter = (e) => {
+      e.preventDefault();
+      dragCounter++;
+      if (e.dataTransfer && e.dataTransfer.types && Array.from(e.dataTransfer.types).includes('Files')) {
+        setIsWindowDraggingDocx(true);
+      }
+    };
+
+    const handleDragOver = (e) => {
+      e.preventDefault();
+      if (e.dataTransfer) {
+        e.dataTransfer.dropEffect = 'copy';
+      }
+    };
+
+    const handleDragLeave = (e) => {
+      e.preventDefault();
+      dragCounter--;
+      if (dragCounter <= 0) {
+        dragCounter = 0;
+        setIsWindowDraggingDocx(false);
+      }
+    };
+
+    const handleDrop = (e) => {
+      e.preventDefault();
+      dragCounter = 0;
+      setIsWindowDraggingDocx(false);
+
+      const files = Array.from(e.dataTransfer.files || []);
+      const docxFiles = files.filter(f => f.name.toLowerCase().endsWith('.docx'));
+      const legacyDocFiles = files.filter(f => f.name.toLowerCase().endsWith('.doc') && !f.name.toLowerCase().endsWith('.docx'));
+
+      if (legacyDocFiles.length > 0 && docxFiles.length === 0) {
+        showToast(`File "${legacyDocFiles[0].name}" là định dạng Word .doc cũ. Vui lòng Save As thành .docx!`, 'error');
+        return;
+      }
+
+      if (docxFiles.length > 0) {
+        setDroppedWordFiles(docxFiles);
+        setIsBulkIngestModalOpen(true);
+        showToast(`Đã nhận file Word: ${docxFiles.map(f => f.name).join(', ')}`);
+      }
+    };
+
+    window.addEventListener('dragenter', handleDragEnter);
+    window.addEventListener('dragover', handleDragOver);
+    window.addEventListener('dragleave', handleDragLeave);
+    window.addEventListener('drop', handleDrop);
+
+    return () => {
+      window.removeEventListener('dragenter', handleDragEnter);
+      window.removeEventListener('dragover', handleDragOver);
+      window.removeEventListener('dragleave', handleDragLeave);
+      window.removeEventListener('drop', handleDrop);
+    };
+  }, []);
 
   const openArtworkPage = (paintingId) => {
     if (!paintingId) return;
@@ -987,12 +1052,30 @@ export default function App() {
       />
       <BulkIngestModal
         isOpen={isBulkIngestModalOpen}
-        onClose={() => setIsBulkIngestModalOpen(false)}
+        onClose={() => {
+          setIsBulkIngestModalOpen(false);
+          setDroppedWordFiles([]);
+        }}
+        initialWordFiles={droppedWordFiles}
         onIngestSuccess={(msg) => {
           showToast(msg);
           fetchData();
         }}
       />
+
+      {isWindowDraggingDocx && !isBulkIngestModalOpen && (
+        <div className="fixed inset-0 z-50 bg-[#7D1818]/85 backdrop-blur-sm flex flex-col items-center justify-center p-6 text-white pointer-events-none animate-in fade-in">
+          <div className="w-20 h-20 rounded-full bg-amber-400 text-[#7D1818] flex items-center justify-center mb-4 shadow-2xl animate-bounce">
+            <UploadCloud className="w-10 h-10" />
+          </div>
+          <h2 className="font-serif text-2xl font-bold text-amber-200 uppercase tracking-wide">
+            Thả File Word Bảng Giá (.docx) Vào Đây
+          </h2>
+          <p className="text-stone-200 text-sm mt-2 text-center max-w-md">
+            Hệ thống sẽ tự động bóc tách tên tác phẩm, họa sĩ, chất liệu, kích thước, giá và ảnh nhúng ngay lập tức.
+          </p>
+        </div>
+      )}
 
       <NetworkConfigModal
         isOpen={isNetworkModalOpen}
