@@ -99,33 +99,22 @@ Vì Antigravity IDE có sẵn khung Terminal gắn liền, bạn sẽ thấy to�
 
 ---
 
-## BƯỚC 4: CÀI ĐẶT SERVER CHẠY NGẦM 24/7 (CHỐNG SẬP KHI TẮT MÀN HÌNH)
+## BƯỚC 4: CÀI ĐẶT SERVER CHẠY NGẦM 24/7 (CHỐNG SẬP KHI TẮT MÀN HÌNH & KHÔNG SPAM)
 
-> **Giải thích nguyên nhân tại sao tắt màn hình server bị ngắt kết nối:**
-> * Mặc định trên Windows, khi bạn **bấm nút tắt màn hình** (hoặc màn hình tự tắt), Windows sẽ tự động kích hoạt chế độ **Sleep / Standby** (Ngủ tiết kiệm điện) $\rightarrow$ Windows đóng băng CPU và ngắt nguồn cạc mạng LAN/Wi-Fi $\rightarrow$ iPad/iPhone không kết nối được!
-> * Bản nâng cấp này đã giải quyết triệt để vấn đề:
->   1. **Kích hoạt chế độ Windows Away Mode & Standby = Never**: Bạn có thể **tắt màn hình thoải mái** (hoặc để màn hình tự tắt), nhưng **thùng máy HP (CPU, RAM, ổ cứng và cạc mạng) vẫn thức 100%** và phục vụ kết nối 24/7.
->   2. **Đăng ký Tác vụ hệ thống (Windows Scheduled Task)**: **Cứ bật nguồn thùng máy HP là server tự động chạy ngầm ngay**, kể cả khi bạn chưa đăng nhập tài khoản Windows!
->   3. **Cơ chế Watchdog tự phục hồi**: Nếu có sự cố mạng hoặc tiến trình bị gián đoạn, hệ thống sẽ tự động khởi động lại server sau 3 giây.
-
----
-
-### Cách cài đặt chế độ 24/7 (Chỉ cần làm 1 lần duy nhất):
-1. Trong Terminal của Antigravity IDE trên máy HP, kéo bản cập nhật mới nhất về:
+### Cách kích hoạt chế độ 24/7 (Chỉ cần 3 bước đơn giản):
+1. Trong Terminal của Antigravity IDE trên máy HP, kéo bản sửa lỗi mới nhất về:
    ```cmd
    git pull origin main
    ```
-2. Mở thư mục **`C:\BinhMinhArt`** trong File Explorer, nhấp đúp chuột vào file:  
+2. Nhấp đúp chuột vào file:
+   👉 **`stop_windows.bat`** (để dọn sạch toàn bộ tiến trình cũ, tắt vòng lặp spam và xóa file lỗi `BinhMinhArt_AutoStart.vbs`).
+3. Nhấp đúp chuột vào file:
    👉 **`install_startup_windows.bat`**
-3. Hộp thoại Windows UAC sẽ hỏi cấp quyền Administrator $\rightarrow$ Bấm **YES**.
-4. Script sẽ tự động:
-   * Cấu hình Windows **không bao giờ ngủ khi cắm điện** (`standby-timeout-ac 0`).
-   * Bật **Windows Away Mode** (cho phép tắt màn hình nhưng giữ CPU & mạng chạy 100%).
-   * Ngăn Windows tự tắt cạc mạng LAN / Wi-Fi để tiết kiệm pin.
-   * Đăng ký chạy ngầm ngay từ lúc bật thùng máy (`schtasks ONSTART`).
-   * Khởi động server ngầm ngay lập tức và mở trình duyệt kiểm tra kết nối: `https://localhost:5001`.
-   * Hiện thông báo màu xanh lá: `[HOAN TAT CAI DAT 100% - HE THONG CHAY NGAM 24/7 DA SAN SANG]`.
-5. Bấm phím bất kỳ để đóng cửa sổ cài đặt.
+   * Script sẽ tự cấu hình Windows **Sleep: Never** (không bao giờ ngủ khi cắm điện).
+   * Bật **Away Mode** (thoải mái tắt màn hình máy HP, thùng máy và mạng LAN vẫn chạy 24/7).
+   * Tạo Shortcut khởi động ngầm trong Windows Startup (`BinhMinhArt.lnk`).
+   * Khởi động server ngầm êm ái duy nhất 1 tiến trình và tự động mở trình duyệt `https://localhost:5001`.
+4. Để kiểm tra trạng thái bất kỳ lúc nào: Nhấp đúp vào 👉 **`status_windows.bat`** (chạy siêu nhanh < 1 giây, báo ngay trạng thái ONLINE và IP của máy HP để iPad/iPhone vào).
 
 **Từ thời điểm này:**
 * **Bất kể khi nào thùng máy HP có điện / bật nguồn:** Server tự động chạy ngầm phục vụ mạng nội bộ.
