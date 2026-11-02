@@ -4,6 +4,14 @@ import path from 'path';
 import { saveExcelFileToDisk, parseExcelBuffer } from './excelService.js';
 import { createStore } from './sqliteStore.js';
 import sheetDB from './googleSheetSingleton.js';
+import {
+  initPriceHistory,
+  loadPriceHistory,
+  savePriceHistory,
+  addPaintingPriceLog,
+  getPaintingPriceHistory,
+  initBaselinePriceLogs
+} from './priceHistoryStore.js';
 
 const DATA_DIR = path.resolve('data');
 const LEGACY_DIR = path.join(DATA_DIR, 'legacy');
@@ -26,7 +34,7 @@ export const INITIAL_SEED = [
     chat_lieu: 'Sơn dầu',
     ngay_them: '10-01-2026',
     gia: 1500,
-    ngay_cap_nhat_gia_gan_nhat: '10-01-2026',
+    ngay_cap_nhat_gia_gan_nhat: '09-01-2026',
     kich_thuoc_tranh: '75x43cm',
     kich_thuoc_khung_tranh: '85x53cm',
     nam_sang_tac: '2012',
@@ -404,6 +412,7 @@ export function resetToSeed() {
   ensureReady();
   backupDatabase('pre-reset');
   savePaintings(INITIAL_SEED);
+  initBaselinePriceLogs(INITIAL_SEED);
   return INITIAL_SEED;
 }
 
@@ -522,8 +531,19 @@ export function getDatabaseStatus() {
 export async function startDatabaseServices() {
   await sheetDB.init();
   ensureReady();
+  initPriceHistory();
+  initBaselinePriceLogs(getStore().list());
   scheduleExcelExport(200);
   backupIfDue();
   setInterval(backupIfDue, BACKUP_CHECK_MS).unref();
   console.log(`[DB] Google Sheets database ready (${getStore().count()} paintings)`);
 }
+
+export {
+  initPriceHistory,
+  loadPriceHistory,
+  savePriceHistory,
+  addPaintingPriceLog,
+  getPaintingPriceHistory,
+  initBaselinePriceLogs
+};

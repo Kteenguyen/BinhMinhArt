@@ -1,0 +1,8250 @@
+[
+  {
+    "id": 1,
+    "painting_id": "DVS-SD-01",
+    "old_price": null,
+    "new_price": 1500,
+    "date": "09-01-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 2,
+    "painting_id": "DVS-SD-02",
+    "old_price": null,
+    "new_price": 2000,
+    "date": "09-01-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 3,
+    "painting_id": "DVS-SD-03",
+    "old_price": null,
+    "new_price": 2000,
+    "date": "09-01-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 4,
+    "painting_id": "DVS-SM-01",
+    "old_price": null,
+    "new_price": 1200,
+    "date": "09-01-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 5,
+    "painting_id": "DVS-SM-03",
+    "old_price": null,
+    "new_price": 6000,
+    "date": "09-01-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 6,
+    "painting_id": "DVS-SM-04",
+    "old_price": null,
+    "new_price": 5500,
+    "date": "09-01-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 7,
+    "painting_id": "DVS-SM-05",
+    "old_price": null,
+    "new_price": 6000,
+    "date": "09-01-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 8,
+    "painting_id": "DVS-SM-06",
+    "old_price": null,
+    "new_price": 8000,
+    "date": "09-01-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 9,
+    "painting_id": "DVS-SM-07",
+    "old_price": null,
+    "new_price": 15000,
+    "date": "09-01-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 10,
+    "painting_id": "DVS-SM-08",
+    "old_price": null,
+    "new_price": 1200,
+    "date": "09-01-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 11,
+    "painting_id": "DVS-SM-09",
+    "old_price": null,
+    "new_price": 18000,
+    "date": "09-01-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 12,
+    "painting_id": "DVS-SM-02",
+    "old_price": null,
+    "new_price": 1800,
+    "date": "09-01-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 13,
+    "painting_id": "DH-SM-01",
+    "old_price": null,
+    "new_price": 850,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 14,
+    "painting_id": "DH-SM-02",
+    "old_price": null,
+    "new_price": 1000,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 15,
+    "painting_id": "DH-SM-03",
+    "old_price": null,
+    "new_price": 1000,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 16,
+    "painting_id": "DH-SM-04",
+    "old_price": null,
+    "new_price": 1000,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 17,
+    "painting_id": "DH-SM-05",
+    "old_price": null,
+    "new_price": 1000,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 18,
+    "painting_id": "DH-SM-06",
+    "old_price": null,
+    "new_price": 1000,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 19,
+    "painting_id": "DH-SM-07",
+    "old_price": null,
+    "new_price": 1300,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 20,
+    "painting_id": "DH-SM-08",
+    "old_price": null,
+    "new_price": 1300,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 21,
+    "painting_id": "DH-SM-09",
+    "old_price": null,
+    "new_price": 1000,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 22,
+    "painting_id": "DH-SM-12",
+    "old_price": null,
+    "new_price": 700,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 23,
+    "painting_id": "DH-SM-13",
+    "old_price": null,
+    "new_price": 800,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 24,
+    "painting_id": "DH-SM-14",
+    "old_price": null,
+    "new_price": 800,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 25,
+    "painting_id": "DH-SM-15",
+    "old_price": null,
+    "new_price": 1000,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 26,
+    "painting_id": "DH-SM-16",
+    "old_price": null,
+    "new_price": 1300,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 27,
+    "painting_id": "DH-SM-17",
+    "old_price": null,
+    "new_price": 1300,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 28,
+    "painting_id": "DH-SM-18",
+    "old_price": null,
+    "new_price": 1300,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 29,
+    "painting_id": "DH-SM-19",
+    "old_price": null,
+    "new_price": 1300,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 30,
+    "painting_id": "DH-SM-20",
+    "old_price": null,
+    "new_price": 1300,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 31,
+    "painting_id": "DH-SM-21",
+    "old_price": null,
+    "new_price": 1300,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 32,
+    "painting_id": "DH-SM-22",
+    "old_price": null,
+    "new_price": 1300,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 33,
+    "painting_id": "DH-SM-23",
+    "old_price": null,
+    "new_price": 1300,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 34,
+    "painting_id": "DH-SM-24",
+    "old_price": null,
+    "new_price": 700,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 35,
+    "painting_id": "DH-SM-25",
+    "old_price": null,
+    "new_price": 850,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 36,
+    "painting_id": "DH-SM-26",
+    "old_price": null,
+    "new_price": 850,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 37,
+    "painting_id": "DH-SM-27",
+    "old_price": null,
+    "new_price": 850,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 38,
+    "painting_id": "DH-SM-28",
+    "old_price": null,
+    "new_price": 850,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 39,
+    "painting_id": "DH-SM-29",
+    "old_price": null,
+    "new_price": 700,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 40,
+    "painting_id": "DH-SM-30",
+    "old_price": null,
+    "new_price": 850,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 41,
+    "painting_id": "DH-SM-31",
+    "old_price": null,
+    "new_price": 1300,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 42,
+    "painting_id": "DH-SM-32",
+    "old_price": null,
+    "new_price": 850,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 43,
+    "painting_id": "DH-SM-33",
+    "old_price": null,
+    "new_price": 400,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 44,
+    "painting_id": "DH-SM-34",
+    "old_price": null,
+    "new_price": 400,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 45,
+    "painting_id": "DH-SM-35",
+    "old_price": null,
+    "new_price": 850,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 46,
+    "painting_id": "DH-SM-36",
+    "old_price": null,
+    "new_price": 850,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 47,
+    "painting_id": "DH-SM-37",
+    "old_price": null,
+    "new_price": 850,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 48,
+    "painting_id": "DH-SM-38",
+    "old_price": null,
+    "new_price": 850,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 49,
+    "painting_id": "DH-SM-39",
+    "old_price": null,
+    "new_price": 850,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 50,
+    "painting_id": "DH-SM-40",
+    "old_price": null,
+    "new_price": 850,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 51,
+    "painting_id": "DH-SM-41",
+    "old_price": null,
+    "new_price": 700,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 52,
+    "painting_id": "DH-SM-42",
+    "old_price": null,
+    "new_price": 700,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 53,
+    "painting_id": "DH-SM-43",
+    "old_price": null,
+    "new_price": 850,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 54,
+    "painting_id": "DH-SM-44",
+    "old_price": null,
+    "new_price": 850,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 55,
+    "painting_id": "DH-SM-45",
+    "old_price": null,
+    "new_price": 400,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 56,
+    "painting_id": "DH-SM-46",
+    "old_price": null,
+    "new_price": 400,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 57,
+    "painting_id": "DH-SM-47",
+    "old_price": null,
+    "new_price": 700,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 58,
+    "painting_id": "DH-SM-48",
+    "old_price": null,
+    "new_price": 700,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 59,
+    "painting_id": "DH-SM-50",
+    "old_price": null,
+    "new_price": 400,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 60,
+    "painting_id": "DH-SM-51",
+    "old_price": null,
+    "new_price": 700,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 61,
+    "painting_id": "DH-SM-52",
+    "old_price": null,
+    "new_price": 850,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 62,
+    "painting_id": "DH-SM-53",
+    "old_price": null,
+    "new_price": 850,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 63,
+    "painting_id": "DH-SM-54",
+    "old_price": null,
+    "new_price": 850,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 64,
+    "painting_id": "DH-SM-55",
+    "old_price": null,
+    "new_price": 850,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 65,
+    "painting_id": "DH-SM-56",
+    "old_price": null,
+    "new_price": 850,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 66,
+    "painting_id": "DH-SM-57",
+    "old_price": null,
+    "new_price": 850,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 67,
+    "painting_id": "DH-SM-58",
+    "old_price": null,
+    "new_price": 850,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 68,
+    "painting_id": "DH-SM-59",
+    "old_price": null,
+    "new_price": 850,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 69,
+    "painting_id": "DH-SM-60",
+    "old_price": null,
+    "new_price": 850,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 70,
+    "painting_id": "DH-SM-61",
+    "old_price": null,
+    "new_price": 850,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 71,
+    "painting_id": "DH-SM-62",
+    "old_price": null,
+    "new_price": 850,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 72,
+    "painting_id": "DH-SM-63",
+    "old_price": null,
+    "new_price": 850,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 73,
+    "painting_id": "DH-SM-64",
+    "old_price": null,
+    "new_price": 850,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 74,
+    "painting_id": "DH-SM-65",
+    "old_price": null,
+    "new_price": 850,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 75,
+    "painting_id": "DH-SM-66",
+    "old_price": null,
+    "new_price": 850,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 76,
+    "painting_id": "DH-SM-67",
+    "old_price": null,
+    "new_price": 850,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 77,
+    "painting_id": "DH-SM-68",
+    "old_price": null,
+    "new_price": 850,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 78,
+    "painting_id": "DH-SM-69",
+    "old_price": null,
+    "new_price": 850,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 79,
+    "painting_id": "DH-SM-70",
+    "old_price": null,
+    "new_price": 850,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 80,
+    "painting_id": "DH-SM-71",
+    "old_price": null,
+    "new_price": 850,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 81,
+    "painting_id": "DH-SM-72",
+    "old_price": null,
+    "new_price": 850,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 82,
+    "painting_id": "DH-SM-73",
+    "old_price": null,
+    "new_price": 1100,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 83,
+    "painting_id": "DH-SM-74",
+    "old_price": null,
+    "new_price": 1100,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 84,
+    "painting_id": "DH-SM-75",
+    "old_price": null,
+    "new_price": 1100,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 85,
+    "painting_id": "DH-SM-76",
+    "old_price": null,
+    "new_price": 1200,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 86,
+    "painting_id": "DH-SM-77",
+    "old_price": null,
+    "new_price": 1100,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 87,
+    "painting_id": "DH-SM-78",
+    "old_price": null,
+    "new_price": 1100,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 88,
+    "painting_id": "DH-SM-79",
+    "old_price": null,
+    "new_price": 700,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 89,
+    "painting_id": "DH-SM-83",
+    "old_price": null,
+    "new_price": 300,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 90,
+    "painting_id": "DH-SM-84",
+    "old_price": null,
+    "new_price": 700,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 91,
+    "painting_id": "DH-SM-85",
+    "old_price": null,
+    "new_price": 850,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 92,
+    "painting_id": "DH-SM-86",
+    "old_price": null,
+    "new_price": 500,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 93,
+    "painting_id": "DH-SM-87",
+    "old_price": null,
+    "new_price": 850,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 94,
+    "painting_id": "DH-SM-88",
+    "old_price": null,
+    "new_price": 850,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 95,
+    "painting_id": "DH-SM-89",
+    "old_price": null,
+    "new_price": 850,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 96,
+    "painting_id": "DH-SM-90",
+    "old_price": null,
+    "new_price": 850,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 97,
+    "painting_id": "DH-SM-91",
+    "old_price": null,
+    "new_price": 850,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 98,
+    "painting_id": "DH-SM-92",
+    "old_price": null,
+    "new_price": 850,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 99,
+    "painting_id": "DH-SM-93",
+    "old_price": null,
+    "new_price": 1100,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 100,
+    "painting_id": "DH-SM-94",
+    "old_price": null,
+    "new_price": 1100,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 101,
+    "painting_id": "DH-SM-95",
+    "old_price": null,
+    "new_price": 1100,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 102,
+    "painting_id": "DH-SM-96",
+    "old_price": null,
+    "new_price": 1200,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 103,
+    "painting_id": "DH-SM-97",
+    "old_price": null,
+    "new_price": 1200,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 104,
+    "painting_id": "DH-SM-98",
+    "old_price": null,
+    "new_price": 1200,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 105,
+    "painting_id": "DVS-SD-06",
+    "old_price": null,
+    "new_price": 1500,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 106,
+    "painting_id": "DVS-SD-07",
+    "old_price": null,
+    "new_price": 1500,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 107,
+    "painting_id": "DVS-SD-09",
+    "old_price": null,
+    "new_price": 1500,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 108,
+    "painting_id": "DVS-SD-10",
+    "old_price": null,
+    "new_price": 1500,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 109,
+    "painting_id": "DVS-SD-11",
+    "old_price": null,
+    "new_price": 3000,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 110,
+    "painting_id": "DVS-SD-12",
+    "old_price": null,
+    "new_price": 3000,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 111,
+    "painting_id": "DVS-SD-13",
+    "old_price": null,
+    "new_price": 3000,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 112,
+    "painting_id": "DVS-SD-14",
+    "old_price": null,
+    "new_price": 3500,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 113,
+    "painting_id": "DVS-SD-15",
+    "old_price": null,
+    "new_price": 3000,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 114,
+    "painting_id": "DVS-SD-16",
+    "old_price": null,
+    "new_price": 2500,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 115,
+    "painting_id": "DVS-SD-17",
+    "old_price": null,
+    "new_price": 4000,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 116,
+    "painting_id": "DVS-SD-18",
+    "old_price": null,
+    "new_price": 5000,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 117,
+    "painting_id": "DVS-SD-19",
+    "old_price": null,
+    "new_price": 5000,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 118,
+    "painting_id": "DVS-SD-20",
+    "old_price": null,
+    "new_price": 5000,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 119,
+    "painting_id": "DVS-SD-21",
+    "old_price": null,
+    "new_price": 6000,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 120,
+    "painting_id": "DVS-SD-23",
+    "old_price": null,
+    "new_price": 6000,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 121,
+    "painting_id": "DVS-SD-24",
+    "old_price": null,
+    "new_price": 6500,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 122,
+    "painting_id": "DVS-SD-25",
+    "old_price": null,
+    "new_price": 9500,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 123,
+    "painting_id": "DVS-SD-26",
+    "old_price": null,
+    "new_price": 11000,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 124,
+    "painting_id": "DVS-SD-27",
+    "old_price": null,
+    "new_price": 9500,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 125,
+    "painting_id": "DVS-SD-28",
+    "old_price": null,
+    "new_price": 9500,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 126,
+    "painting_id": "DVS-SD-29",
+    "old_price": null,
+    "new_price": 9500,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 127,
+    "painting_id": "DVS-SM-11",
+    "old_price": null,
+    "new_price": 5000,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 128,
+    "painting_id": "DVS-SM-13",
+    "old_price": null,
+    "new_price": 5000,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 129,
+    "painting_id": "DVS-SM-14",
+    "old_price": null,
+    "new_price": 5000,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 130,
+    "painting_id": "DVS-SM-15",
+    "old_price": null,
+    "new_price": 5000,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 131,
+    "painting_id": "DVS-SM-17",
+    "old_price": null,
+    "new_price": 11000,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 132,
+    "painting_id": "DVS-SM-18",
+    "old_price": null,
+    "new_price": 12000,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 133,
+    "painting_id": "DVS-MN-01",
+    "old_price": null,
+    "new_price": 1200,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 134,
+    "painting_id": "DVS-MN-02",
+    "old_price": null,
+    "new_price": 1200,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 135,
+    "painting_id": "NA-SD-01",
+    "old_price": null,
+    "new_price": 500,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 136,
+    "painting_id": "NA-SD-02",
+    "old_price": null,
+    "new_price": 500,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 137,
+    "painting_id": "NA-SD-03",
+    "old_price": null,
+    "new_price": 500,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 138,
+    "painting_id": "NA-SD-04",
+    "old_price": null,
+    "new_price": 500,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 139,
+    "painting_id": "NA-SD-05",
+    "old_price": null,
+    "new_price": 500,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 140,
+    "painting_id": "NA-SD-06",
+    "old_price": null,
+    "new_price": 2500,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 141,
+    "painting_id": "NA-SD-07",
+    "old_price": null,
+    "new_price": 4500,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 142,
+    "painting_id": "NA-SM-01",
+    "old_price": null,
+    "new_price": 15000,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 143,
+    "painting_id": "NA-SM-02",
+    "old_price": null,
+    "new_price": 20000,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 144,
+    "painting_id": "NA-SM-03",
+    "old_price": null,
+    "new_price": 25000,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 145,
+    "painting_id": "NA-SM-04",
+    "old_price": null,
+    "new_price": 4000,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 146,
+    "painting_id": "NA-SM-05",
+    "old_price": null,
+    "new_price": 4000,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 147,
+    "painting_id": "NA-SM-08",
+    "old_price": null,
+    "new_price": 4000,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 148,
+    "painting_id": "NA-SM-10",
+    "old_price": null,
+    "new_price": 4000,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 149,
+    "painting_id": "NA-SM-11",
+    "old_price": null,
+    "new_price": 4000,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 150,
+    "painting_id": "NA-SM-12",
+    "old_price": null,
+    "new_price": 4000,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 151,
+    "painting_id": "NA-SM-13",
+    "old_price": null,
+    "new_price": 4000,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 152,
+    "painting_id": "NA-SM-14",
+    "old_price": null,
+    "new_price": 4000,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 153,
+    "painting_id": "NA-SM-15",
+    "old_price": null,
+    "new_price": 4000,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 154,
+    "painting_id": "NA-SM-17",
+    "old_price": null,
+    "new_price": 7500,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 155,
+    "painting_id": "NA-SM-18",
+    "old_price": null,
+    "new_price": 7500,
+    "date": "27-10-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 156,
+    "painting_id": "HHT-SM-01",
+    "old_price": null,
+    "new_price": 15000,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 157,
+    "painting_id": "HHT-SM-06",
+    "old_price": null,
+    "new_price": 18000,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 158,
+    "painting_id": "HHT-SM-08",
+    "old_price": null,
+    "new_price": 19000,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 159,
+    "painting_id": "HHT-SM-09",
+    "old_price": null,
+    "new_price": 15000,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 160,
+    "painting_id": "HHT-SM-10",
+    "old_price": null,
+    "new_price": 14000,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 161,
+    "painting_id": "HHT-SM-11",
+    "old_price": null,
+    "new_price": 20000,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 162,
+    "painting_id": "HHT-SM-12",
+    "old_price": null,
+    "new_price": 16000,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 163,
+    "painting_id": "HHT-SM-15",
+    "old_price": null,
+    "new_price": 28000,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 164,
+    "painting_id": "HHT-SM-16",
+    "old_price": null,
+    "new_price": 95000,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 165,
+    "painting_id": "HHT-SM-17",
+    "old_price": null,
+    "new_price": 120000,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 166,
+    "painting_id": "HHT-SM-18",
+    "old_price": null,
+    "new_price": 100000,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 167,
+    "painting_id": "HHT-SM-20",
+    "old_price": null,
+    "new_price": 230000,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 168,
+    "painting_id": "HHT-SM-21",
+    "old_price": null,
+    "new_price": 295000,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 169,
+    "painting_id": "HHT-SM-22",
+    "old_price": null,
+    "new_price": 25000,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 170,
+    "painting_id": "HHT-SM-23",
+    "old_price": null,
+    "new_price": 230000,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 171,
+    "painting_id": "HHT-SD-01",
+    "old_price": null,
+    "new_price": 4000,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 172,
+    "painting_id": "HHT-SD-02",
+    "old_price": null,
+    "new_price": 5000,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 173,
+    "painting_id": "HHT-SD-07",
+    "old_price": null,
+    "new_price": 8000,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 174,
+    "painting_id": "HHT-SD-08",
+    "old_price": null,
+    "new_price": 8000,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 175,
+    "painting_id": "HHT-SD-09",
+    "old_price": null,
+    "new_price": 8000,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 176,
+    "painting_id": "HHT-SD-10",
+    "old_price": null,
+    "new_price": 8000,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 177,
+    "painting_id": "HHT-SD-11",
+    "old_price": null,
+    "new_price": 8000,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 178,
+    "painting_id": "HHT-SD-12",
+    "old_price": null,
+    "new_price": 8000,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 179,
+    "painting_id": "HHT-SD-13",
+    "old_price": null,
+    "new_price": 9000,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 180,
+    "painting_id": "HHT-SD-14",
+    "old_price": null,
+    "new_price": 9000,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 181,
+    "painting_id": "HHT-SD-15",
+    "old_price": null,
+    "new_price": 9000,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 182,
+    "painting_id": "HHT-SD-19",
+    "old_price": null,
+    "new_price": 9500,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 183,
+    "painting_id": "HHT-SD-21",
+    "old_price": null,
+    "new_price": 9500,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 184,
+    "painting_id": "HHT-SD-25",
+    "old_price": null,
+    "new_price": 15000,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 185,
+    "painting_id": "HHT-SD-26",
+    "old_price": null,
+    "new_price": 15000,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 186,
+    "painting_id": "HHT-SD-27",
+    "old_price": null,
+    "new_price": 11000,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 187,
+    "painting_id": "HHT-SD-31",
+    "old_price": null,
+    "new_price": 22000,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 188,
+    "painting_id": "HHT-SD-32",
+    "old_price": null,
+    "new_price": 35000,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 189,
+    "painting_id": "HHT-SD-33",
+    "old_price": null,
+    "new_price": 40000,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 190,
+    "painting_id": "HHT-SD-34",
+    "old_price": null,
+    "new_price": 45000,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 191,
+    "painting_id": "HHT-SD-35",
+    "old_price": null,
+    "new_price": 40000,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 192,
+    "painting_id": "HHT-SD-36",
+    "old_price": null,
+    "new_price": 45000,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 193,
+    "painting_id": "HHT-SD-37",
+    "old_price": null,
+    "new_price": 45000,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 194,
+    "painting_id": "HHT-SD-40",
+    "old_price": null,
+    "new_price": 65000,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 195,
+    "painting_id": "HHT-SD-42",
+    "old_price": null,
+    "new_price": 65000,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 196,
+    "painting_id": "HHT-SD-44",
+    "old_price": null,
+    "new_price": 40000,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 197,
+    "painting_id": "HHT-SD-45",
+    "old_price": null,
+    "new_price": 280000,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 198,
+    "painting_id": "HHT-SD-46",
+    "old_price": null,
+    "new_price": 80000,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 199,
+    "painting_id": "LVX-SM-01",
+    "old_price": null,
+    "new_price": 2100,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 200,
+    "painting_id": "LVX-SM-02",
+    "old_price": null,
+    "new_price": 4000,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 201,
+    "painting_id": "LVX-SM-03",
+    "old_price": null,
+    "new_price": 8500,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 202,
+    "painting_id": "LVX-SM-04",
+    "old_price": null,
+    "new_price": 8500,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 203,
+    "painting_id": "LVX-SM-05",
+    "old_price": null,
+    "new_price": 5500,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 204,
+    "painting_id": "LVX-SM-06",
+    "old_price": null,
+    "new_price": 9500,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 205,
+    "painting_id": "LVX-SM-07",
+    "old_price": null,
+    "new_price": 8500,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 206,
+    "painting_id": "LVX-SM-08",
+    "old_price": null,
+    "new_price": 9500,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 207,
+    "painting_id": "LVX-SM-09",
+    "old_price": null,
+    "new_price": 9500,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 208,
+    "painting_id": "LVX-SM-11",
+    "old_price": null,
+    "new_price": 10500,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 209,
+    "painting_id": "LVX-SM-12",
+    "old_price": null,
+    "new_price": 8500,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 210,
+    "painting_id": "LVX-SM-13",
+    "old_price": null,
+    "new_price": 19500,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 211,
+    "painting_id": "LVX-SM-14",
+    "old_price": null,
+    "new_price": 11500,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 212,
+    "painting_id": "LVX-SM-15",
+    "old_price": null,
+    "new_price": 4500,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 213,
+    "painting_id": "LVX-SM-16",
+    "old_price": null,
+    "new_price": 11500,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 214,
+    "painting_id": "LVX-SM-17",
+    "old_price": null,
+    "new_price": 10500,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 215,
+    "painting_id": "LVX-SM-18",
+    "old_price": null,
+    "new_price": 9500,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 216,
+    "painting_id": "LVX-SM-19",
+    "old_price": null,
+    "new_price": 8500,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 217,
+    "painting_id": "LVX-SM-20",
+    "old_price": null,
+    "new_price": 13500,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 218,
+    "painting_id": "LVX-MN-01",
+    "old_price": null,
+    "new_price": 2500,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 219,
+    "painting_id": "LVX-MN-02",
+    "old_price": null,
+    "new_price": 1500,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 220,
+    "painting_id": "LVX-MN-03",
+    "old_price": null,
+    "new_price": 1100,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 221,
+    "painting_id": "LVX-MN-05",
+    "old_price": null,
+    "new_price": 1300,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 222,
+    "painting_id": "LVX-MN-07",
+    "old_price": null,
+    "new_price": 1300,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 223,
+    "painting_id": "LVX-MN-08",
+    "old_price": null,
+    "new_price": 1300,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 224,
+    "painting_id": "LVX-MN-09",
+    "old_price": null,
+    "new_price": 1800,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 225,
+    "painting_id": "LVX-MN-11",
+    "old_price": null,
+    "new_price": 1500,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 226,
+    "painting_id": "LVX-MN-15",
+    "old_price": null,
+    "new_price": 7500,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 227,
+    "painting_id": "LVX-MN-16",
+    "old_price": null,
+    "new_price": 5500,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 228,
+    "painting_id": "LVX-MN-17",
+    "old_price": null,
+    "new_price": 4500,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 229,
+    "painting_id": "LVX-MN-18",
+    "old_price": null,
+    "new_price": 8500,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 230,
+    "painting_id": "LVX-SD-01",
+    "old_price": null,
+    "new_price": 3000,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 231,
+    "painting_id": "LVX-SD-02",
+    "old_price": null,
+    "new_price": 8500,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 232,
+    "painting_id": "LVX-SD-03",
+    "old_price": null,
+    "new_price": 15500,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 233,
+    "painting_id": "LVX-SD-04",
+    "old_price": null,
+    "new_price": 9500,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 234,
+    "painting_id": "LVX-SD-05",
+    "old_price": null,
+    "new_price": 15500,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 235,
+    "painting_id": "LVX-SD-06",
+    "old_price": null,
+    "new_price": 10500,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 236,
+    "painting_id": "LVX-SD-07",
+    "old_price": null,
+    "new_price": 4500,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 237,
+    "painting_id": "LVX-SD-08",
+    "old_price": null,
+    "new_price": 15500,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 238,
+    "painting_id": "LVX-SD-09",
+    "old_price": null,
+    "new_price": 13500,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 239,
+    "painting_id": "LVX-SD-10",
+    "old_price": null,
+    "new_price": 8000,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 240,
+    "painting_id": "LVX-SD-11",
+    "old_price": null,
+    "new_price": 15500,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 241,
+    "painting_id": "LVX-SD-12",
+    "old_price": null,
+    "new_price": 15500,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 242,
+    "painting_id": "LVX-SD-13",
+    "old_price": null,
+    "new_price": 6500,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 243,
+    "painting_id": "LVX-SD-14",
+    "old_price": null,
+    "new_price": 11500,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 244,
+    "painting_id": "LVX-SD-15",
+    "old_price": null,
+    "new_price": 13500,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 245,
+    "painting_id": "LVX-SD-16",
+    "old_price": null,
+    "new_price": 9500,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 246,
+    "painting_id": "LVX-SD-17",
+    "old_price": null,
+    "new_price": 35000,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 247,
+    "painting_id": "LVX-SD-18",
+    "old_price": null,
+    "new_price": 25000,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 248,
+    "painting_id": "LVX-LU-01",
+    "old_price": null,
+    "new_price": 10500,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 249,
+    "painting_id": "LVX-LU-02",
+    "old_price": null,
+    "new_price": 12500,
+    "date": "01-11-2026",
+    "note": "Khởi tạo mốc giá ban đầu"
+  },
+  {
+    "id": 250,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3"
+  },
+  {
+    "id": 251,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab"
+  },
+  {
+    "id": 252,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1650,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3"
+  },
+  {
+    "id": 253,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab"
+  },
+  {
+    "id": 254,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1650,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm"
+  },
+  {
+    "id": 255,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3"
+  },
+  {
+    "id": 256,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab"
+  },
+  {
+    "id": 257,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1650,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm"
+  },
+  {
+    "id": 258,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3"
+  },
+  {
+    "id": 259,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab"
+  },
+  {
+    "id": 260,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1650,
+    "new_price": 1680,
+    "date": "02-11-2026",
+    "note": "Playwright E2E Verification Adjustment"
+  },
+  {
+    "id": 261,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1680,
+    "new_price": 1690,
+    "date": "02-11-2026",
+    "note": "Playwright E2E Verification Adjustment"
+  },
+  {
+    "id": 262,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1690,
+    "new_price": 1680,
+    "date": "02-11-2026",
+    "note": "Playwright E2E Verification Adjustment"
+  },
+  {
+    "id": 263,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1680,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm"
+  },
+  {
+    "id": 264,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1690,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm"
+  },
+  {
+    "id": 265,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3"
+  },
+  {
+    "id": 266,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab"
+  },
+  {
+    "id": 267,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1650,
+    "new_price": 1680,
+    "date": "02-11-2026",
+    "note": "Playwright E2E Verification Adjustment"
+  },
+  {
+    "id": 268,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1680,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm"
+  },
+  {
+    "id": 269,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3"
+  },
+  {
+    "id": 270,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab"
+  },
+  {
+    "id": 271,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1650,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm"
+  },
+  {
+    "id": 272,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3"
+  },
+  {
+    "id": 273,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab"
+  },
+  {
+    "id": 274,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1650,
+    "new_price": 1680,
+    "date": "02-11-2026",
+    "note": "Playwright E2E Verification Adjustment"
+  },
+  {
+    "id": 275,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1680,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm"
+  },
+  {
+    "id": 276,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3"
+  },
+  {
+    "id": 277,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab"
+  },
+  {
+    "id": 278,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1650,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm"
+  },
+  {
+    "id": 279,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3"
+  },
+  {
+    "id": 280,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab"
+  },
+  {
+    "id": 281,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1650,
+    "new_price": 1680,
+    "date": "02-11-2026",
+    "note": "Playwright E2E Verification Adjustment"
+  },
+  {
+    "id": 282,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1680,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm"
+  },
+  {
+    "id": 283,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3"
+  },
+  {
+    "id": 284,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab"
+  },
+  {
+    "id": 285,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1650,
+    "new_price": 1680,
+    "date": "02-11-2026",
+    "note": "Playwright E2E Verification Adjustment"
+  },
+  {
+    "id": 286,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1680,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm"
+  },
+  {
+    "id": 287,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3"
+  },
+  {
+    "id": 288,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab"
+  },
+  {
+    "id": 289,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1650,
+    "new_price": 1680,
+    "date": "02-11-2026",
+    "note": "Playwright E2E Verification Adjustment"
+  },
+  {
+    "id": 290,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1680,
+    "new_price": 1776,
+    "date": "02-11-2026",
+    "note": "Race Condition Multi-tap Stress Test"
+  },
+  {
+    "id": 293,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1776,
+    "new_price": 1801,
+    "date": "02-11-2026",
+    "note": "Ghi chú điều chỉnh giá phục vụ triển lãm quốc tế mùa thu 2026. Được sự đồng thuận của hội đồng thẩm định mỹ thuật và nhà sưu tập. UNBROKEN_STRING_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+  },
+  {
+    "id": 294,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1801,
+    "new_price": 2100,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #1 (2100)"
+  },
+  {
+    "id": 295,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2100,
+    "new_price": 2101,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #2 (2101)"
+  },
+  {
+    "id": 296,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2101,
+    "new_price": 2102,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #3 (2102)"
+  },
+  {
+    "id": 297,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2102,
+    "new_price": 2103,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #4 (2103)"
+  },
+  {
+    "id": 298,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2103,
+    "new_price": 2104,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #5 (2104)"
+  },
+  {
+    "id": 299,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2104,
+    "new_price": 2105,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #6 (2105)"
+  },
+  {
+    "id": 300,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2105,
+    "new_price": 2106,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #7 (2106)"
+  },
+  {
+    "id": 301,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2106,
+    "new_price": 2108,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #9 (2108)"
+  },
+  {
+    "id": 302,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2108,
+    "new_price": 2107,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #8 (2107)"
+  },
+  {
+    "id": 303,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2107,
+    "new_price": 2110,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #11 (2110)"
+  },
+  {
+    "id": 304,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2110,
+    "new_price": 2109,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #10 (2109)"
+  },
+  {
+    "id": 305,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2109,
+    "new_price": 2111,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #12 (2111)"
+  },
+  {
+    "id": 306,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2111,
+    "new_price": 2112,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #13 (2112)"
+  },
+  {
+    "id": 307,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2112,
+    "new_price": 2113,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #14 (2113)"
+  },
+  {
+    "id": 308,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2113,
+    "new_price": 2114,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #15 (2114)"
+  },
+  {
+    "id": 309,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3000,
+    "new_price": 3001,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #1"
+  },
+  {
+    "id": 310,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3001,
+    "new_price": 3002,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #2"
+  },
+  {
+    "id": 311,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3002,
+    "new_price": 3003,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #3"
+  },
+  {
+    "id": 312,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3003,
+    "new_price": 3004,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #4"
+  },
+  {
+    "id": 313,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3004,
+    "new_price": 3005,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #5"
+  },
+  {
+    "id": 314,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3005,
+    "new_price": 3006,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #6"
+  },
+  {
+    "id": 315,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3006,
+    "new_price": 3007,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #7"
+  },
+  {
+    "id": 316,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3007,
+    "new_price": 3008,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #8"
+  },
+  {
+    "id": 317,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3008,
+    "new_price": 3009,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #9"
+  },
+  {
+    "id": 318,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3009,
+    "new_price": 3010,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #10"
+  },
+  {
+    "id": 319,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3010,
+    "new_price": 0,
+    "date": "02-11-2026",
+    "note": "Tặng tranh tri ân (giá 0 USD)"
+  },
+  {
+    "id": 320,
+    "painting_id": "DVS-SD-01",
+    "old_price": 0,
+    "new_price": 1750.75,
+    "date": "02-11-2026",
+    "note": "Giá thập phân đấu giá quốc tế"
+  },
+  {
+    "id": 321,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1750.75,
+    "new_price": 50000000,
+    "date": "02-11-2026",
+    "note": "Định giá tác phẩm kiệt tác"
+  },
+  {
+    "id": 328,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1757,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 01-01-2000"
+  },
+  {
+    "id": 329,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1757,
+    "new_price": 1611,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 1999-12-31"
+  },
+  {
+    "id": 330,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1611,
+    "new_price": 1788,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 15-08-1980"
+  },
+  {
+    "id": 331,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1788,
+    "new_price": 1727,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 01/01/2000"
+  },
+  {
+    "id": 332,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1727,
+    "new_price": 1801,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm"
+  },
+  {
+    "id": 333,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1801,
+    "new_price": 1901,
+    "date": "02-11-2026",
+    "note": "Visual diff probe: test price increase"
+  },
+  {
+    "id": 335,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1901,
+    "new_price": 1750,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá từ $1,901 sang $1,750"
+  },
+  {
+    "id": 337,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1750,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm"
+  },
+  {
+    "id": 338,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3"
+  },
+  {
+    "id": 339,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab"
+  },
+  {
+    "id": 340,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1650,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm"
+  },
+  {
+    "id": 341,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3"
+  },
+  {
+    "id": 342,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab"
+  },
+  {
+    "id": 343,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1650,
+    "new_price": 1680,
+    "date": "02-11-2026",
+    "note": "Playwright E2E Verification Adjustment"
+  },
+  {
+    "id": 344,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1680,
+    "new_price": 1780,
+    "date": "02-11-2026",
+    "note": "Visual diff probe: test price increase"
+  },
+  {
+    "id": 345,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1780,
+    "new_price": 1720,
+    "date": "02-11-2026",
+    "note": "Visual diff probe: test price decrease"
+  },
+  {
+    "id": 346,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1720,
+    "new_price": 1680,
+    "date": "02-11-2026",
+    "note": "Playwright E2E Verification Adjustment"
+  },
+  {
+    "id": 347,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1680,
+    "new_price": 2150,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá từ $1,680 sang $2,150"
+  },
+  {
+    "id": 348,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2150,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm"
+  },
+  {
+    "id": 349,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3"
+  },
+  {
+    "id": 350,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab"
+  },
+  {
+    "id": 351,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1650,
+    "new_price": 2265,
+    "date": "02-11-2026",
+    "note": "Multi-tap rapid click empirical probe"
+  },
+  {
+    "id": 354,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2265,
+    "new_price": 2999,
+    "date": "02-11-2026",
+    "note": "Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+  },
+  {
+    "id": 355,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1801,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm"
+  },
+  {
+    "id": 356,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3"
+  },
+  {
+    "id": 357,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab"
+  },
+  {
+    "id": 358,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1650,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm"
+  },
+  {
+    "id": 359,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3"
+  },
+  {
+    "id": 360,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab"
+  },
+  {
+    "id": 361,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1650,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm"
+  },
+  {
+    "id": 362,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3"
+  },
+  {
+    "id": 363,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab"
+  },
+  {
+    "id": 364,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1650,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm"
+  },
+  {
+    "id": 365,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3"
+  },
+  {
+    "id": 366,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab"
+  },
+  {
+    "id": 367,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1650,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm"
+  },
+  {
+    "id": 368,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3"
+  },
+  {
+    "id": 369,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab"
+  },
+  {
+    "id": 370,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1650,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm"
+  },
+  {
+    "id": 371,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3"
+  },
+  {
+    "id": 372,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab"
+  },
+  {
+    "id": 373,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1650,
+    "new_price": 2100,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #1 (2100)"
+  },
+  {
+    "id": 374,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2100,
+    "new_price": 2101,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #2 (2101)"
+  },
+  {
+    "id": 375,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2101,
+    "new_price": 2102,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #3 (2102)"
+  },
+  {
+    "id": 376,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2102,
+    "new_price": 2103,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #4 (2103)"
+  },
+  {
+    "id": 377,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2103,
+    "new_price": 2104,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #5 (2104)"
+  },
+  {
+    "id": 378,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2104,
+    "new_price": 2105,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #6 (2105)"
+  },
+  {
+    "id": 379,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2105,
+    "new_price": 2106,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #7 (2106)"
+  },
+  {
+    "id": 380,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2106,
+    "new_price": 2107,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #8 (2107)"
+  },
+  {
+    "id": 381,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2107,
+    "new_price": 2108,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #9 (2108)"
+  },
+  {
+    "id": 382,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2108,
+    "new_price": 2109,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #10 (2109)"
+  },
+  {
+    "id": 383,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2109,
+    "new_price": 2110,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #11 (2110)"
+  },
+  {
+    "id": 384,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2110,
+    "new_price": 2111,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #12 (2111)"
+  },
+  {
+    "id": 385,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2111,
+    "new_price": 2112,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #13 (2112)"
+  },
+  {
+    "id": 386,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2112,
+    "new_price": 2113,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #14 (2113)"
+  },
+  {
+    "id": 387,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2113,
+    "new_price": 2114,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #15 (2114)"
+  },
+  {
+    "id": 388,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3000,
+    "new_price": 3001,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #1"
+  },
+  {
+    "id": 389,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3001,
+    "new_price": 3002,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #2"
+  },
+  {
+    "id": 390,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3002,
+    "new_price": 3003,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #3"
+  },
+  {
+    "id": 391,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3003,
+    "new_price": 3004,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #4"
+  },
+  {
+    "id": 392,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3004,
+    "new_price": 3005,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #5"
+  },
+  {
+    "id": 393,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3005,
+    "new_price": 3006,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #6"
+  },
+  {
+    "id": 394,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3006,
+    "new_price": 3007,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #7"
+  },
+  {
+    "id": 395,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3007,
+    "new_price": 3008,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #8"
+  },
+  {
+    "id": 396,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3008,
+    "new_price": 3009,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #9"
+  },
+  {
+    "id": 397,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3009,
+    "new_price": 3010,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #10"
+  },
+  {
+    "id": 398,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3010,
+    "new_price": 0,
+    "date": "02-11-2026",
+    "note": "Tặng tranh tri ân (giá 0 USD)"
+  },
+  {
+    "id": 399,
+    "painting_id": "DVS-SD-01",
+    "old_price": 0,
+    "new_price": 1750.75,
+    "date": "02-11-2026",
+    "note": "Giá thập phân đấu giá quốc tế"
+  },
+  {
+    "id": 400,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1750.75,
+    "new_price": 50000000,
+    "date": "02-11-2026",
+    "note": "Định giá tác phẩm kiệt tác"
+  },
+  {
+    "id": 407,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1661,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 01-01-2000"
+  },
+  {
+    "id": 408,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1661,
+    "new_price": 1679,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 1999-12-31"
+  },
+  {
+    "id": 409,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1679,
+    "new_price": 1864,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 15-08-1980"
+  },
+  {
+    "id": 410,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1864,
+    "new_price": 1666,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 01/01/2000"
+  },
+  {
+    "id": 411,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1666,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm"
+  },
+  {
+    "id": 412,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1650,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm"
+  },
+  {
+    "id": 413,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3"
+  },
+  {
+    "id": 414,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab"
+  },
+  {
+    "id": 415,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1650,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm"
+  },
+  {
+    "id": 416,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3"
+  },
+  {
+    "id": 417,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab"
+  },
+  {
+    "id": 418,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2100,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm"
+  },
+  {
+    "id": 419,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3"
+  },
+  {
+    "id": 420,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab"
+  },
+  {
+    "id": 421,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1650,
+    "new_price": 1680,
+    "date": "02-11-2026",
+    "note": "Playwright E2E Verification Adjustment"
+  },
+  {
+    "id": 422,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1680,
+    "new_price": 2100,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #1 (2100)"
+  },
+  {
+    "id": 423,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2100,
+    "new_price": 2101,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #2 (2101)"
+  },
+  {
+    "id": 424,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2101,
+    "new_price": 2102,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #3 (2102)"
+  },
+  {
+    "id": 425,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2102,
+    "new_price": 2103,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #4 (2103)"
+  },
+  {
+    "id": 426,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2103,
+    "new_price": 2104,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #5 (2104)"
+  },
+  {
+    "id": 427,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2104,
+    "new_price": 2105,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #6 (2105)"
+  },
+  {
+    "id": 428,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2105,
+    "new_price": 2106,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #7 (2106)"
+  },
+  {
+    "id": 429,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2106,
+    "new_price": 2107,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #8 (2107)"
+  },
+  {
+    "id": 430,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2107,
+    "new_price": 2108,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #9 (2108)"
+  },
+  {
+    "id": 431,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2108,
+    "new_price": 2109,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #10 (2109)"
+  },
+  {
+    "id": 432,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2109,
+    "new_price": 2110,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #11 (2110)"
+  },
+  {
+    "id": 433,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2110,
+    "new_price": 2111,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #12 (2111)"
+  },
+  {
+    "id": 434,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2111,
+    "new_price": 2112,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #13 (2112)"
+  },
+  {
+    "id": 435,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2112,
+    "new_price": 2113,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #14 (2113)"
+  },
+  {
+    "id": 436,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2113,
+    "new_price": 2114,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #15 (2114)"
+  },
+  {
+    "id": 437,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3000,
+    "new_price": 3001,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #1"
+  },
+  {
+    "id": 438,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3001,
+    "new_price": 3002,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #2"
+  },
+  {
+    "id": 439,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3002,
+    "new_price": 3003,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #3"
+  },
+  {
+    "id": 440,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3003,
+    "new_price": 3004,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #4"
+  },
+  {
+    "id": 441,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3004,
+    "new_price": 3005,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #5"
+  },
+  {
+    "id": 442,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3005,
+    "new_price": 3006,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #6"
+  },
+  {
+    "id": 443,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3006,
+    "new_price": 3007,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #7"
+  },
+  {
+    "id": 444,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3007,
+    "new_price": 3008,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #8"
+  },
+  {
+    "id": 445,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3008,
+    "new_price": 3009,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #9"
+  },
+  {
+    "id": 446,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3009,
+    "new_price": 3010,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #10"
+  },
+  {
+    "id": 447,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3010,
+    "new_price": 0,
+    "date": "02-11-2026",
+    "note": "Tặng tranh tri ân (giá 0 USD)"
+  },
+  {
+    "id": 448,
+    "painting_id": "DVS-SD-01",
+    "old_price": 0,
+    "new_price": 1750.75,
+    "date": "02-11-2026",
+    "note": "Giá thập phân đấu giá quốc tế"
+  },
+  {
+    "id": 449,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1750.75,
+    "new_price": 50000000,
+    "date": "02-11-2026",
+    "note": "Định giá tác phẩm kiệt tác"
+  },
+  {
+    "id": 450,
+    "painting_id": "DVS-SD-01",
+    "old_price": 50000000,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm"
+  },
+  {
+    "id": 451,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1862,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 01-01-2000"
+  },
+  {
+    "id": 452,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1862,
+    "new_price": 1701,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 1999-12-31"
+  },
+  {
+    "id": 453,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1701,
+    "new_price": 1605,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 15-08-1980"
+  },
+  {
+    "id": 454,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1605,
+    "new_price": 1733,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 01/01/2000"
+  },
+  {
+    "id": 457,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1733,
+    "new_price": 1680,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm"
+  },
+  {
+    "id": 458,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1680,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm"
+  },
+  {
+    "id": 459,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3"
+  },
+  {
+    "id": 460,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab"
+  },
+  {
+    "id": 461,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1650,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm"
+  },
+  {
+    "id": 462,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3"
+  },
+  {
+    "id": 463,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab"
+  },
+  {
+    "id": 464,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1650,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm"
+  },
+  {
+    "id": 465,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3"
+  },
+  {
+    "id": 466,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab"
+  },
+  {
+    "id": 467,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1650,
+    "new_price": 2100,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #1 (2100)"
+  },
+  {
+    "id": 468,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2100,
+    "new_price": 2101,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #2 (2101)"
+  },
+  {
+    "id": 469,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2101,
+    "new_price": 2102,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #3 (2102)"
+  },
+  {
+    "id": 470,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2102,
+    "new_price": 2103,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #4 (2103)"
+  },
+  {
+    "id": 471,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2103,
+    "new_price": 2104,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #5 (2104)"
+  },
+  {
+    "id": 472,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2104,
+    "new_price": 2105,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #6 (2105)"
+  },
+  {
+    "id": 473,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2105,
+    "new_price": 2106,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #7 (2106)"
+  },
+  {
+    "id": 474,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2106,
+    "new_price": 2107,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #8 (2107)"
+  },
+  {
+    "id": 475,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2107,
+    "new_price": 2108,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #9 (2108)"
+  },
+  {
+    "id": 476,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2108,
+    "new_price": 2109,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #10 (2109)"
+  },
+  {
+    "id": 477,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2109,
+    "new_price": 2110,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #11 (2110)"
+  },
+  {
+    "id": 478,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2110,
+    "new_price": 2111,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #12 (2111)"
+  },
+  {
+    "id": 479,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2111,
+    "new_price": 2112,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #13 (2112)"
+  },
+  {
+    "id": 480,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2112,
+    "new_price": 2113,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #14 (2113)"
+  },
+  {
+    "id": 481,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2113,
+    "new_price": 2114,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #15 (2114)"
+  },
+  {
+    "id": 482,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3000,
+    "new_price": 3001,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #1"
+  },
+  {
+    "id": 483,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3001,
+    "new_price": 3002,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #2"
+  },
+  {
+    "id": 484,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3002,
+    "new_price": 3003,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #3"
+  },
+  {
+    "id": 485,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3003,
+    "new_price": 3004,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #4"
+  },
+  {
+    "id": 486,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3004,
+    "new_price": 3005,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #5"
+  },
+  {
+    "id": 487,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3005,
+    "new_price": 3006,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #6"
+  },
+  {
+    "id": 488,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3006,
+    "new_price": 3007,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #7"
+  },
+  {
+    "id": 489,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3007,
+    "new_price": 3008,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #8"
+  },
+  {
+    "id": 490,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3008,
+    "new_price": 3009,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #9"
+  },
+  {
+    "id": 491,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3009,
+    "new_price": 3010,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #10"
+  },
+  {
+    "id": 492,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3010,
+    "new_price": 0,
+    "date": "02-11-2026",
+    "note": "Tặng tranh tri ân (giá 0 USD)"
+  },
+  {
+    "id": 493,
+    "painting_id": "DVS-SD-01",
+    "old_price": 0,
+    "new_price": 1750.75,
+    "date": "02-11-2026",
+    "note": "Giá thập phân đấu giá quốc tế"
+  },
+  {
+    "id": 494,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1750.75,
+    "new_price": 50000000,
+    "date": "02-11-2026",
+    "note": "Định giá tác phẩm kiệt tác"
+  },
+  {
+    "id": 495,
+    "painting_id": "DVS-SD-01",
+    "old_price": 50000000,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm"
+  },
+  {
+    "id": 496,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1850,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 01-01-2000"
+  },
+  {
+    "id": 497,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1850,
+    "new_price": 1705,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 1999-12-31"
+  },
+  {
+    "id": 498,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1705,
+    "new_price": 1854,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 15-08-1980"
+  },
+  {
+    "id": 499,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1854,
+    "new_price": 1658,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 01/01/2000"
+  },
+  {
+    "id": 502,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1658,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm"
+  },
+  {
+    "id": 503,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1650,
+    "new_price": 1680,
+    "date": "02-11-2026",
+    "note": "Playwright E2E Verification Adjustment"
+  },
+  {
+    "id": 504,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1680,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm"
+  },
+  {
+    "id": 505,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3"
+  },
+  {
+    "id": 506,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab"
+  },
+  {
+    "id": 509,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1650,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm"
+  },
+  {
+    "id": 510,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3"
+  },
+  {
+    "id": 511,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab"
+  },
+  {
+    "id": 519,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2850,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Khôi phục trạng thái sau kiểm thử tự động M3"
+  },
+  {
+    "id": 520,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3"
+  },
+  {
+    "id": 521,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab"
+  },
+  {
+    "id": 529,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2850,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Khôi phục trạng thái sau kiểm thử tự động M3"
+  },
+  {
+    "id": 530,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3"
+  },
+  {
+    "id": 531,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab"
+  },
+  {
+    "id": 532,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1650,
+    "new_price": 2100,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #1 (2100)"
+  },
+  {
+    "id": 533,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2100,
+    "new_price": 2101,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #2 (2101)"
+  },
+  {
+    "id": 534,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2101,
+    "new_price": 2109,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #10 (2109)"
+  },
+  {
+    "id": 535,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2109,
+    "new_price": 2102,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #3 (2102)"
+  },
+  {
+    "id": 536,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2102,
+    "new_price": 2103,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #4 (2103)"
+  },
+  {
+    "id": 537,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2103,
+    "new_price": 2104,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #5 (2104)"
+  },
+  {
+    "id": 538,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2104,
+    "new_price": 2105,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #6 (2105)"
+  },
+  {
+    "id": 539,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2105,
+    "new_price": 2106,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #7 (2106)"
+  },
+  {
+    "id": 540,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2106,
+    "new_price": 2107,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #8 (2107)"
+  },
+  {
+    "id": 541,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2107,
+    "new_price": 2108,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #9 (2108)"
+  },
+  {
+    "id": 542,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2108,
+    "new_price": 2110,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #11 (2110)"
+  },
+  {
+    "id": 543,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2110,
+    "new_price": 2111,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #12 (2111)"
+  },
+  {
+    "id": 544,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2111,
+    "new_price": 2112,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #13 (2112)"
+  },
+  {
+    "id": 545,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2112,
+    "new_price": 2113,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #14 (2113)"
+  },
+  {
+    "id": 546,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2113,
+    "new_price": 2114,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #15 (2114)"
+  },
+  {
+    "id": 547,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3000,
+    "new_price": 3001,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #1"
+  },
+  {
+    "id": 548,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3001,
+    "new_price": 3002,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #2"
+  },
+  {
+    "id": 549,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3002,
+    "new_price": 3003,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #3"
+  },
+  {
+    "id": 550,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3003,
+    "new_price": 3004,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #4"
+  },
+  {
+    "id": 551,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3004,
+    "new_price": 3005,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #5"
+  },
+  {
+    "id": 552,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3005,
+    "new_price": 3006,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #6"
+  },
+  {
+    "id": 553,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3006,
+    "new_price": 3007,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #7"
+  },
+  {
+    "id": 554,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3007,
+    "new_price": 3008,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #8"
+  },
+  {
+    "id": 555,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3008,
+    "new_price": 3009,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #9"
+  },
+  {
+    "id": 556,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3009,
+    "new_price": 3010,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #10"
+  },
+  {
+    "id": 557,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3010,
+    "new_price": 0,
+    "date": "02-11-2026",
+    "note": "Tặng tranh tri ân (giá 0 USD)"
+  },
+  {
+    "id": 558,
+    "painting_id": "DVS-SD-01",
+    "old_price": 0,
+    "new_price": 1750.75,
+    "date": "02-11-2026",
+    "note": "Giá thập phân đấu giá quốc tế"
+  },
+  {
+    "id": 559,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1750.75,
+    "new_price": 50000000,
+    "date": "02-11-2026",
+    "note": "Định giá tác phẩm kiệt tác"
+  },
+  {
+    "id": 560,
+    "painting_id": "DVS-SD-01",
+    "old_price": 50000000,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm"
+  },
+  {
+    "id": 561,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1610,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 01-01-2000"
+  },
+  {
+    "id": 562,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1610,
+    "new_price": 1898,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 1999-12-31"
+  },
+  {
+    "id": 563,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1898,
+    "new_price": 1758,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 15-08-1980"
+  },
+  {
+    "id": 564,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1758,
+    "new_price": 1815,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 01/01/2000"
+  },
+  {
+    "id": 567,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1815,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm"
+  },
+  {
+    "id": 568,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1650,
+    "new_price": 2777,
+    "date": "02-11-2026",
+    "note": "Dedup test 1",
+    "created_at": "2026-11-02T10:00:01.840Z"
+  },
+  {
+    "id": 569,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2777,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-02T10:00:17.734Z"
+  },
+  {
+    "id": 570,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:00:25.553Z"
+  },
+  {
+    "id": 571,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab",
+    "created_at": "2026-11-02T10:00:25.698Z"
+  },
+  {
+    "id": 573,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2850,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Khôi phục trạng thái sau kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:00:25.754Z"
+  },
+  {
+    "id": 574,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:01:55.684Z"
+  },
+  {
+    "id": 575,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab",
+    "created_at": "2026-11-02T10:01:55.826Z"
+  },
+  {
+    "id": 577,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2850,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Khôi phục trạng thái sau kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:01:55.880Z"
+  },
+  {
+    "id": 578,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:02:01.161Z"
+  },
+  {
+    "id": 579,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab",
+    "created_at": "2026-11-02T10:02:01.379Z"
+  },
+  {
+    "id": 581,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2850,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Khôi phục trạng thái sau kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:02:01.538Z"
+  },
+  {
+    "id": 582,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 2100,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #1 (2100)",
+    "created_at": "2026-11-02T10:02:06.036Z"
+  },
+  {
+    "id": 583,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2100,
+    "new_price": 2101,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #2 (2101)",
+    "created_at": "2026-11-02T10:02:06.055Z"
+  },
+  {
+    "id": 584,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2101,
+    "new_price": 2102,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #3 (2102)",
+    "created_at": "2026-11-02T10:02:06.059Z"
+  },
+  {
+    "id": 585,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2102,
+    "new_price": 2103,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #4 (2103)",
+    "created_at": "2026-11-02T10:02:06.063Z"
+  },
+  {
+    "id": 586,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2103,
+    "new_price": 2104,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #5 (2104)",
+    "created_at": "2026-11-02T10:02:06.068Z"
+  },
+  {
+    "id": 587,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2104,
+    "new_price": 2105,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #6 (2105)",
+    "created_at": "2026-11-02T10:02:06.073Z"
+  },
+  {
+    "id": 588,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2105,
+    "new_price": 2106,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #7 (2106)",
+    "created_at": "2026-11-02T10:02:06.077Z"
+  },
+  {
+    "id": 589,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2106,
+    "new_price": 2107,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #8 (2107)",
+    "created_at": "2026-11-02T10:02:06.094Z"
+  },
+  {
+    "id": 590,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2107,
+    "new_price": 2108,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #9 (2108)",
+    "created_at": "2026-11-02T10:02:06.099Z"
+  },
+  {
+    "id": 591,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2108,
+    "new_price": 2109,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #10 (2109)",
+    "created_at": "2026-11-02T10:02:06.103Z"
+  },
+  {
+    "id": 592,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2109,
+    "new_price": 2110,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #11 (2110)",
+    "created_at": "2026-11-02T10:02:06.107Z"
+  },
+  {
+    "id": 593,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2110,
+    "new_price": 2111,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #12 (2111)",
+    "created_at": "2026-11-02T10:02:06.112Z"
+  },
+  {
+    "id": 594,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2111,
+    "new_price": 2112,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #13 (2112)",
+    "created_at": "2026-11-02T10:02:06.128Z"
+  },
+  {
+    "id": 595,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2112,
+    "new_price": 2113,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #14 (2113)",
+    "created_at": "2026-11-02T10:02:06.132Z"
+  },
+  {
+    "id": 596,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2113,
+    "new_price": 2114,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #15 (2114)",
+    "created_at": "2026-11-02T10:02:06.140Z"
+  },
+  {
+    "id": 597,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3000,
+    "new_price": 3001,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #1",
+    "created_at": "2026-11-02T10:02:06.159Z"
+  },
+  {
+    "id": 598,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3001,
+    "new_price": 3002,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #2",
+    "created_at": "2026-11-02T10:02:06.163Z"
+  },
+  {
+    "id": 599,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3002,
+    "new_price": 3003,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #3",
+    "created_at": "2026-11-02T10:02:06.167Z"
+  },
+  {
+    "id": 600,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3003,
+    "new_price": 3004,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #4",
+    "created_at": "2026-11-02T10:02:06.171Z"
+  },
+  {
+    "id": 601,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3004,
+    "new_price": 3005,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #5",
+    "created_at": "2026-11-02T10:02:06.175Z"
+  },
+  {
+    "id": 602,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3005,
+    "new_price": 3006,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #6",
+    "created_at": "2026-11-02T10:02:06.179Z"
+  },
+  {
+    "id": 603,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3006,
+    "new_price": 3007,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #7",
+    "created_at": "2026-11-02T10:02:06.183Z"
+  },
+  {
+    "id": 604,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3007,
+    "new_price": 3008,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #8",
+    "created_at": "2026-11-02T10:02:06.186Z"
+  },
+  {
+    "id": 605,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3008,
+    "new_price": 3009,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #9",
+    "created_at": "2026-11-02T10:02:06.191Z"
+  },
+  {
+    "id": 606,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3009,
+    "new_price": 3010,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #10",
+    "created_at": "2026-11-02T10:02:06.195Z"
+  },
+  {
+    "id": 607,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3010,
+    "new_price": 0,
+    "date": "02-11-2026",
+    "note": "Tặng tranh tri ân (giá 0 USD)",
+    "created_at": "2026-11-02T10:02:06.212Z"
+  },
+  {
+    "id": 608,
+    "painting_id": "DVS-SD-01",
+    "old_price": 0,
+    "new_price": 1750.75,
+    "date": "02-11-2026",
+    "note": "Giá thập phân đấu giá quốc tế",
+    "created_at": "2026-11-02T10:02:06.341Z"
+  },
+  {
+    "id": 609,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1750.75,
+    "new_price": 50000000,
+    "date": "02-11-2026",
+    "note": "Định giá tác phẩm kiệt tác",
+    "created_at": "2026-11-02T10:02:06.370Z"
+  },
+  {
+    "id": 610,
+    "painting_id": "DVS-SD-01",
+    "old_price": 50000000,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-02T10:02:06.386Z"
+  },
+  {
+    "id": 611,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1788,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 01-01-2000",
+    "created_at": "2026-11-02T10:02:06.394Z"
+  },
+  {
+    "id": 612,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1788,
+    "new_price": 1799,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 1999-12-31",
+    "created_at": "2026-11-02T10:02:06.430Z"
+  },
+  {
+    "id": 613,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1799,
+    "new_price": 1703,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 15-08-1980",
+    "created_at": "2026-11-02T10:02:06.464Z"
+  },
+  {
+    "id": 614,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1703,
+    "new_price": 1763,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 01/01/2000",
+    "created_at": "2026-11-02T10:02:06.497Z"
+  },
+  {
+    "id": 615,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1763,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-02T10:02:06.662Z"
+  },
+  {
+    "id": 616,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1680,
+    "date": "02-11-2026",
+    "note": "Playwright E2E Verification Adjustment",
+    "created_at": "2026-11-02T10:02:15.423Z"
+  },
+  {
+    "id": 617,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1680,
+    "new_price": 2888,
+    "date": "02-11-2026",
+    "note": "Multi-tap ref lock verification",
+    "created_at": "2026-11-02T10:02:58.677Z"
+  },
+  {
+    "id": 618,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2888,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-02T10:03:40.299Z"
+  },
+  {
+    "id": 619,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:03:40.307Z"
+  },
+  {
+    "id": 620,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab",
+    "created_at": "2026-11-02T10:03:40.447Z"
+  },
+  {
+    "id": 622,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2850,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Khôi phục trạng thái sau kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:03:40.506Z"
+  },
+  {
+    "id": 623,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:03:41.118Z"
+  },
+  {
+    "id": 624,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab",
+    "created_at": "2026-11-02T10:03:41.241Z"
+  },
+  {
+    "id": 626,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2850,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Khôi phục trạng thái sau kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:03:41.292Z"
+  },
+  {
+    "id": 627,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 2100,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #1 (2100)",
+    "created_at": "2026-11-02T10:03:41.672Z"
+  },
+  {
+    "id": 628,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2100,
+    "new_price": 2101,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #2 (2101)",
+    "created_at": "2026-11-02T10:03:41.688Z"
+  },
+  {
+    "id": 629,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2101,
+    "new_price": 2102,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #3 (2102)",
+    "created_at": "2026-11-02T10:03:41.691Z"
+  },
+  {
+    "id": 630,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2102,
+    "new_price": 2111,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #12 (2111)",
+    "created_at": "2026-11-02T10:03:41.695Z"
+  },
+  {
+    "id": 631,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2111,
+    "new_price": 2112,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #13 (2112)",
+    "created_at": "2026-11-02T10:03:41.699Z"
+  },
+  {
+    "id": 632,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2112,
+    "new_price": 2103,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #4 (2103)",
+    "created_at": "2026-11-02T10:03:41.703Z"
+  },
+  {
+    "id": 633,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2103,
+    "new_price": 2104,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #5 (2104)",
+    "created_at": "2026-11-02T10:03:41.706Z"
+  },
+  {
+    "id": 634,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2104,
+    "new_price": 2105,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #6 (2105)",
+    "created_at": "2026-11-02T10:03:41.712Z"
+  },
+  {
+    "id": 635,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2105,
+    "new_price": 2106,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #7 (2106)",
+    "created_at": "2026-11-02T10:03:41.715Z"
+  },
+  {
+    "id": 636,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2106,
+    "new_price": 2107,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #8 (2107)",
+    "created_at": "2026-11-02T10:03:41.719Z"
+  },
+  {
+    "id": 637,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2107,
+    "new_price": 2108,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #9 (2108)",
+    "created_at": "2026-11-02T10:03:41.723Z"
+  },
+  {
+    "id": 638,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2108,
+    "new_price": 2109,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #10 (2109)",
+    "created_at": "2026-11-02T10:03:41.727Z"
+  },
+  {
+    "id": 639,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2109,
+    "new_price": 2110,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #11 (2110)",
+    "created_at": "2026-11-02T10:03:41.731Z"
+  },
+  {
+    "id": 640,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2110,
+    "new_price": 2113,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #14 (2113)",
+    "created_at": "2026-11-02T10:03:41.735Z"
+  },
+  {
+    "id": 641,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2113,
+    "new_price": 2114,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #15 (2114)",
+    "created_at": "2026-11-02T10:03:41.739Z"
+  },
+  {
+    "id": 642,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3000,
+    "new_price": 3001,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #1",
+    "created_at": "2026-11-02T10:03:41.751Z"
+  },
+  {
+    "id": 643,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3001,
+    "new_price": 3002,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #2",
+    "created_at": "2026-11-02T10:03:41.755Z"
+  },
+  {
+    "id": 644,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3002,
+    "new_price": 3003,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #3",
+    "created_at": "2026-11-02T10:03:41.759Z"
+  },
+  {
+    "id": 645,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3003,
+    "new_price": 3004,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #4",
+    "created_at": "2026-11-02T10:03:41.764Z"
+  },
+  {
+    "id": 646,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3004,
+    "new_price": 3005,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #5",
+    "created_at": "2026-11-02T10:03:41.769Z"
+  },
+  {
+    "id": 647,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3005,
+    "new_price": 3006,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #6",
+    "created_at": "2026-11-02T10:03:41.776Z"
+  },
+  {
+    "id": 648,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3006,
+    "new_price": 3007,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #7",
+    "created_at": "2026-11-02T10:03:41.780Z"
+  },
+  {
+    "id": 649,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3007,
+    "new_price": 3008,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #8",
+    "created_at": "2026-11-02T10:03:41.784Z"
+  },
+  {
+    "id": 650,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3008,
+    "new_price": 3009,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #9",
+    "created_at": "2026-11-02T10:03:41.788Z"
+  },
+  {
+    "id": 651,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3009,
+    "new_price": 3010,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #10",
+    "created_at": "2026-11-02T10:03:41.793Z"
+  },
+  {
+    "id": 652,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3010,
+    "new_price": 0,
+    "date": "02-11-2026",
+    "note": "Tặng tranh tri ân (giá 0 USD)",
+    "created_at": "2026-11-02T10:03:41.803Z"
+  },
+  {
+    "id": 653,
+    "painting_id": "DVS-SD-01",
+    "old_price": 0,
+    "new_price": 1750.75,
+    "date": "02-11-2026",
+    "note": "Giá thập phân đấu giá quốc tế",
+    "created_at": "2026-11-02T10:03:41.830Z"
+  },
+  {
+    "id": 654,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1750.75,
+    "new_price": 50000000,
+    "date": "02-11-2026",
+    "note": "Định giá tác phẩm kiệt tác",
+    "created_at": "2026-11-02T10:03:41.838Z"
+  },
+  {
+    "id": 655,
+    "painting_id": "DVS-SD-01",
+    "old_price": 50000000,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-02T10:03:41.844Z"
+  },
+  {
+    "id": 656,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1866,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 01-01-2000",
+    "created_at": "2026-11-02T10:03:41.849Z"
+  },
+  {
+    "id": 657,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1866,
+    "new_price": 1684,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 1999-12-31",
+    "created_at": "2026-11-02T10:03:41.856Z"
+  },
+  {
+    "id": 658,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1684,
+    "new_price": 1826,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 15-08-1980",
+    "created_at": "2026-11-02T10:03:41.864Z"
+  },
+  {
+    "id": 659,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1826,
+    "new_price": 1891,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 01/01/2000",
+    "created_at": "2026-11-02T10:03:41.872Z"
+  },
+  {
+    "id": 660,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1891,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-02T10:03:41.901Z"
+  },
+  {
+    "id": 661,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1680,
+    "date": "02-11-2026",
+    "note": "Playwright E2E Verification Adjustment",
+    "created_at": "2026-11-02T10:03:46.502Z"
+  },
+  {
+    "id": 662,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1680,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-02T10:03:58.650Z"
+  },
+  {
+    "id": 663,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 2100,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #1 (2100)",
+    "created_at": "2026-11-02T10:08:57.926Z"
+  },
+  {
+    "id": 664,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2100,
+    "new_price": 2101,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #2 (2101)",
+    "created_at": "2026-11-02T10:08:57.943Z"
+  },
+  {
+    "id": 665,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2101,
+    "new_price": 2102,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #3 (2102)",
+    "created_at": "2026-11-02T10:08:57.948Z"
+  },
+  {
+    "id": 666,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2102,
+    "new_price": 2103,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #4 (2103)",
+    "created_at": "2026-11-02T10:08:57.952Z"
+  },
+  {
+    "id": 667,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2103,
+    "new_price": 2104,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #5 (2104)",
+    "created_at": "2026-11-02T10:08:57.955Z"
+  },
+  {
+    "id": 668,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2104,
+    "new_price": 2105,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #6 (2105)",
+    "created_at": "2026-11-02T10:08:57.959Z"
+  },
+  {
+    "id": 669,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2105,
+    "new_price": 2106,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #7 (2106)",
+    "created_at": "2026-11-02T10:08:57.963Z"
+  },
+  {
+    "id": 670,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2106,
+    "new_price": 2107,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #8 (2107)",
+    "created_at": "2026-11-02T10:08:57.967Z"
+  },
+  {
+    "id": 671,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2107,
+    "new_price": 2108,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #9 (2108)",
+    "created_at": "2026-11-02T10:08:57.972Z"
+  },
+  {
+    "id": 672,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2108,
+    "new_price": 2109,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #10 (2109)",
+    "created_at": "2026-11-02T10:08:57.975Z"
+  },
+  {
+    "id": 673,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2109,
+    "new_price": 2110,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #11 (2110)",
+    "created_at": "2026-11-02T10:08:57.979Z"
+  },
+  {
+    "id": 674,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2110,
+    "new_price": 2111,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #12 (2111)",
+    "created_at": "2026-11-02T10:08:57.984Z"
+  },
+  {
+    "id": 675,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2111,
+    "new_price": 2112,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #13 (2112)",
+    "created_at": "2026-11-02T10:08:57.988Z"
+  },
+  {
+    "id": 676,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2112,
+    "new_price": 2113,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #14 (2113)",
+    "created_at": "2026-11-02T10:08:57.992Z"
+  },
+  {
+    "id": 677,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2113,
+    "new_price": 2114,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #15 (2114)",
+    "created_at": "2026-11-02T10:08:57.998Z"
+  },
+  {
+    "id": 678,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3000,
+    "new_price": 3001,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #1",
+    "created_at": "2026-11-02T10:08:58.008Z"
+  },
+  {
+    "id": 679,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3001,
+    "new_price": 3002,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #2",
+    "created_at": "2026-11-02T10:08:58.014Z"
+  },
+  {
+    "id": 680,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3002,
+    "new_price": 3003,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #3",
+    "created_at": "2026-11-02T10:08:58.020Z"
+  },
+  {
+    "id": 681,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3003,
+    "new_price": 3004,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #4",
+    "created_at": "2026-11-02T10:08:58.024Z"
+  },
+  {
+    "id": 682,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3004,
+    "new_price": 3005,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #5",
+    "created_at": "2026-11-02T10:08:58.029Z"
+  },
+  {
+    "id": 683,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3005,
+    "new_price": 3006,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #6",
+    "created_at": "2026-11-02T10:08:58.033Z"
+  },
+  {
+    "id": 684,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3006,
+    "new_price": 3007,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #7",
+    "created_at": "2026-11-02T10:08:58.038Z"
+  },
+  {
+    "id": 685,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3007,
+    "new_price": 3008,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #8",
+    "created_at": "2026-11-02T10:08:58.044Z"
+  },
+  {
+    "id": 686,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3008,
+    "new_price": 3009,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #9",
+    "created_at": "2026-11-02T10:08:58.050Z"
+  },
+  {
+    "id": 687,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3009,
+    "new_price": 3010,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #10",
+    "created_at": "2026-11-02T10:08:58.055Z"
+  },
+  {
+    "id": 688,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3010,
+    "new_price": 0,
+    "date": "02-11-2026",
+    "note": "Tặng tranh tri ân (giá 0 USD)",
+    "created_at": "2026-11-02T10:08:58.066Z"
+  },
+  {
+    "id": 689,
+    "painting_id": "DVS-SD-01",
+    "old_price": 0,
+    "new_price": 1750.75,
+    "date": "02-11-2026",
+    "note": "Giá thập phân đấu giá quốc tế",
+    "created_at": "2026-11-02T10:08:58.094Z"
+  },
+  {
+    "id": 690,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1750.75,
+    "new_price": 50000000,
+    "date": "02-11-2026",
+    "note": "Định giá tác phẩm kiệt tác",
+    "created_at": "2026-11-02T10:08:58.102Z"
+  },
+  {
+    "id": 691,
+    "painting_id": "DVS-SD-01",
+    "old_price": 50000000,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-02T10:08:58.108Z"
+  },
+  {
+    "id": 692,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1757,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 01-01-2000",
+    "created_at": "2026-11-02T10:08:58.114Z"
+  },
+  {
+    "id": 693,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1757,
+    "new_price": 1889,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 1999-12-31",
+    "created_at": "2026-11-02T10:08:58.121Z"
+  },
+  {
+    "id": 694,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1889,
+    "new_price": 1607,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 15-08-1980",
+    "created_at": "2026-11-02T10:08:58.130Z"
+  },
+  {
+    "id": 695,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1607,
+    "new_price": 1702,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 01/01/2000",
+    "created_at": "2026-11-02T10:08:58.137Z"
+  },
+  {
+    "id": 696,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1702,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-02T10:08:58.163Z"
+  },
+  {
+    "id": 697,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:09:39.629Z"
+  },
+  {
+    "id": 698,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab",
+    "created_at": "2026-11-02T10:09:39.764Z"
+  },
+  {
+    "id": 700,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2850,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Khôi phục trạng thái sau kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:09:39.834Z"
+  },
+  {
+    "id": 701,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:09:43.336Z"
+  },
+  {
+    "id": 702,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab",
+    "created_at": "2026-11-02T10:09:43.532Z"
+  },
+  {
+    "id": 704,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2850,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Khôi phục trạng thái sau kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:09:43.714Z"
+  },
+  {
+    "id": 705,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1680,
+    "date": "02-11-2026",
+    "note": "Playwright E2E Verification Adjustment",
+    "created_at": "2026-11-02T10:09:51.972Z"
+  },
+  {
+    "id": 706,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1680,
+    "new_price": 2100,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #1 (2100)",
+    "created_at": "2026-11-02T10:10:02.771Z"
+  },
+  {
+    "id": 707,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2100,
+    "new_price": 2101,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #2 (2101)",
+    "created_at": "2026-11-02T10:10:02.787Z"
+  },
+  {
+    "id": 708,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2101,
+    "new_price": 2102,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #3 (2102)",
+    "created_at": "2026-11-02T10:10:02.790Z"
+  },
+  {
+    "id": 709,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2102,
+    "new_price": 2103,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #4 (2103)",
+    "created_at": "2026-11-02T10:10:02.794Z"
+  },
+  {
+    "id": 710,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2103,
+    "new_price": 2104,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #5 (2104)",
+    "created_at": "2026-11-02T10:10:02.798Z"
+  },
+  {
+    "id": 711,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2104,
+    "new_price": 2105,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #6 (2105)",
+    "created_at": "2026-11-02T10:10:02.802Z"
+  },
+  {
+    "id": 712,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2105,
+    "new_price": 2106,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #7 (2106)",
+    "created_at": "2026-11-02T10:10:02.806Z"
+  },
+  {
+    "id": 713,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2106,
+    "new_price": 2107,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #8 (2107)",
+    "created_at": "2026-11-02T10:10:02.809Z"
+  },
+  {
+    "id": 714,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2107,
+    "new_price": 2108,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #9 (2108)",
+    "created_at": "2026-11-02T10:10:02.814Z"
+  },
+  {
+    "id": 715,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2108,
+    "new_price": 2109,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #10 (2109)",
+    "created_at": "2026-11-02T10:10:02.818Z"
+  },
+  {
+    "id": 716,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2109,
+    "new_price": 2110,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #11 (2110)",
+    "created_at": "2026-11-02T10:10:02.821Z"
+  },
+  {
+    "id": 717,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2110,
+    "new_price": 2111,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #12 (2111)",
+    "created_at": "2026-11-02T10:10:02.825Z"
+  },
+  {
+    "id": 718,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2111,
+    "new_price": 2112,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #13 (2112)",
+    "created_at": "2026-11-02T10:10:02.829Z"
+  },
+  {
+    "id": 719,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2112,
+    "new_price": 2113,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #14 (2113)",
+    "created_at": "2026-11-02T10:10:02.833Z"
+  },
+  {
+    "id": 720,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2113,
+    "new_price": 2114,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #15 (2114)",
+    "created_at": "2026-11-02T10:10:02.837Z"
+  },
+  {
+    "id": 721,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3000,
+    "new_price": 3001,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #1",
+    "created_at": "2026-11-02T10:10:02.848Z"
+  },
+  {
+    "id": 722,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3001,
+    "new_price": 3002,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #2",
+    "created_at": "2026-11-02T10:10:02.853Z"
+  },
+  {
+    "id": 723,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3002,
+    "new_price": 3003,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #3",
+    "created_at": "2026-11-02T10:10:02.857Z"
+  },
+  {
+    "id": 724,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3003,
+    "new_price": 3004,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #4",
+    "created_at": "2026-11-02T10:10:02.861Z"
+  },
+  {
+    "id": 725,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3004,
+    "new_price": 3005,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #5",
+    "created_at": "2026-11-02T10:10:02.865Z"
+  },
+  {
+    "id": 726,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3005,
+    "new_price": 3006,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #6",
+    "created_at": "2026-11-02T10:10:02.871Z"
+  },
+  {
+    "id": 727,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3006,
+    "new_price": 3007,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #7",
+    "created_at": "2026-11-02T10:10:02.876Z"
+  },
+  {
+    "id": 728,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3007,
+    "new_price": 3008,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #8",
+    "created_at": "2026-11-02T10:10:02.881Z"
+  },
+  {
+    "id": 729,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3008,
+    "new_price": 3009,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #9",
+    "created_at": "2026-11-02T10:10:02.886Z"
+  },
+  {
+    "id": 730,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3009,
+    "new_price": 3010,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #10",
+    "created_at": "2026-11-02T10:10:02.891Z"
+  },
+  {
+    "id": 731,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3010,
+    "new_price": 0,
+    "date": "02-11-2026",
+    "note": "Tặng tranh tri ân (giá 0 USD)",
+    "created_at": "2026-11-02T10:10:02.901Z"
+  },
+  {
+    "id": 732,
+    "painting_id": "DVS-SD-01",
+    "old_price": 0,
+    "new_price": 1750.75,
+    "date": "02-11-2026",
+    "note": "Giá thập phân đấu giá quốc tế",
+    "created_at": "2026-11-02T10:10:02.927Z"
+  },
+  {
+    "id": 733,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1750.75,
+    "new_price": 50000000,
+    "date": "02-11-2026",
+    "note": "Định giá tác phẩm kiệt tác",
+    "created_at": "2026-11-02T10:10:02.935Z"
+  },
+  {
+    "id": 734,
+    "painting_id": "DVS-SD-01",
+    "old_price": 50000000,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-02T10:10:02.941Z"
+  },
+  {
+    "id": 735,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1871,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 01-01-2000",
+    "created_at": "2026-11-02T10:10:02.946Z"
+  },
+  {
+    "id": 736,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1871,
+    "new_price": 1623,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 1999-12-31",
+    "created_at": "2026-11-02T10:10:02.954Z"
+  },
+  {
+    "id": 737,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1623,
+    "new_price": 1753,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 15-08-1980",
+    "created_at": "2026-11-02T10:10:02.963Z"
+  },
+  {
+    "id": 738,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1753,
+    "new_price": 1893,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 01/01/2000",
+    "created_at": "2026-11-02T10:10:02.971Z"
+  },
+  {
+    "id": 739,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1893,
+    "new_price": 1680,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-02T10:10:03.008Z"
+  },
+  {
+    "id": 740,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1680,
+    "new_price": 2888,
+    "date": "02-11-2026",
+    "note": "Empirical Challenger Multi-Tap Rapid Clicks Test",
+    "created_at": "2026-11-02T10:10:40.692Z"
+  },
+  {
+    "id": 741,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2888,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-02T10:10:42.957Z"
+  },
+  {
+    "id": 742,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:10:42.976Z"
+  },
+  {
+    "id": 743,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab",
+    "created_at": "2026-11-02T10:10:43.205Z"
+  },
+  {
+    "id": 745,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2850,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Khôi phục trạng thái sau kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:10:43.385Z"
+  },
+  {
+    "id": 746,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:10:48.345Z"
+  },
+  {
+    "id": 747,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab",
+    "created_at": "2026-11-02T10:10:48.639Z"
+  },
+  {
+    "id": 749,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2850,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Khôi phục trạng thái sau kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:10:48.905Z"
+  },
+  {
+    "id": 750,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 2100,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #1 (2100)",
+    "created_at": "2026-11-02T10:10:53.723Z"
+  },
+  {
+    "id": 751,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2100,
+    "new_price": 2101,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #2 (2101)",
+    "created_at": "2026-11-02T10:10:53.740Z"
+  },
+  {
+    "id": 752,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2101,
+    "new_price": 2102,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #3 (2102)",
+    "created_at": "2026-11-02T10:10:53.744Z"
+  },
+  {
+    "id": 753,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2102,
+    "new_price": 2103,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #4 (2103)",
+    "created_at": "2026-11-02T10:10:53.748Z"
+  },
+  {
+    "id": 754,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2103,
+    "new_price": 2104,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #5 (2104)",
+    "created_at": "2026-11-02T10:10:53.752Z"
+  },
+  {
+    "id": 755,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2104,
+    "new_price": 2105,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #6 (2105)",
+    "created_at": "2026-11-02T10:10:53.756Z"
+  },
+  {
+    "id": 756,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2105,
+    "new_price": 2106,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #7 (2106)",
+    "created_at": "2026-11-02T10:10:53.773Z"
+  },
+  {
+    "id": 757,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2106,
+    "new_price": 2107,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #8 (2107)",
+    "created_at": "2026-11-02T10:10:53.777Z"
+  },
+  {
+    "id": 758,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2107,
+    "new_price": 2108,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #9 (2108)",
+    "created_at": "2026-11-02T10:10:53.782Z"
+  },
+  {
+    "id": 759,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2108,
+    "new_price": 2109,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #10 (2109)",
+    "created_at": "2026-11-02T10:10:53.787Z"
+  },
+  {
+    "id": 760,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2109,
+    "new_price": 2110,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #11 (2110)",
+    "created_at": "2026-11-02T10:10:53.793Z"
+  },
+  {
+    "id": 761,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2110,
+    "new_price": 2111,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #12 (2111)",
+    "created_at": "2026-11-02T10:10:53.813Z"
+  },
+  {
+    "id": 762,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2111,
+    "new_price": 2112,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #13 (2112)",
+    "created_at": "2026-11-02T10:10:53.819Z"
+  },
+  {
+    "id": 763,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2112,
+    "new_price": 2113,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #14 (2113)",
+    "created_at": "2026-11-02T10:10:53.827Z"
+  },
+  {
+    "id": 764,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2113,
+    "new_price": 2114,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #15 (2114)",
+    "created_at": "2026-11-02T10:10:53.833Z"
+  },
+  {
+    "id": 765,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3000,
+    "new_price": 3001,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #1",
+    "created_at": "2026-11-02T10:10:53.848Z"
+  },
+  {
+    "id": 766,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3001,
+    "new_price": 3002,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #2",
+    "created_at": "2026-11-02T10:10:53.852Z"
+  },
+  {
+    "id": 767,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3002,
+    "new_price": 3003,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #3",
+    "created_at": "2026-11-02T10:10:53.857Z"
+  },
+  {
+    "id": 768,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3003,
+    "new_price": 3004,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #4",
+    "created_at": "2026-11-02T10:10:53.862Z"
+  },
+  {
+    "id": 769,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3004,
+    "new_price": 3005,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #5",
+    "created_at": "2026-11-02T10:10:53.867Z"
+  },
+  {
+    "id": 770,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3005,
+    "new_price": 3006,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #6",
+    "created_at": "2026-11-02T10:10:53.871Z"
+  },
+  {
+    "id": 771,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3006,
+    "new_price": 3007,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #7",
+    "created_at": "2026-11-02T10:10:53.877Z"
+  },
+  {
+    "id": 772,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3007,
+    "new_price": 3008,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #8",
+    "created_at": "2026-11-02T10:10:53.882Z"
+  },
+  {
+    "id": 773,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3008,
+    "new_price": 3009,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #9",
+    "created_at": "2026-11-02T10:10:53.887Z"
+  },
+  {
+    "id": 774,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3009,
+    "new_price": 3010,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #10",
+    "created_at": "2026-11-02T10:10:53.892Z"
+  },
+  {
+    "id": 775,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3010,
+    "new_price": 0,
+    "date": "02-11-2026",
+    "note": "Tặng tranh tri ân (giá 0 USD)",
+    "created_at": "2026-11-02T10:10:53.911Z"
+  },
+  {
+    "id": 776,
+    "painting_id": "DVS-SD-01",
+    "old_price": 0,
+    "new_price": 1750.75,
+    "date": "02-11-2026",
+    "note": "Giá thập phân đấu giá quốc tế",
+    "created_at": "2026-11-02T10:10:54.034Z"
+  },
+  {
+    "id": 777,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1750.75,
+    "new_price": 50000000,
+    "date": "02-11-2026",
+    "note": "Định giá tác phẩm kiệt tác",
+    "created_at": "2026-11-02T10:10:54.068Z"
+  },
+  {
+    "id": 778,
+    "painting_id": "DVS-SD-01",
+    "old_price": 50000000,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-02T10:10:54.086Z"
+  },
+  {
+    "id": 779,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1774,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 01-01-2000",
+    "created_at": "2026-11-02T10:10:54.106Z"
+  },
+  {
+    "id": 780,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1774,
+    "new_price": 1744,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 1999-12-31",
+    "created_at": "2026-11-02T10:10:54.143Z"
+  },
+  {
+    "id": 781,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1744,
+    "new_price": 1736,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 15-08-1980",
+    "created_at": "2026-11-02T10:10:54.174Z"
+  },
+  {
+    "id": 782,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1736,
+    "new_price": 1699,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 01/01/2000",
+    "created_at": "2026-11-02T10:10:54.204Z"
+  },
+  {
+    "id": 783,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1699,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-02T10:10:54.358Z"
+  },
+  {
+    "id": 784,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 7789,
+    "date": "02-11-2026",
+    "note": "Challenger-Multi-Tap-Unique-7789",
+    "created_at": "2026-11-02T10:10:57.937Z"
+  },
+  {
+    "id": 785,
+    "painting_id": "DVS-SD-01",
+    "old_price": 7789,
+    "new_price": 1999,
+    "date": "02-11-2026",
+    "note": "dedup test 1",
+    "created_at": "2026-11-02T10:11:03.680Z"
+  },
+  {
+    "id": 786,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1999,
+    "new_price": 8899,
+    "date": "02-11-2026",
+    "note": "Backend 3s deduplication test",
+    "created_at": "2026-11-02T10:11:09.181Z"
+  },
+  {
+    "id": 787,
+    "painting_id": "DVS-SD-01",
+    "old_price": 8899,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-02T10:11:12.542Z"
+  },
+  {
+    "id": 788,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:11:17.609Z"
+  },
+  {
+    "id": 789,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab",
+    "created_at": "2026-11-02T10:11:17.907Z"
+  },
+  {
+    "id": 791,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2850,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Khôi phục trạng thái sau kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:11:18.204Z"
+  },
+  {
+    "id": 792,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:11:18.734Z"
+  },
+  {
+    "id": 793,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab",
+    "created_at": "2026-11-02T10:11:19.083Z"
+  },
+  {
+    "id": 795,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2850,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Khôi phục trạng thái sau kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:11:19.337Z"
+  },
+  {
+    "id": 798,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:11:22.135Z"
+  },
+  {
+    "id": 799,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab",
+    "created_at": "2026-11-02T10:11:22.516Z"
+  },
+  {
+    "id": 801,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2850,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Khôi phục trạng thái sau kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:11:22.860Z"
+  },
+  {
+    "id": 802,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1680,
+    "date": "02-11-2026",
+    "note": "Playwright E2E Verification Adjustment",
+    "created_at": "2026-11-02T10:11:40.844Z"
+  },
+  {
+    "id": 803,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1680,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-02T10:11:49.264Z"
+  },
+  {
+    "id": 804,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:11:49.270Z"
+  },
+  {
+    "id": 805,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab",
+    "created_at": "2026-11-02T10:11:49.398Z"
+  },
+  {
+    "id": 807,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2850,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Khôi phục trạng thái sau kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:11:49.455Z"
+  },
+  {
+    "id": 808,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:12:45.416Z"
+  },
+  {
+    "id": 809,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab",
+    "created_at": "2026-11-02T10:12:45.561Z"
+  },
+  {
+    "id": 811,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2850,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Khôi phục trạng thái sau kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:12:45.624Z"
+  },
+  {
+    "id": 812,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1650,
+    "new_price": 1680,
+    "date": "02-11-2026",
+    "note": "Playwright E2E Verification Adjustment",
+    "created_at": "2026-11-02T10:13:14.702Z"
+  },
+  {
+    "id": 813,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1680,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-02T10:13:30.204Z"
+  },
+  {
+    "id": 814,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:13:30.215Z"
+  },
+  {
+    "id": 815,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab",
+    "created_at": "2026-11-02T10:13:30.355Z"
+  },
+  {
+    "id": 817,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2850,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Khôi phục trạng thái sau kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:13:30.434Z"
+  },
+  {
+    "id": 818,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2850,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-02T10:14:19.382Z"
+  },
+  {
+    "id": 819,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:14:19.395Z"
+  },
+  {
+    "id": 820,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab",
+    "created_at": "2026-11-02T10:14:19.559Z"
+  },
+  {
+    "id": 822,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2850,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Khôi phục trạng thái sau kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:14:19.635Z"
+  },
+  {
+    "id": 823,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:14:23.792Z"
+  },
+  {
+    "id": 824,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab",
+    "created_at": "2026-11-02T10:14:24.011Z"
+  },
+  {
+    "id": 826,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2850,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Khôi phục trạng thái sau kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:14:24.190Z"
+  },
+  {
+    "id": 827,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 2100,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #1 (2100)",
+    "created_at": "2026-11-02T10:14:28.152Z"
+  },
+  {
+    "id": 828,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2100,
+    "new_price": 2101,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #2 (2101)",
+    "created_at": "2026-11-02T10:14:28.172Z"
+  },
+  {
+    "id": 829,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2101,
+    "new_price": 2102,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #3 (2102)",
+    "created_at": "2026-11-02T10:14:28.177Z"
+  },
+  {
+    "id": 830,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2102,
+    "new_price": 2103,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #4 (2103)",
+    "created_at": "2026-11-02T10:14:28.181Z"
+  },
+  {
+    "id": 831,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2103,
+    "new_price": 2104,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #5 (2104)",
+    "created_at": "2026-11-02T10:14:28.188Z"
+  },
+  {
+    "id": 832,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2104,
+    "new_price": 2105,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #6 (2105)",
+    "created_at": "2026-11-02T10:14:28.195Z"
+  },
+  {
+    "id": 833,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2105,
+    "new_price": 2106,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #7 (2106)",
+    "created_at": "2026-11-02T10:14:28.202Z"
+  },
+  {
+    "id": 834,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2106,
+    "new_price": 2107,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #8 (2107)",
+    "created_at": "2026-11-02T10:14:28.221Z"
+  },
+  {
+    "id": 835,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2107,
+    "new_price": 2108,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #9 (2108)",
+    "created_at": "2026-11-02T10:14:28.227Z"
+  },
+  {
+    "id": 836,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2108,
+    "new_price": 2109,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #10 (2109)",
+    "created_at": "2026-11-02T10:14:28.234Z"
+  },
+  {
+    "id": 837,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2109,
+    "new_price": 2110,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #11 (2110)",
+    "created_at": "2026-11-02T10:14:28.240Z"
+  },
+  {
+    "id": 838,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2110,
+    "new_price": 2111,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #12 (2111)",
+    "created_at": "2026-11-02T10:14:28.246Z"
+  },
+  {
+    "id": 839,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2111,
+    "new_price": 2112,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #13 (2112)",
+    "created_at": "2026-11-02T10:14:28.267Z"
+  },
+  {
+    "id": 840,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2112,
+    "new_price": 2113,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #14 (2113)",
+    "created_at": "2026-11-02T10:14:28.273Z"
+  },
+  {
+    "id": 841,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2113,
+    "new_price": 2114,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #15 (2114)",
+    "created_at": "2026-11-02T10:14:28.277Z"
+  },
+  {
+    "id": 842,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3000,
+    "new_price": 3001,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #1",
+    "created_at": "2026-11-02T10:14:28.296Z"
+  },
+  {
+    "id": 843,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3001,
+    "new_price": 3002,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #2",
+    "created_at": "2026-11-02T10:14:28.302Z"
+  },
+  {
+    "id": 844,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3002,
+    "new_price": 3003,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #3",
+    "created_at": "2026-11-02T10:14:28.307Z"
+  },
+  {
+    "id": 845,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3003,
+    "new_price": 3004,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #4",
+    "created_at": "2026-11-02T10:14:28.313Z"
+  },
+  {
+    "id": 846,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3004,
+    "new_price": 3005,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #5",
+    "created_at": "2026-11-02T10:14:28.320Z"
+  },
+  {
+    "id": 847,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3005,
+    "new_price": 3006,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #6",
+    "created_at": "2026-11-02T10:14:28.325Z"
+  },
+  {
+    "id": 848,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3006,
+    "new_price": 3007,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #7",
+    "created_at": "2026-11-02T10:14:28.331Z"
+  },
+  {
+    "id": 849,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3007,
+    "new_price": 3008,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #8",
+    "created_at": "2026-11-02T10:14:28.337Z"
+  },
+  {
+    "id": 850,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3008,
+    "new_price": 3009,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #9",
+    "created_at": "2026-11-02T10:14:28.342Z"
+  },
+  {
+    "id": 851,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3009,
+    "new_price": 3010,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #10",
+    "created_at": "2026-11-02T10:14:28.348Z"
+  },
+  {
+    "id": 852,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3010,
+    "new_price": 0,
+    "date": "02-11-2026",
+    "note": "Tặng tranh tri ân (giá 0 USD)",
+    "created_at": "2026-11-02T10:14:28.371Z"
+  },
+  {
+    "id": 853,
+    "painting_id": "DVS-SD-01",
+    "old_price": 0,
+    "new_price": 1750.75,
+    "date": "02-11-2026",
+    "note": "Giá thập phân đấu giá quốc tế",
+    "created_at": "2026-11-02T10:14:28.495Z"
+  },
+  {
+    "id": 854,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1750.75,
+    "new_price": 50000000,
+    "date": "02-11-2026",
+    "note": "Định giá tác phẩm kiệt tác",
+    "created_at": "2026-11-02T10:14:28.529Z"
+  },
+  {
+    "id": 855,
+    "painting_id": "DVS-SD-01",
+    "old_price": 50000000,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-02T10:14:28.547Z"
+  },
+  {
+    "id": 856,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1812,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 01-01-2000",
+    "created_at": "2026-11-02T10:14:28.568Z"
+  },
+  {
+    "id": 857,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1812,
+    "new_price": 1770,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 1999-12-31",
+    "created_at": "2026-11-02T10:14:28.606Z"
+  },
+  {
+    "id": 858,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1770,
+    "new_price": 1745,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 15-08-1980",
+    "created_at": "2026-11-02T10:14:28.640Z"
+  },
+  {
+    "id": 859,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1745,
+    "new_price": 1812,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 01/01/2000",
+    "created_at": "2026-11-02T10:14:28.671Z"
+  },
+  {
+    "id": 860,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1812,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-02T10:14:28.846Z"
+  },
+  {
+    "id": 861,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:14:56.079Z"
+  },
+  {
+    "id": 862,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab",
+    "created_at": "2026-11-02T10:14:56.228Z"
+  },
+  {
+    "id": 864,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2850,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Khôi phục trạng thái sau kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:14:56.292Z"
+  },
+  {
+    "id": 865,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:14:56.957Z"
+  },
+  {
+    "id": 866,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab",
+    "created_at": "2026-11-02T10:14:57.088Z"
+  },
+  {
+    "id": 868,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2850,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Khôi phục trạng thái sau kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:14:57.155Z"
+  },
+  {
+    "id": 869,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 2100,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #1 (2100)",
+    "created_at": "2026-11-02T10:14:57.559Z"
+  },
+  {
+    "id": 870,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2100,
+    "new_price": 2101,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #2 (2101)",
+    "created_at": "2026-11-02T10:14:57.574Z"
+  },
+  {
+    "id": 871,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2101,
+    "new_price": 2102,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #3 (2102)",
+    "created_at": "2026-11-02T10:14:57.583Z"
+  },
+  {
+    "id": 872,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2102,
+    "new_price": 2103,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #4 (2103)",
+    "created_at": "2026-11-02T10:14:57.593Z"
+  },
+  {
+    "id": 873,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2103,
+    "new_price": 2104,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #5 (2104)",
+    "created_at": "2026-11-02T10:14:57.601Z"
+  },
+  {
+    "id": 874,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2104,
+    "new_price": 2105,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #6 (2105)",
+    "created_at": "2026-11-02T10:14:57.608Z"
+  },
+  {
+    "id": 875,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2105,
+    "new_price": 2106,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #7 (2106)",
+    "created_at": "2026-11-02T10:14:57.613Z"
+  },
+  {
+    "id": 876,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2106,
+    "new_price": 2107,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #8 (2107)",
+    "created_at": "2026-11-02T10:14:57.621Z"
+  },
+  {
+    "id": 877,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2107,
+    "new_price": 2108,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #9 (2108)",
+    "created_at": "2026-11-02T10:14:57.628Z"
+  },
+  {
+    "id": 878,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2108,
+    "new_price": 2109,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #10 (2109)",
+    "created_at": "2026-11-02T10:14:57.635Z"
+  },
+  {
+    "id": 879,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2109,
+    "new_price": 2110,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #11 (2110)",
+    "created_at": "2026-11-02T10:14:57.641Z"
+  },
+  {
+    "id": 880,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2110,
+    "new_price": 2111,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #12 (2111)",
+    "created_at": "2026-11-02T10:14:57.646Z"
+  },
+  {
+    "id": 881,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2111,
+    "new_price": 2112,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #13 (2112)",
+    "created_at": "2026-11-02T10:14:57.653Z"
+  },
+  {
+    "id": 882,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2112,
+    "new_price": 2113,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #14 (2113)",
+    "created_at": "2026-11-02T10:14:57.660Z"
+  },
+  {
+    "id": 883,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2113,
+    "new_price": 2114,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #15 (2114)",
+    "created_at": "2026-11-02T10:14:57.667Z"
+  },
+  {
+    "id": 884,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3000,
+    "new_price": 3001,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #1",
+    "created_at": "2026-11-02T10:14:57.683Z"
+  },
+  {
+    "id": 885,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3001,
+    "new_price": 3002,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #2",
+    "created_at": "2026-11-02T10:14:57.689Z"
+  },
+  {
+    "id": 886,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3002,
+    "new_price": 3003,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #3",
+    "created_at": "2026-11-02T10:14:57.696Z"
+  },
+  {
+    "id": 887,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3003,
+    "new_price": 3004,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #4",
+    "created_at": "2026-11-02T10:14:57.704Z"
+  },
+  {
+    "id": 888,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3004,
+    "new_price": 3005,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #5",
+    "created_at": "2026-11-02T10:14:57.714Z"
+  },
+  {
+    "id": 889,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3005,
+    "new_price": 3006,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #6",
+    "created_at": "2026-11-02T10:14:57.720Z"
+  },
+  {
+    "id": 890,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3006,
+    "new_price": 3007,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #7",
+    "created_at": "2026-11-02T10:14:57.727Z"
+  },
+  {
+    "id": 891,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3007,
+    "new_price": 3008,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #8",
+    "created_at": "2026-11-02T10:14:57.735Z"
+  },
+  {
+    "id": 892,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3008,
+    "new_price": 3009,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #9",
+    "created_at": "2026-11-02T10:14:57.746Z"
+  },
+  {
+    "id": 893,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3009,
+    "new_price": 3010,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #10",
+    "created_at": "2026-11-02T10:14:57.753Z"
+  },
+  {
+    "id": 894,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3010,
+    "new_price": 0,
+    "date": "02-11-2026",
+    "note": "Tặng tranh tri ân (giá 0 USD)",
+    "created_at": "2026-11-02T10:14:57.767Z"
+  },
+  {
+    "id": 895,
+    "painting_id": "DVS-SD-01",
+    "old_price": 0,
+    "new_price": 1750.75,
+    "date": "02-11-2026",
+    "note": "Giá thập phân đấu giá quốc tế",
+    "created_at": "2026-11-02T10:14:57.800Z"
+  },
+  {
+    "id": 896,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1750.75,
+    "new_price": 50000000,
+    "date": "02-11-2026",
+    "note": "Định giá tác phẩm kiệt tác",
+    "created_at": "2026-11-02T10:14:57.810Z"
+  },
+  {
+    "id": 897,
+    "painting_id": "DVS-SD-01",
+    "old_price": 50000000,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-02T10:14:57.816Z"
+  },
+  {
+    "id": 898,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1885,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 01-01-2000",
+    "created_at": "2026-11-02T10:14:57.822Z"
+  },
+  {
+    "id": 899,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1885,
+    "new_price": 1696,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 1999-12-31",
+    "created_at": "2026-11-02T10:14:57.832Z"
+  },
+  {
+    "id": 900,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1696,
+    "new_price": 1831,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 15-08-1980",
+    "created_at": "2026-11-02T10:14:57.842Z"
+  },
+  {
+    "id": 901,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1831,
+    "new_price": 1640,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 01/01/2000",
+    "created_at": "2026-11-02T10:14:57.851Z"
+  },
+  {
+    "id": 902,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1640,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-02T10:14:57.879Z"
+  },
+  {
+    "id": 903,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:18:08.274Z"
+  },
+  {
+    "id": 904,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab",
+    "created_at": "2026-11-02T10:18:08.421Z"
+  },
+  {
+    "id": 906,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2850,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Khôi phục trạng thái sau kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:18:08.488Z"
+  },
+  {
+    "id": 907,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3002,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-02T10:20:50.114Z"
+  },
+  {
+    "id": 908,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:21:42.891Z"
+  },
+  {
+    "id": 909,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab",
+    "created_at": "2026-11-02T10:21:43.036Z"
+  },
+  {
+    "id": 911,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2850,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Khôi phục trạng thái sau kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:21:43.105Z"
+  },
+  {
+    "id": 912,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 2100,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #1 (2100)",
+    "created_at": "2026-11-02T10:21:47.715Z"
+  },
+  {
+    "id": 913,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2100,
+    "new_price": 2101,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #2 (2101)",
+    "created_at": "2026-11-02T10:21:47.734Z"
+  },
+  {
+    "id": 914,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2101,
+    "new_price": 2102,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #3 (2102)",
+    "created_at": "2026-11-02T10:21:47.740Z"
+  },
+  {
+    "id": 915,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2102,
+    "new_price": 2103,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #4 (2103)",
+    "created_at": "2026-11-02T10:21:47.744Z"
+  },
+  {
+    "id": 916,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2103,
+    "new_price": 2104,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #5 (2104)",
+    "created_at": "2026-11-02T10:21:47.751Z"
+  },
+  {
+    "id": 917,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2104,
+    "new_price": 2105,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #6 (2105)",
+    "created_at": "2026-11-02T10:21:47.756Z"
+  },
+  {
+    "id": 918,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2105,
+    "new_price": 2106,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #7 (2106)",
+    "created_at": "2026-11-02T10:21:47.774Z"
+  },
+  {
+    "id": 919,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2106,
+    "new_price": 2107,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #8 (2107)",
+    "created_at": "2026-11-02T10:21:47.781Z"
+  },
+  {
+    "id": 920,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2107,
+    "new_price": 2108,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #9 (2108)",
+    "created_at": "2026-11-02T10:21:47.787Z"
+  },
+  {
+    "id": 921,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2108,
+    "new_price": 2109,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #10 (2109)",
+    "created_at": "2026-11-02T10:21:47.793Z"
+  },
+  {
+    "id": 922,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2109,
+    "new_price": 2110,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #11 (2110)",
+    "created_at": "2026-11-02T10:21:47.798Z"
+  },
+  {
+    "id": 923,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2110,
+    "new_price": 2111,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #12 (2111)",
+    "created_at": "2026-11-02T10:21:47.815Z"
+  },
+  {
+    "id": 924,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2111,
+    "new_price": 2112,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #13 (2112)",
+    "created_at": "2026-11-02T10:21:47.820Z"
+  },
+  {
+    "id": 925,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2112,
+    "new_price": 2113,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #14 (2113)",
+    "created_at": "2026-11-02T10:21:47.826Z"
+  },
+  {
+    "id": 926,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2113,
+    "new_price": 2114,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #15 (2114)",
+    "created_at": "2026-11-02T10:21:47.831Z"
+  },
+  {
+    "id": 927,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3000,
+    "new_price": 3001,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #1",
+    "created_at": "2026-11-02T10:21:47.847Z"
+  },
+  {
+    "id": 928,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3001,
+    "new_price": 3002,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #2",
+    "created_at": "2026-11-02T10:21:47.853Z"
+  },
+  {
+    "id": 929,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3002,
+    "new_price": 3003,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #3",
+    "created_at": "2026-11-02T10:21:47.859Z"
+  },
+  {
+    "id": 930,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3003,
+    "new_price": 3004,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #4",
+    "created_at": "2026-11-02T10:21:47.868Z"
+  },
+  {
+    "id": 931,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3004,
+    "new_price": 3005,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #5",
+    "created_at": "2026-11-02T10:21:47.874Z"
+  },
+  {
+    "id": 932,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3005,
+    "new_price": 3006,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #6",
+    "created_at": "2026-11-02T10:21:47.880Z"
+  },
+  {
+    "id": 933,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3006,
+    "new_price": 3007,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #7",
+    "created_at": "2026-11-02T10:21:47.886Z"
+  },
+  {
+    "id": 934,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3007,
+    "new_price": 3008,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #8",
+    "created_at": "2026-11-02T10:21:47.890Z"
+  },
+  {
+    "id": 935,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3008,
+    "new_price": 3009,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #9",
+    "created_at": "2026-11-02T10:21:47.896Z"
+  },
+  {
+    "id": 936,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3009,
+    "new_price": 3010,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #10",
+    "created_at": "2026-11-02T10:21:47.902Z"
+  },
+  {
+    "id": 937,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3010,
+    "new_price": 0,
+    "date": "02-11-2026",
+    "note": "Tặng tranh tri ân (giá 0 USD)",
+    "created_at": "2026-11-02T10:21:47.931Z"
+  },
+  {
+    "id": 938,
+    "painting_id": "DVS-SD-01",
+    "old_price": 0,
+    "new_price": 1750.75,
+    "date": "02-11-2026",
+    "note": "Giá thập phân đấu giá quốc tế",
+    "created_at": "2026-11-02T10:21:48.061Z"
+  },
+  {
+    "id": 939,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1750.75,
+    "new_price": 50000000,
+    "date": "02-11-2026",
+    "note": "Định giá tác phẩm kiệt tác",
+    "created_at": "2026-11-02T10:21:48.100Z"
+  },
+  {
+    "id": 940,
+    "painting_id": "DVS-SD-01",
+    "old_price": 50000000,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-02T10:21:48.108Z"
+  },
+  {
+    "id": 941,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1845,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 01-01-2000",
+    "created_at": "2026-11-02T10:21:48.125Z"
+  },
+  {
+    "id": 942,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1845,
+    "new_price": 1749,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 1999-12-31",
+    "created_at": "2026-11-02T10:21:48.156Z"
+  },
+  {
+    "id": 943,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1749,
+    "new_price": 1601,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 15-08-1980",
+    "created_at": "2026-11-02T10:21:48.178Z"
+  },
+  {
+    "id": 944,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1601,
+    "new_price": 1698,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 01/01/2000",
+    "created_at": "2026-11-02T10:21:48.207Z"
+  },
+  {
+    "id": 945,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1698,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-02T10:21:48.348Z"
+  },
+  {
+    "id": 946,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:21:52.187Z"
+  },
+  {
+    "id": 947,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab",
+    "created_at": "2026-11-02T10:21:52.431Z"
+  },
+  {
+    "id": 949,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2850,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Khôi phục trạng thái sau kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:21:52.607Z"
+  },
+  {
+    "id": 950,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1680,
+    "date": "02-11-2026",
+    "note": "Playwright E2E Verification Adjustment",
+    "created_at": "2026-11-02T10:22:00.862Z"
+  },
+  {
+    "id": 951,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1680,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-02T10:22:49.438Z"
+  },
+  {
+    "id": 952,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:22:49.447Z"
+  },
+  {
+    "id": 953,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab",
+    "created_at": "2026-11-02T10:22:49.597Z"
+  },
+  {
+    "id": 955,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2850,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Khôi phục trạng thái sau kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:22:49.678Z"
+  },
+  {
+    "id": 956,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 2100,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #1 (2100)",
+    "created_at": "2026-11-02T10:22:55.045Z"
+  },
+  {
+    "id": 957,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2100,
+    "new_price": 2101,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #2 (2101)",
+    "created_at": "2026-11-02T10:22:55.072Z"
+  },
+  {
+    "id": 958,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2101,
+    "new_price": 2102,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #3 (2102)",
+    "created_at": "2026-11-02T10:22:55.083Z"
+  },
+  {
+    "id": 959,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2102,
+    "new_price": 2103,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #4 (2103)",
+    "created_at": "2026-11-02T10:22:55.091Z"
+  },
+  {
+    "id": 960,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2103,
+    "new_price": 2104,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #5 (2104)",
+    "created_at": "2026-11-02T10:22:55.098Z"
+  },
+  {
+    "id": 961,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2104,
+    "new_price": 2105,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #6 (2105)",
+    "created_at": "2026-11-02T10:22:55.116Z"
+  },
+  {
+    "id": 962,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2105,
+    "new_price": 2106,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #7 (2106)",
+    "created_at": "2026-11-02T10:22:55.122Z"
+  },
+  {
+    "id": 963,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2106,
+    "new_price": 2107,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #8 (2107)",
+    "created_at": "2026-11-02T10:22:55.130Z"
+  },
+  {
+    "id": 964,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2107,
+    "new_price": 2108,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #9 (2108)",
+    "created_at": "2026-11-02T10:22:55.136Z"
+  },
+  {
+    "id": 965,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2108,
+    "new_price": 2109,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #10 (2109)",
+    "created_at": "2026-11-02T10:22:55.145Z"
+  },
+  {
+    "id": 966,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2109,
+    "new_price": 2110,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #11 (2110)",
+    "created_at": "2026-11-02T10:22:55.172Z"
+  },
+  {
+    "id": 967,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2110,
+    "new_price": 2111,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #12 (2111)",
+    "created_at": "2026-11-02T10:22:55.181Z"
+  },
+  {
+    "id": 968,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2111,
+    "new_price": 2112,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #13 (2112)",
+    "created_at": "2026-11-02T10:22:55.187Z"
+  },
+  {
+    "id": 969,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2112,
+    "new_price": 2113,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #14 (2113)",
+    "created_at": "2026-11-02T10:22:55.194Z"
+  },
+  {
+    "id": 970,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2113,
+    "new_price": 2114,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #15 (2114)",
+    "created_at": "2026-11-02T10:22:55.200Z"
+  },
+  {
+    "id": 971,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3000,
+    "new_price": 3001,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #1",
+    "created_at": "2026-11-02T10:22:55.226Z"
+  },
+  {
+    "id": 972,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3001,
+    "new_price": 3002,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #2",
+    "created_at": "2026-11-02T10:22:55.234Z"
+  },
+  {
+    "id": 973,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3002,
+    "new_price": 3003,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #3",
+    "created_at": "2026-11-02T10:22:55.243Z"
+  },
+  {
+    "id": 974,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3003,
+    "new_price": 3004,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #4",
+    "created_at": "2026-11-02T10:22:55.250Z"
+  },
+  {
+    "id": 975,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3004,
+    "new_price": 3005,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #5",
+    "created_at": "2026-11-02T10:22:55.259Z"
+  },
+  {
+    "id": 976,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3005,
+    "new_price": 3006,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #6",
+    "created_at": "2026-11-02T10:22:55.268Z"
+  },
+  {
+    "id": 977,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3006,
+    "new_price": 3007,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #7",
+    "created_at": "2026-11-02T10:22:55.276Z"
+  },
+  {
+    "id": 978,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3007,
+    "new_price": 3008,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #8",
+    "created_at": "2026-11-02T10:22:55.282Z"
+  },
+  {
+    "id": 979,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3008,
+    "new_price": 3009,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #9",
+    "created_at": "2026-11-02T10:22:55.288Z"
+  },
+  {
+    "id": 980,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3009,
+    "new_price": 3010,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #10",
+    "created_at": "2026-11-02T10:22:55.294Z"
+  },
+  {
+    "id": 981,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3010,
+    "new_price": 0,
+    "date": "02-11-2026",
+    "note": "Tặng tranh tri ân (giá 0 USD)",
+    "created_at": "2026-11-02T10:22:55.330Z"
+  },
+  {
+    "id": 982,
+    "painting_id": "DVS-SD-01",
+    "old_price": 0,
+    "new_price": 1750.75,
+    "date": "02-11-2026",
+    "note": "Giá thập phân đấu giá quốc tế",
+    "created_at": "2026-11-02T10:22:55.451Z"
+  },
+  {
+    "id": 983,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1750.75,
+    "new_price": 50000000,
+    "date": "02-11-2026",
+    "note": "Định giá tác phẩm kiệt tác",
+    "created_at": "2026-11-02T10:22:55.482Z"
+  },
+  {
+    "id": 984,
+    "painting_id": "DVS-SD-01",
+    "old_price": 50000000,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-02T10:22:55.505Z"
+  },
+  {
+    "id": 985,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1687,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 01-01-2000",
+    "created_at": "2026-11-02T10:22:55.531Z"
+  },
+  {
+    "id": 986,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1687,
+    "new_price": 1847,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 1999-12-31",
+    "created_at": "2026-11-02T10:22:55.564Z"
+  },
+  {
+    "id": 987,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1847,
+    "new_price": 1618,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 15-08-1980",
+    "created_at": "2026-11-02T10:22:55.596Z"
+  },
+  {
+    "id": 988,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1618,
+    "new_price": 1754,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 01/01/2000",
+    "created_at": "2026-11-02T10:22:55.620Z"
+  },
+  {
+    "id": 989,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1754,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-02T10:22:55.759Z"
+  },
+  {
+    "id": 990,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:23:02.369Z"
+  },
+  {
+    "id": 991,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab",
+    "created_at": "2026-11-02T10:23:02.700Z"
+  },
+  {
+    "id": 993,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2850,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Khôi phục trạng thái sau kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:23:02.903Z"
+  },
+  {
+    "id": 994,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1680,
+    "date": "02-11-2026",
+    "note": "Playwright E2E Verification Adjustment",
+    "created_at": "2026-11-02T10:23:12.021Z"
+  },
+  {
+    "id": 995,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1680,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-02T10:31:07.949Z"
+  },
+  {
+    "id": 996,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:31:07.961Z"
+  },
+  {
+    "id": 997,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab",
+    "created_at": "2026-11-02T10:31:08.115Z"
+  },
+  {
+    "id": 999,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2850,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Khôi phục trạng thái sau kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:31:08.203Z"
+  },
+  {
+    "id": 1000,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 2100,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #1 (2100)",
+    "created_at": "2026-11-02T10:31:13.863Z"
+  },
+  {
+    "id": 1001,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2100,
+    "new_price": 2101,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #2 (2101)",
+    "created_at": "2026-11-02T10:31:13.882Z"
+  },
+  {
+    "id": 1002,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2101,
+    "new_price": 2102,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #3 (2102)",
+    "created_at": "2026-11-02T10:31:13.887Z"
+  },
+  {
+    "id": 1003,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2102,
+    "new_price": 2103,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #4 (2103)",
+    "created_at": "2026-11-02T10:31:13.891Z"
+  },
+  {
+    "id": 1004,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2103,
+    "new_price": 2104,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #5 (2104)",
+    "created_at": "2026-11-02T10:31:13.898Z"
+  },
+  {
+    "id": 1005,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2104,
+    "new_price": 2105,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #6 (2105)",
+    "created_at": "2026-11-02T10:31:13.903Z"
+  },
+  {
+    "id": 1006,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2105,
+    "new_price": 2106,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #7 (2106)",
+    "created_at": "2026-11-02T10:31:13.920Z"
+  },
+  {
+    "id": 1007,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2106,
+    "new_price": 2107,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #8 (2107)",
+    "created_at": "2026-11-02T10:31:13.928Z"
+  },
+  {
+    "id": 1008,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2107,
+    "new_price": 2108,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #9 (2108)",
+    "created_at": "2026-11-02T10:31:13.933Z"
+  },
+  {
+    "id": 1009,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2108,
+    "new_price": 2109,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #10 (2109)",
+    "created_at": "2026-11-02T10:31:13.939Z"
+  },
+  {
+    "id": 1010,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2109,
+    "new_price": 2110,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #11 (2110)",
+    "created_at": "2026-11-02T10:31:13.948Z"
+  },
+  {
+    "id": 1011,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2110,
+    "new_price": 2111,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #12 (2111)",
+    "created_at": "2026-11-02T10:31:13.968Z"
+  },
+  {
+    "id": 1012,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2111,
+    "new_price": 2112,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #13 (2112)",
+    "created_at": "2026-11-02T10:31:13.974Z"
+  },
+  {
+    "id": 1013,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2112,
+    "new_price": 2113,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #14 (2113)",
+    "created_at": "2026-11-02T10:31:13.982Z"
+  },
+  {
+    "id": 1014,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2113,
+    "new_price": 2114,
+    "date": "02-11-2026",
+    "note": "Stress concurrent update #15 (2114)",
+    "created_at": "2026-11-02T10:31:13.987Z"
+  },
+  {
+    "id": 1015,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3000,
+    "new_price": 3001,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #1",
+    "created_at": "2026-11-02T10:31:14.003Z"
+  },
+  {
+    "id": 1016,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3001,
+    "new_price": 3002,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #2",
+    "created_at": "2026-11-02T10:31:14.011Z"
+  },
+  {
+    "id": 1017,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3002,
+    "new_price": 3003,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #3",
+    "created_at": "2026-11-02T10:31:14.017Z"
+  },
+  {
+    "id": 1018,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3003,
+    "new_price": 3004,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #4",
+    "created_at": "2026-11-02T10:31:14.023Z"
+  },
+  {
+    "id": 1019,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3004,
+    "new_price": 3005,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #5",
+    "created_at": "2026-11-02T10:31:14.030Z"
+  },
+  {
+    "id": 1020,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3005,
+    "new_price": 3006,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #6",
+    "created_at": "2026-11-02T10:31:14.037Z"
+  },
+  {
+    "id": 1021,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3006,
+    "new_price": 3007,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #7",
+    "created_at": "2026-11-02T10:31:14.047Z"
+  },
+  {
+    "id": 1022,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3007,
+    "new_price": 3008,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #8",
+    "created_at": "2026-11-02T10:31:14.053Z"
+  },
+  {
+    "id": 1023,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3008,
+    "new_price": 3009,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #9",
+    "created_at": "2026-11-02T10:31:14.059Z"
+  },
+  {
+    "id": 1024,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3009,
+    "new_price": 3010,
+    "date": "02-11-2026",
+    "note": "Concurrent direct POST #10",
+    "created_at": "2026-11-02T10:31:14.065Z"
+  },
+  {
+    "id": 1025,
+    "painting_id": "DVS-SD-01",
+    "old_price": 3010,
+    "new_price": 0,
+    "date": "02-11-2026",
+    "note": "Tặng tranh tri ân (giá 0 USD)",
+    "created_at": "2026-11-02T10:31:14.091Z"
+  },
+  {
+    "id": 1026,
+    "painting_id": "DVS-SD-01",
+    "old_price": 0,
+    "new_price": 1750.75,
+    "date": "02-11-2026",
+    "note": "Giá thập phân đấu giá quốc tế",
+    "created_at": "2026-11-02T10:31:14.170Z"
+  },
+  {
+    "id": 1027,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1750.75,
+    "new_price": 50000000,
+    "date": "02-11-2026",
+    "note": "Định giá tác phẩm kiệt tác",
+    "created_at": "2026-11-02T10:31:14.181Z"
+  },
+  {
+    "id": 1028,
+    "painting_id": "DVS-SD-01",
+    "old_price": 50000000,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-02T10:31:14.187Z"
+  },
+  {
+    "id": 1029,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1605,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 01-01-2000",
+    "created_at": "2026-11-02T10:31:14.194Z"
+  },
+  {
+    "id": 1030,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1605,
+    "new_price": 1871,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 1999-12-31",
+    "created_at": "2026-11-02T10:31:14.203Z"
+  },
+  {
+    "id": 1031,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1871,
+    "new_price": 1658,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 15-08-1980",
+    "created_at": "2026-11-02T10:31:14.213Z"
+  },
+  {
+    "id": 1032,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1658,
+    "new_price": 1631,
+    "date": "02-11-2026",
+    "note": "Testing stale date override for 01/01/2000",
+    "created_at": "2026-11-02T10:31:14.223Z"
+  },
+  {
+    "id": 1033,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1631,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-02T10:31:14.253Z"
+  },
+  {
+    "id": 1034,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:31:18.138Z"
+  },
+  {
+    "id": 1035,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab",
+    "created_at": "2026-11-02T10:31:18.355Z"
+  },
+  {
+    "id": 1037,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2850,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Khôi phục trạng thái sau kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:31:18.546Z"
+  },
+  {
+    "id": 1038,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1680,
+    "date": "02-11-2026",
+    "note": "Playwright E2E Verification Adjustment",
+    "created_at": "2026-11-02T10:31:32.377Z"
+  },
+  {
+    "id": 1039,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2101,
+    "new_price": 1700,
+    "date": "02-11-2026",
+    "note": "Independent Victory Audit Test",
+    "created_at": "2026-11-02T10:33:27.256Z"
+  },
+  {
+    "id": 1040,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1700,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Restore clean state after audit",
+    "created_at": "2026-11-02T10:33:36.467Z"
+  },
+  {
+    "id": 1041,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1600,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá tranh đợt kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:33:48.513Z"
+  },
+  {
+    "id": 1042,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1600,
+    "new_price": 1650,
+    "date": "02-11-2026",
+    "note": "Điều chỉnh giá nhanh trực tiếp từ Subtab",
+    "created_at": "2026-11-02T10:33:48.665Z"
+  },
+  {
+    "id": 1044,
+    "painting_id": "DVS-SD-01",
+    "old_price": 2850,
+    "new_price": 1500,
+    "date": "02-11-2026",
+    "note": "Khôi phục trạng thái sau kiểm thử tự động M3",
+    "created_at": "2026-11-02T10:33:48.778Z"
+  }
+]

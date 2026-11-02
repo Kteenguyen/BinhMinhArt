@@ -12,7 +12,11 @@
     "dev": "concurrently -k -n \"SERVER,CLIENT\" -c \"blue,green\" \"node server/index.js\" \"vite\"",
     "build": "vite build",
     "start": "node server/index.js",
-    "test": "node --test \"test/**/*.test.mjs\""
+    "test": "node --test \"test/price-history-api.test.mjs\" \"test/table-readonly-sticky-columns.test.mjs\"",
+    "test:api": "NODE_TLS_REJECT_UNAUTHORIZED=0 node --test test/price-history-api.test.mjs",
+    "test:e2e": "node test/e2e/run-e2e.mjs",
+    "test:playwright": "node test/e2e/run-e2e.mjs",
+    "test:all": "npm test && npm run test:e2e"
   },
   "dependencies": {
     "cors": "^2.8.5",

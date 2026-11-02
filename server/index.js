@@ -20,7 +20,9 @@ import {
   startDatabaseServices,
   addPaintingLocationLog,
   getPaintingLocationHistory,
-  getRecentLocationLogs
+  getRecentLocationLogs,
+  addPaintingPriceLog,
+  getPaintingPriceHistory
 } from './db.js';
 import {
   buildExcelWorkbook,
@@ -530,18 +532,34 @@ app.put('/api/paintings/:id', (req, res) => {
     let updatedPrice = current.gia;
     let priceDate = current.ngay_cap_nhat_gia_gan_nhat || today;
 
-    if ('gia' in body) {
-      if (body.gia === '' || body.gia === null || body.gia === undefined) {
+    const hasPrice = ('gia' in body) || ('new_price' in body);
+    if (hasPrice) {
+      const priceVal = ('gia' in body) ? body.gia : body.new_price;
+      if (priceVal === '' || priceVal === null || priceVal === undefined) {
         updatedPrice = null;
       } else {
-        const num = Number(body.gia);
-        updatedPrice = isNaN(num) ? null : num;
-      }
-
-      if (updatedPrice !== current.gia) {
-        priceDate = today;
+        const strVal = typeof priceVal === 'string' ? priceVal.trim() : priceVal;
+        if (strVal === '') {
+          updatedPrice = null;
+        } else {
+          const num = Number(strVal);
+          if (!Number.isFinite(num)) {
+            return res.status(400).json({ success: false, message: 'Giá tranh không hợp lệ' });
+          }
+          if (num < 0) {
+            return res.status(400).json({ success: false, message: 'Giá tranh không thể là số âm' });
+          }
+          updatedPrice = num;
+        }
       }
     }
+
+    const priceChanged = hasPrice && (updatedPrice !== current.gia);
+    const finalPriceDate = priceChanged
+      ? today
+      : (body.ngay_cap_nhat_gia_gan_nhat !== undefined && String(body.ngay_cap_nhat_gia_gan_nhat).trim() !== ''
+          ? body.ngay_cap_nhat_gia_gan_nhat
+          : (current.ngay_cap_nhat_gia_gan_nhat || today));
 
     const newStatus =
       body.tinh_trang !== undefined
@@ -579,11 +597,11 @@ app.put('/api/paintings/:id', (req, res) => {
       kich_thuoc_khung_tranh: kf,
       location: newLocation,
       gia: updatedPrice,
-      ngay_cap_nhat_gia_gan_nhat: body.ngay_cap_nhat_gia_gan_nhat || priceDate,
+      ngay_cap_nhat_gia_gan_nhat: finalPriceDate,
       tinh_trang: newStatus,
       khach_hang: newKhachHang,
       ngay_ban: newNgayBan,
-      ngay_cap_nhat_san_pham: body.ngay_cap_nhat_san_pham || getNowTimestampString(),
+      ngay_cap_nhat_san_pham: priceChanged ? today : (body.ngay_cap_nhat_san_pham || getNowTimestampString()),
       hinh_anh:
         body.hinh_anh !== undefined
           ? Array.isArray(body.hinh_anh)
@@ -591,9 +609,20 @@ app.put('/api/paintings/:id', (req, res) => {
             : [body.hinh_anh]
           : current.hinh_anh
     };
+    delete updated.new_price;
 
     paintings[idx] = updated;
     savePaintings(paintings);
+
+    // Ghi nhật ký thay đổi giá khi giá biến động
+    if (priceChanged) {
+      try {
+        const note = body.price_note || body.ghi_chu_gia || body.note || 'Điều chỉnh giá tác phẩm';
+        addPaintingPriceLog(current.id, current.gia, updatedPrice, today, note);
+      } catch (priceLogErr) {
+        console.warn('[Price Log] Failed to record history:', priceLogErr.message);
+      }
+    }
 
     if (newLocation && newLocation !== oldLocation) {
       try {
@@ -675,6 +704,80 @@ app.post('/api/paintings/:id/location-history', (req, res) => {
     savePaintings(paintings);
 
     res.json({ success: true, data: current, history: getPaintingLocationHistory(id) });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
+});
+
+// 4e. Price history endpoints
+app.get('/api/paintings/:id/price-history', (req, res) => {
+  try {
+    const { id } = req.params;
+    const history = getPaintingPriceHistory(id);
+    res.json({ success: true, data: history });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
+});
+
+app.post('/api/paintings/:id/price-history', (req, res) => {
+  try {
+    const { id } = req.params;
+    const paintings = getPaintings();
+    const pIdx = paintings.findIndex(p => p.id === id);
+    if (pIdx === -1) {
+      return res.status(404).json({ success: false, message: 'Không tìm thấy tác phẩm' });
+    }
+
+    const currentPainting = paintings[pIdx];
+    const { old_price, new_price, date, note } = req.body || {};
+
+    if (new_price === undefined || new_price === null || (typeof new_price === 'string' && new_price.trim() === '')) {
+      return res.status(400).json({ success: false, message: 'Giá tranh không hợp lệ' });
+    }
+    const numNewPrice = Number(typeof new_price === 'string' ? new_price.trim() : new_price);
+    if (!Number.isFinite(numNewPrice)) {
+      return res.status(400).json({ success: false, message: 'Giá tranh không hợp lệ' });
+    }
+    if (numNewPrice < 0) {
+      return res.status(400).json({ success: false, message: 'Giá không thể là số âm' });
+    }
+
+    let effectiveOldPrice = null;
+    if (old_price !== undefined && old_price !== null && String(old_price).trim() !== '') {
+      const numOld = Number(typeof old_price === 'string' ? old_price.trim() : old_price);
+      if (!Number.isFinite(numOld) || numOld < 0) {
+        return res.status(400).json({ success: false, message: 'Giá tranh không hợp lệ' });
+      }
+      effectiveOldPrice = numOld;
+    } else {
+      effectiveOldPrice = currentPainting.gia !== null && currentPainting.gia !== undefined && currentPainting.gia !== ''
+        ? Number(currentPainting.gia)
+        : null;
+    }
+
+    const today = getTodayString();
+    const log = addPaintingPriceLog(
+      id,
+      effectiveOldPrice,
+      numNewPrice,
+      date || today,
+      note || 'Điều chỉnh giá tác phẩm'
+    );
+
+    // Also update painting current price if new_price is specified
+    try {
+      currentPainting.gia = numNewPrice;
+      currentPainting.ngay_cap_nhat_gia_gan_nhat = today;
+      currentPainting.ngay_cap_nhat_san_pham = today;
+      paintings[pIdx] = currentPainting;
+      savePaintings(paintings);
+    } catch (syncErr) {
+      console.warn('[Price History POST] Failed to sync painting current price:', syncErr.message);
+    }
+
+    const updatedHistory = getPaintingPriceHistory(id);
+    res.status(200).json({ success: true, data: log, history: updatedHistory });
   } catch (err) {
     res.status(500).json({ success: false, message: err.message });
   }
