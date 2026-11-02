@@ -2,13 +2,13 @@
 title BinhMinhArt Gallery Server
 color 0A
 
-echo ========================================================
-echo       BINH MINH ART - KHO LUU TRU TRANH NGHE THUAT
-echo ========================================================
-echo.
-
 cd /d "%~dp0"
 if not exist "package.json" cd /d "%~dp0.."
+
+set "IS_BG=0"
+if "%~1"=="--background" set "IS_BG=1"
+if "%~1"=="/background" set "IS_BG=1"
+if "%~1"=="-b" set "IS_BG=1"
 
 where node >nul 2>nul
 if %errorlevel% equ 0 goto :NODE_OK
@@ -19,14 +19,30 @@ if exist "C:\Program Files (x86)\nodejs\node.exe" set "PATH=C:\Program Files (x8
 where node >nul 2>nul
 if %errorlevel% equ 0 goto :NODE_OK
 
+if "%IS_BG%"=="1" (
+    if not exist "logs" mkdir "logs"
+    echo [%date% %time%] [LOI] Khong tim thay Node.js tren he thong HP >> logs\server.log
+    exit /b 1
+)
+
+echo ========================================================
+echo       BINH MINH ART - KHO LUU TRU TRANH NGHE THUAT
+echo ========================================================
+echo.
 echo [LOI] May HP chua cai dat Node.js hoac can khoi dong lai!
 echo Vui long truy cap https://nodejs.org de tai ban LTS va cai dat.
-echo Neu ban vua cai xong, hay tat va bat lai Antigravity IDE.
 echo.
 pause
 exit /b 1
 
 :NODE_OK
+if "%IS_BG%"=="1" goto :FAST_BG_START
+
+echo ========================================================
+echo       BINH MINH ART - KHO LUU TRU TRANH NGHE THUAT
+echo ========================================================
+echo.
+
 echo [1/3] Kiem tra thu vien he thong...
 if exist "node_modules\" goto :SKIP_NPM_INSTALL
 echo Dang cai dat thu vien (npm install)... Vui long cho trong giay lat...
@@ -49,6 +65,7 @@ if not exist "thumbnails" mkdir "thumbnails"
 if not exist "data" mkdir "data"
 if not exist "TRANH" mkdir "TRANH"
 if not exist "DA BAN" mkdir "DA BAN"
+if not exist "logs" mkdir "logs"
 
 echo [3/3] Dang khoi dong BinhMinhArt Server tren cong 5001 (HTTPS)...
 echo.
@@ -63,6 +80,22 @@ node server/index.js
 echo.
 echo Server da dung.
 pause
+exit /b 0
+
+:FAST_BG_START
+REM Che do chay ngam: dam bao dist va node_modules ton tai
+if not exist "node_modules\" call npm install
+if not exist "dist\" call npm run build
+if not exist "uploads\word_media" mkdir "uploads\word_media"
+if not exist "uploads\folder_images" mkdir "uploads\folder_images"
+if not exist "thumbnails" mkdir "thumbnails"
+if not exist "data" mkdir "data"
+if not exist "TRANH" mkdir "TRANH"
+if not exist "DA BAN" mkdir "DA BAN"
+if not exist "logs" mkdir "logs"
+
+echo [%date% %time%] Khoi dong BinhMinhArt Server ngam tren cong 5001 >> logs\server.log
+node server/index.js >> logs\server.log 2>&1
 exit /b 0
 
 :NPM_ERR

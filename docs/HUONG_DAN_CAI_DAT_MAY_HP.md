@@ -101,32 +101,39 @@ Vì Antigravity IDE có sẵn khung Terminal gắn liền, bạn sẽ thấy to�
 
 ## BƯỚC 4: CÀI ĐẶT TỰ ĐỘNG CHẠY SERVER KHI MỞ NGUỒN MÁY HP (KHÔNG CẦN TERMINAL)
 
-Sau khi cài đặt xong ở bước này, **mỗi khi bạn bấm nút nguồn bật máy HP** (hoặc khởi động lại máy):
-* Server BinhMinhArt sẽ **tự động chạy ngầm ngay tức khắc**.
-* Bạn **KHÔNG CẦN** mở phần mềm Antigravity IDE.
-* Bạn **KHÔNG CẦN** mở cửa sổ dòng lệnh Terminal.
-* Bạn **KHÔNG CẦN** gõ bất kỳ lệnh `npm start` nào cả!
-* Mọi thiết bị (iPad, iPhone, máy tính khác) chỉ cần kết nối Wi-Fi là truy cập được ngay 24/7.
+> **Giải thích cơ chế:**
+> * Lệnh `npm start` trong Terminal chỉ là chế độ chạy tạm thời gắn liền với cửa sổ dòng lệnh đó. Khi bạn **tắt Terminal** (hoặc tắt IDE), Windows sẽ tự động đóng tiến trình `node.exe` bên trong.
+> * Để server **tự động chạy ngầm vĩnh viễn khi mở nguồn máy HP** (hoàn toàn không cần mở Terminal, không cần mở IDE), bạn chỉ cần cài đặt chế độ chạy ngầm một lần duy nhất theo các bước dưới đây.
 
-### Cách thiết lập (Chỉ cần làm 1 lần duy nhất):
+---
+
+### Cách cài đặt tự động (Làm 1 lần duy nhất):
 1. Trong Terminal của Antigravity IDE trên máy HP, kéo bản cập nhật mới nhất về:
    ```cmd
    git pull origin main
    ```
-2. Mở thư mục **`C:\BinhMinhArt`**, nhấp đúp chuột vào file:  
+2. Mở thư mục **`C:\BinhMinhArt`** trong File Explorer, nhấp đúp chuột vào file:  
    👉 **`install_startup_windows.bat`**
 3. Script sẽ tự động:
-   * **Tự động xóa sạch file lỗi cũ** trong thư mục Startup (giúp triệt tiêu vĩnh viễn bảng báo lỗi đỏ Microsoft VBScript compilation error).
-   * Tạo liên kết Windows Shortcut khởi động ngầm chuẩn 100%.
+   * **Tự động xóa sạch file lỗi cũ** trong thư mục Startup.
+   * Đăng ký Windows Shortcut để **tự động chạy ngầm mỗi khi bạn bật nguồn máy HP**.
+   * **Kích hoạt chạy ngầm NGAY BÂY GIỜ LUÔN** (không cần đợi khởi động lại máy).
+   * Tự động mở trình duyệt `https://localhost:5001` để kiểm tra.
    * Hiện thông báo màu xanh: `[CAI DAT THANH CONG HOAN TOAN 100%]`.
-4. Bấm phím bất kỳ để đóng cửa sổ.
+4. Bấm phím bất kỳ để đóng cửa sổ cài đặt.
+
+**Từ thời điểm này:**
+* Bạn **CÓ THỂ TẮT HOÀN TOÀN Terminal và Antigravity IDE**, server vẫn tiếp tục chạy ngầm 24/7!
+* Mỗi khi bạn **mở nguồn máy HP** (hoặc khởi động lại máy), Windows sẽ tự động chạy ngầm server BinhMinhArt mà bạn không cần phải làm bất cứ thao tác nào.
 
 ---
 
-### Cách kiểm tra & Quản lý máy chủ ngầm:
-* **Kiểm tra server đang chạy:** Mở trình duyệt bất kỳ gõ `https://localhost:5001` $\rightarrow$ Website hiện lên ngay lập tức.
-* **Nếu muốn tạm dừng server:** Nhấp đúp vào file 👉 **`stop_windows.bat`** (nằm ngay thư mục gốc).
-* **Nếu muốn gỡ bỏ hoàn toàn tự động khởi động:** Nhấp đúp vào file 👉 **`uninstall_startup_windows.bat`**.
+### Bộ công cụ 1-Click quản lý Server ngầm (Nằm ngay thư mục `C:\BinhMinhArt`):
+* 👉 **`start_background.bat`**: Nhấp đúp để bật server chạy ngầm bất cứ lúc nào (không hiện cửa sổ đen, tắt IDE thoải mái).
+* 👉 **`status_windows.bat`**: Nhấp đúp để kiểm tra server có đang chạy không, xem địa chỉ IP máy HP để iPad/iPhone vào.
+* 👉 **`stop_windows.bat`**: Nhấp đúp để tắt hoàn toàn server ngầm khi không sử dụng.
+* 👉 **`uninstall_startup_windows.bat`**: Nhấp đúp nếu sau này muốn hủy tự động khởi động cùng Windows.
+* 👉 **`logs\server.log`**: File nhật ký ghi lại trạng thái hoạt động của server ngầm.
 
 ---
 

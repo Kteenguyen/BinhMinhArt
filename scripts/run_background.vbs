@@ -11,7 +11,8 @@ ElseIf fso.FileExists(strDir & "\..\start_windows.bat") Then
 End If
 
 WshShell.CurrentDirectory = projectDir
-WshShell.Run Chr(34) & projectDir & "\start_windows.bat" & Chr(34), 0, False
+cmdLine = "cmd.exe /c """ & projectDir & "\start_windows.bat"" --background"
+WshShell.Run cmdLine, 0, False
 
 Set fso = Nothing
 Set WshShell = Nothing
