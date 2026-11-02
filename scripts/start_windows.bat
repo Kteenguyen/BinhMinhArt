@@ -10,6 +10,31 @@ if "%~1"=="--background" set "IS_BG=1"
 if "%~1"=="/background" set "IS_BG=1"
 if "%~1"=="-b" set "IS_BG=1"
 
+REM Kiem tra xem Server co dang chay san tren cong 5001 khong
+powershell -NoProfile -ExecutionPolicy Bypass -Command "$c = New-Object System.Net.Sockets.TcpClient; try { $c.Connect('127.0.0.1', 5001); Write-Output 'ALIVE'; $c.Close() } catch { Write-Output 'DEAD' }" > "%TEMP%\bm_check_port.tmp" 2>nul
+set /p PORT_STATE=<"%TEMP%\bm_check_port.tmp"
+del /f /q "%TEMP%\bm_check_port.tmp" >nul 2>nul
+
+if "%PORT_STATE%"=="ALIVE" (
+    if "%IS_BG%"=="1" (
+        if not exist "logs" mkdir "logs"
+        echo [%date% %time%] Server BinhMinhArt da dang chay san tren cong 5001. Khong can chay them. >> logs\server.log
+        exit /b 0
+    )
+    echo ========================================================
+    echo   [THONG BAO] SERVER BINH MINH ART DA DANG CHAY SAN!
+    echo ========================================================
+    echo.
+    echo Server dang hoat dong ngam 24/7 tai:
+    echo   👉 https://localhost:5001
+    echo.
+    echo Ban khong can chay lai trong cua so nay nua.
+    echo ========================================================
+    echo.
+    pause
+    exit /b 0
+)
+
 where node >nul 2>nul
 if %errorlevel% equ 0 goto :NODE_OK
 if exist "C:\Program Files\nodejs\node.exe" set "PATH=C:\Program Files\nodejs;%PATH%"
@@ -86,12 +111,6 @@ pause
 exit /b 0
 
 :FAST_BG_START
-REM Cau hinh Windows khong bao gio ngu khi thung may co dien
-powercfg /change standby-timeout-ac 0 >nul 2>nul
-powercfg /change hibernate-timeout-ac 0 >nul 2>nul
-powercfg /setacvalueindex SCHEME_CURRENT SUB_SLEEP AWAYMODE 1 >nul 2>nul
-powercfg /setactive SCHEME_CURRENT >nul 2>nul
-
 REM Che do chay ngam: dam bao dist va node_modules ton tai
 if not exist "node_modules\" call npm install
 if not exist "dist\" call npm run build
@@ -103,12 +122,9 @@ if not exist "TRANH" mkdir "TRANH"
 if not exist "DA BAN" mkdir "DA BAN"
 if not exist "logs" mkdir "logs"
 
-:WATCHDOG_LOOP
-echo [%date% %time%] Khoi dong BinhMinhArt Server 24/7 tren cong 5001 >> logs\server.log
+echo [%date% %time%] Khoi dong BinhMinhArt Server ngam tren cong 5001 >> logs\server.log
 node server/index.js >> logs\server.log 2>&1
-echo [%date% %time%] [CANH BAO] Server tam ngung hoac khoi dong lai. Tu dong bat lai sau 3 giay... >> logs\server.log
-powershell -NoProfile -Command "Start-Sleep -Seconds 3" >nul 2>nul
-goto :WATCHDOG_LOOP
+exit /b 0
 
 :NPM_ERR
 echo.

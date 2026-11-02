@@ -67,33 +67,16 @@ const HTTPS_PORT = process.env.HTTPS_PORT || PORT;
 function preventWindowsSleep() {
   if (process.platform !== 'win32') return;
 
-  // 1. Configure power plan: Never sleep on AC power, enable Away Mode
+  // Configure power plan: Never sleep on AC power, enable Away Mode
   exec(
     'powercfg /change standby-timeout-ac 0 & ' +
     'powercfg /change hibernate-timeout-ac 0 & ' +
     'powercfg /change disk-timeout-ac 0 & ' +
     'powercfg /setacvalueindex SCHEME_CURRENT SUB_SLEEP AWAYMODE 1 & ' +
     'powercfg /setactive SCHEME_CURRENT',
-    (err) => {
-      if (err) {
-        console.warn('[Power] Best-effort powercfg error:', err.message);
-      } else {
-        console.log('[Power] Windows Power Plan configured: Standby=NEVER, AwayMode=ENABLED.');
-      }
-    }
+    { windowsHide: true },
+    () => {}
   );
-
-  // 2. Kernel-level sleep prevention via SetThreadExecutionState:
-  // 0x80000041 = ES_CONTINUOUS (0x80000000) | ES_SYSTEM_REQUIRED (0x00000001) | ES_AWAYMODE_REQUIRED (0x00000040)
-  const psCmd = `powershell -NoProfile -Command "Add-Type -TypeDefinition 'using System; using System.Runtime.InteropServices; public class WinKernel { [DllImport(\\"kernel32.dll\\")] public static extern uint SetThreadExecutionState(uint flags); }'; [WinKernel]::SetThreadExecutionState(0x80000041); Start-Sleep -Seconds 2147483"`;
-
-  try {
-    const keepAliveProcess = exec(psCmd, { windowsHide: true });
-    keepAliveProcess.unref();
-    console.log('[Power] Kernel SetThreadExecutionState keep-alive daemon started.');
-  } catch (err) {
-    console.warn('[Power] Could not start kernel keep-alive daemon:', err.message);
-  }
 }
 
 preventWindowsSleep();
@@ -1475,6 +1458,16 @@ async function startServer() {
       });
     });
 
+    server.on('error', (err) => {
+      if (err.code === 'EADDRINUSE') {
+        console.warn(`[BinhMinhArt Server] Cổng ${PORT} đã có một tiến trình server khác đang chạy ngầm sẵn sàng. Đang thoát an toàn.`);
+        process.exit(0);
+      } else {
+        console.error('[BinhMinhArt Server] Fatal server error:', err);
+        process.exit(1);
+      }
+    });
+
     server.listen(PORT, '0.0.0.0', () => {
       console.log(`[BinhMinhArt Server] HTTPS Server running exclusively on port ${PORT}:`);
       console.log(`  - URL: https://localhost:${PORT}`);
@@ -1486,6 +1479,16 @@ async function startServer() {
   }
 
   const httpServer = http.createServer(app);
+  httpServer.on('error', (err) => {
+    if (err.code === 'EADDRINUSE') {
+      console.warn(`[BinhMinhArt Server] Cổng ${PORT} đã có một tiến trình server khác đang chạy ngầm sẵn sàng. Đang thoát an toàn.`);
+      process.exit(0);
+    } else {
+      console.error('[BinhMinhArt Server] Fatal server error:', err);
+      process.exit(1);
+    }
+  });
+
   httpServer.listen(PORT, '0.0.0.0', () => {
     console.log(`[BinhMinhArt Server] Plain HTTP server running on http://localhost:${PORT}`);
   });
