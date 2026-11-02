@@ -64,6 +64,9 @@ pause
 exit /b 1
 
 :NODE_OK
+set "NODE_BIN=node"
+if exist "C:\Program Files\nodejs\node.exe" set "NODE_BIN=C:\Program Files\nodejs\node.exe"
+if exist "C:\Program Files (x86)\nodejs\node.exe" set "NODE_BIN=C:\Program Files (x86)\nodejs\node.exe"
 if "%IS_BG%"=="1" goto :FAST_BG_START
 
 echo ========================================================
@@ -104,7 +107,7 @@ echo    - Dien thoai / iPad: https://[IP_MAY_HP]:5001
 echo ========================================================
 echo.
 
-node server/index.js
+"%NODE_BIN%" server/index.js
 echo.
 echo Server da dung.
 pause
@@ -123,7 +126,7 @@ if not exist "DA BAN" mkdir "DA BAN"
 if not exist "logs" mkdir "logs"
 
 echo [%date% %time%] Khoi dong BinhMinhArt Server ngam tren cong 5001 >> logs\server.log
-node server/index.js >> logs\server.log 2>&1
+"%NODE_BIN%" server/index.js >> logs\server.log 2>&1
 exit /b 0
 
 :NPM_ERR

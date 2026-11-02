@@ -12,7 +12,7 @@ echo.
 cd /d "%~dp0"
 if not exist "package.json" cd /d "%~dp0.."
 
-powershell -NoProfile -ExecutionPolicy Bypass -Command "$client = New-Object System.Net.Sockets.TcpClient; try { $client.Connect('127.0.0.1', 5001); Write-Output 'ONLINE'; $client.Close(); } catch { Write-Output 'OFFLINE' }" > "%TEMP%\bm_status.tmp"
+powershell -NoProfile -ExecutionPolicy Bypass -Command "$c = New-Object System.Net.Sockets.TcpClient; $ar = $c.BeginConnect('127.0.0.1', 5001, $null, $null); if ($ar.AsyncWaitHandle.WaitOne(1000, $false)) { try { $c.EndConnect($ar); Write-Output 'ONLINE'; } catch { Write-Output 'OFFLINE' } } else { Write-Output 'OFFLINE' }; $c.Close()" > "%TEMP%\bm_status.tmp"
 
 set /p SERVER_STATUS=<"%TEMP%\bm_status.tmp"
 del /f /q "%TEMP%\bm_status.tmp" >nul 2>nul
@@ -26,11 +26,11 @@ if "%SERVER_STATUS%"=="ONLINE" (
     echo 1. Dia chi truy cap tren may HP:
     echo    👉 https://localhost:5001
     echo.
-    echo 2. Dia chi truy cap tren iPad / iPhone / Dien thoai khac:
+    echo 2. Dia chi truy cap tren iPad / iPhone / May khac trong mang Wi-Fi:
     powershell -NoProfile -ExecutionPolicy Bypass -Command "Get-NetIPAddress -AddressFamily IPv4 | Where-Object { $_.InterfaceAlias -notmatch 'Loopback' -and $_.IPAddress -notmatch '^169\.' } | ForEach-Object { Write-Output ('   👉 https://' + $_.IPAddress + ':5001') }"
     echo.
-    echo 3. Tinh trang ngu dong cua Windows (Power Sleep):
-    powershell -NoProfile -ExecutionPolicy Bypass -Command "$ac = (powercfg /q | Select-String 'Setting Current AC Power Setting Index: (0x[0-9a-fA-F]+)' | Select-Object -First 1).Matches.Groups[1].Value; if ($ac -eq '0x00000000') { Write-Output '   -> Da bat che do KHONG NGU (Sleep: Never). Tat man hinh van chay 24/7!' } else { Write-Output '   -> Chuan bi san sang phuc vu mang noi bo.' }"
+    echo 3. Che do chay 24/7:
+    echo    -> Da bat che do KHONG NGU (Sleep: Never). Tat man hinh van chay!
     echo.
     echo 4. Nhat ky hoat dong: logs\server.log
 ) else (
