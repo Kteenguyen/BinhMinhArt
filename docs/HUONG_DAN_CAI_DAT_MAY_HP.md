@@ -99,15 +99,34 @@ Vì Antigravity IDE có sẵn khung Terminal gắn liền, bạn sẽ thấy to�
 
 ---
 
-## BƯỚC 4: CÀI ĐẶT SERVER TỰ ĐỘNG CHẠY NGẦM KHI BẬT MÁY HP
+## BƯỚC 4: CÀI ĐẶT TỰ ĐỘNG CHẠY SERVER KHI MỞ NGUỒN MÁY HP (KHÔNG CẦN TERMINAL)
 
-Sau khi server đã chạy thành công ở Bước 3:
-1. Đảm bảo đã cập nhật code mới (`git pull origin main`).
-2. Nhấp đúp chuột vào file: 👉 **`install_startup_windows.bat`**
-3. Màn hình sẽ dừng lại và báo dòng chữ màu xanh:  
-   `[THANH CONG] Da dang ky BinhMinhArt tu dong chay ngam khi mo may HP!`.
+Sau khi cài đặt xong ở bước này, **mỗi khi bạn bấm nút nguồn bật máy HP** (hoặc khởi động lại máy):
+* Server BinhMinhArt sẽ **tự động chạy ngầm ngay tức khắc**.
+* Bạn **KHÔNG CẦN** mở phần mềm Antigravity IDE.
+* Bạn **KHÔNG CẦN** mở cửa sổ dòng lệnh Terminal.
+* Bạn **KHÔNG CẦN** gõ bất kỳ lệnh `npm start` nào cả!
+* Mọi thiết bị (iPad, iPhone, máy tính khác) chỉ cần kết nối Wi-Fi là truy cập được ngay 24/7.
+
+### Cách thiết lập (Chỉ cần làm 1 lần duy nhất):
+1. Trong Terminal của Antigravity IDE trên máy HP, kéo bản cập nhật mới nhất về:
+   ```cmd
+   git pull origin main
+   ```
+2. Mở thư mục **`C:\BinhMinhArt`**, nhấp đúp chuột vào file:  
+   👉 **`install_startup_windows.bat`**
+3. Script sẽ tự động:
+   * **Tự động xóa sạch file lỗi cũ** trong thư mục Startup (giúp triệt tiêu vĩnh viễn bảng báo lỗi đỏ Microsoft VBScript compilation error).
+   * Tạo liên kết Windows Shortcut khởi động ngầm chuẩn 100%.
+   * Hiện thông báo màu xanh: `[CAI DAT THANH CONG HOAN TOAN 100%]`.
 4. Bấm phím bất kỳ để đóng cửa sổ.
-5. **Hiệu quả:** Từ nay về sau, mỗi khi bạn mở máy HP hoặc máy HP khởi động lại, server BinhMinhArt sẽ **tự động chạy ngầm trong background**, iPad và điện thoại có thể truy cập 24/7.
+
+---
+
+### Cách kiểm tra & Quản lý máy chủ ngầm:
+* **Kiểm tra server đang chạy:** Mở trình duyệt bất kỳ gõ `https://localhost:5001` $\rightarrow$ Website hiện lên ngay lập tức.
+* **Nếu muốn tạm dừng server:** Nhấp đúp vào file 👉 **`stop_windows.bat`** (nằm ngay thư mục gốc).
+* **Nếu muốn gỡ bỏ hoàn toàn tự động khởi động:** Nhấp đúp vào file 👉 **`uninstall_startup_windows.bat`**.
 
 ---
 

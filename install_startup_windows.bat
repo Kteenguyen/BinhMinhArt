@@ -1,5 +1,5 @@
 @echo off
-title Cai Dat Tu Dong Khoi Dong Cung Windows
+title Cai Dat Tu Dong Khoi Dong BinhMinhArt
 color 0B
 
 echo ========================================================
@@ -11,27 +11,33 @@ cd /d "%~dp0"
 if not exist "package.json" cd /d "%~dp0.."
 set "PROJECT_DIR=%CD%"
 
-set "STARTUP_DIR=%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup"
-set "STARTUP_VBS=%STARTUP_DIR%\BinhMinhArt_AutoStart.vbs"
+echo [1/2] Thu muc du an: %PROJECT_DIR%
 
-echo Set WshShell = CreateObject("WScript.Shell") > "%STARTUP_VBS%"
-echo WshShell.Run Chr(34) ^& "%PROJECT_DIR%\start_windows.bat" ^& Chr(34), 0, False >> "%STARTUP_VBS%"
-echo Set WshShell = Nothing >> "%STARTUP_VBS%"
+REM Xoa cac file khoi dong cu neu co trong Startup de chong xung dot
+del /f /q "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\BinhMinhArt_AutoStart.vbs" >nul 2>nul
+del /f /q "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\BinhMinhArt.lnk" >nul 2>nul
 
-if not exist "%STARTUP_VBS%" goto :FAIL
+REM Tao Windows Shortcut tu dong khoi dong ngam chuan 100%
+powershell -NoProfile -ExecutionPolicy Bypass -Command "$ws = New-Object -ComObject WScript.Shell; $s = $ws.CreateShortcut(\"$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\BinhMinhArt.lnk\"); $s.TargetPath = \"wscript.exe\"; $s.Arguments = \"`\"%PROJECT_DIR%\scripts\run_background.vbs`\"\"; $s.WorkingDirectory = \"%PROJECT_DIR%\"; $s.WindowStyle = 7; $s.Description = 'BinhMinhArt Gallery Server'; $s.Save(); Write-Host '[2/2] Da tao Shortcut khoi dong ngam thanh cong!'"
 
-echo [THANH CONG] Da dang ky BinhMinhArt tu dong chay ngam khi mo may HP!
-echo Thu muc du an: %PROJECT_DIR%
-echo File khoi dong: %STARTUP_VBS%
+if not exist "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\BinhMinhArt.lnk" (
+    echo.
+    echo [LOI] Khong the tao Shortcut khoi dong trong Startup.
+    pause
+    exit /b 1
+)
+
 echo.
-echo Tu nay, moi khi bat may HP, server se tu dong chay ngam tren cong 5001.
+echo ========================================================
+echo   [CAI DAT THANH CONG HOAN TOAN 100%%]
+echo ========================================================
+echo Tu bay gio:
+echo   1. Moi khi ban BAT NGUON MAY HP hoac KHOI DONG LAI:
+echo      Server BinhMinhArt se TU DONG CHAY NGAM tren cong 5001.
+echo   2. Ban KHONG CAN mo Antigravity IDE hay Terminal nua!
+echo   3. iPad / iPhone / Dien thoai cu ket noi Wi-Fi la vao duoc ngay:
+echo      https://[IP_MAY_HP]:5001
+echo ========================================================
 echo.
 pause
 exit /b 0
-
-:FAIL
-echo.
-echo [THAT BAI] Khong the tao file trong thu muc Startup cua Windows.
-echo.
-pause
-exit /b 1
