@@ -3,7 +3,8 @@ import {
   X, Upload, Trash2, Calendar, DollarSign, Image as ImageIcon, Save, 
   ExternalLink, MapPin, History, Plus, AlertCircle, CheckCircle2, Clock, RefreshCw 
 } from 'lucide-react';
-import { formatUSD, formatDateVN } from '../types';
+import { formatUSD, formatDateVN, parseNumericPrice } from '../types';
+import CurrencyInput from './ui/CurrencyInput';
 
 export default function PaintingDetailModal({
   isOpen,
@@ -190,12 +191,8 @@ export default function PaintingDetailModal({
 
   const handleSave = (e) => {
     e.preventDefault();
-    const parsedGia = formData.gia !== '' && formData.gia !== null && formData.gia !== undefined 
-      ? Number(formData.gia) 
-      : null;
-    const initialGia = painting && painting.gia !== '' && painting.gia !== null && painting.gia !== undefined
-      ? Number(painting.gia)
-      : null;
+    const parsedGia = parseNumericPrice(formData.gia);
+    const initialGia = painting ? parseNumericPrice(painting.gia) : null;
     const priceChanged = parsedGia !== initialGia;
 
     const payload = {
@@ -496,14 +493,12 @@ export default function PaintingDetailModal({
               <div className="grid grid-cols-3 gap-2">
                 <div>
                   <label className="text-[11px] font-semibold text-stone-700 block mb-0.5">Giá ($ USD)</label>
-                  <input
-                    type="number"
-                    min="0"
-                    step="any"
+                  <CurrencyInput
                     value={formData.gia ?? ''}
-                    onChange={(e) => handleChange('gia', e.target.value)}
+                    onChange={(numVal, formattedStr) => handleChange('gia', formattedStr)}
                     placeholder="Thỏa thuận"
                     className="w-full h-[32px] px-2 text-[12px] bg-[#FAF8F5] border border-[#EAE5D9] rounded-md"
+                    data-testid="painting-detail__input-price"
                   />
                 </div>
                 <div>
@@ -778,18 +773,16 @@ export default function PaintingDetailModal({
                     <label className="text-[10.5px] font-semibold text-stone-700 block mb-0.5">
                       Giá mới ($ USD) <span className="text-red-500">*</span>
                     </label>
-                    <input
-                      type="number"
-                      min="0"
-                      step="any"
-                      placeholder="VD: 1600"
+                    <CurrencyInput
+                      placeholder="VD: 1,600"
                       value={newPriceInput}
                       disabled={isSubmittingPrice}
-                      onChange={(e) => {
-                        setNewPriceInput(e.target.value);
+                      onChange={(numVal, formattedStr) => {
+                        setNewPriceInput(formattedStr);
                         setQuickPriceError(null);
                       }}
-                      data-testid="price-history__input-new-price" data-alias="painting-detail__quick-price-input"
+                      data-testid="price-history__input-new-price"
+                      data-alias="painting-detail__quick-price-input"
                       className="w-full h-[32px] px-2.5 text-[12px] font-mono bg-white border border-[#DDD5C4] rounded focus:outline-none focus:border-[#7D1818] focus:ring-1 focus:ring-[#7D1818]/20 transition-all placeholder:font-sans placeholder:text-stone-400 disabled:bg-stone-100 disabled:text-stone-400 disabled:cursor-not-allowed"
                     />
                   </div>
@@ -822,25 +815,26 @@ export default function PaintingDetailModal({
                   type="button"
                   data-testid="price-history__btn-submit" data-alias="painting-detail__quick-price-submit"
                   disabled={
-                    !newPriceInput.trim() ||
+                    !String(newPriceInput || '').trim() ||
                     isSubmittingPrice ||
-                    (formData.gia !== null && formData.gia !== undefined && Number(newPriceInput) === Number(formData.gia))
+                    (parseNumericPrice(formData.gia) !== null && parseNumericPrice(newPriceInput) === parseNumericPrice(formData.gia))
                   }
                   onClick={async () => {
                     // Synchronous guard check: drop rapid multi-taps before async yield
                     if (isSubmittingRef.current) return;
 
-                    const trimmed = newPriceInput.trim();
+                    const trimmed = String(newPriceInput || '').trim();
                     if (!trimmed) {
                       setQuickPriceError('Vui lòng nhập giá mới');
                       return;
                     }
-                    const parsed = Number(trimmed);
-                    if (isNaN(parsed) || parsed < 0) {
+                    const parsed = parseNumericPrice(trimmed);
+                    if (parsed === null || parsed < 0) {
                       setQuickPriceError('Giá mới không hợp lệ (phải là số >= 0)');
                       return;
                     }
-                    if (formData.gia !== null && formData.gia !== undefined && parsed === Number(formData.gia)) {
+                    const currentPrice = parseNumericPrice(formData.gia);
+                    if (currentPrice !== null && parsed === currentPrice) {
                       setQuickPriceError('Giá mới trùng với giá hiện tại');
                       return;
                     }
@@ -857,8 +851,8 @@ export default function PaintingDetailModal({
 
                     const payload = {
                       new_price: parsed,
-                      old_price: formData.gia !== null && formData.gia !== undefined && formData.gia !== '' ? Number(formData.gia) : null,
-                      note: newPriceNote.trim() || `Điều chỉnh giá từ ${formatUSD(formData.gia)} sang ${formatUSD(parsed)}`
+                      old_price: currentPrice,
+                      note: newPriceNote.trim() || `Điều chỉnh giá từ ${formatUSD(currentPrice)} sang ${formatUSD(parsed)}`
                     };
 
                     try {

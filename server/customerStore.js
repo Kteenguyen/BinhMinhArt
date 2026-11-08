@@ -69,7 +69,8 @@ export function createCustomerStore(_dbPath) {
           if (!item.painting_id) continue;
           let dp = null;
           if (item.deal_price !== null && item.deal_price !== undefined && item.deal_price !== '') {
-            const num = Number(item.deal_price);
+            const sanitized = typeof item.deal_price === 'string' ? item.deal_price.replace(/,/g, '').trim() : item.deal_price;
+            const num = Number(sanitized);
             if (!isNaN(num) && num >= 0) dp = num;
           }
           sheetDB.insert('customer_interests', {
@@ -126,7 +127,8 @@ export function createCustomerStore(_dbPath) {
           if (!item.painting_id) continue;
           let dp = null;
           if (item.deal_price !== null && item.deal_price !== undefined && item.deal_price !== '') {
-            const num = Number(item.deal_price);
+            const sanitized = typeof item.deal_price === 'string' ? item.deal_price.replace(/,/g, '').trim() : item.deal_price;
+            const num = Number(sanitized);
             if (!isNaN(num) && num >= 0) dp = num;
           }
           maxId += 1;
@@ -156,7 +158,8 @@ export function createCustomerStore(_dbPath) {
       const today = new Date().toISOString().slice(0, 10);
       let dp = null;
       if (dealPrice !== null && dealPrice !== undefined && dealPrice !== '') {
-        const num = Number(dealPrice);
+        const sanitized = typeof dealPrice === 'string' ? dealPrice.replace(/,/g, '').trim() : dealPrice;
+        const num = Number(sanitized);
         if (!isNaN(num) && num >= 0) dp = num;
       }
       sheetDB.insert('customer_interests', {

@@ -15,9 +15,10 @@
     "test": "node --test \"test/price-history-api.test.mjs\" \"test/table-readonly-sticky-columns.test.mjs\" \"test/view-pagination.test.mjs\"",
     "test:api": "NODE_TLS_REJECT_UNAUTHORIZED=0 node --test test/price-history-api.test.mjs",
     "test:network": "NODE_TLS_REJECT_UNAUTHORIZED=0 node --test test/lan-https-network.test.mjs",
+    "test:upgrade": "NODE_TLS_REJECT_UNAUTHORIZED=0 node --test test/e2e-inventory-upgrade.test.mjs",
     "test:e2e": "node test/e2e/run-e2e.mjs",
     "test:playwright": "node test/e2e/run-e2e.mjs",
-    "test:all": "npm test && npm run test:network && npm run test:e2e"
+    "test:all": "npm test && npm run test:network && npm run test:upgrade && npm run test:e2e"
   },
   "dependencies": {
     "cors": "^2.8.5",

@@ -23,35 +23,113 @@ function getTodayDateVN() {
 
 describe('Adversarial Stress & Edge Case Test Suite for Price History & Auto-Date', async () => {
 
-  let initialHistoryContent = null;
+  let initialHistoryLogs = null;
+  let initialMaxLogId = 0;
   let initialPaintingState = null;
 
   before(async () => {
     const res = await fetch(`${BASE_URL}/api/network-info`);
     assert.equal(res.status, 200, 'Server must be online');
 
-    if (fs.existsSync(PRICE_HISTORY_FILE)) {
-      initialHistoryContent = fs.readFileSync(PRICE_HISTORY_FILE, 'utf-8');
-    }
-
     const pRes = await fetch(`${BASE_URL}/api/paintings`);
     const pData = await pRes.json();
     initialPaintingState = pData.data.find(p => p.id === TARGET_ID);
+
+    if (fs.existsSync(PRICE_HISTORY_FILE)) {
+      try {
+        const raw = fs.readFileSync(PRICE_HISTORY_FILE, 'utf-8');
+        initialHistoryLogs = JSON.parse(raw);
+        initialMaxLogId = initialHistoryLogs.reduce((max, l) => Math.max(max, Number(l.id) || 0), 0);
+      } catch (_) {}
+    }
   });
 
   after(async () => {
-    // Restore clean initial state
-    if (initialPaintingState) {
-      await fetch(`${BASE_URL}/api/paintings/${TARGET_ID}`, {
+    // 1. Unconditional 2-Step Baseline Restoration for DVS-SD-01
+    // Step 1a: Enforce authentic price 1500
+    // Step 1b: Enforce authentic baseline dates ('09-01-2026') with priceChanged = false
+    try {
+      const putPriceRes = await fetch(`${BASE_URL}/api/paintings/${TARGET_ID}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           id: TARGET_ID,
-          gia: initialPaintingState.gia || 1500,
-          ngay_cap_nhat_gia_gan_nhat: initialPaintingState.ngay_cap_nhat_gia_gan_nhat || '09-01-2026'
+          gia: 1500
         })
       });
+      assert.equal(putPriceRes.status, 200, 'Teardown Step 1a: Price must be set to 1500');
+
+      const putDateRes = await fetch(`${BASE_URL}/api/paintings/${TARGET_ID}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          id: TARGET_ID,
+          gia: 1500,
+          ngay_cap_nhat_gia_gan_nhat: '09-01-2026',
+          ngay_cap_nhat_san_pham: '09-01-2026'
+        })
+      });
+      assert.equal(putDateRes.status, 200, 'Teardown Step 1b: Baseline date must be set to 09-01-2026');
+    } catch (err) {
+      console.error('[Adversarial Teardown] Critical error during painting restoration:', err.message);
+      throw err;
     }
+
+    // 2. Purge all test-created logs from data/price_history.json
+    // Strictly preserve baseline log (id: 1) and authentic manual adjustments (id: 1045, 1046)
+    if (fs.existsSync(PRICE_HISTORY_FILE)) {
+      try {
+        const currentLogs = JSON.parse(fs.readFileSync(PRICE_HISTORY_FILE, 'utf-8'));
+        const testPatterns = [
+          'Stress concurrent update',
+          'Concurrent direct POST',
+          'Tặng tranh tri ân',
+          'Giá thập phân',
+          'Định giá tác phẩm kiệt tác',
+          'Testing stale date override',
+          'Regression shield probe',
+          'Điều chỉnh giá tác phẩm'
+        ];
+
+        const cleanedLogs = currentLogs.filter(log => {
+          if (String(log.painting_id) !== TARGET_ID) return true;
+          if (log.note === 'Khởi tạo mốc giá ban đầu') return true;
+          if (log.id === 1045 || log.id === 1046) return true;
+          if (initialMaxLogId > 0 && log.id <= initialMaxLogId) {
+            const isTestPattern = testPatterns.some(p => log.note && log.note.includes(p));
+            return !isTestPattern;
+          }
+          return false;
+        });
+
+        const tmpFile = `${PRICE_HISTORY_FILE}.tmp.${Date.now()}`;
+        fs.writeFileSync(tmpFile, JSON.stringify(cleanedLogs, null, 2), 'utf-8');
+        fs.renameSync(tmpFile, PRICE_HISTORY_FILE);
+      } catch (err) {
+        console.error('[Adversarial Teardown] Failed to clean price_history.json:', err.message);
+        throw err;
+      }
+    }
+
+    // 3. Trigger server cache reload and await cloud writeQueue drain
+    const reloadRes = await fetch(`${BASE_URL}/api/price-history/reload`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' }
+    });
+    assert.equal(reloadRes.status, 200, 'Teardown Step 3: /api/price-history/reload must succeed');
+
+    // 4. Post-Teardown Invariant Verification
+    const verifyRes = await fetch(`${BASE_URL}/api/paintings/${TARGET_ID}`);
+    assert.equal(verifyRes.status, 200);
+    const verifyData = (await verifyRes.json()).data;
+    assert.equal(verifyData.gia, 1500, 'Teardown Invariant: DVS-SD-01 price must be exactly 1500');
+    assert.equal(verifyData.ngay_cap_nhat_gia_gan_nhat, '09-01-2026', 'Teardown Invariant: date must be 09-01-2026');
+
+    const statsRes = await fetch(`${BASE_URL}/api/stats`);
+    assert.equal(statsRes.status, 200);
+    const statsData = (await statsRes.json()).stats;
+    assert.equal(statsData.totalCount, 335, 'Teardown Invariant: total paintings must be 335');
+    assert.equal(statsData.inStockValue, 3082550, 'Teardown Invariant: valuation must be $3,082,550');
   });
 
   // ==========================================================================
@@ -220,8 +298,9 @@ describe('Adversarial Stress & Edge Case Test Suite for Price History & Auto-Dat
     const ancientDates = ['01-01-2000', '1999-12-31', '15-08-1980', '01/01/2000'];
     const todayVN = getTodayDateVN();
 
-    for (const staleDate of ancientDates) {
-      const newPrice = 1600 + Math.floor(Math.random() * 300);
+    for (let idx = 0; idx < ancientDates.length; idx++) {
+      const staleDate = ancientDates[idx];
+      const newPrice = 1600 + (idx + 1) * 50;
       const res = await fetch(`${BASE_URL}/api/paintings/${TARGET_ID}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },

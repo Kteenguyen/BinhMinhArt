@@ -38,11 +38,25 @@ function isDateToday(dateStr) {
 
 describe('M3: Price History & Auto-Date API Acceptance Test Suite', async () => {
 
-  // Pre-flight check: Ensure server is listening on BASE_URL
+  let initialHistoryLogs = null;
+  let initialMaxLogId = 0;
+  let initialPaintingState = null;
+
+  // Pre-flight check: Ensure server is listening on BASE_URL and snapshot initial state
   before(async () => {
     try {
       const res = await fetch(`${BASE_URL}/api/network-info`);
       assert.equal(res.status, 200, 'Server must be online and return 200 on /api/network-info');
+
+      const pRes = await fetch(`${BASE_URL}/api/paintings`);
+      const pData = await pRes.json();
+      initialPaintingState = pData.data.find(p => p.id === TARGET_ID);
+
+      if (fs.existsSync(PRICE_HISTORY_FILE)) {
+        const raw = fs.readFileSync(PRICE_HISTORY_FILE, 'utf-8');
+        initialHistoryLogs = JSON.parse(raw);
+        initialMaxLogId = initialHistoryLogs.reduce((max, l) => Math.max(max, Number(l.id) || 0), 0);
+      }
     } catch (err) {
       assert.fail(`Cannot connect to server at ${BASE_URL}: ${err.message}`);
     }
@@ -410,27 +424,87 @@ describe('M3: Price History & Auto-Date API Acceptance Test Suite', async () => 
   // Teardown: Clean up and restore DVS-SD-01
   // --------------------------------------------------------------------------
   after(async () => {
+    // ------------------------------------------------------------------------
+    // Step 1: Unconditional 2-Step Baseline Restoration for DVS-SD-01
+    // ------------------------------------------------------------------------
     try {
-      await fetch(`${BASE_URL}/api/paintings/${TARGET_ID}`, {
+      const putPriceRes = await fetch(`${BASE_URL}/api/paintings/${TARGET_ID}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: TARGET_ID, gia: 1500 })
+      });
+      assert.equal(putPriceRes.status, 200, 'API Teardown: Price must be set to 1500');
+
+      const putDateRes = await fetch(`${BASE_URL}/api/paintings/${TARGET_ID}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           id: TARGET_ID,
           gia: 1500,
           ngay_cap_nhat_gia_gan_nhat: '09-01-2026',
-          price_note: 'Khôi phục trạng thái sau kiểm thử tự động M3'
+          ngay_cap_nhat_san_pham: '09-01-2026'
         })
       });
-
-      if (fs.existsSync(PRICE_HISTORY_FILE)) {
-        const logs = JSON.parse(fs.readFileSync(PRICE_HISTORY_FILE, 'utf-8'));
-        const cleaned = logs.filter(l => !(l.painting_id === TARGET_ID && l.note && l.note.includes('TC5g')));
-        if (cleaned.length !== logs.length) {
-          fs.writeFileSync(PRICE_HISTORY_FILE, JSON.stringify(cleaned, null, 2), 'utf-8');
-        }
-      }
-    } catch {
-      // Ignore teardown network error
+      assert.equal(putDateRes.status, 200, 'API Teardown: Date must be 09-01-2026');
+    } catch (err) {
+      console.error('[API Teardown] Failed to restore painting state:', err.message);
+      throw err;
     }
+
+    // ------------------------------------------------------------------------
+    // Step 2: Purge test-created logs from data/price_history.json
+    // ------------------------------------------------------------------------
+    if (fs.existsSync(PRICE_HISTORY_FILE)) {
+      try {
+        const currentLogs = JSON.parse(fs.readFileSync(PRICE_HISTORY_FILE, 'utf-8'));
+        const testPatterns = [
+          'kiểm thử tự động M3',
+          'Subtab',
+          'TC5g',
+          'TC5d',
+          'Khôi phục trạng thái sau kiểm thử',
+          'Điều chỉnh giá tác phẩm'
+        ];
+
+        const cleanedLogs = currentLogs.filter(log => {
+          if (String(log.painting_id) !== TARGET_ID) return true;
+          if (log.note === 'Khởi tạo mốc giá ban đầu') return true;
+          if (log.id === 1045 || log.id === 1046) return true;
+          if (initialMaxLogId > 0 && log.id <= initialMaxLogId) {
+            const isTestPattern = testPatterns.some(p => log.note && log.note.includes(p));
+            return !isTestPattern;
+          }
+          return false;
+        });
+
+        const tmpFile = `${PRICE_HISTORY_FILE}.tmp.${Date.now()}`;
+        fs.writeFileSync(tmpFile, JSON.stringify(cleanedLogs, null, 2), 'utf-8');
+        fs.renameSync(tmpFile, PRICE_HISTORY_FILE);
+      } catch (err) {
+        console.error('[API Teardown] Failed to clean price_history.json:', err.message);
+        throw err;
+      }
+    }
+
+    // ------------------------------------------------------------------------
+    // Step 3: Trigger server reload & await cloud writeQueue drain
+    // ------------------------------------------------------------------------
+    const reloadRes = await fetch(`${BASE_URL}/api/price-history/reload`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' }
+    });
+    assert.equal(reloadRes.status, 200, 'API Teardown: /api/price-history/reload must succeed');
+
+    // ------------------------------------------------------------------------
+    // Step 4: Verify Live Server State
+    // ------------------------------------------------------------------------
+    const pRes = await fetch(`${BASE_URL}/api/paintings/${TARGET_ID}`);
+    const pData = (await pRes.json()).data;
+    assert.equal(pData.gia, 1500, 'API Teardown: DVS-SD-01 price must be 1500');
+    assert.equal(pData.ngay_cap_nhat_gia_gan_nhat, '09-01-2026', 'API Teardown: date must be 09-01-2026');
+
+    const sRes = await fetch(`${BASE_URL}/api/stats`);
+    const sData = (await sRes.json()).stats;
+    assert.equal(sData.inStockValue, 3082550, 'API Teardown: inStockValue must be 3082550');
   });
 });

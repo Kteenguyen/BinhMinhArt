@@ -1,15 +1,14 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   Search,
   X,
-  Users,
   QrCode,
   ArrowRight,
   Package,
   CheckCircle2,
-  Clock,
-  ChevronDown
+  Clock
 } from 'lucide-react';
+import SmartArtistDropdown from './SmartArtistDropdown';
 
 export default function FilterToolbar({
   searchTerm,
@@ -35,34 +34,6 @@ export default function FilterToolbar({
     artistFilter !== 'all' ||
     mediumFilter !== 'all' ||
     pendingPriceOnly;
-
-  const [artistDropdownOpen, setArtistDropdownOpen] = useState(false);
-  const [artistSearchKey, setArtistSearchKey] = useState('');
-  const artistDropdownRef = useRef(null);
-  const artistSearchInputRef = useRef(null);
-
-  useEffect(() => {
-    function handleClickOutside(event) {
-      if (artistDropdownRef.current && !artistDropdownRef.current.contains(event.target)) {
-        setArtistDropdownOpen(false);
-      }
-    }
-    if (artistDropdownOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-      setTimeout(() => {
-        if (artistSearchInputRef.current) artistSearchInputRef.current.focus();
-      }, 50);
-    }
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [artistDropdownOpen]);
-
-  const filteredArtists = React.useMemo(() => {
-    const key = (artistSearchKey || '').trim().toLowerCase();
-    if (!key) return artists;
-    return artists.filter(a => String(a.name || '').toLowerCase().includes(key));
-  }, [artists, artistSearchKey]);
-
-  const currentArtistObj = artists.find(a => a.name === artistFilter);
 
   const handleClearFilters = () => {
     setSearchTerm('');
@@ -209,112 +180,17 @@ export default function FilterToolbar({
         <div className="flex items-center justify-between gap-1 sm:gap-2 w-full lg:w-auto shrink-0 flex-nowrap overflow-x-auto no-scrollbar">
           {/* Left sub-group of Tier 2: Artist & Medium Filters */}
           <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
-            {/* Artist Filter Dropdown with Searchable Combobox */}
+            {/* Smart Artist Filter Dropdown (Portal-based, immune to horizontal clipping) */}
             {setArtistFilter && (
-              <div className="w-[135px] sm:w-[165px] lg:w-[180px] shrink-0 relative" ref={artistDropdownRef}>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setArtistDropdownOpen(prev => !prev);
-                    setArtistSearchKey('');
-                  }}
-                  title="Chọn hoặc tìm kiếm theo danh mục Họa sĩ"
-                  className="w-full h-[32px] pl-6 sm:pl-7 pr-6 sm:pr-7 text-[10.5px] sm:text-[11.5px] bg-[#FAF8F5] hover:bg-[#F5EFE6] border border-[#EAE5D9] rounded-md focus:outline-none focus:border-stone-500 font-semibold text-stone-800 flex items-center justify-between text-left transition-colors truncate"
-                >
-                  <Users className="w-3.5 h-3.5 absolute left-2 top-1/2 -translate-y-1/2 text-[#9E7A36] shrink-0" />
-                  <span className="truncate">
-                    {artistFilter === 'all'
-                      ? `Tất cả họa sĩ (${artists.length})`
-                      : `HS. ${artistFilter} (${currentArtistObj?.count || 0})`}
-                  </span>
-                  <ChevronDown className={`w-3.5 h-3.5 text-stone-500 absolute right-1.5 sm:right-2 top-1/2 -translate-y-1/2 transition-transform ${artistDropdownOpen ? 'rotate-180' : ''}`} />
-                </button>
-
-                {/* Dropdown Menu Popup */}
-                {artistDropdownOpen && (
-                  <div className="absolute left-0 top-[36px] w-[260px] bg-white border border-[#DFCBAA] rounded-lg shadow-xl z-50 overflow-hidden animate-in fade-in-50 zoom-in-95">
-                    {/* Search Input Box */}
-                    <div className="p-2 border-b border-[#EAE5D9] bg-[#FAF8F5]">
-                      <div className="relative">
-                        <Search className="w-3.5 h-3.5 absolute left-2.5 top-1/2 -translate-y-1/2 text-stone-400" />
-                        <input
-                          ref={artistSearchInputRef}
-                          type="text"
-                          value={artistSearchKey}
-                          onChange={(e) => setArtistSearchKey(e.target.value)}
-                          placeholder="Gõ tên họa sĩ để tìm..."
-                          className="w-full h-[30px] pl-8 pr-7 text-[11.5px] bg-white border border-[#DDD5C4] rounded focus:outline-none focus:border-[#9E7A36]"
-                        />
-                        {artistSearchKey && (
-                          <button
-                            type="button"
-                            onClick={() => setArtistSearchKey('')}
-                            className="absolute right-2 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-700"
-                          >
-                            <X className="w-3 h-3" />
-                          </button>
-                        )}
-                      </div>
-                    </div>
-
-                    {/* Options List */}
-                    <div className="max-h-[220px] overflow-y-auto p-1 divide-y divide-stone-50 text-[11.5px]">
-                      {/* All Artists Option */}
-                      <button
-                        type="button"
-                        onClick={() => {
-                          setArtistFilter('all');
-                          setArtistDropdownOpen(false);
-                        }}
-                        className={`w-full px-2.5 py-1.5 text-left rounded flex items-center justify-between font-semibold transition-colors ${
-                          artistFilter === 'all'
-                            ? 'bg-[#7D1818] text-white'
-                            : 'text-stone-700 hover:bg-[#FAF8F5]'
-                        }`}
-                      >
-                        <span>Tất cả họa sĩ</span>
-                        <span className={`text-[10px] px-1.5 py-0.2 rounded-full font-mono ${
-                          artistFilter === 'all' ? 'bg-white/20 text-white' : 'bg-stone-100 text-stone-600'
-                        }`}>
-                          {artists.reduce((acc, a) => acc + (a.count || 0), 0)}
-                        </span>
-                      </button>
-
-                      {filteredArtists.length === 0 ? (
-                        <div className="py-4 text-center text-stone-400 italic text-[11px]">
-                          Không tìm thấy họa sĩ "{artistSearchKey}"
-                        </div>
-                      ) : (
-                        filteredArtists.map((artist) => {
-                          const isSelected = artistFilter === artist.name;
-                          return (
-                            <button
-                              key={artist.name}
-                              type="button"
-                              onClick={() => {
-                                setArtistFilter(artist.name);
-                                setArtistDropdownOpen(false);
-                              }}
-                              className={`w-full px-2.5 py-1.5 text-left rounded flex items-center justify-between transition-colors ${
-                                isSelected
-                                  ? 'bg-[#7D1818] text-white font-bold'
-                                  : 'text-stone-800 hover:bg-[#FAF8F5]'
-                              }`}
-                            >
-                              <span className="truncate">HS. {artist.name}</span>
-                              <span className={`text-[10.5px] px-1.5 py-0.2 rounded-full font-mono ${
-                                isSelected ? 'bg-white/20 text-white' : 'bg-stone-100 text-stone-600'
-                              }`}>
-                                {artist.count}
-                              </span>
-                            </button>
-                          );
-                        })
-                      )}
-                    </div>
-                  </div>
-                )}
-              </div>
+              <SmartArtistDropdown
+                selectedArtist={artistFilter}
+                onSelectArtist={setArtistFilter}
+                artists={artists}
+                allCount={totalTabItems || artists.reduce((acc, a) => acc + (a.count || 0), 0)}
+                allOptionLabel="Tất cả họa sĩ"
+                className="w-[140px] sm:w-[170px] lg:w-[190px]"
+                dropdownWidth={280}
+              />
             )}
 
             {/* Medium Filter Dropdown */}

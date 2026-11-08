@@ -485,3 +485,11 @@ export function formatDateVN(dateStr, emptyFallback = 'Đang cập nhật') {
   }
   return datePart;
 }
+
+// Re-export currency utilities for backward compatibility and test contracts
+export {
+  formatThousands,
+  parseNumericPrice,
+  calculatePreservedCursor,
+  calculatePositionForDigits
+} from './utils/currency.js';

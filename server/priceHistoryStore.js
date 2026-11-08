@@ -5,11 +5,13 @@ import sheetDB from './googleSheetSingleton.js';
 
 let customStoragePath = null;
 let priceHistoryCache = null;
+let lastLoadedMtime = 0;
 const recentLogMap = new Map(); // painting_id -> { new_price, timestamp, log }
 
 export function setPriceHistoryFilePath(customPath) {
   customStoragePath = customPath;
   priceHistoryCache = null;
+  lastLoadedMtime = 0;
   recentLogMap.clear();
 }
 
@@ -21,6 +23,7 @@ export function getPriceHistoryFilePath() {
 
 export function resetPriceHistoryCache() {
   priceHistoryCache = null;
+  lastLoadedMtime = 0;
   recentLogMap.clear();
 }
 
@@ -94,6 +97,7 @@ export function loadPriceHistory() {
   const filePath = getPriceHistoryFilePath();
   if (fs.existsSync(filePath)) {
     try {
+      lastLoadedMtime = fs.statSync(filePath).mtimeMs;
       const raw = fs.readFileSync(filePath, 'utf-8');
       if (raw.trim()) {
         const parsed = JSON.parse(raw);
@@ -114,6 +118,9 @@ export function loadPriceHistory() {
         const parsed = JSON.parse(metaRow.value);
         if (Array.isArray(parsed) && parsed.length > 0) {
           atomicWriteJsonSync(filePath, parsed);
+          try {
+            lastLoadedMtime = fs.statSync(filePath).mtimeMs;
+          } catch (_) {}
           return parsed;
         }
       }
@@ -126,13 +133,51 @@ export function loadPriceHistory() {
 }
 
 export function initPriceHistory() {
-  if (priceHistoryCache === null) {
+  const filePath = getPriceHistoryFilePath();
+  let currentMtime = 0;
+  try {
+    if (fs.existsSync(filePath)) {
+      currentMtime = fs.statSync(filePath).mtimeMs;
+    }
+  } catch (_) {}
+
+  if (priceHistoryCache === null || (currentMtime > 0 && currentMtime !== lastLoadedMtime)) {
     priceHistoryCache = loadPriceHistory();
+    lastLoadedMtime = currentMtime;
+    recentLogMap.clear();
   }
   return priceHistoryCache;
 }
 
-export function savePriceHistory(logs) {
+let metaSyncTimer = null;
+
+export function flushMetaSync() {
+  if (metaSyncTimer) {
+    clearTimeout(metaSyncTimer);
+    metaSyncTimer = null;
+  }
+  if (sheetDB && typeof sheetDB.update === 'function' && priceHistoryCache) {
+    try {
+      sheetDB.update('meta', 'price_history', {
+        key: 'price_history',
+        value: JSON.stringify(priceHistoryCache)
+      }, 'key');
+    } catch (err) {
+      console.warn('[priceHistoryStore] sheetDB meta sync failed:', err.message);
+    }
+  }
+}
+
+function scheduleMetaSync(delayMs = 300) {
+  if (metaSyncTimer) clearTimeout(metaSyncTimer);
+  metaSyncTimer = setTimeout(() => {
+    metaSyncTimer = null;
+    flushMetaSync();
+  }, delayMs);
+  if (metaSyncTimer.unref) metaSyncTimer.unref();
+}
+
+export function savePriceHistory(logs, options = {}) {
   if (!Array.isArray(logs)) {
     throw new Error('Price history logs must be an array');
   }
@@ -141,17 +186,15 @@ export function savePriceHistory(logs) {
 
   // 1. Atomic write to disk
   atomicWriteJsonSync(filePath, logs);
-
-  // 2. Sync to sheetDB meta
   try {
-    if (sheetDB && typeof sheetDB.update === 'function') {
-      sheetDB.update('meta', 'price_history', {
-        key: 'price_history',
-        value: JSON.stringify(logs)
-      }, 'key');
-    }
-  } catch (err) {
-    console.warn('[priceHistoryStore] sheetDB meta sync failed:', err.message);
+    lastLoadedMtime = fs.statSync(filePath).mtimeMs;
+  } catch (_) {}
+
+  // 2. Debounced or immediate sync to sheetDB meta
+  if (options.immediateSync) {
+    flushMetaSync();
+  } else {
+    scheduleMetaSync(300);
   }
 
   return priceHistoryCache;

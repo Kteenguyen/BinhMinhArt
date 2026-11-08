@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { X, Upload, Plus, Trash2, Image as ImageIcon, Sparkles, AlertCircle } from 'lucide-react';
-import { formatUSD } from '../types';
+import { formatUSD, parseNumericPrice } from '../types';
+import CurrencyInput from './ui/CurrencyInput';
 
 function getTodayDDMMYYYY() {
   const now = new Date();
@@ -164,7 +165,7 @@ export default function AddPaintingModal({
 
     const payload = {
       ...formData,
-      gia: formData.gia !== '' ? Number(formData.gia) : null,
+      gia: parseNumericPrice(formData.gia),
       hinh_anh: images,
       ngay_ban: formData.tinh_trang === 'da_ban' ? (formData.ngay_ban || today) : null,
       ...(detectedDuplicate ? { conflict_resolution: conflictResolution } : {})
@@ -371,14 +372,12 @@ export default function AddPaintingModal({
               <label className="text-[11px] font-semibold text-stone-700 block mb-1">
                 Giá Bán ($ USD)
               </label>
-              <input
-                type="number"
-                min="0"
-                step="any"
+              <CurrencyInput
                 value={formData.gia}
-                onChange={(e) => handleChange('gia', e.target.value)}
-                placeholder="VD: 2000"
+                onChange={(numVal, formattedStr) => handleChange('gia', formattedStr)}
+                placeholder="VD: 2,000"
                 className="w-full h-[32px] px-2 text-[12px] bg-[#FAF8F5] border border-[#EAE5D9] rounded-md"
+                data-testid="add-painting__input-price"
               />
             </div>
             <div>

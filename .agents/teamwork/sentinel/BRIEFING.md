@@ -1,50 +1,48 @@
-# BRIEFING — 2026-11-01T04:29:00Z
+# BRIEFING — 2026-11-08T07:36:35Z
 
 ## Mission
-Coordinate and monitor SWE Light execution for server restoration, LAN IP verification, HTTPS redirection, and self-signed SSL mobile/desktop access instructions.
+Coordinate task execution with teamwork_orchestrator for BinhMinhArt painting inventory management upgrade (fallback data cleanup, thousand-separator formatting for monetary inputs, and 2-tier location system), monitor progress, and oversee victory audit.
 
 ## 🔒 My Identity
 - Archetype: sentinel
-- Working directory: /Users/mac/Documents/antigravity/BinhMinhArt/.agents/teamwork/sentinel
-- Orchestrator: 1c7906a6-e8e8-4418-a865-7892a67ca715 (teamwork_preview_swe, completed & killed)
-- Victory Auditor: eaf82608-488d-4bef-8f04-b63aa127aacf (teamwork_preview_victory_auditor, confirmed & killed)
-- Active Orchestrator: ce0644e5-369f-4d95-acda-e238fa0b422a (teamwork_swe, swe_2, completed & killed)
-- Active Sentinel Victory Auditor: 017d94ac-bb55-4f86-891a-5e5f400ecf2f (teamwork_victory_auditor, confirmed & killed)
+- Working directory: /Users/mac/Documents/antigravity/BinhMinhArt/.agents/teamwork/sentinel/
+- Orchestrator: 98936714-8608-41fb-8704-8924cd7872c8
+- Victory Auditor: 08d5a1ea-88d1-4c46-b481-833c1577b0c4
 
 ## 🔒 Key Constraints
 - No technical decisions — relay only
 - Victory Audit is MANDATORY before reporting completion
-- Must not write code, analyze problems, or make any technical decisions
-- Keep context ultra-light
-- On VICTORY REJECTED, forward audit report to orchestrator and resume team
-
-## Routing Decision
-- Route: SWE Light (`teamwork_swe`)
-- Rationale: Single self-contained fix with explicit lightness signal ("This is a single self-contained fix; keep it small and focused."). Pre-flight audit not required.
-
-## Crons
-- All crons killed on completion.
+- Working directory: /Users/mac/Documents/antigravity/BinhMinhArt
+- Integrity mode: development
+- R1: Tự động cập nhật ngày cập nhật giá gần nhất
+- R2: Lưu trữ và khởi tạo nhật ký biến động giá
+- R3: Giao diện Subtab "Nhật ký giá"
+- Full verification via automated API and UI tests
+- R1 (Current): Remove pagination from show list view, preserve pagination in table view
+- R2 (Current): Enable HTTPS and LAN IP binding (0.0.0.0 / active local IP) for external device access (HP machine)
+- Verification: Automated UI tests for pagination behavior & curl network check for HTTPS LAN IP 200 OK
+- R1 (New): Data and Fallback Cleanup - purge dummy/test records ("Stress concurrent update #...", synthetic fallbacks)
+- R2 (New): Thousand-Separator Formatting for Monetary Inputs - auto comma formatting, smooth typing, preserve numeric values
+- R3 (New): Two-Tier Location System - Level 1 area, Level 2 sub-location, backward compatibility, forms, filters, ExcelGrid, Location History tab
 
 ## User Context
-- **Last user request**: Approved task prompt for diagnosing web app access failure, starting daemon server on port 5001 HTTPS, verifying LAN IP, and providing clear client access instructions.
+- **Last user request**: Approved task prompt received and dispatched to orchestrator
 - **Pending clarifications**: none
-- **Delivered results**:
-  - Server daemonized via macOS LaunchAgent (`KeepAlive: true`, port 5001).
-  - Single-port HTTPS with HTTP 301 automatic redirect.
-  - Apple TLS compliant X509v3 SAN certificates (`localhost`, `127.0.0.1`, `192.168.0.111`).
-  - Mobile & desktop access guide documented and tested.
-  - Independent post-victory audit: VICTORY CONFIRMED.
+- **Delivered results**: teamwork_orchestrator spawned, crons active
 
 ## Project Status
-- **Phase**: complete
+- **Phase**: in progress
+- **Route**: General (teamwork_orchestrator)
+- **Active Orchestrator ID**: efe60167-7f2e-49e8-8a0e-67db04d2e6f4
+- **Cron Tasks**: task-28 (Progress Reporting: */8 * * * *), task-29 (Liveness Check: */10 * * * *)
 
 ## Victory Audit Status
-- **Triggered**: yes
-- **Verdict**: VICTORY CONFIRMED
+- **Triggered**: no
+- **Auditor ID**: TBD
+- **Verdict**: pending
 - **Retry count**: 0
 
 ## Artifact Index
-- /Users/mac/Documents/antigravity/BinhMinhArt/.agents/teamwork/ORIGINAL_REQUEST.md — Authoritative record of requests
-- /Users/mac/Documents/antigravity/BinhMinhArt/.agents/teamwork/swe_2/handoff.md — SWE Light Orchestrator handoff
-- /Users/mac/Documents/antigravity/BinhMinhArt/.agents/teamwork/sentinel_victory_auditor_2/handoff.md — Sentinel Victory Auditor handoff
-- /Users/mac/Documents/antigravity/BinhMinhArt/.agents/teamwork/sentinel/handoff.md — Sentinel final handoff
+- /Users/mac/Documents/antigravity/BinhMinhArt/.agents/teamwork/ORIGINAL_REQUEST.md — Authoritative user request
+- /Users/mac/Documents/antigravity/BinhMinhArt/.agents/teamwork/orchestrator_3/ — Active Orchestrator workspace
+- /Users/mac/Documents/antigravity/BinhMinhArt/.agents/teamwork/sentinel/handoff.md — Sentinel handoff report

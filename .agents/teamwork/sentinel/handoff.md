@@ -1,37 +1,41 @@
-# Handoff Report - Sentinel
+# Sentinel Final Handoff Report — Show List Continuous Scrolling & HTTPS LAN Access
 
-## Observation
-1. Sau khi hệ thống macOS khởi động lại, dịch vụ Node.js trên cổng 5001 bị dừng do trước đó chỉ chạy tiến trình nền thông thường mà chưa được đăng ký daemon hệ thống.
-2. Người dùng báo cáo sự cố "test kĩ chưa chứ tôi đang vào không được".
-3. Yêu cầu đã qua Task Interview, được phê duyệt thành prompt chuẩn và định tuyến tới đường dẫn `SWE Light` (`teamwork_swe`).
-4. Đội ngũ SWE Light (bao gồm implementer, 3 vòng adversarial reviewer r1-r3 và inner victory auditor) đã triển khai:
-   - LaunchAgent daemon macOS (`com.binhminhart.server.plist`) tại `~/Library/LaunchAgents/` với `RunAtLoad: true` và `KeepAlive: true`.
-   - Cơ chế single-port TCP multiplexer: phục vụ độc quyền HTTPS trên cổng 5001, tự động chuyển hướng 301 cho các request HTTP thường.
-   - Module `server/sslCert.js` sinh chứng chỉ X509v3 với Subject Alternative Names (SAN) bao gồm `localhost`, `127.0.0.1`, và LAN IP `192.168.0.111`.
-   - Cập nhật script khởi chạy `start_app.command` và tài liệu hướng dẫn truy cập, vượt qua cảnh báo SSL trên iOS Safari, Android Chrome và desktop.
-5. Independent Victory Auditor (`teamwork_victory_auditor`) đã được Sentinel kích hoạt và thẩm định độc lập cả 3 phase (Timeline, Integrity, Test Execution), trả về kết luận **VICTORY CONFIRMED**.
+## 1. Observation
+- **Original User Request**: Gỡ bỏ phân trang ở chế độ "show list" (danh sách tranh / triển lãm), cuộn mượt không ngắt trang; chỉ giữ phân trang ở chế độ bảng (quản lý kho); chuyển cấu hình chạy từ localhost sang bind IP mạng LAN hiện tại để máy HP truy cập được.
+- **Implementation Team Execution**:
+  - `orchestrator_2` executed decomposition across 3 Explorers, 1 Worker, 2 Reviewers, 2 Challengers, and 1 Forensic Auditor.
+  - `src/components/ExhibitionView.jsx` & `src/components/CustomerExhibitionView.jsx`: Completely eliminated pagination controls, page state (`currentPage`, `pageSize`), and slicing. Paintings render continuously.
+  - `src/index.css`: Enabled `html { scroll-behavior: smooth; }`.
+  - `src/components/ExcelGrid.jsx`: Confirmed 0 git diff lines; pagination bar, range counter, and page size selector `[6, 10, 14, 25, 'all']` 100% preserved.
+  - `vite.config.js`: Bound `server.host: '0.0.0.0'`, port 3000, HTTPS with local SSL certificates (`certs/cert.pem` with SAN covering active LAN IP `192.168.0.111`).
+  - `server/index.js`: Express backend listens on `0.0.0.0:5001` over HTTPS with automatic HTTP->HTTPS 301 redirect.
+- **Victory Audit Outcome**:
+  - Independent Victory Auditor `08d5a1ea-88d1-4c46-b481-833c1577b0c4` conducted a 3-phase audit:
+    - Phase A (Timeline & Provenance): PASS
+    - Phase B (Integrity & Anti-cheating): PASS
+    - Phase C (Independent Test Execution): PASS
+    - Verdict: **VICTORY CONFIRMED**
 
-## Logic Chain
-- Nhiệm vụ là một lỗi đơn lẻ, khép kín với chỉ dẫn rõ ràng ("This is a single self-contained fix; keep it small and focused."), phù hợp tuyệt đối với đường dẫn `SWE Light`.
-- Sentinel đã ghi nhận prompt vào `ORIGINAL_REQUEST.md`, thiết lập 2 cron giám sát (Cron 1 tiến độ, Cron 2 liveness), điều phối SWE Light và chờ hoàn tất.
-- Khi SWE Light báo cáo hoàn thành, Sentinel không chấp nhận kết quả ngay mà kích hoạt `teamwork_victory_auditor` độc lập.
-- Sau khi kiểm toán độc lập xác nhận đạt 39/39 bài test, build thành công và tiến trình đang phục vụ thực tế, Sentinel tiến hành hủy crons, dọn dẹp subagents và bàn giao kết quả.
+## 2. Logic Chain
+- **Requirement R1 (Show List Continuous Scrolling vs Table Pagination)**:
+  - Exhibition views represent an art gallery display where smooth continuous scrolling delivers a superior visual browsing experience. Table views represent an inventory spreadsheet requiring exact pagination chunking.
+  - Isolating the pagination logic to `ExcelGrid.jsx` while removing it from `ExhibitionView.jsx` and `CustomerExhibitionView.jsx` fulfills the exact UX distinction requested.
+- **Requirement R2 (HTTPS & LAN IP Access for External HP Machine)**:
+  - Localhost binding (`127.0.0.1`) rejects all external connections on the local area network.
+  - Binding to `0.0.0.0` allows the server to accept connections on all active network interfaces.
+  - Supplying valid SSL certificates with SAN entries matching the LAN IP `192.168.0.111` enables cross-device access (such as from the HP laptop or mobile devices) over HTTPS without connection refused errors.
 
-## Caveats
-- Chứng chỉ SSL hiện tại là chứng chỉ tự ký (self-signed) dành cho mạng nội bộ LAN/Home Network. Lần đầu truy cập trên điện thoại (iPhone Safari / Android Chrome) hoặc máy tính, trình duyệt sẽ hiển thị cảnh báo bảo mật một lần duy nhất; người dùng chỉ cần chọn "Nâng cao" -> "Tiếp tục truy cập" (hoặc nhập `thisisunsafe` trên Chrome máy tính).
-- Địa chỉ IP LAN hiện tại của máy là `192.168.0.111`. Nếu router mạng WiFi cấp lại dải IP khác trong tương lai khi lease hết hạn, người dùng có thể nhấp đúp vào `start_app.command` để xem địa chỉ IP mới nhất.
+## 3. Caveats
+- When accessing the application for the first time on the HP machine via `https://192.168.0.111:5001` or `https://192.168.0.111:3000`, the browser will show a standard self-signed certificate warning ("Your connection is not private"). The user simply needs to click "Advanced" -> "Proceed to 192.168.0.111 (unsafe)".
+- If the host machine reconnects to a different Wi-Fi router, the LAN IP may change dynamically via DHCP. If that happens, running the server restart script will automatically refresh the certificate SAN for the new IP.
 
-## Conclusion
-Nhiệm vụ đã hoàn thành xuất sắc và được thẩm định độc lập:
-- Server đang chạy nền và tự động bật lại sau khi reboot.
-- Cổng 5001 hoạt động chuẩn HTTPS và tự động redirect từ HTTP.
-- LAN IP `192.168.0.111` đã sẵn sàng phục vụ.
-- Toàn bộ 39/39 bài test pass, build 0 lỗi. Phán quyết: **VICTORY CONFIRMED**.
+## 4. Conclusion
+- All requirements R1 and R2 have been implemented, tested, adversarially verified, and independently audited.
+- Both monitoring crons have been cancelled and all subagents terminated cleanly.
+- System is ready for user sign-off.
 
-## Verification Method
-- Kiểm tra tiến trình daemon: `launchctl list | grep binhminhart`
-- Kiểm tra port 5001: `lsof -i :5001`
-- Kiểm tra HTTP Redirect: `curl -sI -o /dev/null -w "%{http_code}\n" http://127.0.0.1:5001/` -> Trả về `301`
-- Kiểm tra HTTPS 200 OK: `curl -sk -o /dev/null -w "%{http_code}\n" https://127.0.0.1:5001/` -> Trả về `200`
-- Kiểm tra LAN IP: `curl -sk -o /dev/null -w "%{http_code}\n" https://192.168.0.111:5001/api/network-info` -> Trả về `200`
-- Chạy toàn bộ test suites: `node --test test/table-readonly-sticky-columns.test.mjs test/sslCert.test.mjs test/deploy-and-network.test.mjs`
+## 5. Verification Method
+- **Automated Unit & Contract Tests**: `npm test` passed 39/39 tests.
+- **Network Interface Verification**: `npm run test:network` passed 5/5 tests confirming `https://192.168.0.111:5001/` and `https://192.168.0.111:5001/api/paintings` return HTTP 200 OK, and HTTP returns 301.
+- **Adversarial Stress Tests**: `node --test test/adversarial-showlist-table.test.mjs` passed 6/6 tests.
+- **Build Verification**: `npm run build` completed with 0 errors.

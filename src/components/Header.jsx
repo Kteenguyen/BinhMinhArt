@@ -238,14 +238,16 @@ export default function Header({
               </button>
             )}
 
-            {/* Reset Seed Button */}
+            {/* Reset Seed Button - Safeguarded to protect 335 authentic artworks */}
             <button
               type="button"
               onClick={onResetSeed}
-              title="Khôi phục lại 14 tác phẩm gốc ban đầu từ hồ sơ"
-              className="h-[30px] sm:h-[32px] px-2 sm:px-2.5 text-[11px] sm:text-[11.5px] font-semibold text-stone-700 bg-white hover:bg-stone-50 border border-[#DFCBAA] rounded transition-colors flex items-center gap-1.5 whitespace-nowrap cursor-pointer shrink-0"
+              disabled
+              aria-disabled="true"
+              title="Tính năng Phục Hồi Gốc đã được khóa an toàn để bảo vệ 335 tác phẩm gốc"
+              className="h-[30px] sm:h-[32px] px-2 sm:px-2.5 text-[11px] sm:text-[11.5px] font-semibold text-stone-400 bg-stone-100 border border-stone-200 rounded flex items-center gap-1.5 whitespace-nowrap cursor-not-allowed shrink-0 opacity-60"
             >
-              <RotateCcw className="w-3.5 h-3.5 text-stone-500" />
+              <RotateCcw className="w-3.5 h-3.5 text-stone-400" />
               <span className="hidden sm:inline">Phục Hồi Gốc</span>
             </button>
           </div>

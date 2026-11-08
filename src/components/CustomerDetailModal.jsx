@@ -22,7 +22,9 @@ import {
   ArrowRight,
   TrendingDown
 } from 'lucide-react';
-import { formatUSD } from '../types';
+import { formatUSD, parseNumericPrice } from '../types';
+import { matchArtistQuery } from '../utils/vietnameseSearch';
+import CurrencyInput from './ui/CurrencyInput';
 
 export default function CustomerDetailModal({
   isOpen,
@@ -115,8 +117,8 @@ export default function CustomerDetailModal({
       const listed = p && typeof p.gia === 'number' ? p.gia : 0;
       totalListed += listed;
 
-      if (item.deal_price !== null && item.deal_price !== undefined && item.deal_price !== '') {
-        const dealVal = Number(item.deal_price) || 0;
+      const dealVal = parseNumericPrice(item.deal_price);
+      if (dealVal !== null) {
         totalDeal += dealVal;
         pricedCount++;
       } else if (listed > 0) {
@@ -142,8 +144,8 @@ export default function CustomerDetailModal({
   const handleUpdateDealPrice = (idx, newPrice) => {
     setInterests(prev => {
       const copy = [...prev];
-      const val = newPrice === '' ? null : Number(newPrice);
-      copy[idx] = { ...copy[idx], deal_price: isNaN(val) ? null : val };
+      const val = parseNumericPrice(newPrice);
+      copy[idx] = { ...copy[idx], deal_price: val };
       return copy;
     });
   };
@@ -249,7 +251,7 @@ export default function CustomerDetailModal({
         ...formData,
         interests: interests.map(item => ({
           painting_id: item.painting_id,
-          deal_price: item.deal_price !== null && item.deal_price !== undefined ? Number(item.deal_price) : null,
+          deal_price: parseNumericPrice(item.deal_price),
           note: item.note || ''
         }))
       };
@@ -285,7 +287,7 @@ export default function CustomerDetailModal({
       if (!q) return true;
       const matchId = (p.id || '').toLowerCase().includes(q);
       const matchName = (p.ten_tac_pham || '').toLowerCase().includes(q);
-      const matchArtist = (p.tac_gia || '').toLowerCase().includes(q);
+      const matchArtist = matchArtistQuery(p.tac_gia, q).match;
       const matchMedium = (p.chat_lieu || '').toLowerCase().includes(q);
       return matchId || matchName || matchArtist || matchMedium;
     });
@@ -482,7 +484,7 @@ export default function CustomerDetailModal({
                         const p = paintings.find(pt => pt.id === item.painting_id) || {};
                         const thumb = Array.isArray(p.hinh_anh) && p.hinh_anh.length > 0 ? p.hinh_anh[0] : null;
                         const listedPrice = typeof p.gia === 'number' ? p.gia : null;
-                        const currentDeal = item.deal_price !== null && item.deal_price !== undefined ? Number(item.deal_price) : null;
+                        const currentDeal = parseNumericPrice(item.deal_price);
                         const diff = listedPrice && currentDeal !== null ? currentDeal - listedPrice : null;
                         const pct = listedPrice && currentDeal !== null && listedPrice > 0 ? Math.round(((listedPrice - currentDeal) / listedPrice) * 100) : 0;
 
@@ -533,13 +535,12 @@ export default function CustomerDetailModal({
                               <div className="space-y-1">
                                 <div className="relative">
                                   <span className="absolute left-2 top-1/2 -translate-y-1/2 text-stone-400 font-mono text-[11px]">$</span>
-                                  <input
-                                    type="number"
-                                    min="0"
+                                  <CurrencyInput
                                     value={item.deal_price ?? ''}
-                                    onChange={(e) => handleUpdateDealPrice(idx, e.target.value)}
+                                    onChange={(numVal, formattedStr) => handleUpdateDealPrice(idx, numVal)}
                                     placeholder="Thỏa thuận"
                                     className="w-full h-[28px] pl-5 pr-2 font-mono font-bold text-stone-900 bg-amber-50/50 focus:bg-white border border-amber-300 focus:border-[#7D1818] rounded text-[12px] focus:outline-none transition-colors"
+                                    data-testid={`customer-interest__deal-price-input-${idx}`}
                                   />
                                 </div>
 

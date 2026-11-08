@@ -352,6 +352,10 @@ function loadLegacyPaintings() {
   }
 
   if (cached) return { source: 'json', paintings: cached };
+  if (sheetDB.isConfigured()) {
+    console.warn('[DB Migration] sheetDB is configured; skipping synthetic INITIAL_SEED fallback');
+    return { source: 'sheetdb', paintings: [] };
+  }
   return { source: 'seed', paintings: INITIAL_SEED };
 }
 
@@ -408,8 +412,14 @@ export function savePaintings(paintings) {
   scheduleExcelExport();
 }
 
-export function resetToSeed() {
+export function resetToSeed(options = {}) {
   ensureReady();
+  const allowReset = (process.env.NODE_ENV === 'test' || process.env.ALLOW_DANGEROUS_RESET === 'true') && options?.force === true;
+  if (!allowReset) {
+    const errMsg = '[SECURITY BLOCKED] resetToSeed bị khóa vĩnh viễn để bảo vệ 335 tác phẩm gốc của Bình Minh Art Gallery.';
+    console.error(errMsg);
+    throw new Error(errMsg);
+  }
   backupDatabase('pre-reset');
   savePaintings(INITIAL_SEED);
   initBaselinePriceLogs(INITIAL_SEED);

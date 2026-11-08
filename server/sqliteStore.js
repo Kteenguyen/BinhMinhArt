@@ -62,7 +62,8 @@ export function normalizePainting(p, index = 0) {
 
   let gia = null;
   if (p.gia !== null && p.gia !== undefined && p.gia !== '') {
-    const numGia = typeof p.gia === 'number' ? p.gia : Number(p.gia);
+    const rawGia = typeof p.gia === 'string' ? p.gia.replace(/,/g, '').trim() : p.gia;
+    const numGia = typeof rawGia === 'number' ? rawGia : Number(rawGia);
     if (!Number.isFinite(numGia) || numGia < 0) {
       throw new StoreValidationError(
         `Giá của ${describe(id, index)} không hợp lệ: "${p.gia}" (phải là số >= 0 hoặc để trống)`

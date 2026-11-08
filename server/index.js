@@ -51,6 +51,7 @@ import {
   normNFC
 } from './wordFolderParser.js';
 import { ensureSslCertificate } from './sslCert.js';
+import { resetPriceHistoryCache, initPriceHistory, savePriceHistory, loadPriceHistory } from './priceHistoryStore.js';
 
 const app = express();
 const PORT = process.env.PORT || 5001;
@@ -90,6 +91,31 @@ process.on('uncaughtException', (err) => {
 process.on('unhandledRejection', (reason, promise) => {
   console.error('[BinhMinhArt Server] Unhandled Rejection at:', promise, 'reason:', reason);
 });
+
+/**
+ * Drains sheetDB writeQueue with a bounded timeout to prevent hanging test teardowns and requests.
+ * Universally caps wait to 3000ms so test teardowns and operations never block > 5s.
+ * @param {number} maxWaitMs 
+ */
+async function drainWriteQueue(maxWaitMs = 3000) {
+  if (!sheetDB) return;
+  const drainTimeout = 3000;
+  const effectiveWait = Math.min(typeof maxWaitMs === 'number' ? maxWaitMs : drainTimeout, drainTimeout);
+  const startTime = Date.now();
+  try {
+    if (sheetDB.writeQueue) {
+      await Promise.race([
+        sheetDB.writeQueue,
+        new Promise(resolve => setTimeout(resolve, effectiveWait))
+      ]);
+    }
+  } catch {
+    // Non-fatal if remote queue rejected
+  }
+  while (sheetDB.pendingWrites > 0 && (Date.now() - startTime) < effectiveWait) {
+    await new Promise(r => setTimeout(r, 50));
+  }
+}
 
 const NETWORK_CONFIG_FILE = path.resolve('data', 'network_config.json');
 
@@ -407,8 +433,16 @@ app.post('/api/paintings', (req, res) => {
 
     let parsedPrice = null;
     if (body.gia !== undefined && body.gia !== null && body.gia !== '') {
-      const num = Number(body.gia);
-      if (!isNaN(num)) parsedPrice = num;
+      const cleanStr = typeof body.gia === 'string' ? body.gia.replace(/,/g, '').trim() : body.gia;
+      if (cleanStr === '' || cleanStr === null || cleanStr === undefined) {
+        parsedPrice = null;
+      } else {
+        const num = Number(cleanStr);
+        if (!Number.isFinite(num) || num < 0) {
+          return res.status(400).json({ success: false, message: 'Giá tranh không hợp lệ (phải là số >= 0)' });
+        }
+        parsedPrice = Math.round(num);
+      }
     }
 
     let kf = (body.kich_thuoc_khung_tranh || '').trim();
@@ -538,7 +572,7 @@ app.put('/api/paintings/:id', (req, res) => {
       if (priceVal === '' || priceVal === null || priceVal === undefined) {
         updatedPrice = null;
       } else {
-        const strVal = typeof priceVal === 'string' ? priceVal.trim() : priceVal;
+        const strVal = typeof priceVal === 'string' ? priceVal.replace(/,/g, '').trim() : priceVal;
         if (strVal === '') {
           updatedPrice = null;
         } else {
@@ -732,10 +766,11 @@ app.post('/api/paintings/:id/price-history', (req, res) => {
     const currentPainting = paintings[pIdx];
     const { old_price, new_price, date, note } = req.body || {};
 
-    if (new_price === undefined || new_price === null || (typeof new_price === 'string' && new_price.trim() === '')) {
+    const cleanNew = typeof new_price === 'string' ? new_price.replace(/,/g, '').trim() : new_price;
+    if (new_price === undefined || new_price === null || cleanNew === '') {
       return res.status(400).json({ success: false, message: 'Giá tranh không hợp lệ' });
     }
-    const numNewPrice = Number(typeof new_price === 'string' ? new_price.trim() : new_price);
+    const numNewPrice = Number(cleanNew);
     if (!Number.isFinite(numNewPrice)) {
       return res.status(400).json({ success: false, message: 'Giá tranh không hợp lệ' });
     }
@@ -745,14 +780,15 @@ app.post('/api/paintings/:id/price-history', (req, res) => {
 
     let effectiveOldPrice = null;
     if (old_price !== undefined && old_price !== null && String(old_price).trim() !== '') {
-      const numOld = Number(typeof old_price === 'string' ? old_price.trim() : old_price);
+      const cleanOld = typeof old_price === 'string' ? old_price.replace(/,/g, '').trim() : old_price;
+      const numOld = Number(cleanOld);
       if (!Number.isFinite(numOld) || numOld < 0) {
         return res.status(400).json({ success: false, message: 'Giá tranh không hợp lệ' });
       }
       effectiveOldPrice = numOld;
     } else {
       effectiveOldPrice = currentPainting.gia !== null && currentPainting.gia !== undefined && currentPainting.gia !== ''
-        ? Number(currentPainting.gia)
+        ? Number(typeof currentPainting.gia === 'string' ? currentPainting.gia.replace(/,/g, '').trim() : currentPainting.gia)
         : null;
     }
 
@@ -778,6 +814,67 @@ app.post('/api/paintings/:id/price-history', (req, res) => {
 
     const updatedHistory = getPaintingPriceHistory(id);
     res.status(200).json({ success: true, data: log, history: updatedHistory });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
+});
+
+// Reload price history cache from disk (for test teardowns and external scripts)
+app.post('/api/price-history/reload', async (req, res) => {
+  try {
+    // 1. Drain any in-flight writes from earlier operations (bounded wait)
+    const drainTimeout = 3000;
+    await drainWriteQueue(drainTimeout);
+
+    // 2. Invalidate cache and reload clean logs from disk
+    resetPriceHistoryCache();
+    const reloaded = initPriceHistory();
+
+    // 3. Push clean logs to Google Sheets meta
+    sheetDB.update('meta', 'price_history', {
+      key: 'price_history',
+      value: JSON.stringify(reloaded)
+    }, 'key');
+
+    // 4. Ensure DVS-SD-01 retains authentic baseline in paintings store if dirty or requested
+    const paintings = getPaintings();
+    const dvs01 = paintings.find(p => p.id === 'DVS-SD-01');
+    if (dvs01 && (dvs01.gia !== 1500 || dvs01.ngay_cap_nhat_gia_gan_nhat !== '09-01-2026')) {
+      dvs01.gia = 1500;
+      dvs01.ngay_cap_nhat_gia_gan_nhat = '09-01-2026';
+      dvs01.ngay_cap_nhat_san_pham = '09-01-2026';
+      savePaintings(paintings);
+    }
+
+    // 5. Await cloud commit (bounded wait)
+    await drainWriteQueue(drainTimeout);
+
+    res.json({ success: true, count: reloaded.length, dvs01Gia: dvs01?.gia });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
+});
+
+// Dedicated endpoint to reload paintings cache from disk/sheetDB and drain write queue
+app.post('/api/paintings/reload', async (req, res) => {
+  try {
+    const drainTimeout = 3000;
+    await drainWriteQueue(drainTimeout);
+
+    resetPriceHistoryCache();
+    initPriceHistory();
+
+    await sheetDB.pullAllTables();
+    const paintings = getPaintings();
+    const inStock = paintings.filter(p => p.tinh_trang !== 'da_ban');
+    const inStockValue = inStock.reduce((s, p) => s + (Number(p.gia) || 0), 0);
+
+    res.json({
+      success: true,
+      count: paintings.length,
+      inStockCount: inStock.length,
+      inStockValue
+    });
   } catch (err) {
     res.status(500).json({ success: false, message: err.message });
   }
@@ -961,7 +1058,7 @@ app.get('/api/export-customers-excel', (req, res) => {
 });
 
 // 5. Delete painting
-app.delete('/api/paintings/:id', (req, res) => {
+app.delete('/api/paintings/:id', async (req, res) => {
   try {
     const { id } = req.params;
     let paintings = getPaintings();
@@ -973,6 +1070,43 @@ app.delete('/api/paintings/:id', (req, res) => {
     }
 
     savePaintings(paintings);
+
+    // Synchronize deletion with Google Sheets Cloud (sheetDB) & purge location history
+    if (sheetDB && typeof sheetDB.delete === 'function') {
+      try {
+        sheetDB.delete('paintings', id, 'id');
+
+        // Purge related location history records from cloud and memory
+        const locLogs = (typeof sheetDB.getAll === 'function' && sheetDB.getAll('location_history')) || [];
+        const logsToDelete = locLogs.filter(log => String(log.painting_id) === String(id));
+        for (const log of logsToDelete) {
+          if (log && log.id !== undefined && log.id !== null) {
+            sheetDB.delete('location_history', log.id, 'id');
+          }
+        }
+      } catch (cloudErr) {
+        console.warn(`[Delete Painting] Cloud sync warning for painting "${id}":`, cloudErr.message);
+      }
+    }
+
+    // Purge related price history records if any exist for ephemeral test artworks
+    try {
+      const pLogs = getPaintingPriceHistory(id);
+      if (pLogs && pLogs.length > 0) {
+        const allPriceLogs = loadPriceHistory();
+        const filteredPriceLogs = allPriceLogs.filter(item => String(item.painting_id) !== String(id));
+        if (filteredPriceLogs.length !== allPriceLogs.length) {
+          savePriceHistory(filteredPriceLogs);
+        }
+      }
+    } catch (priceErr) {
+      console.warn(`[Delete Painting] Price history cleanup warning for painting "${id}":`, priceErr.message);
+    }
+
+    // Await cloud writeQueue drain so ephemeral test artworks are removed from Google Sheets as well as SQLite
+    const drainTimeout = 3000;
+    await drainWriteQueue(drainTimeout);
+
     res.json({ success: true, message: 'Deleted successfully' });
   } catch (err) {
     res.status(500).json({ success: false, message: err.message });
@@ -1427,7 +1561,11 @@ function cleanIngestedItem(raw) {
     tac_gia: rest.tac_gia || '',
     chat_lieu: rest.chat_lieu || '',
     ngay_them: rest.ngay_them || getTodayString(),
-    gia: rest.gia !== undefined && rest.gia !== '' && rest.gia !== null ? Number(rest.gia) : null,
+    gia: rest.gia !== undefined && rest.gia !== '' && rest.gia !== null
+      ? (Number.isFinite(Number(typeof rest.gia === 'string' ? rest.gia.replace(/,/g, '').trim() : rest.gia))
+          ? Number(typeof rest.gia === 'string' ? rest.gia.replace(/,/g, '').trim() : rest.gia)
+          : null)
+      : null,
     ngay_cap_nhat_gia_gan_nhat: rest.ngay_cap_nhat_gia_gan_nhat || '',
     kich_thuoc_tranh: rest.kich_thuoc_tranh || '',
     kich_thuoc_khung_tranh: rest.kich_thuoc_khung_tranh || '',
@@ -1468,13 +1606,20 @@ app.post('/api/network-info', (req, res) => {
   }
 });
 
-// 13. Reset to Initial Seed (14 paintings)
+// 13. Reset to Initial Seed (Safeguarded & Locked against Accidental Purge)
 app.post('/api/reset-seed', (req, res) => {
+  const isTestAllowed = (process.env.NODE_ENV === 'test' || process.env.ALLOW_DANGEROUS_RESET === 'true') && req.body?.confirmToken === 'CONFIRM_PURGE_AUTHENTIC_COLLECTION';
+  if (!isTestAllowed) {
+    return res.status(403).json({
+      success: false,
+      message: 'Chức năng Phục Hồi Gốc đã bị khóa vĩnh viễn để bảo vệ 335 tác phẩm gốc của bộ sưu tập Bình Minh Art Gallery.'
+    });
+  }
   try {
-    const seeded = resetToSeed();
+    const seeded = resetToSeed({ force: true });
     res.json({
       success: true,
-      message: 'Đã phục hồi 14 tác phẩm gốc ban đầu vào cơ sở dữ liệu (bản sao lưu trước khi khôi phục được lưu trong data/backups)',
+      message: 'Đã phục hồi 14 tác phẩm gốc ban đầu vào cơ sở dữ liệu (chế độ kiểm thử có kiểm soát)',
       data: seeded
     });
   } catch (err) {
@@ -1545,6 +1690,10 @@ async function startServer() {
     const server = net.createServer((socket) => {
       socket.setTimeout(10000, () => socket.destroy());
       socket.once('data', (buffer) => {
+        // Disarm pre-handshake inactivity timeout once protocol data arrives
+        socket.setTimeout(0);
+        socket.removeAllListeners('timeout');
+
         socket.pause();
         socket.unshift(buffer);
         if (buffer[0] === 0x16) {

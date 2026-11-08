@@ -243,7 +243,8 @@ class GoogleSheetSingleton {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload),
-                    redirect: 'follow'
+                    redirect: 'follow',
+                    signal: AbortSignal.timeout(8000)
                 });
                 const result = await res.json();
                 if (result.error) {

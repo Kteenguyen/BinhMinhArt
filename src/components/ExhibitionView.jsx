@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useRef, useEffect } from 'react';
+import React, { useState, useMemo } from 'react';
 import {
   Printer,
   Maximize2,
@@ -13,6 +13,7 @@ import {
   ChevronDown,
   X
 } from 'lucide-react';
+import SmartArtistDropdown from './SmartArtistDropdown';
 
 function formatWordPrice(gia) {
   if (gia === null || gia === undefined || gia === '') {
@@ -35,27 +36,6 @@ export default function ExhibitionView({
   const [backdropTheme, setBackdropTheme] = useState('cream'); // 'cream' | 'white' | 'dark'
   const [cataloguePeriod, setCataloguePeriod] = useState('01/2026');
 
-  // Searchable Artist Dropdown States
-  const [artistDropdownOpen, setArtistDropdownOpen] = useState(false);
-  const [artistSearchKey, setArtistSearchKey] = useState('');
-  const artistDropdownRef = useRef(null);
-  const artistSearchInputRef = useRef(null);
-
-  useEffect(() => {
-    function handleClickOutside(event) {
-      if (artistDropdownRef.current && !artistDropdownRef.current.contains(event.target)) {
-        setArtistDropdownOpen(false);
-      }
-    }
-    if (artistDropdownOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-      setTimeout(() => {
-        if (artistSearchInputRef.current) artistSearchInputRef.current.focus();
-      }, 50);
-    }
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [artistDropdownOpen]);
-
   // Extract unique artists with counts
   const artistStats = useMemo(() => {
     const map = new Map();
@@ -65,13 +45,6 @@ export default function ExhibitionView({
     }
     return Array.from(map.entries()).map(([name, count]) => ({ name, count }));
   }, [paintings]);
-
-  // Filtered artists in dropdown search
-  const filteredDropdownArtists = useMemo(() => {
-    const key = (artistSearchKey || '').trim().toLowerCase();
-    if (!key) return artistStats;
-    return artistStats.filter(a => a.name.toLowerCase().includes(key));
-  }, [artistStats, artistSearchKey]);
 
   const currentArtistObj = artistStats.find(a => a.name === selectedArtist);
 
@@ -389,110 +362,16 @@ export default function ExhibitionView({
         <div className="flex flex-nowrap items-center justify-between gap-2 overflow-x-auto">
           {/* Left Group: Dropdown Họa Sĩ tìm kiếm + Kỳ Bảng Giá + Nền */}
           <div className="flex items-center gap-1.5 shrink-0">
-            {/* Searchable Combobox Dropdown Họa Sĩ */}
-            <div className="relative shrink-0" ref={artistDropdownRef}>
-              <button
-                type="button"
-                onClick={() => {
-                  setArtistDropdownOpen(prev => !prev);
-                  setArtistSearchKey('');
-                }}
-                title="Chọn hoặc tìm kiếm theo danh mục Họa sĩ"
-                className="h-[32px] px-2.5 text-[11px] bg-[#FAF7F0] hover:bg-[#F4E5B8]/40 border border-[#DFCBAA] font-bold text-stone-800 flex items-center gap-1.5 transition-colors whitespace-nowrap"
-              >
-                <Users className="w-3.5 h-3.5 text-[#7D1818] shrink-0" />
-                <span>
-                  {selectedArtist === 'all'
-                    ? `Tất cả họa sĩ (${paintings.length})`
-                    : `HS. ${selectedArtist} (${currentArtistObj?.count || 0})`}
-                </span>
-                <ChevronDown className={`w-3 h-3 text-stone-500 transition-transform ${artistDropdownOpen ? 'rotate-180' : ''}`} />
-              </button>
-
-              {/* Dropdown Menu Popup */}
-              {artistDropdownOpen && (
-                <div className="absolute left-0 top-[36px] w-[270px] bg-white border border-[#DFCBAA] shadow-xl z-50 overflow-hidden animate-in fade-in-50 zoom-in-95">
-                  {/* Search Input Box */}
-                  <div className="p-2 border-b border-[#EAE5D9] bg-[#FAF8F5]">
-                    <div className="relative">
-                      <Search className="w-3.5 h-3.5 absolute left-2.5 top-1/2 -translate-y-1/2 text-stone-400" />
-                      <input
-                        ref={artistSearchInputRef}
-                        type="text"
-                        value={artistSearchKey}
-                        onChange={(e) => setArtistSearchKey(e.target.value)}
-                        placeholder="Gõ tên họa sĩ để tìm kiếm..."
-                        className="w-full h-[30px] pl-8 pr-7 text-[11.5px] bg-white border border-[#DDD5C4] rounded-none focus:outline-none focus:border-[#7D1818]"
-                      />
-                      {artistSearchKey && (
-                        <button
-                          type="button"
-                          onClick={() => setArtistSearchKey('')}
-                          className="absolute right-2 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-700"
-                        >
-                          <X className="w-3 h-3" />
-                        </button>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* List Options */}
-                  <div className="max-h-[240px] overflow-y-auto p-1 divide-y divide-stone-50 text-[11.5px]">
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setSelectedArtist('all');
-                        setArtistDropdownOpen(false);
-                      }}
-                      className={`w-full px-2.5 py-1.5 text-left flex items-center justify-between font-semibold transition-colors ${
-                        selectedArtist === 'all'
-                          ? 'bg-[#7D1818] text-white font-bold'
-                          : 'text-stone-800 hover:bg-[#FAF8F5]'
-                      }`}
-                    >
-                      <span>Tất Cả Họa Sĩ</span>
-                      <span className={`text-[10px] px-1.5 py-0.2 font-mono ${
-                        selectedArtist === 'all' ? 'bg-white/20 text-white' : 'bg-stone-100 text-stone-600'
-                      }`}>
-                        {paintings.length}
-                      </span>
-                    </button>
-
-                    {filteredDropdownArtists.length === 0 ? (
-                      <div className="py-4 text-center text-stone-400 italic text-[11px]">
-                        Không tìm thấy họa sĩ "{artistSearchKey}"
-                      </div>
-                    ) : (
-                      filteredDropdownArtists.map((artist) => {
-                        const isSelected = selectedArtist === artist.name;
-                        return (
-                          <button
-                            key={artist.name}
-                            type="button"
-                            onClick={() => {
-                              setSelectedArtist(artist.name);
-                              setArtistDropdownOpen(false);
-                            }}
-                            className={`w-full px-2.5 py-1.5 text-left flex items-center justify-between transition-colors ${
-                              isSelected
-                                ? 'bg-[#7D1818] text-white font-bold'
-                                : 'text-stone-800 hover:bg-[#FAF8F5]'
-                            }`}
-                          >
-                            <span className="truncate">HS. {artist.name}</span>
-                            <span className={`text-[10.5px] px-1.5 py-0.2 font-mono ${
-                              isSelected ? 'bg-white/20 text-white' : 'bg-stone-100 text-stone-600'
-                            }`}>
-                              {artist.count}
-                            </span>
-                          </button>
-                        );
-                      })
-                    )}
-                  </div>
-                </div>
-              )}
-            </div>
+            {/* Smart Artist Filter Dropdown (Portal-based, immune to horizontal clipping) */}
+            <SmartArtistDropdown
+              selectedArtist={selectedArtist}
+              onSelectArtist={setSelectedArtist}
+              artists={artistStats}
+              allCount={paintings.length}
+              allOptionLabel="Tất Cả Họa Sĩ"
+              className="shrink-0"
+              dropdownWidth={280}
+            />
 
             <div className="flex items-center gap-1 shrink-0">
               <span className="text-[11px] font-semibold text-stone-600 whitespace-nowrap">Kỳ:</span>

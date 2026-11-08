@@ -19,10 +19,12 @@ import {
   X
 } from 'lucide-react';
 import { formatUSD } from '../types';
+import SmartArtistDropdown from './SmartArtistDropdown';
 
 export default function CustomerManagementView({
   customers = [],
   allPaintings = [],
+  paintings = [],
   onOpenQuickAdd,
   onOpenDetail,
   onExportExcel,
@@ -30,6 +32,39 @@ export default function CustomerManagementView({
 }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [appointmentFilter, setAppointmentFilter] = useState('all'); // 'all' | 'today' | 'upcoming' | 'past'
+  const [artistFilter, setArtistFilter] = useState('all');
+
+  const rawPaintings = (paintings && paintings.length > 0) ? paintings : allPaintings;
+
+  // Extract artists and count how many customers are interested in each artist
+  const artistStats = useMemo(() => {
+    const pArtistMap = new Map();
+    for (const p of rawPaintings) {
+      if (p.id) pArtistMap.set(p.id, (p.tac_gia || 'Dương Văn Sen').trim());
+    }
+
+    const artistCustMap = new Map();
+    for (const c of customers) {
+      const cArtists = new Set();
+      if (Array.isArray(c.interests)) {
+        for (const i of c.interests) {
+          const a = pArtistMap.get(i.painting_id);
+          if (a) cArtists.add(a);
+        }
+      }
+      for (const a of cArtists) {
+        artistCustMap.set(a, (artistCustMap.get(a) || 0) + 1);
+      }
+    }
+
+    const uniqueArtists = Array.from(new Set(rawPaintings.map(p => (p.tac_gia || 'Dương Văn Sen').trim()))).filter(Boolean);
+    return uniqueArtists
+      .map(name => ({
+        name,
+        count: artistCustMap.get(name) || 0
+      }))
+      .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, 'vi'));
+  }, [rawPaintings, customers]);
 
   // Appointment Status helper
   const getAppointmentStatus = (dateStr) => {
@@ -61,6 +96,15 @@ export default function CustomerManagementView({
         matchSearch = inName || inPhone || inNote || inPaintings;
       }
 
+      // Artist Filter (Customers interested in this artist)
+      if (artistFilter !== 'all') {
+        const interestedInArtist = Array.isArray(c.interests) && c.interests.some(i => {
+          const p = rawPaintings.find(paint => paint.id === i.painting_id);
+          return p && (p.tac_gia || 'Dương Văn Sen').trim() === artistFilter;
+        });
+        if (!interestedInArtist) return false;
+      }
+
       // Appointment Filter
       let matchApp = true;
       const status = getAppointmentStatus(c.ngay_hen);
@@ -74,7 +118,7 @@ export default function CustomerManagementView({
 
       return matchSearch && matchApp;
     });
-  }, [customers, searchTerm, appointmentFilter]);
+  }, [customers, searchTerm, appointmentFilter, artistFilter, rawPaintings]);
 
   // Statistics
   const totalCustomers = customers.length;
@@ -131,10 +175,10 @@ export default function CustomerManagementView({
       </div>
 
       {/* Toolbar: Search, Filters & Action Buttons */}
-      <div className="bg-white border border-[#EAE5D9] rounded-lg p-2.5 flex flex-col sm:flex-row items-center justify-between gap-2.5 shadow-2xs">
-        <div className="flex items-center gap-2 w-full sm:w-auto flex-1">
+      <div className="bg-white border border-[#EAE5D9] rounded-lg p-2.5 flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-2.5 shadow-2xs">
+        <div className="flex flex-wrap items-center gap-2 flex-1">
           {/* Search Box */}
-          <div className="relative flex-1 max-w-md">
+          <div className="relative flex-1 min-w-[200px] max-w-md">
             <Search className="w-3.5 h-3.5 absolute left-2.5 top-1/2 -translate-y-1/2 text-stone-400" />
             <input
               type="text"
@@ -153,6 +197,18 @@ export default function CustomerManagementView({
               </button>
             )}
           </div>
+
+          {/* Smart Artist Filter Dropdown (Portal-based, immune to clipping) */}
+          <SmartArtistDropdown
+            selectedArtist={artistFilter}
+            onSelectArtist={setArtistFilter}
+            artists={artistStats}
+            allCount={customers.length}
+            allOptionLabel="Tất cả khách hàng"
+            placeholder="Lọc khách hàng theo họa sĩ quan tâm"
+            className="w-[145px] sm:w-[175px] shrink-0"
+            dropdownWidth={280}
+          />
 
           {/* Appointment Filter Pills */}
           <div className="flex items-center gap-1 shrink-0">

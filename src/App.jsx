@@ -20,6 +20,7 @@ import CustomerManagementView from './components/CustomerManagementView';
 import QuickAddCustomerModal from './components/QuickAddCustomerModal';
 import CustomerDetailModal from './components/CustomerDetailModal';
 import { Tag, Printer, CheckSquare, X, UploadCloud } from 'lucide-react';
+import { matchArtistQuery, removeVietnameseTones } from './utils/vietnameseSearch';
 
 import {
   DEFAULT_COLUMNS,
@@ -588,25 +589,9 @@ export default function App() {
     }
   };
 
-  // Reset to Initial Seed (14 paintings)
-  const handleResetSeed = async () => {
-    if (
-      !window.confirm(
-        'Khôi phục 14 tác phẩm gốc ban đầu của HS. Dương Văn Sen? Toàn bộ dữ liệu hiện tại sẽ bị thay thế (hệ thống tự sao lưu trước khi khôi phục).'
-      )
-    ) {
-      return;
-    }
-    try {
-      const res = await fetch('/api/reset-seed', { method: 'POST' });
-      const data = await res.json();
-      if (data.success) {
-        showToast('Đã khôi phục 14 tác phẩm gốc ban đầu');
-        fetchData();
-      }
-    } catch {
-      showToast('Lỗi khi khôi phục', 'error');
-    }
+  // Reset to Initial Seed - Safeguarded
+  const handleResetSeed = () => {
+    showToast('Tính năng Phục Hồi Gốc đã bị khóa an toàn để bảo vệ 335 tác phẩm gốc của bộ sưu tập.', 'warning');
   };
 
   // Batch Tag Status Handler
@@ -685,13 +670,15 @@ export default function App() {
     }
 
     if (searchTerm.trim()) {
-      const query = searchTerm.toLowerCase();
-      const matchId = (p.id || '').toLowerCase().includes(query);
-      const matchName = (p.ten_tac_pham || '').toLowerCase().includes(query);
-      const matchArtist = (p.tac_gia || '').toLowerCase().includes(query);
-      const matchSize = (p.kich_thuoc_tranh || '').toLowerCase().includes(query);
-      const matchCustomer = (p.khach_hang || '').toLowerCase().includes(query);
-      const matchInvoice = (p.hoa_don || '').toLowerCase().includes(query);
+      const rawQ = searchTerm.trim().toLowerCase();
+      const cleanQ = removeVietnameseTones(searchTerm);
+
+      const matchId = (p.id || '').toLowerCase().includes(rawQ);
+      const matchName = (p.ten_tac_pham || '').toLowerCase().includes(rawQ) || removeVietnameseTones(p.ten_tac_pham).includes(cleanQ);
+      const matchArtist = matchArtistQuery(p.tac_gia, rawQ).match;
+      const matchSize = (p.kich_thuoc_tranh || '').toLowerCase().includes(rawQ);
+      const matchCustomer = (p.khach_hang || '').toLowerCase().includes(rawQ) || removeVietnameseTones(p.khach_hang).includes(cleanQ);
+      const matchInvoice = (p.hoa_don || '').toLowerCase().includes(rawQ);
       if (!matchId && !matchName && !matchArtist && !matchSize && !matchCustomer && !matchInvoice) {
         return false;
       }

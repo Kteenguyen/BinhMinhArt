@@ -9,7 +9,8 @@ import {
   Sparkles,
   Tag
 } from 'lucide-react';
-import { formatUSD } from '../types';
+import { formatUSD, formatThousands, parseNumericPrice } from '../types';
+import CurrencyInput from './ui/CurrencyInput';
 
 function getTodayDDMMYYYY() {
   const now = new Date();
@@ -73,8 +74,8 @@ export default function SoldQuickModal({
       return;
     }
 
-    const numericPrice = Number(soldPrice);
-    if (isNaN(numericPrice) || numericPrice < 0) {
+    const numericPrice = parseNumericPrice(soldPrice);
+    if (numericPrice === null || numericPrice < 0) {
       setError('Giá bán không hợp lệ.');
       return;
     }
@@ -269,7 +270,7 @@ export default function SoldQuickModal({
               {painting.gia !== null && painting.gia !== undefined && painting.gia !== '' && (
                 <button
                   type="button"
-                  onClick={() => setSoldPrice(String(painting.gia))}
+                  onClick={() => setSoldPrice(formatThousands(painting.gia))}
                   className="text-[11px] font-semibold text-[#7D1818] hover:underline flex items-center gap-1"
                 >
                   <span>Giá niêm yết: {formatUSD(painting.gia)} (Nhấn để điền nhanh)</span>
@@ -284,16 +285,17 @@ export default function SoldQuickModal({
                   <DollarSign className="w-3.5 h-3.5 text-[#7D1818]" />
                   <span>Giá Bán Thực Tế ($ USD) *</span>
                 </label>
-                <input
+                <CurrencyInput
                   autoFocus
-                  type="number"
-                  min="0"
-                  step="any"
                   required
                   value={soldPrice}
-                  onChange={(e) => setSoldPrice(e.target.value)}
+                  onChange={(numVal, formattedStr) => {
+                    setSoldPrice(formattedStr);
+                    if (error) setError('');
+                  }}
                   placeholder="Nhập giá bán ($ USD)..."
                   className="w-full h-[38px] px-3 text-[13px] font-mono font-bold bg-white border-2 border-amber-400 focus:border-[#7D1818] rounded-md focus:outline-none"
+                  data-testid="sold-modal__input-sold-price"
                 />
               </div>
 
