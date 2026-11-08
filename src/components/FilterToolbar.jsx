@@ -206,12 +206,12 @@ export default function FilterToolbar({
         </div>
 
         {/* Tier 2: Artist Filter + Medium Filter + Status Toggle Chips ("Chưa có giá", "Xóa lọc") + Counter */}
-        <div className="flex items-center justify-between gap-1.5 sm:gap-2 w-full lg:w-auto shrink-0 flex-wrap sm:flex-nowrap">
+        <div className="flex items-center justify-between gap-1 sm:gap-2 w-full lg:w-auto shrink-0 flex-nowrap overflow-x-auto no-scrollbar">
           {/* Left sub-group of Tier 2: Artist & Medium Filters */}
-          <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+          <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
             {/* Artist Filter Dropdown with Searchable Combobox */}
             {setArtistFilter && (
-              <div className="w-[150px] sm:w-[180px] shrink-0 relative" ref={artistDropdownRef}>
+              <div className="w-[135px] sm:w-[165px] lg:w-[180px] shrink-0 relative" ref={artistDropdownRef}>
                 <button
                   type="button"
                   onClick={() => {
@@ -219,15 +219,15 @@ export default function FilterToolbar({
                     setArtistSearchKey('');
                   }}
                   title="Chọn hoặc tìm kiếm theo danh mục Họa sĩ"
-                  className="w-full h-[32px] pl-7 pr-7 text-[11px] sm:text-[11.5px] bg-[#FAF8F5] hover:bg-[#F5EFE6] border border-[#EAE5D9] rounded-md focus:outline-none focus:border-stone-500 font-semibold text-stone-800 flex items-center justify-between text-left transition-colors truncate"
+                  className="w-full h-[32px] pl-6 sm:pl-7 pr-6 sm:pr-7 text-[10.5px] sm:text-[11.5px] bg-[#FAF8F5] hover:bg-[#F5EFE6] border border-[#EAE5D9] rounded-md focus:outline-none focus:border-stone-500 font-semibold text-stone-800 flex items-center justify-between text-left transition-colors truncate"
                 >
-                  <Users className="w-3.5 h-3.5 absolute left-2.5 top-1/2 -translate-y-1/2 text-[#9E7A36] shrink-0" />
+                  <Users className="w-3.5 h-3.5 absolute left-2 top-1/2 -translate-y-1/2 text-[#9E7A36] shrink-0" />
                   <span className="truncate">
                     {artistFilter === 'all'
                       ? `Tất cả họa sĩ (${artists.length})`
                       : `HS. ${artistFilter} (${currentArtistObj?.count || 0})`}
                   </span>
-                  <ChevronDown className={`w-3.5 h-3.5 text-stone-500 absolute right-2 top-1/2 -translate-y-1/2 transition-transform ${artistDropdownOpen ? 'rotate-180' : ''}`} />
+                  <ChevronDown className={`w-3.5 h-3.5 text-stone-500 absolute right-1.5 sm:right-2 top-1/2 -translate-y-1/2 transition-transform ${artistDropdownOpen ? 'rotate-180' : ''}`} />
                 </button>
 
                 {/* Dropdown Menu Popup */}
@@ -318,11 +318,11 @@ export default function FilterToolbar({
             )}
 
             {/* Medium Filter Dropdown */}
-            <div className="w-[125px] sm:w-[140px] shrink-0">
+            <div className="w-[115px] sm:w-[130px] lg:w-[140px] shrink-0">
               <select
                 value={mediumFilter}
                 onChange={(e) => setMediumFilter(e.target.value)}
-                className="w-full h-[32px] px-2 text-[11px] sm:text-[11.5px] bg-[#FAF8F5] border border-[#EAE5D9] rounded-md focus:outline-none focus:border-stone-500 font-medium text-stone-700"
+                className="w-full h-[32px] px-1.5 sm:px-2 text-[10.5px] sm:text-[11.5px] bg-[#FAF8F5] border border-[#EAE5D9] rounded-md focus:outline-none focus:border-stone-500 font-medium text-stone-700"
               >
                 <option value="all">Tất cả chất liệu</option>
                 <option value="Sơn mài">Sơn mài</option>
@@ -334,19 +334,20 @@ export default function FilterToolbar({
           </div>
 
           {/* Right sub-group of Tier 2: Status Toggle Chips & Counter */}
-          <div className="flex items-center gap-1.5 shrink-0 whitespace-nowrap ml-auto lg:ml-0">
+          <div className="flex items-center gap-1 sm:gap-1.5 shrink-0 whitespace-nowrap ml-auto lg:ml-0">
             {inventorySubTab === 'chua_ban' && setPendingPriceOnly && (
               <button
                 type="button"
                 onClick={() => setPendingPriceOnly(!pendingPriceOnly)}
-                className={`h-[30px] px-2 sm:px-2.5 text-[11px] sm:text-[11.5px] font-semibold rounded-md transition-colors flex items-center gap-1 shrink-0 ${
+                className={`h-[30px] px-2 sm:px-2.5 text-[10.5px] sm:text-[11.5px] font-semibold rounded-md transition-colors flex items-center gap-1 shrink-0 ${
                   pendingPriceOnly
                     ? 'bg-stone-800 text-white shadow-sm'
                     : 'bg-stone-100 text-stone-700 hover:bg-stone-200 border border-stone-200'
                 }`}
               >
                 <Clock className="w-3 h-3" />
-                <span>Chưa có giá</span>
+                <span className="hidden sm:inline">Chưa có giá</span>
+                <span className="inline sm:hidden">Chưa giá</span>
               </button>
             )}
 
@@ -355,7 +356,7 @@ export default function FilterToolbar({
               <button
                 type="button"
                 onClick={handleClearFilters}
-                className="h-[30px] px-2 text-[11px] font-medium text-stone-500 hover:text-red-600 transition-colors flex items-center gap-1 shrink-0"
+                className="h-[30px] px-1.5 sm:px-2 text-[10.5px] sm:text-[11px] font-medium text-stone-500 hover:text-red-600 transition-colors flex items-center gap-1 shrink-0"
               >
                 <X className="w-3 h-3" />
                 <span>Xóa lọc</span>
@@ -363,8 +364,8 @@ export default function FilterToolbar({
             )}
 
             {/* Counter */}
-            <span className="text-[10.5px] sm:text-[11px] text-stone-500 font-medium pl-1.5 sm:pl-2 border-l border-stone-200 shrink-0">
-              Hiển thị <strong>{filteredCount}</strong>/{totalTabItems} <span className="hidden sm:inline">tác phẩm</span>
+            <span className="text-[10px] sm:text-[11px] text-stone-500 font-medium pl-1 sm:pl-2 border-l border-stone-200 shrink-0">
+              Hiển thị <strong>{filteredCount}</strong>/{totalTabItems} <span className="hidden md:inline">tác phẩm</span>
             </span>
           </div>
         </div>

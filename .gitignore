@@ -26,6 +26,8 @@ data/backups/
 
 # Local network config
 data/network_config.json
+test-results/
+PROJECT.md
 
 # SQLite WAL temp files
 *-wal

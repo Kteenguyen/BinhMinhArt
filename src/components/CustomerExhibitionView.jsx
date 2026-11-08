@@ -17,7 +17,6 @@ import {
   Table2,
   LayoutGrid
 } from 'lucide-react';
-import StickyPaginationBar from './StickyPaginationBar';
 
 function formatGuestPrice(gia) {
   if (gia === null || gia === undefined || gia === '') {
@@ -42,22 +41,34 @@ export default function CustomerExhibitionView({
   const [theme, setTheme] = useState('cream'); // 'cream' | 'dark' | 'white'
   const [showPrice, setShowPrice] = useState(true);
   const [selectedArtworkModal, setSelectedArtworkModal] = useState(null);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [pageSize, setPageSize] = useState(6);
   const [viewDropdownOpen, setViewDropdownOpen] = useState(false);
   const viewDropdownRef = useRef(null);
+
+  // Searchable Artist Dropdown States
+  const [artistDropdownOpen, setArtistDropdownOpen] = useState(false);
+  const [artistSearchKey, setArtistSearchKey] = useState('');
+  const artistDropdownRef = useRef(null);
+  const artistSearchInputRef = useRef(null);
 
   useEffect(() => {
     function handleClickOutside(event) {
       if (viewDropdownRef.current && !viewDropdownRef.current.contains(event.target)) {
         setViewDropdownOpen(false);
       }
+      if (artistDropdownRef.current && !artistDropdownRef.current.contains(event.target)) {
+        setArtistDropdownOpen(false);
+      }
     }
-    if (viewDropdownOpen) {
+    if (viewDropdownOpen || artistDropdownOpen) {
       document.addEventListener('mousedown', handleClickOutside);
     }
+    if (artistDropdownOpen) {
+      setTimeout(() => {
+        if (artistSearchInputRef.current) artistSearchInputRef.current.focus();
+      }, 50);
+    }
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [viewDropdownOpen]);
+  }, [viewDropdownOpen, artistDropdownOpen]);
 
   const viewOptions = [
     {
@@ -97,6 +108,15 @@ export default function CustomerExhibitionView({
     return Array.from(map.entries()).map(([name, count]) => ({ name, count }));
   }, [paintings, availabilityFilter]);
 
+  // Filtered artists in dropdown search
+  const filteredDropdownArtists = useMemo(() => {
+    const key = (artistSearchKey || '').trim().toLowerCase();
+    if (!key) return artistStats;
+    return artistStats.filter(a => a.name.toLowerCase().includes(key));
+  }, [artistStats, artistSearchKey]);
+
+  const currentArtistObj = artistStats.find(a => a.name === selectedArtist);
+
   // Filter paintings for guest exhibition
   const guestPaintings = useMemo(() => {
     return paintings.filter(p => {
@@ -121,18 +141,10 @@ export default function CustomerExhibitionView({
     });
   }, [paintings, availabilityFilter, selectedArtist, selectedMedium, searchQuery]);
 
-  // Paginate guest paintings
-  const paginatedGuestPaintings = useMemo(() => {
-    if (pageSize === 'all') return guestPaintings;
-    const size = Number(pageSize) || 6;
-    const start = (currentPage - 1) * size;
-    return guestPaintings.slice(start, start + size);
-  }, [guestPaintings, currentPage, pageSize]);
-
-  // Group paginated paintings into distinct Artist Sections so each Artist gets their own Header & Table!
+  // Group guest paintings into distinct Artist Sections so each Artist gets their own Header & Table!
   const artistSections = useMemo(() => {
     const groups = new Map();
-    for (const p of paginatedGuestPaintings) {
+    for (const p of guestPaintings) {
       const artistName = (p.tac_gia || 'Dương Văn Sen').trim();
       if (!groups.has(artistName)) {
         groups.set(artistName, []);
@@ -159,7 +171,7 @@ export default function CustomerExhibitionView({
         rows
       };
     });
-  }, [paginatedGuestPaintings, guestPaintings, gridCols]);
+  }, [guestPaintings, gridCols]);
 
   // Print / Export Guest PDF Catalogue (Grouped cleanly by Artist Section!)
   const handlePrintCatalogue = () => {
@@ -450,50 +462,114 @@ export default function CustomerExhibitionView({
           </div>
         </div>
 
-        {/* PROMINENT ARTIST TABS BAR (Tablet-First Multi-Artist Navigation) */}
-        <div className="max-w-[1750px] mx-auto mt-3 pt-2.5 border-t border-[#DFCBAA]/60 flex items-center gap-2 overflow-x-auto font-sans">
-          <span className="text-[11px] font-bold uppercase tracking-wider text-[#7D1818] flex items-center gap-1 shrink-0 mr-1">
-            <Users className="w-3.5 h-3.5 text-[#C58C00]" />
-            <span>Họa Sĩ:</span>
-          </span>
-
-          <button
-            type="button"
-            onClick={() => {
-              setSelectedArtist('all');
-              setCurrentPage(1);
-            }}
-            className={`h-[34px] px-3.5 text-[12px] font-bold shrink-0 border transition-colors rounded-none ${
-              selectedArtist === 'all'
-                ? 'bg-[#7D1818] text-[#FAF7F0] border-[#7D1818]'
-                : 'border-[#C58C00]/60 hover:bg-[#7D1818]/10'
-            }`}
-          >
-            Tất Cả Họa Sĩ ({artistStats.reduce((s, a) => s + a.count, 0)})
-          </button>
-
-          {artistStats.map(artist => (
-            <button
-              key={artist.name}
-              type="button"
-              onClick={() => {
-                setSelectedArtist(artist.name);
-                setCurrentPage(1);
-              }}
-              className={`h-[34px] px-3.5 text-[12px] font-bold shrink-0 border transition-colors rounded-none ${
-                selectedArtist === artist.name
-                  ? 'bg-[#7D1818] text-[#FAF7F0] border-[#7D1818]'
-                  : 'border-[#C58C00]/60 hover:bg-[#7D1818]/10'
-              }`}
-            >
-              HS. {artist.name} ({artist.count})
-            </button>
-          ))}
-        </div>
-
-        {/* Secondary Filter Bar: Medium, Availability, Search & Columns */}
-        <div className="max-w-[1750px] mx-auto mt-2.5 pt-2 border-t border-[#DFCBAA]/40 flex flex-wrap items-center justify-between gap-3 font-sans">
+        {/* Secondary Filter Bar: Searchable Artist Combobox, Medium, Availability, Search & Columns */}
+        <div className="max-w-[1750px] mx-auto mt-2.5 pt-2 border-t border-[#DFCBAA]/40 flex flex-wrap items-center justify-between gap-2.5 font-sans">
           <div className="flex flex-wrap items-center gap-2">
+            {/* Searchable Combobox Dropdown Họa Sĩ (Đồng bộ chuẩn có ô Search bên trong) */}
+            <div className="relative shrink-0" ref={artistDropdownRef}>
+              <button
+                type="button"
+                onClick={() => {
+                  setArtistDropdownOpen(prev => !prev);
+                  setArtistSearchKey('');
+                }}
+                title="Chọn hoặc tìm kiếm theo danh mục Họa sĩ"
+                className="h-[32px] px-2.5 text-[11.5px] bg-[#FAF7F0] hover:bg-[#F4E5B8]/40 border border-[#C58C00]/60 font-bold text-stone-800 flex items-center gap-1.5 transition-colors whitespace-nowrap rounded-none"
+              >
+                <Users className="w-3.5 h-3.5 text-[#7D1818] shrink-0" />
+                <span>
+                  {selectedArtist === 'all'
+                    ? `Tất cả họa sĩ (${artistStats.reduce((s, a) => s + a.count, 0)})`
+                    : `HS. ${selectedArtist} (${currentArtistObj?.count || 0})`}
+                </span>
+                <ChevronDown className={`w-3 h-3 text-stone-500 transition-transform ${artistDropdownOpen ? 'rotate-180' : ''}`} />
+              </button>
+
+              {/* Dropdown Menu Popup */}
+              {artistDropdownOpen && (
+                <div className="absolute left-0 top-[36px] w-[270px] bg-white border border-[#DFCBAA] shadow-xl z-50 overflow-hidden animate-in fade-in-50 zoom-in-95">
+                  {/* Search Input Box */}
+                  <div className="p-2 border-b border-[#EAE5D9] bg-[#FAF8F5]">
+                    <div className="relative">
+                      <Search className="w-3.5 h-3.5 absolute left-2.5 top-1/2 -translate-y-1/2 text-stone-400" />
+                      <input
+                        ref={artistSearchInputRef}
+                        type="text"
+                        value={artistSearchKey}
+                        onChange={(e) => setArtistSearchKey(e.target.value)}
+                        placeholder="Gõ tên họa sĩ để tìm kiếm..."
+                        className="w-full h-[30px] pl-8 pr-7 text-[11.5px] bg-white border border-[#DDD5C4] rounded-none focus:outline-none focus:border-[#7D1818]"
+                      />
+                      {artistSearchKey && (
+                        <button
+                          type="button"
+                          onClick={() => setArtistSearchKey('')}
+                          className="absolute right-2 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-700"
+                        >
+                          <X className="w-3 h-3" />
+                        </button>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* List Options */}
+                  <div className="max-h-[240px] overflow-y-auto p-1 divide-y divide-stone-50 text-[11.5px]">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setSelectedArtist('all');
+                        setArtistDropdownOpen(false);
+                      }}
+                      className={`w-full px-2.5 py-1.5 text-left flex items-center justify-between font-semibold transition-colors ${
+                        selectedArtist === 'all'
+                          ? 'bg-[#7D1818] text-white font-bold'
+                          : 'text-stone-800 hover:bg-[#FAF8F5]'
+                      }`}
+                    >
+                      <span>Tất Cả Họa Sĩ</span>
+                      <span className={`text-[10px] px-1.5 py-0.2 font-mono ${
+                        selectedArtist === 'all' ? 'bg-white/20 text-white' : 'bg-stone-100 text-stone-600'
+                      }`}>
+                        {artistStats.reduce((s, a) => s + a.count, 0)}
+                      </span>
+                    </button>
+
+                    {filteredDropdownArtists.length === 0 ? (
+                      <div className="py-4 text-center text-stone-400 italic text-[11px]">
+                        Không tìm thấy họa sĩ "{artistSearchKey}"
+                      </div>
+                    ) : (
+                      filteredDropdownArtists.map((artist) => {
+                        const isSelected = selectedArtist === artist.name;
+                        return (
+                          <button
+                            key={artist.name}
+                            type="button"
+                            onClick={() => {
+                              setSelectedArtist(artist.name);
+                              setArtistDropdownOpen(false);
+                            }}
+                            className={`w-full px-2.5 py-1.5 text-left flex items-center justify-between transition-colors ${
+                              isSelected
+                                ? 'bg-[#7D1818] text-white font-bold'
+                                : 'text-stone-800 hover:bg-[#FAF8F5]'
+                            }`}
+                          >
+                            <span className="truncate">HS. {artist.name}</span>
+                            <span className={`text-[10.5px] px-1.5 py-0.2 font-mono ${
+                              isSelected ? 'bg-white/20 text-white' : 'bg-stone-100 text-stone-600'
+                            }`}>
+                              {artist.count}
+                            </span>
+                          </button>
+                        );
+                      })
+                    )}
+                  </div>
+                </div>
+              )}
+            </div>
+
             <div className="flex items-center border border-[#C58C00]/60">
               {[
                 { id: 'all', label: 'Tất Cả Chất Liệu' },
@@ -506,7 +582,6 @@ export default function CustomerExhibitionView({
                   type="button"
                   onClick={() => {
                     setSelectedMedium(m.id);
-                    setCurrentPage(1);
                   }}
                   className={`h-[32px] px-3 text-[11.5px] font-semibold transition-colors rounded-none ${
                     selectedMedium === m.id
@@ -523,7 +598,6 @@ export default function CustomerExhibitionView({
               value={availabilityFilter}
               onChange={e => {
                 setAvailabilityFilter(e.target.value);
-                setCurrentPage(1);
               }}
               className="h-[32px] px-3 text-[11.5px] font-semibold border border-[#C58C00]/60 bg-transparent rounded-none"
             >
@@ -542,7 +616,6 @@ export default function CustomerExhibitionView({
                 value={searchQuery}
                 onChange={e => {
                   setSearchQuery(e.target.value);
-                  setCurrentPage(1);
                 }}
                 placeholder="Tìm tên tác phẩm, kích thước..."
                 className="w-full h-[32px] pl-8 pr-6 text-[12px] border border-[#C58C00]/60 bg-transparent focus:outline-none rounded-none"
@@ -718,25 +791,6 @@ export default function CustomerExhibitionView({
           ))
         )}
       </main>
-
-      {/* Sticky Bottom Pagination Bar */}
-      <StickyPaginationBar
-        currentPage={currentPage}
-        pageSize={pageSize}
-        totalItems={guestPaintings.length}
-        pageSizeOptions={[4, 6, 9, 12, 'all']}
-        square={true}
-        dark={theme === 'dark'}
-        onPageChange={(page) => {
-          setCurrentPage(page);
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }}
-        onPageSizeChange={(size) => {
-          setPageSize(size);
-          setCurrentPage(1);
-        }}
-        leftHint="Chạm vào tác phẩm để xem Hồ sơ chứng nhận & phóng to HD"
-      />
 
       {/* GUEST ARTWORK CERTIFICATE & DETAIL PLAQUE MODAL */}
       {selectedArtworkModal && (

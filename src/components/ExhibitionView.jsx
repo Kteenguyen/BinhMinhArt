@@ -13,7 +13,6 @@ import {
   ChevronDown,
   X
 } from 'lucide-react';
-import StickyPaginationBar from './StickyPaginationBar';
 
 function formatWordPrice(gia) {
   if (gia === null || gia === undefined || gia === '') {
@@ -35,8 +34,6 @@ export default function ExhibitionView({
   const [selectedArtist, setSelectedArtist] = useState('all');
   const [backdropTheme, setBackdropTheme] = useState('cream'); // 'cream' | 'white' | 'dark'
   const [cataloguePeriod, setCataloguePeriod] = useState('01/2026');
-  const [currentPage, setCurrentPage] = useState(1);
-  const [pageSize, setPageSize] = useState(6);
 
   // Searchable Artist Dropdown States
   const [artistDropdownOpen, setArtistDropdownOpen] = useState(false);
@@ -84,18 +81,10 @@ export default function ExhibitionView({
     return paintings.filter(p => (p.tac_gia || '').trim() === selectedArtist);
   }, [paintings, selectedArtist]);
 
-  // Paginate displayed paintings
-  const paginatedPaintings = useMemo(() => {
-    if (pageSize === 'all') return displayedPaintings;
-    const size = Number(pageSize) || 6;
-    const start = (currentPage - 1) * size;
-    return displayedPaintings.slice(start, start + size);
-  }, [displayedPaintings, currentPage, pageSize]);
-
-  // Group paginated paintings into dedicated Artist Sections so each Artist gets their own Header & Table
+  // Group displayed paintings into dedicated Artist Sections so each Artist gets their own Header & Table
   const artistSections = useMemo(() => {
     const groups = new Map();
-    for (const p of paginatedPaintings) {
+    for (const p of displayedPaintings) {
       const artistName = (p.tac_gia || 'Dương Văn Sen').trim();
       if (!groups.has(artistName)) groups.set(artistName, []);
       groups.get(artistName).push(p);
@@ -118,7 +107,7 @@ export default function ExhibitionView({
         rows
       };
     });
-  }, [paginatedPaintings, displayedPaintings, gridCols]);
+  }, [displayedPaintings, gridCols]);
 
   // Export PDF Catalogue (Grouped cleanly by Artist Section!)
   const handleExportPdf = () => {
@@ -453,7 +442,6 @@ export default function ExhibitionView({
                       type="button"
                       onClick={() => {
                         setSelectedArtist('all');
-                        setCurrentPage(1);
                         setArtistDropdownOpen(false);
                       }}
                       className={`w-full px-2.5 py-1.5 text-left flex items-center justify-between font-semibold transition-colors ${
@@ -483,7 +471,6 @@ export default function ExhibitionView({
                             type="button"
                             onClick={() => {
                               setSelectedArtist(artist.name);
-                              setCurrentPage(1);
                               setArtistDropdownOpen(false);
                             }}
                             className={`w-full px-2.5 py-1.5 text-left flex items-center justify-between transition-colors ${
@@ -762,22 +749,6 @@ export default function ExhibitionView({
           ))}
         </div>
       )}
-
-      {/* Sticky Bottom Pagination Bar */}
-      <StickyPaginationBar
-        currentPage={currentPage}
-        pageSize={pageSize}
-        totalItems={displayedPaintings.length}
-        pageSizeOptions={[6, 9, 12, 18, 'all']}
-        square={true}
-        dark={backdropTheme === 'dark'}
-        onPageChange={(page) => setCurrentPage(page)}
-        onPageSizeChange={(size) => {
-          setPageSize(size);
-          setCurrentPage(1);
-        }}
-        leftHint="Bản xuất PDF vẫn tự động in đầy đủ toàn bộ tác phẩm đang lọc theo từng Họa sĩ"
-      />
     </div>
   );
 }
