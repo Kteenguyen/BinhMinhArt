@@ -279,13 +279,6 @@ export default function SmartArtistDropdown({
                   </button>
                 )}
               </div>
-              {/* Quick tip for initials search */}
-              <div className="mt-1 px-1 flex items-center justify-between text-[10px] text-stone-600">
-                <span>Gợi ý: Gõ 1-2 chữ cái hoặc viết tắt</span>
-                <span className="font-mono text-[9.5px] bg-[#EAE5D9]/60 px-1 py-0.2 rounded text-stone-600">
-                  thm • dvs • dh • hht • na
-                </span>
-              </div>
             </div>
 
             {/* Options List */}
