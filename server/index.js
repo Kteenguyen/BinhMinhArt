@@ -52,6 +52,7 @@ import {
 } from './wordFolderParser.js';
 import { ensureSslCertificate } from './sslCert.js';
 import { resetPriceHistoryCache, initPriceHistory, savePriceHistory, loadPriceHistory } from './priceHistoryStore.js';
+import { formatCompoundLocation, parseCompoundLocation } from '../src/utils/location.js';
 
 const app = express();
 const PORT = process.env.PORT || 5001;
@@ -456,6 +457,13 @@ app.post('/api/paintings', (req, res) => {
           ? [body.hinh_anh]
           : [];
 
+      const dupLocParsed = parseCompoundLocation(
+        body.location !== undefined ? body.location : (duplicateItem.location || duplicateItem.vi_tri),
+        body.location_level1 !== undefined ? body.location_level1 : duplicateItem.location_level1,
+        body.location_level2 !== undefined ? body.location_level2 : duplicateItem.location_level2
+      );
+      const dupCompoundLoc = formatCompoundLocation(dupLocParsed.location_level1, dupLocParsed.location_level2);
+
       const overwrittenPainting = {
         ...duplicateItem,
         id: duplicateItem.id,
@@ -481,7 +489,9 @@ app.post('/api/paintings', (req, res) => {
         hoa_don: (body.hoa_don || duplicateItem.hoa_don || '').trim(),
         giay_chung_nhan: (body.giay_chung_nhan || duplicateItem.giay_chung_nhan || '').trim(),
         ngay_cap_nhat_san_pham: today,
-        location: (body.location !== undefined ? body.location : duplicateItem.location || 'Kho').trim(),
+        location: dupCompoundLoc,
+        location_level1: dupLocParsed.location_level1,
+        location_level2: dupLocParsed.location_level2,
         hinh_anh: incomingImages.length > 0 ? incomingImages : duplicateItem.hinh_anh,
         ghi_chu: (body.ghi_chu !== undefined ? body.ghi_chu : duplicateItem.ghi_chu || '').trim()
       };
@@ -498,6 +508,13 @@ app.post('/api/paintings', (req, res) => {
     }
 
     const newId = candidateId || generateSku(author, medium, paintings);
+
+    const parsedLoc = parseCompoundLocation(
+      body.location || body.vi_tri,
+      body.location_level1,
+      body.location_level2
+    );
+    const compoundLoc = formatCompoundLocation(parsedLoc.location_level1, parsedLoc.location_level2);
 
     const newPainting = {
       id: newId,
@@ -518,7 +535,9 @@ app.post('/api/paintings', (req, res) => {
       hoa_don: (body.hoa_don || '').trim(),
       giay_chung_nhan: (body.giay_chung_nhan || '').trim(),
       ngay_cap_nhat_san_pham: today,
-      location: (body.location || 'Kho').trim(),
+      location: compoundLoc,
+      location_level1: parsedLoc.location_level1,
+      location_level2: parsedLoc.location_level2,
       hinh_anh: Array.isArray(body.hinh_anh)
         ? body.hinh_anh
         : body.hinh_anh
@@ -534,12 +553,26 @@ app.post('/api/paintings', (req, res) => {
       addPaintingLocationLog(
         newPainting.id,
         '',
-        newPainting.location || 'Kho',
+        compoundLoc,
         today,
-        'Khởi tạo vị trí khi thêm mới tác phẩm'
+        'Khởi tạo vị trí khi thêm mới tác phẩm',
+        {
+          from_location_level1: '',
+          from_location_level2: '',
+          to_location_level1: parsedLoc.location_level1,
+          to_location_level2: parsedLoc.location_level2
+        }
       );
     } catch (e) {
       console.warn('[Location Log] Failed to log initial location:', e.message);
+    }
+
+    if (parsedPrice !== null) {
+      try {
+        addPaintingPriceLog(newPainting.id, null, parsedPrice, today, 'Khởi tạo giá khi thêm mới tác phẩm');
+      } catch (priceErr) {
+        console.warn('[Price Log] Failed to log initial price:', priceErr.message);
+      }
     }
 
     res.status(201).json({ success: true, data: newPainting });
@@ -621,15 +654,32 @@ app.put('/api/paintings/:id', (req, res) => {
       kf = kf.split('(')[0].trim();
     }
 
-    const oldLocation = current.location || 'Kho';
-    const newLocation = body.location !== undefined ? String(body.location).trim() : oldLocation;
+    const oldParsed = parseCompoundLocation(
+      current.location,
+      current.location_level1,
+      current.location_level2
+    );
+    const oldCompound = formatCompoundLocation(oldParsed.location_level1, oldParsed.location_level2);
+
+    const hasLocUpdates = ('location' in body) || ('location_level1' in body) || ('location_level2' in body);
+    const newParsed = hasLocUpdates
+      ? parseCompoundLocation(
+          body.location,
+          body.location_level1 !== undefined ? body.location_level1 : oldParsed.location_level1,
+          body.location_level2 !== undefined ? body.location_level2 : oldParsed.location_level2
+        )
+      : oldParsed;
+    const newCompound = formatCompoundLocation(newParsed.location_level1, newParsed.location_level2);
+    const locationChanged = hasLocUpdates && (newCompound !== oldCompound);
 
     const updated = {
       ...current,
       ...body,
       id: current.id,
       kich_thuoc_khung_tranh: kf,
-      location: newLocation,
+      location: newCompound,
+      location_level1: newParsed.location_level1,
+      location_level2: newParsed.location_level2,
       gia: updatedPrice,
       ngay_cap_nhat_gia_gan_nhat: finalPriceDate,
       tinh_trang: newStatus,
@@ -658,10 +708,22 @@ app.put('/api/paintings/:id', (req, res) => {
       }
     }
 
-    if (newLocation && newLocation !== oldLocation) {
+    if (locationChanged) {
       try {
-        const note = body.location_note || `Chuyển vị trí từ "${oldLocation}" sang "${newLocation}"`;
-        addPaintingLocationLog(current.id, oldLocation, newLocation, today, note);
+        const note = body.location_note || `Chuyển vị trí từ "${oldCompound}" sang "${newCompound}"`;
+        addPaintingLocationLog(
+          current.id,
+          oldCompound,
+          newCompound,
+          today,
+          note,
+          {
+            from_location_level1: oldParsed.location_level1,
+            from_location_level2: oldParsed.location_level2,
+            to_location_level1: newParsed.location_level1,
+            to_location_level2: newParsed.location_level2
+          }
+        );
       } catch (logErr) {
         console.warn('[Location Log] Failed to record history:', logErr.message);
       }
@@ -714,9 +776,24 @@ app.get('/api/paintings/:id/location-history', (req, res) => {
 app.post('/api/paintings/:id/location-history', (req, res) => {
   try {
     const { id } = req.params;
-    const { to_location, note, from_location } = req.body;
-    if (!to_location || !String(to_location).trim()) {
-      return res.status(400).json({ success: false, message: 'Vui lòng cung cấp vị trí mới (to_location)' });
+    const {
+      to_location,
+      to_location_level1,
+      to_location_level2,
+      from_location,
+      from_location_level1,
+      from_location_level2,
+      note
+    } = req.body;
+
+    const toParsed = parseCompoundLocation(to_location, to_location_level1, to_location_level2);
+    const nextLoc = formatCompoundLocation(toParsed.location_level1, toParsed.location_level2);
+
+    if (!nextLoc || !nextLoc.trim()) {
+      return res.status(400).json({
+        success: false,
+        message: 'Vui lòng cung cấp vị trí mới (to_location hoặc to_location_level1)'
+      });
     }
 
     const paintings = getPaintings();
@@ -726,18 +803,40 @@ app.post('/api/paintings/:id/location-history', (req, res) => {
     }
 
     const current = paintings[idx];
-    const prevLoc = from_location || current.location || 'Kho';
-    const nextLoc = String(to_location).trim();
+    const fromParsed = parseCompoundLocation(
+      from_location || current.location,
+      from_location_level1 !== undefined ? from_location_level1 : current.location_level1,
+      from_location_level2 !== undefined ? from_location_level2 : current.location_level2
+    );
+    const prevLoc = formatCompoundLocation(fromParsed.location_level1, fromParsed.location_level2);
     const today = getTodayString();
 
-    addPaintingLocationLog(id, prevLoc, nextLoc, today, note || `Cập nhật sang ${nextLoc}`);
+    addPaintingLocationLog(
+      id,
+      prevLoc,
+      nextLoc,
+      today,
+      note || `Cập nhật sang ${nextLoc}`,
+      {
+        from_location_level1: fromParsed.location_level1,
+        from_location_level2: fromParsed.location_level2,
+        to_location_level1: toParsed.location_level1,
+        to_location_level2: toParsed.location_level2
+      }
+    );
 
     current.location = nextLoc;
+    current.location_level1 = toParsed.location_level1;
+    current.location_level2 = toParsed.location_level2;
     current.ngay_cap_nhat_san_pham = today;
     paintings[idx] = current;
     savePaintings(paintings);
 
-    res.json({ success: true, data: current, history: getPaintingLocationHistory(id) });
+    res.json({
+      success: true,
+      data: current,
+      history: getPaintingLocationHistory(id)
+    });
   } catch (err) {
     res.status(500).json({ success: false, message: err.message });
   }
@@ -1555,6 +1654,10 @@ function cleanIngestedItem(raw) {
     existing_snapshot,
     ...rest
   } = raw;
+  const locRaw = rest.location || rest.vi_tri || (rest.tinh_trang === 'da_ban' ? 'Đã bán' : 'Kho');
+  const locParsed = parseCompoundLocation(locRaw, rest.location_level1, rest.location_level2);
+  const compoundLoc = formatCompoundLocation(locParsed.location_level1, locParsed.location_level2);
+
   return {
     id: rest.id || `BMA-${Date.now().toString().slice(-4)}`,
     ten_tac_pham: rest.ten_tac_pham || '',
@@ -1572,7 +1675,10 @@ function cleanIngestedItem(raw) {
     nam_sang_tac: rest.nam_sang_tac || '',
     tinh_trang: rest.tinh_trang === 'da_ban' ? 'da_ban' : 'chua_ban',
     khach_hang: rest.khach_hang || '',
-    vi_tri: rest.vi_tri || (rest.tinh_trang === 'da_ban' ? 'Đã bán' : 'Kho'),
+    location: compoundLoc,
+    location_level1: locParsed.location_level1,
+    location_level2: locParsed.location_level2,
+    vi_tri: compoundLoc,
     ngay_mua_vao: rest.ngay_mua_vao || '',
     ngay_ban: rest.tinh_trang === 'da_ban' ? rest.ngay_ban || null : null,
     hoa_don: rest.hoa_don || '',

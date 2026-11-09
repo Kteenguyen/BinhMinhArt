@@ -1,4 +1,5 @@
 // server/googleSheetSingleton.js
+import { formatCompoundLocation, parseCompoundLocation } from '../src/utils/location.js';
 
 // DÁN ĐƯỜNG DẪN WEB APP URL CỦA GOOGLE APPS SCRIPT VÀO ĐÂY (hoặc đặt trong biến môi trường GOOGLE_SHEET_URL)
 const APPS_SCRIPT_URL = process.env.GOOGLE_SHEET_URL || 'https://script.google.com/macros/s/AKfycbx-VdoMZvfi3-41sq_HyB8qdImGVWbdPbuxe5hc1PmSXoodkBi4Jm8DIvClEB0FnnCF/exec';
@@ -100,30 +101,57 @@ class GoogleSheetSingleton {
         if (table === 'paintings') {
             return rows
                 .filter((r) => r && String(r.id || '').trim() !== '')
-                .map((r, idx) => ({
-                    ...r,
-                    id: String(r.id || '').trim(),
-                    position: r.position !== '' && r.position !== undefined && r.position !== null ? Number(r.position) : idx,
-                    tinh_trang: r.tinh_trang === 'da_ban' ? 'da_ban' : 'chua_ban',
-                    gia: r.gia === '' || r.gia === null || r.gia === undefined ? null : Number(r.gia),
-                    ngay_ban: r.ngay_ban === '' || r.ngay_ban === undefined || r.ngay_ban === null ? null : String(r.ngay_ban),
-                    hinh_anh: Array.isArray(r.hinh_anh)
-                        ? r.hinh_anh
-                        : typeof r.hinh_anh === 'string' && r.hinh_anh.trim().startsWith('[')
-                            ? JSON.parse(r.hinh_anh)
-                            : [],
-                    da_in_tag: r.da_in_tag === 1 || r.da_in_tag === true || r.da_in_tag === '1' ? 1 : 0,
-                    location: r.location ? String(r.location) : 'Kho'
-                }));
+                .map((r, idx) => {
+                    const parsedLoc = parseCompoundLocation(r.location, r.location_level1, r.location_level2);
+                    return {
+                        ...r,
+                        id: String(r.id || '').trim(),
+                        position: r.position !== '' && r.position !== undefined && r.position !== null ? Number(r.position) : idx,
+                        tinh_trang: r.tinh_trang === 'da_ban' ? 'da_ban' : 'chua_ban',
+                        gia: r.gia === '' || r.gia === null || r.gia === undefined ? null : Number(r.gia),
+                        ngay_ban: r.ngay_ban === '' || r.ngay_ban === undefined || r.ngay_ban === null ? null : String(r.ngay_ban),
+                        hinh_anh: Array.isArray(r.hinh_anh)
+                            ? r.hinh_anh
+                            : typeof r.hinh_anh === 'string' && r.hinh_anh.trim().startsWith('[')
+                                ? JSON.parse(r.hinh_anh)
+                                : [],
+                        da_in_tag: r.da_in_tag === 1 || r.da_in_tag === true || r.da_in_tag === '1' ? 1 : 0,
+                        location_level1: parsedLoc.location_level1,
+                        location_level2: parsedLoc.location_level2,
+                        location: formatCompoundLocation(parsedLoc.location_level1, parsedLoc.location_level2)
+                    };
+                });
         }
 
-        if (table === 'customers' || table === 'location_history') {
+        if (table === 'customers') {
             return rows
                 .filter((r) => r && r.id !== '' && r.id !== undefined)
                 .map((r) => ({
                     ...r,
                     id: Number(r.id)
                 }));
+        }
+
+        if (table === 'location_history') {
+            return rows
+                .filter((r) => r && r.id !== '' && r.id !== undefined)
+                .map((r) => {
+                    const fromParsed = parseCompoundLocation(r.from_location, r.from_location_level1, r.from_location_level2);
+                    const toParsed = parseCompoundLocation(r.to_location, r.to_location_level1, r.to_location_level2);
+                    return {
+                        ...r,
+                        id: Number(r.id),
+                        painting_id: String(r.painting_id || '').trim(),
+                        from_location: formatCompoundLocation(fromParsed.location_level1, fromParsed.location_level2),
+                        from_location_level1: fromParsed.location_level1,
+                        from_location_level2: fromParsed.location_level2,
+                        to_location: formatCompoundLocation(toParsed.location_level1, toParsed.location_level2),
+                        to_location_level1: toParsed.location_level1,
+                        to_location_level2: toParsed.location_level2,
+                        timestamp: String(r.timestamp || ''),
+                        note: String(r.note || '')
+                    };
+                });
         }
 
         if (table === 'customer_interests') {

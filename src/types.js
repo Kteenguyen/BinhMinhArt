@@ -493,3 +493,9 @@ export {
   calculatePreservedCursor,
   calculatePositionForDigits
 } from './utils/currency.js';
+
+// Re-export location utilities for backward compatibility and test contracts
+export {
+  formatCompoundLocation,
+  parseCompoundLocation
+} from './utils/location.js';

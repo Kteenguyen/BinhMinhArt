@@ -2,6 +2,7 @@
 import fs from 'fs';
 import path from 'path';
 import sheetDB from './googleSheetSingleton.js';
+import { formatCompoundLocation, parseCompoundLocation } from '../src/utils/location.js';
 
 /**
  * Google Sheets storage adapter for paintings (replaces node:sqlite while keeping the exact same API).
@@ -30,7 +31,9 @@ const TEXT_FIELDS = [
   'ngay_them',
   'ngay_cap_nhat_san_pham',
   'ghi_chu',
-  'location'
+  'location',
+  'location_level1',
+  'location_level2'
 ];
 
 function describe(id, index) {
@@ -108,7 +111,14 @@ export function normalizePainting(p, index = 0) {
   for (const field of TEXT_FIELDS) {
     row[field] = toText(p[field], field, id, index);
   }
-  if (!row.location) row.location = 'Kho';
+  const parsedLoc = parseCompoundLocation(
+    p.location || p.vi_tri || row.location,
+    row.location_level1,
+    row.location_level2
+  );
+  row.location_level1 = parsedLoc.location_level1;
+  row.location_level2 = parsedLoc.location_level2;
+  row.location = formatCompoundLocation(parsedLoc.location_level1, parsedLoc.location_level2);
   return row;
 }
 
@@ -123,6 +133,12 @@ function rowToPainting(row) {
       parsedImages = [];
     }
   }
+
+  const parsedLoc = parseCompoundLocation(
+    row.location,
+    row.location_level1,
+    row.location_level2
+  );
 
   return {
     id: String(row.id || ''),
@@ -143,7 +159,9 @@ function rowToPainting(row) {
     ngay_them: String(row.ngay_them ?? ''),
     ngay_cap_nhat_san_pham: String(row.ngay_cap_nhat_san_pham ?? ''),
     ghi_chu: String(row.ghi_chu ?? ''),
-    location: String(row.location || 'Kho'),
+    location: formatCompoundLocation(parsedLoc.location_level1, parsedLoc.location_level2),
+    location_level1: parsedLoc.location_level1,
+    location_level2: parsedLoc.location_level2,
     da_in_tag: row.da_in_tag === 1 || row.da_in_tag === true || row.da_in_tag === '1',
     hinh_anh: parsedImages
   };
@@ -195,18 +213,34 @@ export function createStore(dbPath) {
       setMeta(key, value) {
         mockMeta[key] = String(value);
       },
-      addLocationLog(paintingId, fromLocation, toLocation, timestamp, note = '') {
+      addLocationLog(paintingId, fromLocation, toLocation, timestamp, note = '', details = {}) {
+        const fromParsed = parseCompoundLocation(
+          fromLocation,
+          details.from_location_level1,
+          details.from_location_level2
+        );
+        const toParsed = parseCompoundLocation(
+          toLocation,
+          details.to_location_level1,
+          details.to_location_level2
+        );
         mockHistory.push({
           id: mockHistory.length + 1,
-          painting_id: paintingId,
-          from_location: fromLocation,
-          to_location: toLocation,
-          timestamp,
-          note
+          painting_id: String(paintingId),
+          from_location: formatCompoundLocation(fromParsed.location_level1, fromParsed.location_level2),
+          from_location_level1: fromParsed.location_level1,
+          from_location_level2: fromParsed.location_level2,
+          to_location: formatCompoundLocation(toParsed.location_level1, toParsed.location_level2),
+          to_location_level1: toParsed.location_level1,
+          to_location_level2: toParsed.location_level2,
+          timestamp: String(timestamp),
+          note: String(note || '')
         });
       },
       getLocationHistory(paintingId) {
-        return mockHistory.filter(i => i.painting_id === paintingId);
+        return mockHistory
+          .filter(i => String(i.painting_id) === String(paintingId))
+          .sort((a, b) => (Number(a.id) || 0) - (Number(b.id) || 0));
       },
       listRecentLocationLogs(limit = 100) {
         return [...mockHistory].slice(0, limit);
@@ -281,11 +315,25 @@ export function createStore(dbPath) {
       sheetDB.update('meta', key, { key: String(key), value: String(value) }, 'key');
     },
 
-    addLocationLog(paintingId, fromLocation, toLocation, timestamp, note = '') {
+    addLocationLog(paintingId, fromLocation, toLocation, timestamp, note = '', details = {}) {
+      const fromParsed = parseCompoundLocation(
+        fromLocation,
+        details.from_location_level1,
+        details.from_location_level2
+      );
+      const toParsed = parseCompoundLocation(
+        toLocation,
+        details.to_location_level1,
+        details.to_location_level2
+      );
       sheetDB.insert('location_history', {
         painting_id: String(paintingId),
-        from_location: String(fromLocation || ''),
-        to_location: String(toLocation),
+        from_location: formatCompoundLocation(fromParsed.location_level1, fromParsed.location_level2),
+        from_location_level1: fromParsed.location_level1,
+        from_location_level2: fromParsed.location_level2,
+        to_location: formatCompoundLocation(toParsed.location_level1, toParsed.location_level2),
+        to_location_level1: toParsed.location_level1,
+        to_location_level2: toParsed.location_level2,
         timestamp: String(timestamp),
         note: String(note || '')
       });
@@ -295,7 +343,7 @@ export function createStore(dbPath) {
       return sheetDB
         .getAll('location_history')
         .filter(item => String(item.painting_id) === String(paintingId))
-        .sort((a, b) => (Number(b.id) || 0) - (Number(a.id) || 0));
+        .sort((a, b) => (Number(a.id) || 0) - (Number(b.id) || 0));
     },
 
     listRecentLocationLogs(limit = 100) {

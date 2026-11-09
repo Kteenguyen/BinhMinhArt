@@ -19,7 +19,10 @@ if "%CHECK_ONLINE%"=="ONLINE" (
     echo [THONG BAO] Server BinhMinhArt DA DANG CHAY SAN tren cong 5001!
     echo.
     echo Dang mo trinh duyet...
-    start https://localhost:5001
+    powershell -NoProfile -ExecutionPolicy Bypass -Command "$ip = (Get-NetIPAddress -AddressFamily IPv4 | Where-Object { $_.InterfaceAlias -notmatch 'Loopback' -and $_.IPAddress -notmatch '^169\.' -and $_.InterfaceAlias -notmatch 'vEthernet|WSL|VMware|VirtualBox' } | Select-Object -ExpandProperty IPAddress -First 1); if (-not $ip) { $ip = 'localhost' }; Write-Output $ip" > "%TEMP%\bm_wifi_ip.tmp" 2>nul
+    set /p WIFI_IP=<"%TEMP%\bm_wifi_ip.tmp"
+    del /f /q "%TEMP%\bm_wifi_ip.tmp" >nul 2>nul
+    start https://%WIFI_IP%:5001
     powershell -NoProfile -Command "Start-Sleep -Seconds 2"
     exit /b 0
 )
@@ -34,13 +37,14 @@ echo.
 echo ========================================================
 echo   [THANH CONG] SERVER DA DUOC KHOI DONG CHAY NGAM 100%%!
 echo ========================================================
-echo   - May HP: https://localhost:5001
+echo   - IP Wi-Fi mang noi bo: https://%WIFI_IP%:5001
+echo   - May HP (cuc bo): https://localhost:5001
 echo   - Nhat ky: %PROJECT_DIR%\logs\server.log
 echo.
 echo * BAN CO THE TAT CUA SO NAY, TAT IDE, TAT TERMINAL THOAI MAI!
 echo * Server van tiep tuc chay ngam phuc vu mang noi bo.
 echo ========================================================
 echo.
-start https://localhost:5001
+start https://%WIFI_IP%:5001
 powershell -NoProfile -Command "Start-Sleep -Seconds 3"
 exit /b 0

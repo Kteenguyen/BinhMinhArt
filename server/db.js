@@ -426,9 +426,9 @@ export function resetToSeed(options = {}) {
   return INITIAL_SEED;
 }
 
-export function addPaintingLocationLog(paintingId, fromLocation, toLocation, timestamp, note = '') {
+export function addPaintingLocationLog(paintingId, fromLocation, toLocation, timestamp, note = '', details = {}) {
   ensureReady();
-  getStore().addLocationLog(paintingId, fromLocation, toLocation, timestamp, note);
+  getStore().addLocationLog(paintingId, fromLocation, toLocation, timestamp, note, details);
 }
 
 export function getPaintingLocationHistory(paintingId) {

@@ -24,7 +24,11 @@ if "%SERVER_STATUS%"=="ONLINE" (
     echo ========================================================================
     echo.
     echo 1. Dia chi truy cap tren may HP:
-    echo    👉 https://localhost:5001
+    powershell -NoProfile -ExecutionPolicy Bypass -Command "$ip = (Get-NetIPAddress -AddressFamily IPv4 | Where-Object { $_.InterfaceAlias -notmatch 'Loopback' -and $_.IPAddress -notmatch '^169\.' -and $_.InterfaceAlias -notmatch 'vEthernet|WSL|VMware|VirtualBox' } | Select-Object -ExpandProperty IPAddress -First 1); if (-not $ip) { $ip = 'localhost' }; Write-Output $ip" > "%TEMP%\bm_wifi_ip.tmp" 2>nul
+    set /p WIFI_IP=<"%TEMP%\bm_wifi_ip.tmp"
+    del /f /q "%TEMP%\bm_wifi_ip.tmp" >nul 2>nul
+    echo    👉 IP Wi-Fi mang noi bo: https://%WIFI_IP%:5001
+    echo    👉 May HP (cuc bo): https://localhost:5001
     echo.
     echo 2. Dia chi truy cap tren iPad / iPhone / May khac trong mang Wi-Fi:
     powershell -NoProfile -ExecutionPolicy Bypass -Command "Get-NetIPAddress -AddressFamily IPv4 | Where-Object { $_.InterfaceAlias -notmatch 'Loopback' -and $_.IPAddress -notmatch '^169\.' } | ForEach-Object { Write-Output ('   👉 https://' + $_.IPAddress + ':5001') }"

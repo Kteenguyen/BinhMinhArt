@@ -26,7 +26,11 @@ if "%PORT_STATE%"=="ALIVE" (
     echo ========================================================
     echo.
     echo Server dang hoat dong ngam 24/7 tai:
-    echo   👉 https://localhost:5001
+    powershell -NoProfile -ExecutionPolicy Bypass -Command "$ip = (Get-NetIPAddress -AddressFamily IPv4 | Where-Object { $_.InterfaceAlias -notmatch 'Loopback' -and $_.IPAddress -notmatch '^169\.' -and $_.InterfaceAlias -notmatch 'vEthernet|WSL|VMware|VirtualBox' } | Select-Object -ExpandProperty IPAddress -First 1); if (-not $ip) { $ip = 'localhost' }; Write-Output $ip" > "%TEMP%\bm_wifi_ip.tmp" 2>nul
+    set /p WIFI_IP=<"%TEMP%\bm_wifi_ip.tmp"
+    del /f /q "%TEMP%\bm_wifi_ip.tmp" >nul 2>nul
+    echo   👉 https://%WIFI_IP%:5001  (IP Wi-Fi mang noi bo cho iPad / iPhone / May khac)
+    echo   👉 https://localhost:5001  (Truy cap cuc bo tai may HP)
     echo.
     echo Ban khong can chay lai trong cua so nay nua.
     echo ========================================================
@@ -103,7 +107,11 @@ echo [3/3] Dang khoi dong BinhMinhArt Server tren cong 5001 (HTTPS)...
 echo.
 echo ========================================================
 echo  May chu dang hoat dong tai:
-echo    - May HP: https://localhost:5001
+powershell -NoProfile -ExecutionPolicy Bypass -Command "$ip = (Get-NetIPAddress -AddressFamily IPv4 | Where-Object { $_.InterfaceAlias -notmatch 'Loopback' -and $_.IPAddress -notmatch '^169\.' -and $_.InterfaceAlias -notmatch 'vEthernet|WSL|VMware|VirtualBox' } | Select-Object -ExpandProperty IPAddress -First 1); if (-not $ip) { $ip = 'localhost' }; Write-Output $ip" > "%TEMP%\bm_wifi_ip.tmp" 2>nul
+set /p WIFI_IP=<"%TEMP%\bm_wifi_ip.tmp"
+del /f /q "%TEMP%\bm_wifi_ip.tmp" >nul 2>nul
+echo    - IP Wi-Fi mang noi bo: https://%WIFI_IP%:5001
+echo    - May HP (cuc bo): https://localhost:5001
 echo    - Dien thoai / iPad truy cap qua mot trong cac dia chi duoi:
 powershell -NoProfile -ExecutionPolicy Bypass -Command "Get-NetIPAddress -AddressFamily IPv4 | Where-Object { $_.InterfaceAlias -notmatch 'Loopback' -and $_.IPAddress -notmatch '^169\.' -and $_.InterfaceAlias -notmatch 'vEthernet|WSL|VMware|VirtualBox' } | ForEach-Object { Write-Output ('      >> https://' + $_.IPAddress + ':5001') }"
 echo ========================================================
