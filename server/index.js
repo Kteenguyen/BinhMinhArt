@@ -53,6 +53,10 @@ import {
 import { ensureSslCertificate } from './sslCert.js';
 import { resetPriceHistoryCache, initPriceHistory, savePriceHistory, loadPriceHistory } from './priceHistoryStore.js';
 import { formatCompoundLocation, parseCompoundLocation } from '../src/utils/location.js';
+import { checkoutMutex } from './checkoutMutex.js';
+import { getOrderStore, deleteInvoice, ArtworkAlreadySoldError, DuplicateInvoiceCodeError } from './orderStore.js';
+import { generateVietQrPayment } from './vietqrService.js';
+import { formatInvoiceForSheet } from './googleSheetSingleton.js';
 
 const app = express();
 const PORT = process.env.PORT || 5001;
@@ -1151,6 +1155,482 @@ app.get('/api/export-customers-excel', (req, res) => {
     } else {
       res.status(404).json({ success: false, message: 'File Excel khách hàng chưa được tạo' });
     }
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
+});
+
+// -------------------------------------------------------------
+// Customer Cart, Deal Workspace & Checkout Endpoints
+// -------------------------------------------------------------
+
+function buildCustomerCartData(customer, paintings) {
+  const interests = Array.isArray(customer.interests) ? customer.interests : [];
+  const enrichedItems = interests.map((item) => {
+    const p = paintings.find((x) => String(x.id).trim() === String(item.painting_id).trim());
+    const isSold = p ? p.tinh_trang === 'da_ban' : false;
+    const listedPrice = p && p.gia !== null && p.gia !== undefined ? Number(p.gia) : null;
+    let dealPrice = null;
+    if (item.deal_price !== null && item.deal_price !== undefined && item.deal_price !== '') {
+      dealPrice = Number(item.deal_price) || 0;
+    } else if (listedPrice !== null) {
+      dealPrice = listedPrice;
+    } else {
+      dealPrice = 0;
+    }
+
+    return {
+      id: item.id,
+      customer_id: customer.id,
+      painting_id: item.painting_id,
+      title: p ? p.ten_tac_pham : '',
+      artist: p ? p.tac_gia : '',
+      chat_lieu: p ? p.chat_lieu : '',
+      kich_thuoc_tranh: p ? p.kich_thuoc_tranh : '',
+      nam_sang_tac: p ? p.nam_sang_tac : '',
+      location: p ? p.location : '',
+      location_level1: p ? p.location_level1 : '',
+      location_level2: p ? p.location_level2 : '',
+      hinh_anh: p ? p.hinh_anh : [],
+      thumbnail: p && Array.isArray(p.hinh_anh) && p.hinh_anh[0] ? getThumbNameForPath(p.hinh_anh[0]) : null,
+      listed_price: listedPrice,
+      deal_price: dealPrice,
+      note: item.note || '',
+      tinh_trang: p ? p.tinh_trang : 'unknown',
+      is_available: p ? p.tinh_trang === 'chua_ban' : false,
+      created_at: item.created_at || ''
+    };
+  });
+
+  const availableItems = enrichedItems.filter((it) => it.is_available);
+  const totalListed = availableItems.reduce((sum, it) => sum + (Number(it.listed_price) || 0), 0);
+  const totalDeal = availableItems.reduce((sum, it) => sum + (Number(it.deal_price) || 0), 0);
+  const discountAmount = Math.max(0, totalListed - totalDeal);
+  const discountPercent = totalListed > 0 ? Math.round((discountAmount / totalListed) * 100) : 0;
+  const availableCount = availableItems.length;
+  const soldCount = enrichedItems.length - availableCount;
+
+  return {
+    customer_id: Number(customer.id),
+    customer_name: customer.ho_ten,
+    customer_phone: customer.so_dien_thoai || '',
+    customer_email: customer.email || '',
+    items: enrichedItems,
+    summary: {
+      total_listed_price: totalListed,
+      total_deal_price: totalDeal,
+      discount_amount: discountAmount,
+      discount_percent: discountPercent,
+      item_count: enrichedItems.length,
+      available_count: availableCount,
+      sold_count: soldCount,
+      can_checkout: enrichedItems.length > 0 && soldCount === 0
+    }
+  };
+}
+
+app.get('/api/customers/:id/cart', (req, res) => {
+  try {
+    const customer = getCustomer(req.params.id);
+    if (!customer) {
+      return res.status(404).json({ success: false, message: 'Khách hàng không tồn tại' });
+    }
+    const paintings = getPaintings();
+    const cartData = buildCustomerCartData(customer, paintings);
+    res.json({ success: true, data: cartData });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
+});
+
+app.put('/api/customers/:id/cart', (req, res) => {
+  try {
+    const customer = getCustomer(req.params.id);
+    if (!customer) {
+      return res.status(404).json({ success: false, message: 'Khách hàng không tồn tại' });
+    }
+
+    const items = req.body.items;
+    if (!Array.isArray(items)) {
+      return res.status(400).json({ success: false, message: 'Danh sách tác phẩm (items) phải là một mảng' });
+    }
+
+    const paintings = getPaintings();
+
+    // Enforce duplicate sale prevention on cart addition
+    for (const it of items) {
+      const pid = String(it.painting_id || '').trim();
+      if (!pid) {
+        return res.status(400).json({ success: false, message: 'Mã tranh không được để trống' });
+      }
+      const p = paintings.find((x) => String(x.id).trim() === pid);
+      if (!p) {
+        return res.status(404).json({ success: false, message: `Tác phẩm "${pid}" không tồn tại trong hệ thống!` });
+      }
+      if (p.tinh_trang === 'da_ban') {
+        return res.status(400).json({
+          success: false,
+          message: `Tác phẩm "${pid}" đã được bán, không thể thêm vào giỏ hàng!`
+        });
+      }
+    }
+
+    const newInterests = items.map((it) => {
+      let dp = null;
+      if (it.deal_price !== null && it.deal_price !== undefined && it.deal_price !== '') {
+        const raw = typeof it.deal_price === 'string' ? it.deal_price.replace(/,/g, '').trim() : it.deal_price;
+        const num = Number(raw);
+        if (!isNaN(num) && num >= 0) dp = num;
+      }
+      return {
+        painting_id: String(it.painting_id).trim(),
+        deal_price: dp,
+        note: String(it.note || '').trim()
+      };
+    });
+
+    const updatedCustomer = updateCustomer(req.params.id, { interests: newInterests });
+    const cartData = buildCustomerCartData(updatedCustomer, paintings);
+    res.json({ success: true, message: 'Cập nhật giỏ hàng thành công', data: cartData });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
+});
+
+app.post('/api/orders/checkout', async (req, res) => {
+  try {
+    const body = req.body || {};
+    const {
+      customer_id,
+      customer_name,
+      customer_phone = '',
+      customer_email = '',
+      items,
+      notes = '',
+      payment_method = 'vietqr'
+    } = body;
+
+    // Validate customer_name
+    if (!customer_name || !String(customer_name).trim()) {
+      return res.status(400).json({
+        success: false,
+        message: 'Tên khách hàng không được để trống'
+      });
+    }
+
+    // Validate items
+    if (!Array.isArray(items) || items.length === 0) {
+      return res.status(400).json({
+        success: false,
+        message: 'Giỏ hàng trống hoặc danh sách tác phẩm không hợp lệ'
+      });
+    }
+
+    // Check duplicate painting_ids in request
+    const seenIds = new Set();
+    for (const it of items) {
+      const pid = String(it.painting_id || '').trim();
+      if (!pid) {
+        return res.status(400).json({
+          success: false,
+          message: 'Mã tranh (painting_id) không được để trống'
+        });
+      }
+      if (seenIds.has(pid)) {
+        return res.status(400).json({
+          success: false,
+          message: `Danh sách tác phẩm có mã tranh trùng lặp trong giỏ hàng: "${pid}"`
+        });
+      }
+      seenIds.add(pid);
+
+      // Validate deal_price
+      const rawPrice = typeof it.deal_price === 'string' ? it.deal_price.replace(/,/g, '').trim() : it.deal_price;
+      const numPrice = Number(rawPrice);
+      if (isNaN(numPrice) || numPrice < 0) {
+        return res.status(400).json({
+          success: false,
+          message: `Giá thương lượng không hợp lệ cho tác phẩm "${pid}"`
+        });
+      }
+    }
+
+    // Pre-validate customer_id before entering checkoutMutex: must be a valid positive integer
+    const rawCustId = typeof customer_id === 'string' ? customer_id.trim() : customer_id;
+    const numCustId = Number(rawCustId);
+    if (
+      customer_id === undefined ||
+      customer_id === null ||
+      rawCustId === '' ||
+      typeof customer_id === 'boolean' ||
+      isNaN(numCustId) ||
+      !Number.isInteger(numCustId) ||
+      numCustId <= 0
+    ) {
+      return res.status(400).json({
+        success: false,
+        message: 'Mã khách hàng (customer_id) không được để trống và phải là số nguyên dương hợp lệ'
+      });
+    }
+    const validCustomerId = numCustId;
+
+    // Pre-validate invoice_code & auto-generate hardened invoice code
+    const orderStore = getOrderStore();
+    let invoiceCode = String(body.invoice_code || '').trim();
+    if (invoiceCode) {
+      if (orderStore.getInvoiceByCode(invoiceCode)) {
+        return res.status(409).json({
+          success: false,
+          message: `Mã hóa đơn "${invoiceCode}" đã tồn tại trong hệ thống!`
+        });
+      }
+    } else {
+      const todayDigits = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+      let candidateCode;
+      let attempts = 0;
+      do {
+        const timeSlice = Date.now().toString().slice(-4);
+        const randNum = Math.floor(100 + Math.random() * 900);
+        candidateCode = `HD-${todayDigits}-${timeSlice}${randNum}`;
+        attempts++;
+        if (attempts > 50) {
+          candidateCode = `HD-${todayDigits}-${Date.now().toString().slice(-6)}${Math.floor(1000 + Math.random() * 9000)}`;
+          break;
+        }
+      } while (orderStore.getInvoiceByCode(candidateCode));
+      invoiceCode = candidateCode;
+    }
+
+    // Concurrency Mutex guarantees serialization
+    const checkoutResult = await checkoutMutex.runExclusive(async () => {
+      // 1. Fetch fresh inventory snapshot & take deep clone for rollback shield
+      const currentPaintings = getPaintings();
+      const snapshotPaintings = JSON.parse(JSON.stringify(currentPaintings));
+      const originalLogsCount = initPriceHistory().length;
+      let createdInvoice = null;
+
+      // 2. Concurrency Guard: Check all paintings availability
+      for (const it of items) {
+        const pid = String(it.painting_id).trim();
+        const p = currentPaintings.find((x) => String(x.id).trim() === pid);
+        if (!p) {
+          const notFoundErr = new Error(`Tác phẩm "${pid}" không tồn tại trong hệ thống!`);
+          notFoundErr.statusCode = 404;
+          throw notFoundErr;
+        }
+        if (p.tinh_trang === 'da_ban') {
+          const conflictErr = new Error(
+            `Tác phẩm ${p.id}${p.ten_tac_pham ? ` ("${p.ten_tac_pham}")` : ''} đã được bán trước đó, không thể thanh toán!`
+          );
+          conflictErr.statusCode = 409;
+          conflictErr.code = 'ERR_ARTWORK_ALREADY_SOLD';
+          throw conflictErr;
+        }
+      }
+
+      // Secondary check inside mutex against duplicate invoiceCode race
+      if (orderStore.getInvoiceByCode(invoiceCode)) {
+        const dupErr = new DuplicateInvoiceCodeError(invoiceCode);
+        dupErr.statusCode = 409;
+        throw dupErr;
+      }
+
+      const todayVN = new Date().toLocaleDateString('vi-VN', {
+        day: '2-digit', month: '2-digit', year: 'numeric'
+      }).replace(/\//g, '-');
+
+      // 3. Pre-calculate financial totals & prepare items detail WITHOUT mutating currentPaintings
+      let totalListed = 0;
+      let totalDeal = 0;
+      const parsedItems = [];
+
+      for (const it of items) {
+        const pid = String(it.painting_id).trim();
+        const p = currentPaintings.find((x) => String(x.id).trim() === pid);
+        const oldPrice = p.gia !== null && p.gia !== undefined ? Number(p.gia) : null;
+        const dealPrice = Number(String(it.deal_price).replace(/,/g, ''));
+
+        totalListed += (oldPrice !== null ? oldPrice : dealPrice);
+        totalDeal += dealPrice;
+
+        parsedItems.push({
+          painting_id: p.id,
+          title: p.ten_tac_pham || '',
+          artist: p.tac_gia || '',
+          listed_price: oldPrice,
+          deal_price: dealPrice,
+          note: it.note || ''
+        });
+      }
+
+      const discountAmount = Math.max(0, totalListed - totalDeal);
+
+      // 4. Invert mutation ordering: Execute orderStore.createInvoice FIRST
+      // If createInvoice throws (e.g. SQLite error or validation), paintings have NEVER been mutated.
+      createdInvoice = orderStore.createInvoice({
+        invoice_code: invoiceCode,
+        customer_id: validCustomerId,
+        customer_name: String(customer_name).trim(),
+        customer_phone: String(customer_phone || '').trim(),
+        customer_email: String(customer_email || '').trim(),
+        painting_ids: parsedItems.map((it) => it.painting_id),
+        items_detail: parsedItems,
+        total_listed_price: totalListed,
+        total_deal_price: totalDeal,
+        discount_amount: discountAmount,
+        payment_method: String(payment_method || 'vietqr').toLowerCase(),
+        payment_status: 'pending',
+        notes: String(notes || '').trim()
+      });
+
+      // 5. 2-Way Snapshot Rollback Shield: Wrap mutations and downstream persistence in try...catch
+      try {
+        for (const it of items) {
+          const pid = String(it.painting_id).trim();
+          const p = currentPaintings.find((x) => String(x.id).trim() === pid);
+          const oldPrice = p.gia !== null && p.gia !== undefined ? Number(p.gia) : null;
+          const dealPrice = Number(String(it.deal_price).replace(/,/g, ''));
+
+          p.tinh_trang = 'da_ban';
+          p.gia = dealPrice;
+          p.ngay_ban = todayVN;
+          p.khach_hang = String(customer_name).trim();
+          p.hoa_don = invoiceCode;
+          p.ngay_cap_nhat_san_pham = todayVN;
+
+          const logNote = `Chốt bán theo hóa đơn ${invoiceCode}${it.note ? `: ${it.note}` : ''}`;
+          try {
+            addPaintingPriceLog(p.id, oldPrice, dealPrice, todayVN, logNote);
+          } catch (logErr) {
+            console.warn('[checkout] Price log warning:', logErr.message);
+          }
+        }
+
+        // Commit painting changes to disk/memory
+        savePaintings(currentPaintings);
+
+        // 6. Dual-Sync to Google Sheets / SheetDB (non-fatal)
+        try {
+          sheetDB.syncInvoice(createdInvoice);
+          for (const it of parsedItems) {
+            sheetDB.syncPaintingSold(it.painting_id, {
+              dealPrice: it.deal_price,
+              saleDate: todayVN,
+              customerName: customer_name,
+              invoiceCode: invoiceCode
+            });
+          }
+        } catch (syncErr) {
+          console.warn('⚠️ [checkout] Non-fatal SheetDB dual-sync warning:', syncErr.message);
+        }
+
+        // 7. Purge purchased painting IDs from customer active cart in CRM (non-fatal)
+        const clearedIds = parsedItems.map((it) => it.painting_id);
+        if (validCustomerId) {
+          try {
+            const cust = getCustomer(validCustomerId);
+            if (cust && Array.isArray(cust.interests)) {
+              const remainingInterests = cust.interests.filter(
+                (ci) => !clearedIds.includes(ci.painting_id)
+              );
+              updateCustomer(validCustomerId, { interests: remainingInterests });
+            }
+          } catch (custErr) {
+            console.warn('⚠️ [checkout] Non-fatal customer cart cleanup warning:', custErr.message);
+          }
+        }
+
+        // 8. Generate VietQR payment payload
+        const vietqr = await generateVietQrPayment({
+          invoiceCode: createdInvoice.invoice_code,
+          dealTotalUsd: createdInvoice.total_deal_price,
+          amountUsd: createdInvoice.total_deal_price,
+          memo: `THANH TOAN ${createdInvoice.invoice_code.replace(/-/g, ' ')}`
+        });
+
+        return {
+          invoice: createdInvoice,
+          vietqr,
+          cleared_cart_items: clearedIds
+        };
+      } catch (downstreamErr) {
+        // 2-Way Snapshot Rollback Shield:
+        // Restore currentPaintings from deep-cloned snapshot
+        try {
+          savePaintings(snapshotPaintings);
+        } catch (rbErr) {
+          console.error('[checkout] Rollback paintings failure:', rbErr.message);
+        }
+
+        // Revert appended price history logs
+        try {
+          const currentLogs = initPriceHistory();
+          if (currentLogs.length > originalLogsCount) {
+            const rolledBackLogs = currentLogs.slice(0, originalLogsCount);
+            savePriceHistory(rolledBackLogs, { immediateSync: true });
+          }
+        } catch (rbLogErr) {
+          console.warn('⚠️ [checkout] Rollback price logs warning:', rbLogErr.message);
+        }
+
+        // Delete the created invoice from SQLite
+        try {
+          if (createdInvoice && createdInvoice.id) {
+            orderStore.deleteInvoice(createdInvoice.id);
+          }
+        } catch (rbInvErr) {
+          console.error('[checkout] Rollback invoice failure:', rbInvErr.message);
+        }
+
+        throw downstreamErr;
+      }
+    });
+
+    return res.status(201).json({
+      success: true,
+      message: 'Chốt đơn hàng thành công!',
+      data: checkoutResult
+    });
+  } catch (err) {
+    const status = err.statusCode || 500;
+    return res.status(status).json({
+      success: false,
+      message: err.message
+    });
+  }
+});
+
+app.get('/api/invoices', (req, res) => {
+  try {
+    const orderStore = getOrderStore();
+    const filters = {};
+    if (req.query.customer_id) filters.customer_id = req.query.customer_id;
+    if (req.query.payment_status) filters.payment_status = req.query.payment_status;
+    if (req.query.payment_method) filters.payment_method = req.query.payment_method;
+    if (req.query.limit) filters.limit = req.query.limit;
+
+    const invoices = orderStore.getInvoices(filters);
+    res.json({ success: true, count: invoices.length, data: invoices });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
+});
+
+app.get('/api/invoices/:id', (req, res) => {
+  try {
+    const orderStore = getOrderStore();
+    const idOrCode = req.params.id;
+    let invoice = null;
+    if (/^\d+$/.test(idOrCode)) {
+      invoice = orderStore.getInvoiceById(Number(idOrCode));
+    }
+    if (!invoice) {
+      invoice = orderStore.getInvoiceByCode(idOrCode);
+    }
+    if (!invoice) {
+      return res.status(404).json({ success: false, message: 'Hóa đơn không tồn tại' });
+    }
+    res.json({ success: true, data: invoice });
   } catch (err) {
     res.status(500).json({ success: false, message: err.message });
   }

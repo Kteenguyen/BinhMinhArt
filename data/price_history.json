@@ -2017,5 +2017,1589 @@
     "date": "08-11-2026",
     "note": "Test update",
     "created_at": "2026-11-08T10:16:51.695Z"
+  },
+  {
+    "id": 1048,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1680,
+    "date": "11-11-2026",
+    "note": "Playwright E2E Verification Adjustment",
+    "created_at": "2026-11-11T02:24:34.783Z"
+  },
+  {
+    "id": 1049,
+    "painting_id": "DVS-SD-03",
+    "old_price": 2000,
+    "new_price": 1900,
+    "date": "11-11-2026",
+    "note": "Chốt bán theo hóa đơn HD-RACE-1794364464997-A: Khách tablet mua",
+    "created_at": "2026-11-11T02:34:25.003Z"
+  },
+  {
+    "id": 1050,
+    "painting_id": "DVS-SD-02",
+    "old_price": 2000,
+    "new_price": 1800,
+    "date": "11-11-2026",
+    "note": "Chốt bán theo hóa đơn HD-20261111-750",
+    "created_at": "2026-11-11T02:34:25.061Z"
+  },
+  {
+    "id": 1051,
+    "painting_id": "DVS-SD-04",
+    "old_price": null,
+    "new_price": 1900,
+    "date": "11-11-2026",
+    "note": "Chốt bán theo hóa đơn HD-RACE-1794364491850-A: Khách tablet mua",
+    "created_at": "2026-11-11T02:34:51.855Z"
+  },
+  {
+    "id": 1052,
+    "painting_id": "DVS-SD-03",
+    "old_price": 1900,
+    "new_price": 2000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T02:35:32.152Z"
+  },
+  {
+    "id": 1053,
+    "painting_id": "DVS-SD-04",
+    "old_price": 1900,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T02:35:32.184Z"
+  },
+  {
+    "id": 1054,
+    "painting_id": "DVS-SD-02",
+    "old_price": 1800,
+    "new_price": 2000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T02:36:03.088Z"
+  },
+  {
+    "id": 1055,
+    "painting_id": "DVS-SD-03",
+    "old_price": 2000,
+    "new_price": 1900,
+    "date": "11-11-2026",
+    "note": "Chốt bán theo hóa đơn HD-RACE-1794364618181-A: Khách tablet mua",
+    "created_at": "2026-11-11T02:36:58.186Z"
+  },
+  {
+    "id": 1056,
+    "painting_id": "DVS-SD-02",
+    "old_price": 2000,
+    "new_price": 1800,
+    "date": "11-11-2026",
+    "note": "Chốt bán theo hóa đơn HD-20261111-921",
+    "created_at": "2026-11-11T02:36:58.241Z"
+  },
+  {
+    "id": 1057,
+    "painting_id": "DVS-SD-03",
+    "old_price": 1900,
+    "new_price": 2000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T02:36:58.291Z"
+  },
+  {
+    "id": 1058,
+    "painting_id": "DVS-SD-02",
+    "old_price": 1800,
+    "new_price": 2000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T02:37:54.009Z"
+  },
+  {
+    "id": 1059,
+    "painting_id": "DVS-SD-03",
+    "old_price": 2000,
+    "new_price": 1900,
+    "date": "11-11-2026",
+    "note": "Chốt bán theo hóa đơn HD-RACE-1794364709175-A: Khách tablet mua",
+    "created_at": "2026-11-11T02:38:29.180Z"
+  },
+  {
+    "id": 1060,
+    "painting_id": "DVS-SD-03",
+    "old_price": 1900,
+    "new_price": 2000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T02:38:29.247Z"
+  },
+  {
+    "id": 1063,
+    "painting_id": "DVS-SD-03",
+    "old_price": 2000,
+    "new_price": 1900,
+    "date": "11-11-2026",
+    "note": "Chốt bán theo hóa đơn HD-RACE-1794364742829-A: Khách tablet mua",
+    "created_at": "2026-11-11T02:39:02.833Z"
+  },
+  {
+    "id": 1064,
+    "painting_id": "DVS-SD-03",
+    "old_price": 1900,
+    "new_price": 2000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T02:39:02.926Z"
+  },
+  {
+    "id": 1066,
+    "painting_id": "DVS-SD-03",
+    "old_price": 2000,
+    "new_price": 1900,
+    "date": "11-11-2026",
+    "note": "Chốt bán theo hóa đơn HD-RACE-1794364911996-A: Khách tablet mua",
+    "created_at": "2026-11-11T02:41:52.002Z"
+  },
+  {
+    "id": 1068,
+    "painting_id": "DVS-SD-03",
+    "old_price": 1900,
+    "new_price": 2000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T02:41:52.069Z"
+  },
+  {
+    "id": 1069,
+    "painting_id": "DVS-SD-03",
+    "old_price": 2000,
+    "new_price": 1900,
+    "date": "11-11-2026",
+    "note": "Chốt bán theo hóa đơn HD-RACE-1794364923492-A: Khách tablet mua",
+    "created_at": "2026-11-11T02:42:03.505Z"
+  },
+  {
+    "id": 1070,
+    "painting_id": "DVS-SD-03",
+    "old_price": 1900,
+    "new_price": 2000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T02:42:03.639Z"
+  },
+  {
+    "id": 1071,
+    "painting_id": "DVS-SD-03",
+    "old_price": 2000,
+    "new_price": 1900,
+    "date": "11-11-2026",
+    "note": "Chốt bán theo hóa đơn HD-RACE-1794364938804-A: Khách tablet mua",
+    "created_at": "2026-11-11T02:42:18.808Z"
+  },
+  {
+    "id": 1072,
+    "painting_id": "DVS-SD-03",
+    "old_price": 1900,
+    "new_price": 2000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T02:42:18.881Z"
+  },
+  {
+    "id": 1073,
+    "painting_id": "DVS-SD-03",
+    "old_price": 2000,
+    "new_price": 1900,
+    "date": "11-11-2026",
+    "note": "Chốt bán theo hóa đơn HD-RACE-1794365041520-A: Khách tablet mua",
+    "created_at": "2026-11-11T02:44:01.524Z"
+  },
+  {
+    "id": 1074,
+    "painting_id": "DVS-SD-03",
+    "old_price": 1900,
+    "new_price": 2000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T02:44:01.583Z"
+  },
+  {
+    "id": 1075,
+    "painting_id": "DVS-SD-03",
+    "old_price": 2000,
+    "new_price": 1900,
+    "date": "11-11-2026",
+    "note": "Chốt bán theo hóa đơn HD-RACE-1794365068083-A: Khách tablet mua",
+    "created_at": "2026-11-11T02:44:28.088Z"
+  },
+  {
+    "id": 1076,
+    "painting_id": "DVS-SD-03",
+    "old_price": 1900,
+    "new_price": 2000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T02:44:28.160Z"
+  },
+  {
+    "id": 1077,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1500,
+    "date": "11-11-2026",
+    "note": "Chốt bán theo hóa đơn HD-20261111-340",
+    "created_at": "2026-11-11T02:45:30.426Z"
+  },
+  {
+    "id": 1078,
+    "painting_id": "DVS-SD-02",
+    "old_price": 2000,
+    "new_price": 1500,
+    "date": "11-11-2026",
+    "note": "Chốt bán theo hóa đơn HD-RACE10-1794365137857-0: Race attempt #0",
+    "created_at": "2026-11-11T02:45:37.891Z"
+  },
+  {
+    "id": 1079,
+    "painting_id": "DVS-SD-02",
+    "old_price": 1500,
+    "new_price": 2000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T02:45:37.955Z"
+  },
+  {
+    "id": 1080,
+    "painting_id": "DVS-SD-02",
+    "old_price": 2000,
+    "new_price": 1000,
+    "date": "11-11-2026",
+    "note": "Chốt bán theo hóa đơn HD-20261111-921",
+    "created_at": "2026-11-11T02:46:10.055Z"
+  },
+  {
+    "id": 1081,
+    "painting_id": "DVS-SD-02",
+    "old_price": 1000,
+    "new_price": 2000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T02:46:10.075Z"
+  },
+  {
+    "id": 1082,
+    "painting_id": "DVS-SD-03",
+    "old_price": 2000,
+    "new_price": 1900,
+    "date": "11-11-2026",
+    "note": "Chốt bán theo hóa đơn HD-RACE-1794365183596-A: Khách tablet mua",
+    "created_at": "2026-11-11T02:46:23.600Z"
+  },
+  {
+    "id": 1083,
+    "painting_id": "DVS-SD-03",
+    "old_price": 1900,
+    "new_price": 2000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T02:46:23.660Z"
+  },
+  {
+    "id": 1088,
+    "painting_id": "DVS-SD-04",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T02:46:30.681Z"
+  },
+  {
+    "id": 1089,
+    "painting_id": "DVS-SM-05",
+    "old_price": 2000,
+    "new_price": 6000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T02:46:30.721Z"
+  },
+  {
+    "id": 1090,
+    "painting_id": "DVS-SD-03",
+    "old_price": 2000,
+    "new_price": 1900,
+    "date": "11-11-2026",
+    "note": "Chốt bán theo hóa đơn HD-RACE-1794365196067-A: Khách tablet mua",
+    "created_at": "2026-11-11T02:46:36.072Z"
+  },
+  {
+    "id": 1091,
+    "painting_id": "DVS-SD-03",
+    "old_price": 1900,
+    "new_price": 2000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T02:46:36.134Z"
+  },
+  {
+    "id": 1092,
+    "painting_id": "DVS-SD-02",
+    "old_price": 2000,
+    "new_price": 2000,
+    "date": "11-11-2026",
+    "note": "Chốt bán theo hóa đơn HD-COLLIDE-1794365226941",
+    "created_at": "2026-11-11T02:47:06.949Z"
+  },
+  {
+    "id": 1093,
+    "painting_id": "DVS-SD-03",
+    "old_price": 2000,
+    "new_price": 1900,
+    "date": "11-11-2026",
+    "note": "Chốt bán theo hóa đơn HD-RACE-1794365234168-A: Khách tablet mua",
+    "created_at": "2026-11-11T02:47:14.172Z"
+  },
+  {
+    "id": 1094,
+    "painting_id": "DVS-SD-03",
+    "old_price": 1900,
+    "new_price": 2000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T02:47:14.243Z"
+  },
+  {
+    "id": 1100,
+    "painting_id": "DVS-SM-05",
+    "old_price": 2000,
+    "new_price": 6000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T02:47:44.442Z"
+  },
+  {
+    "id": 1103,
+    "painting_id": "DVS-SD-04",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T02:47:45.068Z"
+  },
+  {
+    "id": 1104,
+    "painting_id": "DVS-SD-05",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T02:47:45.076Z"
+  },
+  {
+    "id": 1105,
+    "painting_id": "DVS-SM-05",
+    "old_price": 2500,
+    "new_price": 6000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T02:47:45.106Z"
+  },
+  {
+    "id": 1111,
+    "painting_id": "DVS-SM-05",
+    "old_price": 2000,
+    "new_price": 6000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T02:48:50.164Z"
+  },
+  {
+    "id": 1114,
+    "painting_id": "DVS-SD-04",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T02:48:50.763Z"
+  },
+  {
+    "id": 1115,
+    "painting_id": "DVS-SD-05",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T02:48:50.771Z"
+  },
+  {
+    "id": 1116,
+    "painting_id": "DVS-SM-05",
+    "old_price": 2500,
+    "new_price": 6000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T02:48:50.799Z"
+  },
+  {
+    "id": 1117,
+    "painting_id": "DVS-SD-03",
+    "old_price": 2000,
+    "new_price": 1900,
+    "date": "11-11-2026",
+    "note": "Chốt bán theo hóa đơn HD-RACE-1794365346607-A: Khách tablet mua",
+    "created_at": "2026-11-11T02:49:06.611Z"
+  },
+  {
+    "id": 1118,
+    "painting_id": "DVS-SD-03",
+    "old_price": 1900,
+    "new_price": 2000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T02:49:06.670Z"
+  },
+  {
+    "id": 1124,
+    "painting_id": "DVS-SM-05",
+    "old_price": 2000,
+    "new_price": 6000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T02:52:51.875Z"
+  },
+  {
+    "id": 1127,
+    "painting_id": "DVS-SD-04",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T02:52:52.490Z"
+  },
+  {
+    "id": 1128,
+    "painting_id": "DVS-SD-05",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T02:52:52.497Z"
+  },
+  {
+    "id": 1129,
+    "painting_id": "DVS-SM-05",
+    "old_price": 2500,
+    "new_price": 6000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T02:52:52.523Z"
+  },
+  {
+    "id": 1130,
+    "painting_id": "DVS-SD-03",
+    "old_price": 2000,
+    "new_price": 1900,
+    "date": "11-11-2026",
+    "note": "Chốt bán theo hóa đơn HD-RACE-1794365579271-A: Khách tablet mua",
+    "created_at": "2026-11-11T02:52:59.275Z"
+  },
+  {
+    "id": 1131,
+    "painting_id": "DVS-SD-03",
+    "old_price": 1900,
+    "new_price": 2000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T02:52:59.337Z"
+  },
+  {
+    "id": 1137,
+    "painting_id": "DVS-SM-05",
+    "old_price": 2000,
+    "new_price": 6000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T02:53:06.326Z"
+  },
+  {
+    "id": 1140,
+    "painting_id": "DVS-SD-04",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T02:53:06.927Z"
+  },
+  {
+    "id": 1141,
+    "painting_id": "DVS-SD-05",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T02:53:06.934Z"
+  },
+  {
+    "id": 1142,
+    "painting_id": "DVS-SM-05",
+    "old_price": 2500,
+    "new_price": 6000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T02:53:06.960Z"
+  },
+  {
+    "id": 1143,
+    "painting_id": "DVS-SD-03",
+    "old_price": 2000,
+    "new_price": 1900,
+    "date": "11-11-2026",
+    "note": "Chốt bán theo hóa đơn HD-RACE-1794365656013-A: Khách tablet mua",
+    "created_at": "2026-11-11T02:54:16.018Z"
+  },
+  {
+    "id": 1144,
+    "painting_id": "DVS-SD-03",
+    "old_price": 1900,
+    "new_price": 2000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T02:54:16.070Z"
+  },
+  {
+    "id": 1150,
+    "painting_id": "DVS-SM-05",
+    "old_price": 2000,
+    "new_price": 6000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T02:54:38.149Z"
+  },
+  {
+    "id": 1153,
+    "painting_id": "DVS-SD-04",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T02:54:38.762Z"
+  },
+  {
+    "id": 1154,
+    "painting_id": "DVS-SD-05",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T02:54:38.769Z"
+  },
+  {
+    "id": 1155,
+    "painting_id": "DVS-SM-05",
+    "old_price": 2500,
+    "new_price": 6000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T02:54:38.797Z"
+  },
+  {
+    "id": 1156,
+    "painting_id": "DVS-SD-03",
+    "old_price": 2000,
+    "new_price": 1900,
+    "date": "11-11-2026",
+    "note": "Chốt bán theo hóa đơn HD-RACE-1794365686536-A: Khách tablet mua",
+    "created_at": "2026-11-11T02:54:46.544Z"
+  },
+  {
+    "id": 1157,
+    "painting_id": "DVS-SD-03",
+    "old_price": 1900,
+    "new_price": 2000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T02:54:46.609Z"
+  },
+  {
+    "id": 1158,
+    "painting_id": "DVS-SD-02",
+    "old_price": 1000,
+    "new_price": 2000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T02:55:43.816Z"
+  },
+  {
+    "id": 1164,
+    "painting_id": "DVS-SM-05",
+    "old_price": 2000,
+    "new_price": 6000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:04:08.749Z"
+  },
+  {
+    "id": 1167,
+    "painting_id": "DVS-SD-04",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:04:09.353Z"
+  },
+  {
+    "id": 1168,
+    "painting_id": "DVS-SD-05",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:04:09.360Z"
+  },
+  {
+    "id": 1169,
+    "painting_id": "DVS-SM-05",
+    "old_price": 2500,
+    "new_price": 6000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:04:09.385Z"
+  },
+  {
+    "id": 1170,
+    "painting_id": "DVS-SD-03",
+    "old_price": 2000,
+    "new_price": 1900,
+    "date": "11-11-2026",
+    "note": "Chốt bán theo hóa đơn HD-RACE-1794366255533-A: Khách tablet mua",
+    "created_at": "2026-11-11T03:04:15.536Z"
+  },
+  {
+    "id": 1171,
+    "painting_id": "DVS-SD-03",
+    "old_price": 1900,
+    "new_price": 2000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:04:15.586Z"
+  },
+  {
+    "id": 1173,
+    "painting_id": "DVS-SD-02",
+    "old_price": 1000,
+    "new_price": 2000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:08:20.963Z"
+  },
+  {
+    "id": 1179,
+    "painting_id": "DVS-SD-04",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:08:26.412Z"
+  },
+  {
+    "id": 1180,
+    "painting_id": "DVS-SD-05",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:08:26.419Z"
+  },
+  {
+    "id": 1181,
+    "painting_id": "DVS-SD-03",
+    "old_price": 2000,
+    "new_price": 1900,
+    "date": "11-11-2026",
+    "note": "Chốt bán theo hóa đơn HD-RACE-1794366515638-A: Khách tablet mua",
+    "created_at": "2026-11-11T03:08:35.646Z"
+  },
+  {
+    "id": 1182,
+    "painting_id": "DVS-SD-03",
+    "old_price": 1900,
+    "new_price": 2000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:08:35.720Z"
+  },
+  {
+    "id": 1188,
+    "painting_id": "DVS-SD-04",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:09:47.130Z"
+  },
+  {
+    "id": 1189,
+    "painting_id": "DVS-SD-05",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:09:47.138Z"
+  },
+  {
+    "id": 1190,
+    "painting_id": "DVS-SD-03",
+    "old_price": 2000,
+    "new_price": 1900,
+    "date": "11-11-2026",
+    "note": "Chốt bán theo hóa đơn HD-RACE-1794366595453-A: Khách tablet mua",
+    "created_at": "2026-11-11T03:09:55.459Z"
+  },
+  {
+    "id": 1191,
+    "painting_id": "DVS-SD-03",
+    "old_price": 1900,
+    "new_price": 2000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:09:55.507Z"
+  },
+  {
+    "id": 1197,
+    "painting_id": "DVS-SD-04",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:12:44.543Z"
+  },
+  {
+    "id": 1198,
+    "painting_id": "DVS-SD-05",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:12:44.550Z"
+  },
+  {
+    "id": 1199,
+    "painting_id": "DVS-SD-03",
+    "old_price": 2000,
+    "new_price": 1900,
+    "date": "11-11-2026",
+    "note": "Chốt bán theo hóa đơn HD-RACE-1794366772418-A: Khách tablet mua",
+    "created_at": "2026-11-11T03:12:52.426Z"
+  },
+  {
+    "id": 1200,
+    "painting_id": "DVS-SD-03",
+    "old_price": 1900,
+    "new_price": 2000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:12:52.489Z"
+  },
+  {
+    "id": 1201,
+    "painting_id": "DVS-SD-03",
+    "old_price": 2000,
+    "new_price": 1900,
+    "date": "11-11-2026",
+    "note": "Chốt bán theo hóa đơn HD-RACE-1794366775090-A: Khách tablet mua",
+    "created_at": "2026-11-11T03:12:55.104Z"
+  },
+  {
+    "id": 1202,
+    "painting_id": "DVS-SD-03",
+    "old_price": 1900,
+    "new_price": 2000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:12:55.256Z"
+  },
+  {
+    "id": 1208,
+    "painting_id": "DVS-SD-04",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:13:00.955Z"
+  },
+  {
+    "id": 1209,
+    "painting_id": "DVS-SD-05",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:13:00.974Z"
+  },
+  {
+    "id": 1215,
+    "painting_id": "DVS-SD-04",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:13:03.965Z"
+  },
+  {
+    "id": 1216,
+    "painting_id": "DVS-SD-05",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:13:03.973Z"
+  },
+  {
+    "id": 1217,
+    "painting_id": "DVS-SD-03",
+    "old_price": 2000,
+    "new_price": 1900,
+    "date": "11-11-2026",
+    "note": "Chốt bán theo hóa đơn HD-RACE-1794366788157-A: Khách tablet mua",
+    "created_at": "2026-11-11T03:13:08.183Z"
+  },
+  {
+    "id": 1218,
+    "painting_id": "DVS-SD-03",
+    "old_price": 1900,
+    "new_price": 2000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:13:08.359Z"
+  },
+  {
+    "id": 1224,
+    "painting_id": "DVS-SD-04",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:13:21.507Z"
+  },
+  {
+    "id": 1225,
+    "painting_id": "DVS-SD-05",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:13:21.514Z"
+  },
+  {
+    "id": 1226,
+    "painting_id": "DVS-SD-03",
+    "old_price": 2000,
+    "new_price": 1900,
+    "date": "11-11-2026",
+    "note": "Chốt bán theo hóa đơn HD-RACE-1794366821042-A: Khách tablet mua",
+    "created_at": "2026-11-11T03:13:41.056Z"
+  },
+  {
+    "id": 1227,
+    "painting_id": "DVS-SD-03",
+    "old_price": 1900,
+    "new_price": 2000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:13:41.278Z"
+  },
+  {
+    "id": 1233,
+    "painting_id": "DVS-SD-04",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:14:45.201Z"
+  },
+  {
+    "id": 1234,
+    "painting_id": "DVS-SD-05",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:14:45.210Z"
+  },
+  {
+    "id": 1235,
+    "painting_id": "DVS-SD-03",
+    "old_price": 2000,
+    "new_price": 1900,
+    "date": "11-11-2026",
+    "note": "Chốt bán theo hóa đơn HD-RACE-1794366896548-A: Khách tablet mua",
+    "created_at": "2026-11-11T03:14:56.554Z"
+  },
+  {
+    "id": 1236,
+    "painting_id": "DVS-SD-03",
+    "old_price": 1900,
+    "new_price": 2000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:14:56.614Z"
+  },
+  {
+    "id": 1243,
+    "painting_id": "DVS-SD-04",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:15:13.445Z"
+  },
+  {
+    "id": 1244,
+    "painting_id": "DVS-SD-05",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:15:13.453Z"
+  },
+  {
+    "id": 1245,
+    "painting_id": "DVS-SM-06",
+    "old_price": 1750,
+    "new_price": 8000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:15:13.489Z"
+  },
+  {
+    "id": 1249,
+    "painting_id": "DVS-SM-06",
+    "old_price": 1500,
+    "new_price": 8000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:15:25.288Z"
+  },
+  {
+    "id": 1255,
+    "painting_id": "DVS-SD-04",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:15:39.988Z"
+  },
+  {
+    "id": 1256,
+    "painting_id": "DVS-SD-05",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:15:39.994Z"
+  },
+  {
+    "id": 1257,
+    "painting_id": "DVS-SD-03",
+    "old_price": 2000,
+    "new_price": 1900,
+    "date": "11-11-2026",
+    "note": "Chốt bán theo hóa đơn HD-RACE-1794366951675-A: Khách tablet mua",
+    "created_at": "2026-11-11T03:15:51.682Z"
+  },
+  {
+    "id": 1258,
+    "painting_id": "DVS-SD-03",
+    "old_price": 1900,
+    "new_price": 2000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:15:51.750Z"
+  },
+  {
+    "id": 1262,
+    "painting_id": "DVS-SM-06",
+    "old_price": 1500,
+    "new_price": 8000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:16:07.685Z"
+  },
+  {
+    "id": 1267,
+    "painting_id": "DVS-SD-03",
+    "old_price": 2000,
+    "new_price": 1900,
+    "date": "11-11-2026",
+    "note": "Chốt bán theo hóa đơn HD-RACE-1794367020381-A: Khách tablet mua",
+    "created_at": "2026-11-11T03:17:00.389Z"
+  },
+  {
+    "id": 1270,
+    "painting_id": "DVS-SM-06",
+    "old_price": 1500,
+    "new_price": 8000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:17:00.593Z"
+  },
+  {
+    "id": 1271,
+    "painting_id": "DVS-SD-03",
+    "old_price": 1900,
+    "new_price": 2000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:17:00.609Z"
+  },
+  {
+    "id": 1272,
+    "painting_id": "DVS-SD-04",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:17:01.107Z"
+  },
+  {
+    "id": 1273,
+    "painting_id": "DVS-SD-05",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:17:01.114Z"
+  },
+  {
+    "id": 1279,
+    "painting_id": "DVS-SD-04",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:17:23.219Z"
+  },
+  {
+    "id": 1280,
+    "painting_id": "DVS-SD-05",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:17:23.227Z"
+  },
+  {
+    "id": 1284,
+    "painting_id": "DVS-SM-06",
+    "old_price": 1500,
+    "new_price": 8000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:17:26.336Z"
+  },
+  {
+    "id": 1285,
+    "painting_id": "DVS-SD-03",
+    "old_price": 2000,
+    "new_price": 1900,
+    "date": "11-11-2026",
+    "note": "Chốt bán theo hóa đơn HD-RACE-1794367048870-A: Khách tablet mua",
+    "created_at": "2026-11-11T03:17:28.900Z"
+  },
+  {
+    "id": 1286,
+    "painting_id": "DVS-SD-03",
+    "old_price": 1900,
+    "new_price": 2000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:17:29.096Z"
+  },
+  {
+    "id": 1287,
+    "painting_id": "DVS-SD-03",
+    "old_price": 2000,
+    "new_price": 1900,
+    "date": "11-11-2026",
+    "note": "Chốt bán theo hóa đơn HD-RACE-1794367488531-A: Khách tablet mua",
+    "created_at": "2026-11-11T03:24:48.537Z"
+  },
+  {
+    "id": 1288,
+    "painting_id": "DVS-SD-03",
+    "old_price": 1900,
+    "new_price": 2000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:24:48.593Z"
+  },
+  {
+    "id": 1289,
+    "painting_id": "DVS-SD-03",
+    "old_price": 2000,
+    "new_price": 1900,
+    "date": "11-11-2026",
+    "note": "Chốt bán theo hóa đơn HD-RACE-1794367540302-A: Khách tablet mua",
+    "created_at": "2026-11-11T03:25:40.309Z"
+  },
+  {
+    "id": 1290,
+    "painting_id": "DVS-SD-03",
+    "old_price": 1900,
+    "new_price": 2000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:25:40.370Z"
+  },
+  {
+    "id": 1297,
+    "painting_id": "DVS-SM-06",
+    "old_price": 1500,
+    "new_price": 8000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:25:49.929Z"
+  },
+  {
+    "id": 1298,
+    "painting_id": "DVS-SD-04",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:25:50.448Z"
+  },
+  {
+    "id": 1299,
+    "painting_id": "DVS-SD-05",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:25:50.455Z"
+  },
+  {
+    "id": 1300,
+    "painting_id": "DVS-SD-03",
+    "old_price": 2000,
+    "new_price": 1900,
+    "date": "11-11-2026",
+    "note": "Chốt bán theo hóa đơn HD-RACE-1794367845246-A: Khách tablet mua",
+    "created_at": "2026-11-11T03:30:45.252Z"
+  },
+  {
+    "id": 1301,
+    "painting_id": "DVS-SD-03",
+    "old_price": 1900,
+    "new_price": 2000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:30:45.326Z"
+  },
+  {
+    "id": 1307,
+    "painting_id": "DVS-SD-04",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:30:55.200Z"
+  },
+  {
+    "id": 1308,
+    "painting_id": "DVS-SD-05",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:30:55.206Z"
+  },
+  {
+    "id": 1309,
+    "painting_id": "DVS-SD-03",
+    "old_price": 2000,
+    "new_price": 1900,
+    "date": "11-11-2026",
+    "note": "Chốt bán theo hóa đơn HD-RACE-1794368300329-A: Khách tablet mua",
+    "created_at": "2026-11-11T03:38:20.355Z"
+  },
+  {
+    "id": 1310,
+    "painting_id": "DVS-SD-03",
+    "old_price": 1900,
+    "new_price": 2000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:38:20.451Z"
+  },
+  {
+    "id": 1316,
+    "painting_id": "DVS-SD-04",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:38:29.828Z"
+  },
+  {
+    "id": 1317,
+    "painting_id": "DVS-SD-05",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:38:29.835Z"
+  },
+  {
+    "id": 1318,
+    "painting_id": "DVS-SD-03",
+    "old_price": 2000,
+    "new_price": 1900,
+    "date": "11-11-2026",
+    "note": "Chốt bán theo hóa đơn HD-RACE-1794368550371-A: Khách tablet mua",
+    "created_at": "2026-11-11T03:42:30.379Z"
+  },
+  {
+    "id": 1319,
+    "painting_id": "DVS-SD-03",
+    "old_price": 1900,
+    "new_price": 2000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:42:30.442Z"
+  },
+  {
+    "id": 1325,
+    "painting_id": "DVS-SD-04",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:42:39.966Z"
+  },
+  {
+    "id": 1326,
+    "painting_id": "DVS-SD-05",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:42:39.973Z"
+  },
+  {
+    "id": 1327,
+    "painting_id": "DVS-SD-03",
+    "old_price": 2000,
+    "new_price": 1900,
+    "date": "11-11-2026",
+    "note": "Chốt bán theo hóa đơn HD-RACE-1794368598462-A: Khách tablet mua",
+    "created_at": "2026-11-11T03:43:18.474Z"
+  },
+  {
+    "id": 1328,
+    "painting_id": "DVS-SD-03",
+    "old_price": 1900,
+    "new_price": 2000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:43:18.561Z"
+  },
+  {
+    "id": 1334,
+    "painting_id": "DVS-SD-04",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:43:27.487Z"
+  },
+  {
+    "id": 1335,
+    "painting_id": "DVS-SD-05",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:43:27.495Z"
+  },
+  {
+    "id": 1336,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1680,
+    "date": "11-11-2026",
+    "note": "Playwright E2E Verification Adjustment",
+    "created_at": "2026-11-11T03:44:47.470Z"
+  },
+  {
+    "id": 1337,
+    "painting_id": "DVS-SD-03",
+    "old_price": 2000,
+    "new_price": 1900,
+    "date": "11-11-2026",
+    "note": "Chốt bán theo hóa đơn HD-RACE-1794368698294-A: Khách tablet mua",
+    "created_at": "2026-11-11T03:44:58.356Z"
+  },
+  {
+    "id": 1338,
+    "painting_id": "DVS-SD-03",
+    "old_price": 1900,
+    "new_price": 2000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:44:58.818Z"
+  },
+  {
+    "id": 1342,
+    "painting_id": "DVS-SD-04",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:45:11.466Z"
+  },
+  {
+    "id": 1343,
+    "painting_id": "DVS-SD-05",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:45:11.480Z"
+  },
+  {
+    "id": 1349,
+    "painting_id": "DVS-SD-04",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:45:28.358Z"
+  },
+  {
+    "id": 1350,
+    "painting_id": "DVS-SD-05",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:45:28.401Z"
+  },
+  {
+    "id": 1351,
+    "painting_id": "DVS-SD-03",
+    "old_price": 2000,
+    "new_price": 1900,
+    "date": "11-11-2026",
+    "note": "Chốt bán theo hóa đơn HD-RACE-1794368762449-A: Khách tablet mua",
+    "created_at": "2026-11-11T03:46:02.455Z"
+  },
+  {
+    "id": 1352,
+    "painting_id": "DVS-SD-03",
+    "old_price": 1900,
+    "new_price": 2000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:46:02.508Z"
+  },
+  {
+    "id": 1353,
+    "painting_id": "DVS-SD-01",
+    "old_price": 1500,
+    "new_price": 1680,
+    "date": "11-11-2026",
+    "note": "Playwright E2E Verification Adjustment",
+    "created_at": "2026-11-11T03:46:10.340Z"
+  },
+  {
+    "id": 1359,
+    "painting_id": "DVS-SD-04",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:47:50.014Z"
+  },
+  {
+    "id": 1360,
+    "painting_id": "DVS-SD-05",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:47:50.024Z"
+  },
+  {
+    "id": 1361,
+    "painting_id": "DVS-SD-03",
+    "old_price": 2000,
+    "new_price": 1900,
+    "date": "11-11-2026",
+    "note": "Chốt bán theo hóa đơn HD-RACE-1794368877449-A: Khách tablet mua",
+    "created_at": "2026-11-11T03:47:57.458Z"
+  },
+  {
+    "id": 1362,
+    "painting_id": "DVS-SD-03",
+    "old_price": 1900,
+    "new_price": 2000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:47:57.524Z"
+  },
+  {
+    "id": 1368,
+    "painting_id": "DVS-SD-04",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:48:09.187Z"
+  },
+  {
+    "id": 1369,
+    "painting_id": "DVS-SD-05",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:48:09.204Z"
+  },
+  {
+    "id": 1373,
+    "painting_id": "DVS-SM-06",
+    "old_price": 1500,
+    "new_price": 8000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:55:34.292Z"
+  },
+  {
+    "id": 1382,
+    "painting_id": "DH-SM-01",
+    "old_price": 2000,
+    "new_price": 850,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:59:13.119Z"
+  },
+  {
+    "id": 1391,
+    "painting_id": "DH-SM-01",
+    "old_price": 2000,
+    "new_price": 850,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T03:59:27.857Z"
+  },
+  {
+    "id": 1400,
+    "painting_id": "DH-SM-01",
+    "old_price": 2000,
+    "new_price": 850,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T04:00:50.043Z"
+  },
+  {
+    "id": 1401,
+    "painting_id": "DVS-SD-03",
+    "old_price": 2000,
+    "new_price": 1900,
+    "date": "11-11-2026",
+    "note": "Chốt bán theo hóa đơn HD-RACE-1794369965015-A: Khách tablet mua",
+    "created_at": "2026-11-11T04:06:05.022Z"
+  },
+  {
+    "id": 1402,
+    "painting_id": "DVS-SD-03",
+    "old_price": 1900,
+    "new_price": 2000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T04:06:05.078Z"
+  },
+  {
+    "id": 1408,
+    "painting_id": "DVS-SD-04",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T04:06:15.014Z"
+  },
+  {
+    "id": 1409,
+    "painting_id": "DVS-SD-05",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T04:06:15.022Z"
+  },
+  {
+    "id": 1418,
+    "painting_id": "DH-SM-01",
+    "old_price": 2000,
+    "new_price": 850,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T04:06:28.035Z"
+  },
+  {
+    "id": 1419,
+    "painting_id": "DVS-SD-03",
+    "old_price": 2000,
+    "new_price": 1900,
+    "date": "11-11-2026",
+    "note": "Chốt bán theo hóa đơn HD-RACE-1794370459507-A: Khách tablet mua",
+    "created_at": "2026-11-11T04:14:19.514Z"
+  },
+  {
+    "id": 1420,
+    "painting_id": "DVS-SD-03",
+    "old_price": 1900,
+    "new_price": 2000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T04:14:19.566Z"
+  },
+  {
+    "id": 1426,
+    "painting_id": "DVS-SD-04",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T04:14:28.689Z"
+  },
+  {
+    "id": 1427,
+    "painting_id": "DVS-SD-05",
+    "old_price": 2000,
+    "new_price": null,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T04:14:28.698Z"
+  },
+  {
+    "id": 1436,
+    "painting_id": "DH-SM-01",
+    "old_price": 2000,
+    "new_price": 850,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T04:14:47.251Z"
+  },
+  {
+    "id": 1440,
+    "painting_id": "DVS-SM-06",
+    "old_price": 1500,
+    "new_price": 8000,
+    "date": "11-11-2026",
+    "note": "Điều chỉnh giá tác phẩm",
+    "created_at": "2026-11-11T04:15:04.671Z"
   }
 ]

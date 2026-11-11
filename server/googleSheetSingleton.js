@@ -15,14 +15,15 @@ class GoogleSheetSingleton {
         this.pendingWrites = 0;
         this.pollTimer = null;
 
-        // Bộ nhớ RAM lưu trữ toàn bộ 6 bảng giống hệt cấu trúc SQLite & JSON
+        // Bộ nhớ RAM lưu trữ toàn bộ các bảng giống hệt cấu trúc SQLite & JSON
         this.tables = {
             paintings: [],
             location_history: [],
             customers: [],
             customer_interests: [],
             custom_locations: [],
-            meta: []
+            meta: [],
+            invoices: []
         };
 
         // Hàng đợi đồng bộ ngầm lên Google Sheets để không làm nghẽn (block) luồng chính
@@ -286,7 +287,117 @@ class GoogleSheetSingleton {
                 this.pendingWrites = Math.max(0, this.pendingWrites - 1);
             });
     }
+
+    /**
+     * Dual-sync an invoice to SheetDB (persisting into meta.invoices and optional invoices sheet).
+     */
+    syncInvoice(invoice) {
+        const sheetRow = formatInvoiceForSheet(invoice);
+
+        // 1. Update meta.invoices
+        let existingInvoices = [];
+        const metaRow = this.getById('meta', 'invoices', 'key');
+        if (metaRow && metaRow.value) {
+            try {
+                const parsed = JSON.parse(metaRow.value);
+                if (Array.isArray(parsed)) existingInvoices = parsed;
+            } catch {
+                existingInvoices = [];
+            }
+        }
+
+        const idx = existingInvoices.findIndex((r) => r['Mã Hóa Đơn'] === sheetRow['Mã Hóa Đơn']);
+        if (idx >= 0) {
+            existingInvoices[idx] = sheetRow;
+        } else {
+            existingInvoices.push(sheetRow);
+        }
+
+        this.update('meta', 'invoices', {
+            key: 'invoices',
+            value: JSON.stringify(existingInvoices)
+        }, 'key');
+
+        // 2. Also insert or update in this.tables.invoices
+        if (!this.tables.invoices) this.tables.invoices = [];
+        const invIdx = this.tables.invoices.findIndex((r) => r['Mã Hóa Đơn'] === sheetRow['Mã Hóa Đơn']);
+        if (invIdx >= 0) {
+            this.tables.invoices[invIdx] = sheetRow;
+        } else {
+            this.tables.invoices.push(sheetRow);
+            this._enqueueSync({
+                action: 'insert',
+                table: 'invoices',
+                data: sheetRow
+            });
+        }
+
+        return sheetRow;
+    }
+
+    /**
+     * Dual-sync a sold artwork update to Google Sheets paintings tab.
+     */
+    syncPaintingSold(paintingId, saleData = {}) {
+        const todayVN = new Date().toLocaleDateString('vi-VN', {
+            day: '2-digit', month: '2-digit', year: 'numeric'
+        }).replace(/\//g, '-');
+
+        const updates = {
+            tinh_trang: 'da_ban',
+            ngay_ban: saleData.saleDate || saleData.ngay_ban || todayVN,
+            gia: Number(saleData.dealPrice ?? saleData.gia) || 0,
+            khach_hang: String(saleData.customerName ?? saleData.khach_hang ?? ''),
+            hoa_don: String(saleData.invoiceCode ?? saleData.hoa_don ?? ''),
+            ngay_cap_nhat_san_pham: todayVN
+        };
+
+        return this.update('paintings', paintingId, updates, 'id');
+    }
 }
 
+export const INVOICE_SHEET_HEADERS = [
+    'Mã Hóa Đơn',
+    'Mã Khách Hàng',
+    'Tên Khách Hàng',
+    'Số Điện Thoại',
+    'Danh Sách Mã Tranh',
+    'Tổng Giá Niêm Yết ($ USD)',
+    'Tổng Giá Deal ($ USD)',
+    'Chiết Khấu ($ USD)',
+    'Phương Thức Thanh Toán',
+    'Trạng Thái Thanh Toán',
+    'Ghi Chú',
+    'Ngày Tạo'
+];
+
+/**
+ * Maps an invoice record into the explicit 12-column Vietnamese header format.
+ */
+export function formatInvoiceForSheet(invoice) {
+    if (!invoice) return {};
+    const pIds = Array.isArray(invoice.painting_ids)
+        ? invoice.painting_ids.join(', ')
+        : typeof invoice.painting_ids === 'string'
+            ? invoice.painting_ids
+            : '';
+
+    return {
+        'Mã Hóa Đơn': String(invoice.invoice_code || ''),
+        'Mã Khách Hàng': Number(invoice.customer_id) || '',
+        'Tên Khách Hàng': String(invoice.customer_name || ''),
+        'Số Điện Thoại': String(invoice.customer_phone || ''),
+        'Danh Sách Mã Tranh': pIds,
+        'Tổng Giá Niêm Yết ($ USD)': Number(invoice.total_listed_price) || 0,
+        'Tổng Giá Deal ($ USD)': Number(invoice.total_deal_price) || 0,
+        'Chiết Khấu ($ USD)': Number(invoice.discount_amount) || 0,
+        'Phương Thức Thanh Toán': String(invoice.payment_method || 'vietqr'),
+        'Trạng Thái Thanh Toán': String(invoice.payment_status || 'pending'),
+        'Ghi Chú': String(invoice.notes || ''),
+        'Ngày Tạo': String(invoice.created_at || new Date().toISOString())
+    };
+}
+
+export { GoogleSheetSingleton };
 const sheetDB = new GoogleSheetSingleton();
 export default sheetDB;
